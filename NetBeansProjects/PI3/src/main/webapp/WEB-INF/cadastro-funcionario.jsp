@@ -73,7 +73,7 @@
                     <select class="campo" name="departamento" id="departamento">
                         <option selected value="selecione_departamento">Selecione o departamento</option>
                         <option value="Diretoria">Diretoria</option>
-                        <option value="Produtos / Marketing">Produtos / Marketing</option>
+                        <option value="Produtos/Marketing">Produtos / Marketing</option>
                         <option value="TI">TI</option>
                         <option value="Vendas">Vendas</option>
                     </select>
