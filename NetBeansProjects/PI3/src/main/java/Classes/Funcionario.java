@@ -16,8 +16,8 @@ public class Funcionario {
     private String cpf;
     private String nome_func;
     private String cargo;
-    private int departamento;
-    private int filial; //variável temporária
+    private int id_departamento;
+    private int id_filial; //variável temporária
     //private Filial filial;
     
 
@@ -32,7 +32,8 @@ public class Funcionario {
         this.cpf = cpf;
         this.nome_func = nome_func;
         this.cargo = cargo;
-        this.departamento = departamento;
+        this.id_departamento = departamento;
+        this.id_filial = filial;
     }
 
     public String getLogin() {
@@ -76,18 +77,18 @@ public class Funcionario {
     }
     
     public int getDepartamento(){
-        return departamento;
+        return id_departamento;
     }
 
     public void setDepartamento(int departamento){
-        this.departamento = departamento;
+        this.id_departamento = departamento;
     }
     
     public int getFilial(){
-        return filial;
+        return id_filial;
     }
     
     public void setFilial(int filial){
-        this.filial = filial;
+        this.id_filial = filial;
     }
 }
