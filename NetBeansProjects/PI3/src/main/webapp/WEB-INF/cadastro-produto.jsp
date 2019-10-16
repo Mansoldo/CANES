@@ -18,6 +18,13 @@
 </head>
 
 <body>
+    <script>
+            if(${ProdutoSalvoAtt} === true){
+                alert('Produto Salvo Com sucesso!');
+            }else{
+                alert('Falha ao Salvar o Produto!');
+            }
+        </script>
   <header class="header">
     <div class="logo">
       <h1>Livraria</h1>
@@ -44,7 +51,7 @@
 
     <hr>
 
-    <form id="cadastro__produto" name="cadastro__produto" class="form">
+    <form id="cadastro__produto" name="cadastro__produto" class="form" method="post" action="${pageContext.request.contextPath}/formularioProduto" novalidate>
       <div class="linha">
         <div class="coluna">
           <label for="produto__nome">Produto <span class="obrigatorio">*</span></label>
@@ -56,7 +63,7 @@
             <option selected value="selecione categoria">Selecione a categoria</option>
             <option value="Livro">Livro</option>
             <option value="Hq__Manga">HQ / Mangá</option>
-            <option value="Cd_Dvd">CD / DVD</option>
+            <option value="Cd">CD / DVD</option>
           </select>
         </div>
         <div class="coluna">
@@ -73,7 +80,7 @@
 
       <div class="linha">
         <div class="coluna">
-          <label for="editora__produtora">Editora / Produtora<span class="obrigatorio">*</span></label>
+          <label for="editora__produtora">Editora / Produtora</label>
           <input type="text" class="campo" name="editora__produtora" id="editora_produtora" />
         </div>
         <div class="coluna">
@@ -87,6 +94,10 @@
         <div class="coluna">
           <label for="produto__paginas">Quantidade de páginas</label>
           <input type="text" class="campo" name="produto__paginas" id="produto__paginas" />
+        </div>
+          <div class="coluna">
+          <label for="produto__tempo">Tempo de duração</label>
+          <input type="text" class="campo" name="produto__tempo" id="produto__tempo" />
         </div>
       </div>
 
@@ -113,7 +124,7 @@
 
       <div class="linha">
         <div class="coluna">
-          <input type="button" value="Salvar" class="btn btn-salvar" />
+          <input type="submit" value="Salvar" class="btn btn-salvar" />
           <input type="button" value="Cancelar" class="btn btn-cancelar" />
         </div>
       </div>

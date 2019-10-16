@@ -39,6 +39,6 @@ public class ClienteController {
     }
     
     public static boolean excluirCliente(String cpf){
-        return DAO.ClienteDAO.excluirDAOProduto(cpf);
+        return DAO.ClienteDAO.excluirDAOCliente(cpf);
     }
 }

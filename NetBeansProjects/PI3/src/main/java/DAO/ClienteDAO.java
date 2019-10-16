@@ -142,7 +142,7 @@ public class ClienteDAO {
         return retorno;
     }
 
-    public static boolean excluirDAOProduto(String cpf) {
+    public static boolean excluirDAOCliente(String cpf) {
         boolean retorno = false;
 
         try (Connection conexao = obterConexao()) {

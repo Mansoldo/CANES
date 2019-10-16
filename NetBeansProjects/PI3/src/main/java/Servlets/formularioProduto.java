@@ -32,8 +32,47 @@ public class formularioProduto extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        String nomeStr = request.getParameter("produto__nome");
+        String categoriaStr = request.getParameter("produto__categoria");
+        String idiomaStr = request.getParameter("produto__idioma");
+        String quantidadeStr = request.getParameter("produto__estoque");
+        String valorUniStr = request.getParameter("produto__valorunitario");
+        String filialStr = request.getParameter("produto__filial");
+        String editorStr = request.getParameter("editora__produtora");
+        String AutorStr = request.getParameter("produto__autor");
+        String ISBN = request.getParameter("produto_isbn");
+        String paginasStr = request.getParameter("produto__paginas");
+        String tempoStr = request.getParameter("produto__tempo");
+
+        int quantidade = Integer.parseInt(quantidadeStr);
+        float valorUnitario = Float.parseFloat(valorUniStr);
+        int filial = 0;
+        if (filialStr.equals("Matriz")) {
+            filial = 1;
+        } else if (filialStr.equals("Brasilia")) {
+            filial = 2;
+        } else if (filialStr.equals("Campina Grande")) {
+            filial = 3;
+        } else {
+            filial = 4;
+        }
+
+        boolean produtoSalvo = false;
+        if (categoriaStr.equals("Livro")) {
+
+            int paginas = Integer.parseInt(paginasStr);
+            produtoSalvo = Controller.ProdutoController.cadastrarProdutoLivro(editorStr, ISBN, paginas, AutorStr, nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);
+        } else if (categoriaStr.equalsIgnoreCase("Cd")) {
+            produtoSalvo = Controller.ProdutoController.cadastrarProdutoCdDvd(tempoStr, nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);
+        } else {
+            produtoSalvo = Controller.ProdutoController.cadastrarProduto(nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);
+        }
+
+        request.setAttribute("ProdutoSalvoAtt", produtoSalvo);
+
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/menu-principal.jsp");
+                = request.getRequestDispatcher("/WEB-INF/cadastro-produto.jsp");
         dispatcher.forward(request, response);
     }
 
