@@ -17,7 +17,15 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 </head>
 
-<body>
+<body>    
+    <script>
+        if(${FuncionarioSalvoAtt} == true){
+            alert('Funcionário salvo com sucesso!');
+        } else {
+            alert('Falha ao salvar funcionário!');
+        }
+    </script>
+    
     <header class="header">
         <div class="logo">
             <h1>Livraria</h1>
