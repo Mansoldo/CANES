@@ -20,8 +20,22 @@
     <body>
         <script>
             if (${clienteExcluidoAtt} === true) {
-                alert('Cliente Salvo Com sucesso!');
+                alert('Cliente Excluido Com sucesso!');
             } else {
+                alert('Falha ao Excluir o cliente!');
+            }
+        </script>
+        <script>
+            if (${clienteAlteradoAtt} === true) {
+                alert('Cliente alterado com sucesso!');
+            } else {
+                alert('Falha ao alterar o Cliente!');
+            }
+        </script>
+        <script>
+            if(${clienteSalvoAtt} === true){
+                alert('Cliente Salvo Com sucesso!');
+            }else{
                 alert('Falha ao Salvar o cliente!');
             }
         </script>

@@ -1,7 +1,7 @@
 <%-- 
-    Document   : cliente
-    Created on : 07/10/2019, 17:44:26
-    Author     : gabriel.rvital
+    Document   : ClienteAlterar
+    Created on : 12/10/2019, 15:57:32
+    Author     : nik_r
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -18,7 +18,7 @@
     </head>
 
     <body>
-        <form method="post" action="${pageContext.request.contextPath}/cliente" novalidate>
+        <form method="post" action="${pageContext.request.contextPath}/ClienteAlterar" novalidate>
             <header class="header">
                 <div class="logo">
                     <h1>Livraria</h1>
@@ -48,49 +48,48 @@
                     <div class="linha">
                         <div class="coluna">
                             <label for="cliente__nome__completo">Nome completo <span class="obrigatorio">*</span></label>
-                            <input type="text" class="campo" name = "nome" id="cliente__nome__completo" />
+                            <input type="text" value="${nomeAtt}" class="campo" name = "nome" id="cliente__nome__completo"/>
                         </div>
                     </div>
 
                     <div class="linha">
                         <div class="coluna">
                             <label for="cliente__cpf">CPF <span class="obrigatorio">*</span></label>
-                            <input type="text" class="campo" name = "cpf" id="cliente__cpf" />
+                            <input type="text" value="${cpfAtt}" class="campo" name = "cpf" id="cliente__cpf" />
                         </div>
                         <div class="coluna">
                             <label for="cliente__data__nascimento">Data de Nascimento <span class="obrigatorio">* </span></label>
-                            <input type="date" class="campo" name  = "nascimento" id="cliente__data__nascimento">
+                            <input type="text" value="${dataAtt}" class="campo" name  = "nascimento" id="cliente__data__nascimento">
                         </div>
                         <div class="coluna">
                             Sexo <span class="obrigatorio">*</span>
                             <input type="radio" class="campo" name="sexo" id="feminino" value="feminino" checked="checked" />
                             Feminino
-                            <input type="radio" class="campo" name="sexo" id="masculino" value="masculino" /> Masculino
+                            <input type="radio" value="${sexoAtt}" class="campo" name="sexo" id="masculino" /> Masculino
                         </div>
                     </div>
 
                     <div class="linha">
                         <div class="coluna">
                             <label for="cliente__email">E-mail <span class="obrigatorio">*</span></label>
-                            <input type="email" class="campo" name = "email" id="cliente__email">
+                            <input type="email" value="${emailAtt}" class="campo" name = "email" id="cliente__email">
                         </div>
                         <div class="coluna">
                             <label for="cliente__telefone">Telefone <span class="obrigatorio">*</span>
-                                <input type="text" class="campo" name ="telefone" id="cliente__telefone">
+                                <input type="text" value="${telefoneAtt}" class="campo" name ="telefone" id="cliente__telefone">
                                 </div>
-                                </div>
-
                                 <div class="linha">
                                     <div class="coluna">
                                         <input type="submit" value="Salvar" class="btn btn-salvar" />
                                         <input type="reset" value="Cancelar" class="btn btn-cancelar" />
                                     </div>
                                 </div>
-                                </form>
-
-                                </form>
-                                
                         </div>
-                        </body>
+                </form>
+        </form>
+    </div>
 
-                        </html>
+</body>
+
+</html>
+

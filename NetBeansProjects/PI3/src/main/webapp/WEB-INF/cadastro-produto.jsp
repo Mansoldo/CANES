@@ -63,7 +63,7 @@
             <option selected value="selecione categoria">Selecione a categoria</option>
             <option value="Livro">Livro</option>
             <option value="Hq__Manga">HQ / Mangá</option>
-            <option value="Cd">CD / DVD</option>
+            <option value="Cd_Dvd">CD / DVD</option>
           </select>
         </div>
         <div class="coluna">

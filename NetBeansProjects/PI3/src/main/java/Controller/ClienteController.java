@@ -7,6 +7,7 @@ package Controller;
 
 import Classes.Cliente;
 import java.util.ArrayList;
+import java.sql.Date;
 
 /**
  *
@@ -34,7 +35,7 @@ public class ClienteController {
     }
 
     public static boolean AlterarCliente(String nome, String cpf, String nascimento, String sexo, String email, String telefone) {
-        Cliente cliente = new Cliente(nome, cpf, email, sexo, email, telefone);
+        Cliente cliente = new Cliente(nome, cpf, nascimento, sexo, email, telefone);
         return DAO.ClienteDAO.daoAlterarCliente(cliente);
     }
     

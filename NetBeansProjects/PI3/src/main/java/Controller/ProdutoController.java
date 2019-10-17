@@ -1,6 +1,5 @@
 package Controller;
 
-
 import Classes.Produto;
 import Classes.ProdutoCdDvd;
 import Classes.ProdutoLivro;
@@ -11,34 +10,48 @@ import java.util.ArrayList;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author nik_r
  */
 public class ProdutoController {
-    public static boolean cadastrarProduto(String nome,float valorUnitario, String Idioma,String categoria,int quantidade,int filial) {
-        
+
+    public static boolean cadastrarProduto(String nome, float valorUnitario, String Idioma, String categoria, int quantidade, int filial) {
+
         Produto produto = new Produto(nome, valorUnitario, Idioma, categoria, quantidade, filial);
         return DAO.ProdutoDAO.daoSalvarProduto(produto);
     }
-    
+
     public static boolean cadastrarProdutoLivro(String editora, String ISBN, int paginas, String autor, String nomeProduto, float valorUnitario, String idioma, String categoria, int quantidade, int filial) {
-        
+
         ProdutoLivro produto = new ProdutoLivro(editora, ISBN, paginas, autor, nomeProduto, valorUnitario, idioma, categoria, quantidade, filial);
-        
+
         return DAO.ProdutoDAO.daoSalvarProdutoLivro(produto);
     }
-    public static boolean cadastrarProdutoCdDvd(String tempo, String nome,float valorUnitario, String Idioma,String categoria,int quantidade,int filial) {
-        
+
+    public static boolean cadastrarProdutoCdDvd(String tempo, String nome, float valorUnitario, String Idioma, String categoria, int quantidade, int filial) {
+
         ProdutoCdDvd produto = new ProdutoCdDvd(tempo, nome, valorUnitario, Idioma, categoria, quantidade, filial);
-        
+
         return DAO.ProdutoDAO.daoSalvarCdDvd(produto);
     }
-    
-    public static ArrayList<Produto> getProduto() {
 
-        ArrayList<Produto> produto = DAO.ProdutoDAO.getProdutos();
+    public static ArrayList<Produto> getProdutoGenerico(int id) {
+
+        ArrayList<Produto> produto = DAO.ProdutoDAO.getProdutos(id);
+
+        return produto;
+    }
+    public static ArrayList<ProdutoLivro> getProdutoLivro(int id) {
+
+        ArrayList<ProdutoLivro> produto = DAO.ProdutoDAO.getProdutosLivros(id);
+
+        return produto;
+    }
+    
+    public static ArrayList<ProdutoCdDvd> getProdutoCdDvd(int id) {
+
+        ArrayList<ProdutoCdDvd> produto = DAO.ProdutoDAO.getProdutosCdDvd(id);
 
         return produto;
     }
@@ -50,12 +63,22 @@ public class ProdutoController {
         return produto;
     }
 
-    public static boolean AlterarProduto() {
-        Produto produto = new Produto();
+    public static boolean AlterarProdutoLivro(int ID, String editora, String ISBN, int paginas, String autor, String nomeProduto, float valorUnitario, String idioma, String categoria, int quantidade, int filial) {
+        ProdutoLivro produto = new ProdutoLivro(ID, editora, ISBN, paginas, autor, nomeProduto, valorUnitario, idioma, categoria, quantidade, filial);
+        return DAO.ProdutoDAO.daoAlterarProdutoLivro(produto);
+    }
+
+    public static boolean AlterarProdutoCdDvd(int ID, String nomeProduto, float valorUnitario, String idioma, String categoria, int quantidade, int filial, String tempo) {
+        ProdutoCdDvd produto = new ProdutoCdDvd(ID, tempo, nomeProduto, valorUnitario, idioma, categoria, quantidade, filial);
+        return DAO.ProdutoDAO.daoAlterarProdutoCdDvd(produto);
+    }
+    
+    public static boolean AlterarProduto(int ID, String nomeProduto, float valorUnitario, String idioma, String categoria, int quantidade, int filial) {
+        Produto produto = new Produto(ID, nomeProduto, valorUnitario, idioma, categoria, quantidade, filial);
         return DAO.ProdutoDAO.daoAlterarProduto(produto);
     }
     
-    public static boolean excluirProduto(int ID){
+    public static boolean excluirProduto(int ID) {
         return DAO.ProdutoDAO.excluirDAOProduto(ID);
     }
 }

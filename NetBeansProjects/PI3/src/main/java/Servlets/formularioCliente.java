@@ -5,10 +5,13 @@ package Servlets;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import Classes.Cliente;
 import java.io.IOException;
-import java.util.ArrayList;
-import javafx.scene.control.Alert;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,23 +34,24 @@ public class formularioCliente extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         String nomeStr = request.getParameter("nome");
         String cpfStr = request.getParameter("cpf");
-        String nascimento = request.getParameter("data");
-        String nascimentoStr = request.getParameter("nascimento");
         String sexoStr = request.getParameter("sexo");
         String emailStr = request.getParameter("email");
         String telefoneStr = request.getParameter("telefone");
-
-        boolean clienteSalvo = Controller.ClienteController.cadastrarCliente(nomeStr, cpfStr, nascimento, sexoStr, emailStr, telefoneStr);
+        
+        String dataString = request.getParameter("nascimento"); 
+       
+        boolean clienteSalvo = Controller.ClienteController.cadastrarCliente(nomeStr, cpfStr, dataString, sexoStr, emailStr, telefoneStr);
 
         request.setAttribute("clienteSalvoAtt", clienteSalvo);
 
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/cliente.jsp");
+                = request.getRequestDispatcher("/WEB-INF/ConsultaCliente.jsp");
         dispatcher.forward(request, response);
     }
 }
