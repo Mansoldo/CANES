@@ -17,7 +17,15 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 </head>
 
-<body>
+<body>    
+    <script>
+        if(${FuncionarioSalvoAtt} === true){
+            alert('Funcionário salvo com sucesso!');
+        } else {
+            alert('Falha ao salvar funcionário!');
+        }
+    </script>
+    
     <header class="header">
         <div class="logo">
             <h1>Livraria</h1>
@@ -44,7 +52,7 @@
 
         <hr>
 
-        <form id="cadastro__funcionario" name="cadastro__funcionario" class="cadastro__funcionario">
+        <form id="cadastro__funcionario" name="cadastro__funcionario" class="cadastro__funcionario" method="post" action="${pageContext.request.contextPath}/formularioFuncionario" novalidate>
             <div class="linha">
                 <div class="coluna">
                     <label for="funcionario__nome__completo">Nome completo <span class="obrigatorio">*</span></label>
@@ -105,7 +113,7 @@
 
             <div class="linha">
                 <div class="coluna">
-                    <input type="button" value="Salvar" class="btn btn-salvar" />
+                    <input type="submit" value="Salvar" class="btn btn-salvar" />
                     <input type="button" value="Cancelar" class="btn btn-cancelar" />
                 </div>
             </div>
