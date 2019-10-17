@@ -20,4 +20,9 @@ public class Diretor extends Funcionario {
         super(login, senha, cpf, nome_func, cargo, departamento, filial);
     }
 
+    public Diretor(int ID, String login, String senha, String cpf,
+            String nome_func, String cargo, int departamento, int filial) {
+        super(ID, login, senha, cpf, nome_func, cargo, departamento, filial);
+    }
+
 }

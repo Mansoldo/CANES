@@ -11,6 +11,7 @@ package Classes;
  */
 public class Funcionario {
 
+    private int id_func;
     private String login;
     private String senha;
     private String cpf;
@@ -27,6 +28,18 @@ public class Funcionario {
 
     public Funcionario(String login, String senha, String cpf, 
             String nome_func, String cargo, int departamento, int filial) {
+        this.login = login;
+        this.senha = senha;
+        this.cpf = cpf;
+        this.nome_func = nome_func;
+        this.cargo = cargo;
+        this.id_departamento = departamento;
+        this.id_filial = filial;
+    }
+    
+    public Funcionario(int ID, String login, String senha, String cpf, 
+            String nome_func, String cargo, int departamento, int filial) {
+        this.id_func = ID;
         this.login = login;
         this.senha = senha;
         this.cpf = cpf;
@@ -91,4 +104,13 @@ public class Funcionario {
     public void setFilial(int filial){
         this.id_filial = filial;
     }
+
+    public int getId_func() {
+        return id_func;
+    }
+
+    public void setId_func(int id_func) {
+        this.id_func = id_func;
+    }    
+    
 }
