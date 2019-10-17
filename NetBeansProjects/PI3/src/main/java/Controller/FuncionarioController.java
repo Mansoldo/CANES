@@ -64,7 +64,7 @@ public class FuncionarioController {
         return DAO.FuncionarioDAO.daoSalvarGerente(funcionario);
     }
     
-    /*
+    
     public static ArrayList<Analista> getFuncionarioAnalista(int ID){
         ArrayList<Analista> funcionario = DAO.FuncionarioDAO.getAnalista(ID);
         
@@ -96,10 +96,17 @@ public class FuncionarioController {
     }
     
     public static ArrayList<Funcionario> getFuncionario(String filter){
-        
         ArrayList<Funcionario> funcionario = DAO.FuncionarioDAO.getFuncionarioFilter(filter);
+        
+        return funcionario;
     }
     
+    public static boolean excluirFuncionario(int ID){
+        
+        return DAO.FuncionarioDAO.excluirFuncionario(ID);
+    }
+    
+    /*
     public static boolean alterarAnalista(int ID, String login, String senha, 
             String cpf, String nome_func, String cargo, int departamento, int filial){
         Analista funcionario = new Analista(ID, login, senha, cpf, nome_func, cargo, departamento, filial);
@@ -128,11 +135,6 @@ public class FuncionarioController {
             String cpf, String nome_func, String cargo, int departamento, int filial){
         Vendedor funcionario = new Vendedor(ID, login, senha, cpf, nome_func, cargo, departamento, filial);
         return DAO.FuncionarioDAO.daoAlterarVendedor(funcionario);
-    }
-    
-    public static boolean excluirFuncionario(int ID){
-        
-        return DAO.FuncionarioDAO.excluirFuncionario(ID);
     }
     */
 }
