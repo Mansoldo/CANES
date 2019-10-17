@@ -3,7 +3,7 @@
     Created on : 14/10/2019, 11:39:33
     Author     : MICAEL
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -41,7 +41,7 @@
         </div>
         <hr>
 
-        <form id="consultaFuncionario" name="consultaFuncionario" class="form">
+        <form id="consultaFuncionario" name="consultaFuncionario" class="form" method="post" action="${pageContext.request.contextPath}/FuncionarioConsultar" novalidate>
             <div class="linha">
                 <div class="coluna">
                     <select class="campo" name="consultar" id="consultar">
@@ -49,14 +49,14 @@
                         <option value="CPF">CPF</option>
                         <option value="Nome">Nome</option>
                         <option value="Cargo">Cargo</option>
-                        <option value="Filial">Fiial</option>
+                        <option value="Filial">Filial</option>
                     </select>
                 </div>
                 <div class="coluna">
-                    <input type="text" value="" class="campo" />
+                    <input type="text" value="" class="campo" name="pesquisar__funcionario" />
                 </div>
                 <div class="coluna">
-                    <input type="button" value="Pesquisar" class="btn btn-PesquisaRelatorio" />
+                    <input type="submit" value="Pesquisar" class="btn btn-PesquisaRelatorio" />
                 </div>
                 <div class="coluna">
                     <input type="button" value="Alterar" class="btn">
@@ -72,78 +72,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>TESTE</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>TESTE</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>TESTE</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>TESTE</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>TESTE</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>TESTE</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>TESTE</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>TESTE</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>TESTE</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    <tr>
-                        <td>TESTE</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    <c:forEach items="${funcionarioAtt}" var="funcionario">
+                        <tr>
+                            <td id="IDtable"><c:out value="${funcionario.getId_func()}" /></td>                                
+                            <td id="cpfTable"><c:out value="${funcionario.getCpf()}"/></td>                                
+                            <td id="cargoTable"><c:out value="${funcionario.getCargo()}"/></td>                                
+                            <td id="filialTable"><c:out value="${funcionario.getFilial()}"/></td>                                
+                        </tr>
+                    </c:forEach>    
                 </tbody>
             </table>
         </form>
 
         <div class="coluna">
-            <input type="button" value="Salvar" class="btn">
+            <input type="input" value="Salvar" class="btn">
             <input type="button" value="Cancelar" class="btn btn-cancelar">
         </div>
-
-
     </div>
 </body>
-
 </html>
