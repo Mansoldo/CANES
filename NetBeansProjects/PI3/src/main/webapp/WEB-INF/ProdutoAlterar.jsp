@@ -19,13 +19,7 @@
     </head>
 
     <body>
-        <script>
-            if (${ProdutoSalvoAtt} === true) {
-                alert('Produto Salvo Com sucesso!');
-            } else {
-                alert('Falha ao Salvar o Produto!');
-            }
-        </script>
+
         <header class="header">
             <div class="logo">
                 <h1>Livraria</h1>
@@ -126,8 +120,13 @@
                 <div class="linha">
                     <div class="coluna">
                         <input type="submit" value="Salvar" class="btn btn-salvar" />
-                        <input type="button" value="Cancelar" class="btn btn-cancelar" />
+
                     </div>
+                </div>
+            </form>
+            <form method="post" action="${pageContext.request.contextPath}/menu-principal" novalidate>
+                <div>
+                    <input type="submit" value="Cancelar" class="btn btn-cancelar" />
                 </div>
             </form>
         </div>

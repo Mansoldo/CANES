@@ -18,6 +18,27 @@
     </head>
 
     <body>
+        <script>
+            if (${ProdutoSalvoAtt} === true) {
+                alert('Produto Salvo Com sucesso!');
+            } else {
+                alert('Falha ao Salvar o Produto!');
+            }
+        </script>
+        <script>
+            if (${ProdutoAlteradoAtt} === true) {
+                alert('Produto Alterado Com sucesso!');
+            } else {
+                alert('Falha ao Alterar o Produto!');
+            }
+        </script>
+        <script>
+            if (${produtoExcluidoAtt} === true) {
+                alert('Produto Excluido Com sucesso!');
+            } else {
+                alert('Falha ao Excluir o Produto!');
+            }
+        </script>
         <header class="header">
             <div class="logo">
                 <h1>Livraria</h1>
@@ -88,8 +109,8 @@
             <form method="get" action="${pageContext.request.contextPath}/ProdutoAlterar" novalidate>
                 <div class="coluna">
                     <input type="submit" value="Alterar" class="btn">
-                    <input type="text" value="?" id="idProd" name="idProd">
-                    <input type="text" value="?" id="categoria" name="categoria">
+                    <input type="hidden" value="?" id="idProd" name="idProd">
+                    <input type="hidden" value="?" id="categoria" name="categoria">
                     <script>
 
                         var table = document.getElementById('tabelaProduto');
@@ -100,11 +121,23 @@
                             {
                                 //rIndex = this.rowIndex;
                                 document.getElementById("idProd").value = this.cells[0].innerHTML;
+                                document.getElementById("idProd2").value = this.cells[0].innerHTML;
                                 document.getElementById("categoria").value = this.cells[3].innerHTML;
                             };
                         }
 
                     </script>
+                </div>
+            </form>
+            <form method="post" action="${pageContext.request.contextPath}/ProdutoExcluir" novalidate>
+                <div>
+                    <input type="submit" value="Excluir" class="btn">
+                    <input type="hidden" value="?" id="idProd2" name="idProd2">
+                </div>
+            </form>
+            <form method="post" action="${pageContext.request.contextPath}/menu-principal" novalidate>
+                <div>
+                    <input type="submit" value="HOME" class="btn">
                 </div>
             </form>
         </div>

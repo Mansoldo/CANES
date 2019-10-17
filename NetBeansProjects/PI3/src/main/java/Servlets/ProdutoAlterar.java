@@ -111,10 +111,10 @@ public class ProdutoAlterar extends HttpServlet {
             produtoSalvo = Controller.ProdutoController.AlterarProduto(id, nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);
         }
 
-        request.setAttribute("ProdutoSalvoAtt", produtoSalvo);
+        request.setAttribute("ProdutoAlteradoAtt", produtoSalvo);
 
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/ProdutoAlterar.jsp");
+                = request.getRequestDispatcher("/WEB-INF/consulta-produto.jsp");
         dispatcher.forward(request, response);
     }
 
