@@ -101,6 +101,7 @@
                     <label for="funcionario__senha">Senha<span class="obrigatorio">*</span>
                         <input type="password" value="${senhaAtt}"class="campo" name="funcionario__senha" id="funcionario__senha">
                 </div>
+                <input type="hidden" value="${idAtt}" name="idFunc" id="id_Func" />
             </div>
 
             <div class="linha">

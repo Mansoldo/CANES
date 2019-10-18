@@ -226,6 +226,7 @@ public class FuncionarioAlterar extends HttpServlet {
 
         String selecao = request.getParameter("idFunc");
         int ID = Integer.parseInt(selecao);
+        
         int filial = 0, departamento = 0;
 
         String nomeStr = request.getParameter("funcionario__nome__completo");
