@@ -76,15 +76,16 @@
                         </div>
                         <div class="coluna">
                             <label for="cliente__telefone">Telefone <span class="obrigatorio">*</span>
-                                <input type="text" value="${telefoneAtt}" class="campo" name ="telefone" id="cliente__telefone">
-                                </div>
-                                <div class="linha">
-                                    <div class="coluna">
-                                        <input type="submit" value="Salvar" class="btn btn-salvar" />
-                                        <input type="reset" value="Cancelar" class="btn btn-cancelar" />
-                                    </div>
-                                </div>
+                            <input type="text" value="${telefoneAtt}" class="campo" name ="telefone" id="cliente__telefone">
                         </div>
+                    </div>
+                        
+                    <div class="linha">
+                        <div class="coluna">
+                            <input type="submit" value="Salvar" class="btn btn-salvar" />
+                            <input type="reset" value="Cancelar" class="btn btn-cancelar" />
+                        </div>
+                    </div>
                 </form>
         </form>
     </div>
