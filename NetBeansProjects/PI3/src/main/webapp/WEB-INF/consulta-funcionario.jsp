@@ -99,8 +99,8 @@
             <form method="get" action="${pageContext.request.contextPath}/FuncionarioAlterar" novalidate>
                 <div class="coluna">
                     <input type="submit" value="Alterar" class="btn">
-                    <input type="text" value="?" id="idFunc" name="idFunc">                    
-                    <input type="text" value="?" id="cargo" name="cargo">
+                    <input type="hidden" value="?" id="idFunc" name="idFunc">                    
+                    <input type="hidden" value="?" id="cargo" name="cargo">
                     <script>
 
                         var table = document.getElementById('tabelaFuncionario');
@@ -122,7 +122,7 @@
             <form method="post" action="${pageContext.request.contextPath}/FuncionarioExcluir" novalidate>
                 <div>
                     <input type="submit" value="Excluir" class="btn">
-                    <input type="text" value="?" id="idFunc2" name="idFunc2">
+                    <input type="hidden" value="?" id="idFunc2" name="idFunc2">
                 </div>
             </form>
             <form method="post" action="${pageContext.request.contextPath}/menu-principal" novalidate>
