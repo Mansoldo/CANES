@@ -32,6 +32,8 @@ public class FuncionarioAlterar extends HttpServlet {
 
         String selecao = request.getParameter("idFunc");
         int ID = Integer.parseInt(selecao);
+        String departamentoAtt;
+        String filialAtt;
 
         String selecao2 = request.getParameter("cargo");
 
@@ -42,11 +44,32 @@ public class FuncionarioAlterar extends HttpServlet {
                 request.setAttribute("idAtt", funcionarios.getId_func());
                 request.setAttribute("nomeAtt", funcionarios.getNome_func());
                 request.setAttribute("cpfAtt", funcionarios.getCpf());
-                String cargo = funcionarios.getCargo();
-                
                 request.setAttribute("cargoAtt", funcionarios.getCargo());
-                request.setAttribute("departamentoAtt", funcionarios.getDepartamento());
-                request.setAttribute("filialAtt", funcionarios.getFilial());
+
+                int departamento = funcionarios.getDepartamento();
+                if (departamento == 1) {
+                    departamentoAtt = "Diretoria";
+                } else if (departamento == 2) {
+                    departamentoAtt = "Produtos/Marketing";
+                } else if (departamento == 3) {
+                    departamentoAtt = "TI";
+                } else {
+                    departamentoAtt = "Vendas";
+                }
+                request.setAttribute("departamentoAtt", departamentoAtt);
+
+                int filial = funcionarios.getFilial();
+                if (filial == 1) {
+                    filialAtt = "Matriz";
+                } else if (filial == 2) {
+                    filialAtt = "Brasilia";
+                } else if (filial == 3) {
+                    filialAtt = "Campina Grande";
+                } else {
+                    filialAtt = "Joinville";
+                }
+                request.setAttribute("filialAtt", filialAtt);
+
                 request.setAttribute("loginAtt", funcionarios.getLogin());
                 request.setAttribute("senhaAtt", funcionarios.getSenha());
                 request.setAttribute("idAtt", selecao);
@@ -59,8 +82,29 @@ public class FuncionarioAlterar extends HttpServlet {
                 request.setAttribute("nomeAtt", funcionarios.getNome_func());
                 request.setAttribute("cpfAtt", funcionarios.getCpf());
                 request.setAttribute("cargoAtt", funcionarios.getCargo());
-                request.setAttribute("departamentoAtt", funcionarios.getDepartamento());
-                request.setAttribute("filialAtt", funcionarios.getFilial());
+                int departamento = funcionarios.getDepartamento();
+                if (departamento == 1) {
+                    departamentoAtt = "Diretoria";
+                } else if (departamento == 2) {
+                    departamentoAtt = "Produtos/Marketing";
+                } else if (departamento == 3) {
+                    departamentoAtt = "TI";
+                } else {
+                    departamentoAtt = "Vendas";
+                }
+                request.setAttribute("departamentoAtt", departamentoAtt);
+
+                int filial = funcionarios.getFilial();
+                if (filial == 1) {
+                    filialAtt = "Matriz";
+                } else if (filial == 2) {
+                    filialAtt = "Brasilia";
+                } else if (filial == 3) {
+                    filialAtt = "Campina Grande";
+                } else {
+                    filialAtt = "Joinville";
+                }
+                request.setAttribute("filialAtt", filialAtt);
                 request.setAttribute("loginAtt", funcionarios.getLogin());
                 request.setAttribute("senhaAtt", funcionarios.getSenha());
                 request.setAttribute("idAtt", selecao);
@@ -73,8 +117,29 @@ public class FuncionarioAlterar extends HttpServlet {
                 request.setAttribute("nomeAtt", funcionarios.getNome_func());
                 request.setAttribute("cpfAtt", funcionarios.getCpf());
                 request.setAttribute("cargoAtt", funcionarios.getCargo());
-                request.setAttribute("departamentoAtt", funcionarios.getDepartamento());
-                request.setAttribute("filialAtt", funcionarios.getFilial());
+                int departamento = funcionarios.getDepartamento();
+                if (departamento == 1) {
+                    departamentoAtt = "Diretoria";
+                } else if (departamento == 2) {
+                    departamentoAtt = "Produtos/Marketing";
+                } else if (departamento == 3) {
+                    departamentoAtt = "TI";
+                } else {
+                    departamentoAtt = "Vendas";
+                }
+                request.setAttribute("departamentoAtt", departamentoAtt);
+
+                int filial = funcionarios.getFilial();
+                if (filial == 1) {
+                    filialAtt = "Matriz";
+                } else if (filial == 2) {
+                    filialAtt = "Brasilia";
+                } else if (filial == 3) {
+                    filialAtt = "Campina Grande";
+                } else {
+                    filialAtt = "Joinville";
+                }
+                request.setAttribute("filialAtt", filialAtt);
                 request.setAttribute("loginAtt", funcionarios.getLogin());
                 request.setAttribute("senhaAtt", funcionarios.getSenha());
                 request.setAttribute("idAtt", selecao);
@@ -87,8 +152,29 @@ public class FuncionarioAlterar extends HttpServlet {
                 request.setAttribute("nomeAtt", funcionarios.getNome_func());
                 request.setAttribute("cpfAtt", funcionarios.getCpf());
                 request.setAttribute("cargoAtt", funcionarios.getCargo());
-                request.setAttribute("departamentoAtt", funcionarios.getDepartamento());
-                request.setAttribute("filialAtt", funcionarios.getFilial());
+                int departamento = funcionarios.getDepartamento();
+                if (departamento == 1) {
+                    departamentoAtt = "Diretoria";
+                } else if (departamento == 2) {
+                    departamentoAtt = "Produtos/Marketing";
+                } else if (departamento == 3) {
+                    departamentoAtt = "TI";
+                } else {
+                    departamentoAtt = "Vendas";
+                }
+                request.setAttribute("departamentoAtt", departamentoAtt);
+
+                int filial = funcionarios.getFilial();
+                if (filial == 1) {
+                    filialAtt = "Matriz";
+                } else if (filial == 2) {
+                    filialAtt = "Brasilia";
+                } else if (filial == 3) {
+                    filialAtt = "Campina Grande";
+                } else {
+                    filialAtt = "Joinville";
+                }
+                request.setAttribute("filialAtt", filialAtt);
                 request.setAttribute("loginAtt", funcionarios.getLogin());
                 request.setAttribute("senhaAtt", funcionarios.getSenha());
                 request.setAttribute("idAtt", selecao);
@@ -101,8 +187,29 @@ public class FuncionarioAlterar extends HttpServlet {
                 request.setAttribute("nomeAtt", funcionarios.getNome_func());
                 request.setAttribute("cpfAtt", funcionarios.getCpf());
                 request.setAttribute("cargoAtt", funcionarios.getCargo());
-                request.setAttribute("departamentoAtt", funcionarios.getDepartamento());
-                request.setAttribute("filialAtt", funcionarios.getFilial());
+                int departamento = funcionarios.getDepartamento();
+                if (departamento == 1) {
+                    departamentoAtt = "Diretoria";
+                } else if (departamento == 2) {
+                    departamentoAtt = "Produtos/Marketing";
+                } else if (departamento == 3) {
+                    departamentoAtt = "TI";
+                } else {
+                    departamentoAtt = "Vendas";
+                }
+                request.setAttribute("departamentoAtt", departamentoAtt);
+
+                int filial = funcionarios.getFilial();
+                if (filial == 1) {
+                    filialAtt = "Matriz";
+                } else if (filial == 2) {
+                    filialAtt = "Brasilia";
+                } else if (filial == 3) {
+                    filialAtt = "Campina Grande";
+                } else {
+                    filialAtt = "Joinville";
+                }
+                request.setAttribute("filialAtt", filialAtt);
                 request.setAttribute("loginAtt", funcionarios.getLogin());
                 request.setAttribute("senhaAtt", funcionarios.getSenha());
                 request.setAttribute("idAtt", selecao);
@@ -119,16 +226,16 @@ public class FuncionarioAlterar extends HttpServlet {
 
         String selecao = request.getParameter("idFunc");
         int ID = Integer.parseInt(selecao);
-        int filial = 0, departamento = 0;        
-        
+        int filial = 0, departamento = 0;
+
         String nomeStr = request.getParameter("funcionario__nome__completo");
         String cpfStr = request.getParameter("funcionario__cpf");
         String filialStr = request.getParameter("filial");
         String departamStr = request.getParameter("departamento");
         String cargoStr = request.getParameter("cargo");
         String usernameStr = request.getParameter("funcionario__username");
-        String senha = request.getParameter("funcionario__senha");                
-        
+        String senha = request.getParameter("funcionario__senha");
+
         if (filialStr.equals("Matriz")) {
             filial = 1;
         } else if (filialStr.equals("Brasilia")) {
@@ -138,36 +245,36 @@ public class FuncionarioAlterar extends HttpServlet {
         } else {
             filial = 4;
         }
-        
-        if(departamStr.equals("Diretoria")){
+
+        if (departamStr.equals("Diretoria")) {
             departamento = 1;
-        } else if (departamStr.equals("Produtos/Marketing")){
+        } else if (departamStr.equals("Produtos/Marketing")) {
             departamento = 2;
-        } else if (departamStr.equals("TI")){
+        } else if (departamStr.equals("TI")) {
             departamento = 3;
         } else {
             departamento = 4;
         }
-        
+
         boolean funcionarioSalvo = false;
-        
-        if(cargoStr.equals("Analista")){
-            funcionarioSalvo = Controller.FuncionarioController.alterarAnalista(ID, usernameStr, senha, cpfStr, 
+
+        if (cargoStr.equals("Analista")) {
+            funcionarioSalvo = Controller.FuncionarioController.alterarAnalista(ID, usernameStr, senha, cpfStr,
                     nomeStr, cargoStr, departamento, filial);
-        } else if(cargoStr.equals("Backoffice")){
-            funcionarioSalvo = Controller.FuncionarioController.alterarBackOffice(ID, usernameStr, senha, cpfStr, 
+        } else if (cargoStr.equals("Backoffice")) {
+            funcionarioSalvo = Controller.FuncionarioController.alterarBackOffice(ID, usernameStr, senha, cpfStr,
                     nomeStr, cargoStr, departamento, filial);
-        } else if(cargoStr.equals("Diretor")){
-            funcionarioSalvo = Controller.FuncionarioController.alterarDiretor(ID, usernameStr, senha, cpfStr, 
+        } else if (cargoStr.equals("Diretor")) {
+            funcionarioSalvo = Controller.FuncionarioController.alterarDiretor(ID, usernameStr, senha, cpfStr,
                     nomeStr, cargoStr, departamento, filial);
-        } else if(cargoStr.equals("Gerente")){
-            funcionarioSalvo = Controller.FuncionarioController.alterarGerente(ID, usernameStr, senha, cpfStr, 
+        } else if (cargoStr.equals("Gerente")) {
+            funcionarioSalvo = Controller.FuncionarioController.alterarGerente(ID, usernameStr, senha, cpfStr,
                     nomeStr, cargoStr, departamento, filial);
         } else {
-            funcionarioSalvo = Controller.FuncionarioController.alterarVendedor(ID, usernameStr, senha, cpfStr, 
+            funcionarioSalvo = Controller.FuncionarioController.alterarVendedor(ID, usernameStr, senha, cpfStr,
                     nomeStr, cargoStr, departamento, filial);
         }
-        
+
         request.setAttribute("funcionarioAlteradoAtt", funcionarioSalvo);
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/WEB-INF/consulta-funcionario.jsp");
