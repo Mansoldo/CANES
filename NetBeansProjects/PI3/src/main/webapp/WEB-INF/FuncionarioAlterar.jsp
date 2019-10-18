@@ -60,7 +60,7 @@
                 <div class="coluna">
                     <label for="filial">Filial</label><span class="obrigatorio">* </span>
                     <select class="campo" name="filial" id="filial">
-                        <option selected value="${filialAtt}">Selecione a filial</option>
+                        <option selected value="${filialAtt}">${filialAtt}</option>
                         <option value="Matriz">(SP) Matriz</option>
                         <option value="Brasilia">(DF) Brasilia</option>
                         <option value="Campina Grande">(PB) Campina Grande</option>
@@ -71,7 +71,7 @@
                 <div class="coluna">
                     <label for="departamento">Departamento</label><span class="obrigatorio">* </span>
                     <select class="campo" name="departamento" id="departamento">
-                        <option selected value="${departamentoAtt}">Selecione o departamento</option>
+                        <option selected value="${departamentoAtt}">${departamentoAtt}</option>
                         <option value="Diretoria">Diretoria</option>
                         <option value="Produtos/Marketing">Produtos / Marketing</option>
                         <option value="TI">TI</option>
@@ -82,7 +82,7 @@
                 <div class="coluna">
                     <label for="cargo">Cargo</label><span class="obrigatorio">* </span>
                     <select class="campo" name="cargo" id="cargo">
-                        <option selected value="${cargoAtt}">Selecione o cargo</option>
+                        <option selected value="${cargoAtt}">${cargoAtt}</option>
                         <option value="Analista">Analista</option>
                         <option value="Backoffice">Backoffice</option>
                         <option value="Diretor">Diretor</option>

@@ -17,18 +17,18 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     </head>    
     <script>
-            if (${funcionarioAlteradoAtt} === true) {
-                alert('Funcionário alterado com sucesso!');
-            } else {
-                alert('Falha ao alterar o funcionário!');
-            }
+        if (${funcionarioAlteradoAtt} === true) {
+            alert('Funcionário alterado com sucesso!');
+        } else {
+            alert('Falha ao alterar o funcionário!');
+        }
     </script>
     <script>
-            if (${funcionarioExcluidoAtt} === true) {
-                alert('Funcionario excluído com sucesso!');
-            } else {
-                alert('Falha ao excluir o funcionário!');
-            }
+        if (${funcionarioExcluidoAtt} === true) {
+            alert('Funcionario excluído com sucesso!');
+        } else {
+            alert('Falha ao excluir o funcionário!');
+        }
     </script>
 
     <body>
@@ -76,6 +76,7 @@
                 <table id="tabelaFuncionario" class="tabela">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>Nome</th>
                             <th>CPF</th>
                             <Th>Cargo</Th>
@@ -85,7 +86,8 @@
                     <tbody>
                         <c:forEach items="${funcionarioAtt}" var="funcionario">
                             <tr>
-                                <td id="IDtable"><c:out value="${funcionario.getId_func()}" /></td>                                
+                                <td id="IDtable"><c:out value="${funcionario.getId_func()}"/></td>                                
+                                <td id="nomeTable"><c:out value="${funcionario.getNome_func()}"/></td>                                
                                 <td id="cpfTable"><c:out value="${funcionario.getCpf()}"/></td>                                
                                 <td id="cargoTable"><c:out value="${funcionario.getCargo()}"/></td>                                
                                 <td id="filialTable"><c:out value="${funcionario.getFilial()}"/></td>                                
@@ -97,8 +99,8 @@
             <form method="get" action="${pageContext.request.contextPath}/FuncionarioAlterar" novalidate>
                 <div class="coluna">
                     <input type="submit" value="Alterar" class="btn">
-                    <input type="hidden" value="?" id="idFunc" name="idFunc">                    
-                    <input type="hidden" value="?" id="cargo" name="cargo">
+                    <input type="text" value="?" id="idFunc" name="idFunc">                    
+                    <input type="text" value="?" id="cargo" name="cargo">
                     <script>
 
                         var table = document.getElementById('tabelaFuncionario');
@@ -110,7 +112,7 @@
                                 //rIndex = this.rowIndex;
                                 document.getElementById("idFunc").value = this.cells[0].innerHTML;
                                 document.getElementById("idFunc2").value = this.cells[0].innerHTML;
-                                document.getElementById("cargo").value = this.cells[2].innerHTML;
+                                document.getElementById("cargo").value = this.cells[3].innerHTML;
                             };
                         }
 
@@ -120,7 +122,7 @@
             <form method="post" action="${pageContext.request.contextPath}/FuncionarioExcluir" novalidate>
                 <div>
                     <input type="submit" value="Excluir" class="btn">
-                    <input type="hidden" value="?" id="idProd2" name="idProd2">
+                    <input type="text" value="?" id="idFunc2" name="idFunc2">
                 </div>
             </form>
             <form method="post" action="${pageContext.request.contextPath}/menu-principal" novalidate>

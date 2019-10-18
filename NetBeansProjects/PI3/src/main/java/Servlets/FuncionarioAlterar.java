@@ -42,6 +42,8 @@ public class FuncionarioAlterar extends HttpServlet {
                 request.setAttribute("idAtt", funcionarios.getId_func());
                 request.setAttribute("nomeAtt", funcionarios.getNome_func());
                 request.setAttribute("cpfAtt", funcionarios.getCpf());
+                String cargo = funcionarios.getCargo();
+                
                 request.setAttribute("cargoAtt", funcionarios.getCargo());
                 request.setAttribute("departamentoAtt", funcionarios.getDepartamento());
                 request.setAttribute("filialAtt", funcionarios.getFilial());

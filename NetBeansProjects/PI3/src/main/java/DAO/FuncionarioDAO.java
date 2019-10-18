@@ -349,6 +349,7 @@ public class FuncionarioDAO {
             if (rs != null) {
                 while (rs.next()) {
                     Funcionario funcionario = new Funcionario();
+                    funcionario.setId_func(rs.getInt("ID_FUNCIONARIO"));
                     funcionario.setLogin(rs.getString("LOGIN"));
                     funcionario.setSenha(rs.getString("SENHA"));
                     funcionario.setCpf(rs.getString("CPF"));
