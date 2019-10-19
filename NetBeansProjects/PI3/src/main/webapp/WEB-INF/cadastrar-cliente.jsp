@@ -79,15 +79,14 @@
                             <input type="text" class="campo" name ="telefone" id="cliente__telefone">
                         </div>
                     </div>
-
-                    <div class="linha">
-                        <div class="coluna">
-                            <input type="submit" value="Salvar" class="btn btn-salvar" />
-                            <input type="reset" value="Cancelar" class="btn btn-cancelar" />
-                        </div>
-                    </div>
+                    
+                    <input type="submit" value="Salvar" class="btn btn-salvar" />
                 </form>
-            </div>
-        </form>
+            </form>
+                    
+            <form method="post" action="${pageContext.request.contextPath}/menu-principal" novalidate>
+                <input type="submit" value="Cancelar" class="btn btn-cancelar" />
+            </form>
+        </div>
     </body>
 </html>

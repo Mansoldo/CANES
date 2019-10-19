@@ -47,11 +47,10 @@
                 <h1>Tades</h1>
             </div>
         </header>
+                
         <div class="container">
             <div class="linha">
-
                 <h2>Consultar Cliente</h2>
-
             </div>
             
             <hr>
@@ -120,6 +119,10 @@
                 <form method="post" action="${pageContext.request.contextPath}/ClienteExcluir" novalidate>
                     <input type="submit" value="Excluir" class="btn btn-cancelar">
                     <input type="hidden" value="?" id="cpf2" name="cpf2">
+                </form>
+                    
+                <form method="post" action="${pageContext.request.contextPath}/menu-principal" novalidate>
+                    <input type="submit" value="HOME" class="btn">
                 </form>
             </div>
         </div>

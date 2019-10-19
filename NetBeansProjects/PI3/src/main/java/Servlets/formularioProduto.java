@@ -72,7 +72,7 @@ public class formularioProduto extends HttpServlet {
         request.setAttribute("ProdutoSalvoAtt", produtoSalvo);
 
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/consultar-produto.jsp");
+                = request.getRequestDispatcher("/WEB-INF/cadastrar-produto.jsp");
         dispatcher.forward(request, response);
     }
 

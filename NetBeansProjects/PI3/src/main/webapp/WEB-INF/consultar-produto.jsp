@@ -80,7 +80,7 @@
                         <input type="text" value="" class="campo" name="pesquisar__produto"/>
                     </div>
                     <div class="coluna">
-                        <input type="Submit" value="Pesquisar" class="btn btn-PesquisaRelatorio" />
+                        <input type="Submit" value="Pesquisar" class="btn" />
                     </div>
                 </div>
                 <table id="tabelaProduto" class="tabela">
@@ -108,41 +108,36 @@
                     </tbody>
                 </table>
             </form>
-                
-            <form method="get" action="${pageContext.request.contextPath}/ProdutoAlterar" novalidate>
-                <div class="coluna">
-                    <input type="submit" value="Alterar" class="btn">
+            
+            <div class="botoes">
+                <form method="get" action="${pageContext.request.contextPath}/ProdutoAlterar" novalidate>
+                    <input type="submit" value="Alterar" class="btn btn-salvar">
                     <input type="hidden" value="?" id="idProd" name="idProd">
                     <input type="hidden" value="?" id="categoria" name="categoria">
+                    
                     <script>
-
                         var table = document.getElementById('tabelaProduto');
-
-                        for (var i = 1; i < table.rows.length; i++)
-                        {
-                            table.rows[i].onclick = function ()
-                            {
+                        
+                        for (var i = 1; i < table.rows.length; i++){
+                            table.rows[i].onclick = function (){
                                 //rIndex = this.rowIndex;
                                 document.getElementById("idProd").value = this.cells[0].innerHTML;
                                 document.getElementById("idProd2").value = this.cells[0].innerHTML;
                                 document.getElementById("categoria").value = this.cells[3].innerHTML;
                             };
                         }
-
                     </script>
-                </div>
-            </form>
-            <form method="post" action="${pageContext.request.contextPath}/ProdutoExcluir" novalidate>
-                <div>
-                    <input type="submit" value="Excluir" class="btn">
-                    <input type="hidden" value="?" id="idProd2" name="idProd2">
-                </div>
-            </form>
-            <form method="post" action="${pageContext.request.contextPath}/menu-principal" novalidate>
-                <div>
-                    <input type="submit" value="HOME" class="btn">
-                </div>
-            </form>
+                </form>
+                    
+                <form method="post" action="${pageContext.request.contextPath}/ProdutoExcluir" novalidate>
+                        <input type="submit" value="Excluir" class="btn btn-cancelar">
+                        <input type="hidden" value="?" id="idProd2" name="idProd2">
+                </form>
+                        
+                <form method="post" action="${pageContext.request.contextPath}/menu-principal" novalidate>
+                        <input type="submit" value="HOME" class="btn">
+                </form>
+            </div>
         </div>
     </body>
 </html>

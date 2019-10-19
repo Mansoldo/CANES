@@ -50,7 +50,7 @@
             </div>
 
             <hr>
-
+            
             <form id="cadastro__produto" name="cadastro__produto" class="form" method="post" action="${pageContext.request.contextPath}/formularioProduto" novalidate>
                 <div class="linha">
                     <div class="coluna">
@@ -76,13 +76,13 @@
                             <option value="Japones">Japonês</option>
                         </select>
                     </div>
-                </div>
-
-                <div class="linha">
                     <div class="coluna">
                         <label for="editora__produtora">Editora / Produtora</label>
                         <input type="text" class="campo" name="editora__produtora" id="editora_produtora" />
                     </div>
+                </div>
+
+                <div class="linha">
                     <div class="coluna">
                         <label for="produto__autor">Autor</label>
                         <input type="text" class="campo" name="produto__autor" id="produto__autor" />
@@ -122,17 +122,11 @@
                     </div>
                 </div>
 
-                <div class="linha">
-                    <div class="coluna">
-                        <input type="submit" value="Salvar" class="btn btn-salvar" />
-                    </div>
-                </div>
+                <input type="submit" value="Salvar" class="btn btn-salvar" />
             </form>
                 
             <form method="post" action="${pageContext.request.contextPath}/menu-principal" novalidate>
-                <div>
-                    <input type="submit" value="Cancelar" class="btn btn-cancelar" />
-                </div>
+                <input type="submit" value="Cancelar" class="btn btn-cancelar" />
             </form>
         </div>
     </body>

@@ -7,7 +7,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-BR">
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,6 +26,7 @@
                 </div>
                 <div class="menu__usuario"></div>
             </header>
+                    
             <nav class="menu">
                 <div><a href="menu-principal">Menu Principal</a></div>
                 <div><a href="venda.html">Venda</a></div>
@@ -62,7 +62,7 @@
                             <input type="text" value="${dataAtt}" class="campo" name  = "nascimento" id="cliente__data__nascimento">
                         </div>
                         <div class="coluna">
-                            Sexo <span class="obrigatorio">*</span>
+                            <label for="sexo">Sexo</label><span class="obrigatorio">*</span>
                             <input type="radio" class="campo" name="sexo" id="feminino" value="feminino" checked="checked" />
                             Feminino
                             <input type="radio" value="${sexoAtt}" class="campo" name="sexo" id="masculino" /> Masculino
@@ -76,21 +76,18 @@
                         </div>
                         <div class="coluna">
                             <label for="cliente__telefone">Telefone <span class="obrigatorio">*</span>
-                                <input type="text" value="${telefoneAtt}" class="campo" name ="telefone" id="cliente__telefone">
-                                </div>
-                                </div>
-
-                                <div class="linha">
-                                    <div class="coluna">
-                                        <input type="submit" value="Salvar" class="btn btn-salvar" />
-                                        <input type="reset" value="Cancelar" class="btn btn-cancelar" />
-                                    </div>
-                                </div>
-                                </form>
-                                </form>
+                            <input type="text" value="${telefoneAtt}" class="campo" name ="telefone" id="cliente__telefone">
                         </div>
-
-                        </body>
-
-                        </html>
+                    </div>
+                    
+                    <input type="submit" value="Salvar" class="btn btn-salvar" />
+                </form>
+            </form>
+                        
+            <form method="get" action="${pageContext.request.contextPath}/ConsultaCliente" novalidate>
+                <input type="submit" value="Cancelar" class="btn btn-cancelar" />
+            </form>
+        </div>
+    </body>
+</html>
 

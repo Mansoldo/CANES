@@ -71,13 +71,13 @@
                             <option value="Japones">Japonês</option>
                         </select>
                     </div>
-                </div>
-
-                <div class="linha">
                     <div class="coluna">
                         <label for="editora__produtora">Editora / Produtora</label>
                         <input type="text" value="${editoraAtt}" class="campo" name="editora__produtora" id="editora_produtora" />
                     </div>
+                </div>
+
+                <div class="linha">
                     <div class="coluna">
                         <label for="produto__autor">Autor</label>
                         <input type="text" value="${autorAtt}" class="campo" name="produto__autor" id="produto__autor" />
@@ -94,7 +94,7 @@
                         <label for="produto__tempo">Tempo de duração</label>
                         <input type="text" value="${tempoAtt}" class="campo" name="produto__tempo" id="produto__tempo" />
                     </div>
-                    <input type="text" value="${idAtt}" name="idProd" id="id_prod" />
+                    <input type="hidden" value="${idAtt}" name="idProd" id="id_prod" />
                 </div>
 
                 <div class="linha">
@@ -117,19 +117,12 @@
                         <input type="text" value="${valorAtt}" class="campo" name="produto__valorunitario" id="produto__valorunitario" />
                     </div>
                 </div>
-                <div class="linha">
-                    <div class="coluna">
-                        <input type="submit" value="Salvar" class="btn btn-salvar" />
-
-                    </div>
-                </div>
+                <input type="submit" value="Salvar" class="btn btn-salvar" />
             </form>
-            <form method="post" action="${pageContext.request.contextPath}/menu-principal" novalidate>
-                <div>
-                    <input type="submit" value="Cancelar" class="btn btn-cancelar" />
-                </div>
+                    
+            <form method="get" action="${pageContext.request.contextPath}/ProdutoConsultar" novalidate>
+                <input type="submit" value="Cancelar" class="btn btn-cancelar" />
             </form>
         </div>
     </body>
-
 </html>

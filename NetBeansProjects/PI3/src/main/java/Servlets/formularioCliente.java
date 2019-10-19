@@ -51,7 +51,7 @@ public class formularioCliente extends HttpServlet {
         request.setAttribute("clienteSalvoAtt", clienteSalvo);
 
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/consultar-cliente.jsp");
+                = request.getRequestDispatcher("/WEB-INF/cadastrar-cliente.jsp");
         dispatcher.forward(request, response);
     }
 }

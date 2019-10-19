@@ -72,7 +72,7 @@
                         <input type="text" value="" class="campo" name="pesquisar__funcionario" />
                     </div>
                     <div class="coluna">
-                        <input type="submit" value="Pesquisar" class="btn btn-PesquisaRelatorio" />
+                        <input type="submit" value="Pesquisar" class="btn" />
                     </div>                    
                 </div>
                 <table id="tabelaFuncionario" class="tabela">
@@ -98,41 +98,36 @@
                     </tbody>
                 </table>
             </form>
-                
-            <form method="get" action="${pageContext.request.contextPath}/FuncionarioAlterar" novalidate>
-                <div class="coluna">
-                    <input type="submit" value="Alterar" class="btn">
+
+            <div class="botoes">                
+                <form method="get" action="${pageContext.request.contextPath}/FuncionarioAlterar" novalidate>
+                    <input type="submit" value="Alterar" class="btn btn-salvar">
                     <input type="hidden" value="?" id="idFunc" name="idFunc">                    
                     <input type="hidden" value="?" id="cargo" name="cargo">
+                    
                     <script>
-
                         var table = document.getElementById('tabelaFuncionario');
-
-                        for (var i = 1; i < table.rows.length; i++)
-                        {
-                            table.rows[i].onclick = function ()
-                            {
+                        
+                        for (var i = 1; i < table.rows.length; i++){
+                            table.rows[i].onclick = function (){
                                 //rIndex = this.rowIndex;
                                 document.getElementById("idFunc").value = this.cells[0].innerHTML;
                                 document.getElementById("idFunc2").value = this.cells[0].innerHTML;
                                 document.getElementById("cargo").value = this.cells[3].innerHTML;
                             };
                         }
-
                     </script>
-                </div>
-            </form>              
-            <form method="post" action="${pageContext.request.contextPath}/FuncionarioExcluir" novalidate>
-                <div>
-                    <input type="submit" value="Excluir" class="btn">
+                </form>      
+                    
+                <form method="post" action="${pageContext.request.contextPath}/FuncionarioExcluir" novalidate>
+                    <input type="submit" value="Excluir" class="btn btn-cancelar">
                     <input type="hidden" value="?" id="idFunc2" name="idFunc2">
-                </div>
-            </form>
-            <form method="post" action="${pageContext.request.contextPath}/menu-principal" novalidate>
-                <div>
+                </form>
+                    
+                <form method="post" action="${pageContext.request.contextPath}/menu-principal" novalidate>
                     <input type="submit" value="HOME" class="btn">
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </body>
 </html>
