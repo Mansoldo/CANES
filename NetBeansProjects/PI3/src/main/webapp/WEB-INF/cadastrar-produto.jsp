@@ -125,10 +125,10 @@
                 <div class="linha">
                     <div class="coluna">
                         <input type="submit" value="Salvar" class="btn btn-salvar" />
-
                     </div>
                 </div>
             </form>
+                
             <form method="post" action="${pageContext.request.contextPath}/menu-principal" novalidate>
                 <div>
                     <input type="submit" value="Cancelar" class="btn btn-cancelar" />

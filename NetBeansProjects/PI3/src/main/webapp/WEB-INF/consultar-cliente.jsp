@@ -53,7 +53,9 @@
                 <h2>Consultar Cliente</h2>
 
             </div>
+            
             <hr>
+            
             <form id="consultaCliente" name="consultaCliente" class="form" method="post" action="${pageContext.request.contextPath}/ConsultaCliente" novalidate>
                 <div class="linha">
                     <div class="coluna">
@@ -67,10 +69,10 @@
                         <input type="text" value="" class="campo" name="pesquisa__cliente" />
                     </div>
                     <div class="coluna">
-                        <input type="submit" value="Pesquisar" class="btn btn-PesquisaRelatorio" />
+                        <input type="submit" value="Pesquisar" class="btn" />
                     </div>
-
                 </div>
+                
                 <table id="tabelaCliente" class="tabela">
                     <thead>
                         <tr>
@@ -96,32 +98,30 @@
                     </tbody>
                 </table>
             </form>
-            <form method="get" action="${pageContext.request.contextPath}/ClienteAlterar" novalidate>
-                <div class="coluna">
-                    <input type="submit" value="Alterar" class="btn">
+ 
+            <div class="botoes">
+                <form method="get" action="${pageContext.request.contextPath}/ClienteAlterar" novalidate>
+                    <input type="submit" value="Alterar" class="btn btn-salvar">
                     <input type="hidden" value="?" id="cpf" name="cpf">
+                    
                     <script>
-
                         var table = document.getElementById('tabelaCliente');
 
-                        for (var i = 1; i < table.rows.length; i++)
-                        {
-                            table.rows[i].onclick = function ()
-                            {
-                                //rIndex = this.rowIndex;
-                                document.getElementById("cpf").value = this.cells[1].innerHTML;
-                                document.getElementById("cpf2").value = this.cells[1].innerHTML;
+                        for (var i = 1; i < table.rows.length; i++){
+                            table.rows[i].onclick = function (){
+                                    //rIndex = this.rowIndex;
+                                    document.getElementById("cpf").value = this.cells[1].innerHTML;
+                                    document.getElementById("cpf2").value = this.cells[1].innerHTML;
                             };
                         }
-
                     </script>
-                </div>
-            </form>
-            <form method="post" action="${pageContext.request.contextPath}/ClienteExcluir" novalidate>
-                <input type="submit" value="Excluir" class="btn">
-                <input type="hidden" value="?" id="cpf2" name="cpf2">
-            </form>
+                </form>
+                    
+                <form method="post" action="${pageContext.request.contextPath}/ClienteExcluir" novalidate>
+                    <input type="submit" value="Excluir" class="btn btn-cancelar">
+                    <input type="hidden" value="?" id="cpf2" name="cpf2">
+                </form>
+            </div>
         </div>
     </body>
-
 </html>

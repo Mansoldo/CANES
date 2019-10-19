@@ -18,7 +18,7 @@ public class ProdutoConsultar extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/consulta-produto.jsp");
+                = request.getRequestDispatcher("/WEB-INF/consultar-produto.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -33,7 +33,7 @@ public class ProdutoConsultar extends HttpServlet {
         request.setAttribute("produtoAtt", produto);
         
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/consulta-produto.jsp");
+                = request.getRequestDispatcher("/WEB-INF/consultar-produto.jsp");
         dispatcher.forward(request, response);
     }
 

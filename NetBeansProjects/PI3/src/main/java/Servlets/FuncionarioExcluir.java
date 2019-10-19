@@ -31,7 +31,7 @@ public class FuncionarioExcluir extends HttpServlet {
          request.setAttribute("funcionarioExcluidoAtt", funcionario);
          
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/consulta-funcionario.jsp");
+                = request.getRequestDispatcher("/WEB-INF/consultar-funcionario.jsp");
         dispatcher.forward(request, response);
        
     }

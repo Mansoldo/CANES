@@ -25,7 +25,7 @@ public class formularioProduto extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/cadastro-produto.jsp");
+                = request.getRequestDispatcher("/WEB-INF/cadastrar-produto.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -72,7 +72,7 @@ public class formularioProduto extends HttpServlet {
         request.setAttribute("ProdutoSalvoAtt", produtoSalvo);
 
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/consulta-produto.jsp");
+                = request.getRequestDispatcher("/WEB-INF/consultar-produto.jsp");
         dispatcher.forward(request, response);
     }
 

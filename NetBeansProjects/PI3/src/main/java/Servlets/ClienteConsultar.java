@@ -27,7 +27,7 @@ public class ClienteConsultar extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/ConsultaCliente.jsp");
+                = request.getRequestDispatcher("/WEB-INF/consultar-cliente.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -42,7 +42,7 @@ public class ClienteConsultar extends HttpServlet {
         request.setAttribute("clienteAtt", cliente);
 
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/ConsultaCliente.jsp");
+                = request.getRequestDispatcher("/WEB-INF/consultar-cliente.jsp");
         dispatcher.forward(request, response);
     }
 

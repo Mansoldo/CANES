@@ -30,7 +30,7 @@ public class formularioCliente extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/cliente.jsp");
+                = request.getRequestDispatcher("/WEB-INF/cadastrar-cliente.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -51,7 +51,7 @@ public class formularioCliente extends HttpServlet {
         request.setAttribute("clienteSalvoAtt", clienteSalvo);
 
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/ConsultaCliente.jsp");
+                = request.getRequestDispatcher("/WEB-INF/consultar-cliente.jsp");
         dispatcher.forward(request, response);
     }
 }

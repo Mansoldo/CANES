@@ -217,7 +217,7 @@ public class FuncionarioAlterar extends HttpServlet {
         }
 
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/FuncionarioAlterar.jsp");
+                = request.getRequestDispatcher("/WEB-INF/alterar-funcionario.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -278,7 +278,7 @@ public class FuncionarioAlterar extends HttpServlet {
 
         request.setAttribute("funcionarioAlteradoAtt", funcionarioSalvo);
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/consulta-funcionario.jsp");
+                = request.getRequestDispatcher("/WEB-INF/consultar-funcionario.jsp");
         dispatcher.forward(request, response);
 
     }

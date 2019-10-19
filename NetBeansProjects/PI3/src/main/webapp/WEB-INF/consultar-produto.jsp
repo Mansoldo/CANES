@@ -39,6 +39,7 @@
                 alert('Falha ao Excluir o Produto!');
             }
         </script>
+        
         <header class="header">
             <div class="logo">
                 <h1>Livraria</h1>
@@ -47,6 +48,7 @@
             </div>
             <div class="menu__usuario"></div>
         </header>
+        
         <nav class="menu">
             <div><a href="menu-principal.html">Menu Principal</a></div>
             <div><a href="venda.html">Venda</a></div>
@@ -61,6 +63,7 @@
             <div class="linha">
                 <h2>Consultar Produto</h2>
             </div>
+            
             <hr>
 
             <form id="consultaProduto" name="consultaProduto" class="form" method="post" action="${pageContext.request.contextPath}/ProdutoConsultar" novalidate>
@@ -79,7 +82,6 @@
                     <div class="coluna">
                         <input type="Submit" value="Pesquisar" class="btn btn-PesquisaRelatorio" />
                     </div>
-
                 </div>
                 <table id="tabelaProduto" class="tabela">
                     <thead>
@@ -106,6 +108,7 @@
                     </tbody>
                 </table>
             </form>
+                
             <form method="get" action="${pageContext.request.contextPath}/ProdutoAlterar" novalidate>
                 <div class="coluna">
                     <input type="submit" value="Alterar" class="btn">
@@ -142,5 +145,4 @@
             </form>
         </div>
     </body>
-
 </html>

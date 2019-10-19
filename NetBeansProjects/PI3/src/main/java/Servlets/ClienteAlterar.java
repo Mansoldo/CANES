@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author nik_r
+ * @author Gabriel Vital
  */
 @WebServlet(name = "ClienteAlterar", urlPatterns = {"/ClienteAlterar"})
 public class ClienteAlterar extends HttpServlet {
@@ -48,7 +48,7 @@ public class ClienteAlterar extends HttpServlet {
         }
 
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/ClienteAlterar.jsp");
+                = request.getRequestDispatcher("/WEB-INF/alterar-cliente.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -67,7 +67,7 @@ public class ClienteAlterar extends HttpServlet {
         request.setAttribute("clienteAlteradoAtt", clienteSalvo);
 
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/ConsultaCliente.jsp");
+                = request.getRequestDispatcher("/WEB-INF/consultar-cliente.jsp");
         dispatcher.forward(request, response);
 
     }

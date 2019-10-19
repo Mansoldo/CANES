@@ -49,10 +49,12 @@
             <div><a href="#">Produto</a></div>
             <div><a href="#">Relatório</a></div>
         </nav>
+                
         <div class="container">
             <div class="linha">
                 <h2>Consultar Funcionário</h2>
             </div>
+            
             <hr>
 
             <form id="consultaFuncionario" name="consultaFuncionario" class="form" method="post" action="${pageContext.request.contextPath}/FuncionarioConsultar" novalidate>
@@ -96,6 +98,7 @@
                     </tbody>
                 </table>
             </form>
+                
             <form method="get" action="${pageContext.request.contextPath}/FuncionarioAlterar" novalidate>
                 <div class="coluna">
                     <input type="submit" value="Alterar" class="btn">

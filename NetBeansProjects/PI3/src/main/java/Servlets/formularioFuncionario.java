@@ -15,7 +15,7 @@ public class formularioFuncionario extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/cadastro-funcionario.jsp");
+                = request.getRequestDispatcher("/WEB-INF/cadastrar-funcionario.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -74,7 +74,7 @@ public class formularioFuncionario extends HttpServlet {
         request.setAttribute("FuncionarioSalvoAtt", funcionarioSalvo);
         
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/cadastro-funcionario.jsp");
+                = request.getRequestDispatcher("/WEB-INF/cadastrar-funcionario.jsp");
         dispatcher.forward(request, response);
     }
 

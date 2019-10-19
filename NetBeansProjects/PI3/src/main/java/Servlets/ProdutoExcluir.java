@@ -35,7 +35,7 @@ public class ProdutoExcluir extends HttpServlet {
          request.setAttribute("produtoExcluidoAtt", produto);
          
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/consulta-produto.jsp");
+                = request.getRequestDispatcher("/WEB-INF/consultar-produto.jsp");
         dispatcher.forward(request, response);
     }
 

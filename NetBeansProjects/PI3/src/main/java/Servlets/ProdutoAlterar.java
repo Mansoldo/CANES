@@ -66,7 +66,7 @@ public class ProdutoAlterar extends HttpServlet {
             }
         }
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/ProdutoAlterar.jsp");
+                = request.getRequestDispatcher("/WEB-INF/alterar-produto.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -114,7 +114,7 @@ public class ProdutoAlterar extends HttpServlet {
         request.setAttribute("ProdutoAlteradoAtt", produtoSalvo);
 
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/consulta-produto.jsp");
+                = request.getRequestDispatcher("/WEB-INF/consultar-produto.jsp");
         dispatcher.forward(request, response);
     }
 

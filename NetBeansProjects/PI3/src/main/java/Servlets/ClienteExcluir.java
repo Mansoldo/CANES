@@ -28,7 +28,7 @@ public class ClienteExcluir extends HttpServlet {
          request.setAttribute("clienteExcluidoAtt", cliente);
          
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/ConsultaCliente.jsp");
+                = request.getRequestDispatcher("/WEB-INF/consultar-cliente.jsp");
         dispatcher.forward(request, response);
        
     }

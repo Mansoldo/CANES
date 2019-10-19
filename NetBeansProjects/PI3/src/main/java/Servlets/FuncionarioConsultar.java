@@ -18,7 +18,7 @@ public class FuncionarioConsultar extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/consulta-funcionario.jsp");
+                = request.getRequestDispatcher("/WEB-INF/consultar-funcionario.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -33,7 +33,7 @@ public class FuncionarioConsultar extends HttpServlet {
         request.setAttribute("funcionarioAtt", funcionario);
         
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/consulta-funcionario.jsp");
+                = request.getRequestDispatcher("/WEB-INF/consultar-funcionario.jsp");
         dispatcher.forward(request, response);
     }
 
