@@ -50,12 +50,26 @@
         </header>
         
         <nav class="menu">
-            <div><a href="menu-principal.html">Menu Principal</a></div>
-            <div><a href="venda.html">Venda</a></div>
-            <div><a href="#">Cliente</a></div>
-            <div><a href="#">Funcionario</a></div>
-            <div><a href="#">Produto</a></div>
-            <div><a href="#">Relatório</a></div>
+            <form class="form" method="get" action="${pageContext.request.contextPath}/menu-principal" novalidate>
+                <input type="submit" value="Menu Principal" class="menu__topo">
+            </form>
+            <form class="form" method="get" action="${pageContext.request.contextPath}/vender" novalidate>
+                <input type="submit" value="Venda" class="menu__topo">
+            </form>
+            <form class="form" method="get" action="${pageContext.request.contextPath}/ConsultaCliente" novalidate>
+                <input type="submit" value="Cliente" class="menu__topo">
+            </form>
+            <form class="form" method="get" action="${pageContext.request.contextPath}/FuncionarioConsultar" novalidate>
+                <input type="submit" value="Funcionario" class="menu__topo">
+            </form>
+            <form class="form" method="get" action="${pageContext.request.contextPath}/ProdutoConsultar" novalidate>
+                <input type="submit" value="Produto" class="menu__topo">
+            </form>
+            <!--
+            <form class="form" method="get" action="${pageContext.request.contextPath}/" novalidate>
+                <input type="submit" value="Relatório" class="menu__topo">
+            </form>
+             -->
         </nav>
 
 

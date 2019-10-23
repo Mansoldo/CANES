@@ -47,6 +47,7 @@ public class FuncionarioDAO {
             comandoSQL.setString(5, funcionario.getCargo());
             comandoSQL.setInt(6, funcionario.getDepartamento());
             comandoSQL.setInt(7, funcionario.getFilial());
+            comandoSQL.setInt(8, funcionario.getId_func());
 
             int linhaAfetada = comandoSQL.executeUpdate();
 
@@ -75,6 +76,7 @@ public class FuncionarioDAO {
             comandoSQL.setString(5, funcionario.getCargo());
             comandoSQL.setInt(6, funcionario.getDepartamento());
             comandoSQL.setInt(7, funcionario.getFilial());
+            comandoSQL.setInt(8, funcionario.getId_func());
 
             int linhaAfetada = comandoSQL.executeUpdate();
 
@@ -103,6 +105,7 @@ public class FuncionarioDAO {
             comandoSQL.setString(5, funcionario.getCargo());
             comandoSQL.setInt(6, funcionario.getDepartamento());
             comandoSQL.setInt(7, funcionario.getFilial());
+            comandoSQL.setInt(8, funcionario.getId_func());
 
             int linhaAfetada = comandoSQL.executeUpdate();
 
@@ -131,6 +134,7 @@ public class FuncionarioDAO {
             comandoSQL.setString(5, funcionario.getCargo());
             comandoSQL.setInt(6, funcionario.getDepartamento());
             comandoSQL.setInt(7, funcionario.getFilial());
+            comandoSQL.setInt(8, funcionario.getId_func());
 
             int linhaAfetada = comandoSQL.executeUpdate();
 
@@ -159,6 +163,7 @@ public class FuncionarioDAO {
             comandoSQL.setString(5, funcionario.getCargo());
             comandoSQL.setInt(6, funcionario.getDepartamento());
             comandoSQL.setInt(7, funcionario.getFilial());
+            comandoSQL.setInt(8, funcionario.getId_func());
 
             int linhaAfetada = comandoSQL.executeUpdate();
 
@@ -403,7 +408,8 @@ public class FuncionarioDAO {
             comandoSQL.setString(4, funcionario.getNome_func());
             comandoSQL.setString(5, funcionario.getCargo());
             comandoSQL.setInt(6, funcionario.getDepartamento());
-            comandoSQL.setInt(6, funcionario.getFilial());
+            comandoSQL.setInt(7, funcionario.getFilial());
+            comandoSQL.setInt(8, funcionario.getId_func());
 
             int linhaAfetada = comandoSQL.executeUpdate();
 
@@ -432,7 +438,8 @@ public class FuncionarioDAO {
             comandoSQL.setString(4, funcionario.getNome_func());
             comandoSQL.setString(5, funcionario.getCargo());
             comandoSQL.setInt(6, funcionario.getDepartamento());
-            comandoSQL.setInt(6, funcionario.getFilial());
+            comandoSQL.setInt(7, funcionario.getFilial());
+            comandoSQL.setInt(8, funcionario.getId_func());
 
             int linhaAfetada = comandoSQL.executeUpdate();
 
@@ -461,7 +468,8 @@ public class FuncionarioDAO {
             comandoSQL.setString(4, funcionario.getNome_func());
             comandoSQL.setString(5, funcionario.getCargo());
             comandoSQL.setInt(6, funcionario.getDepartamento());
-            comandoSQL.setInt(6, funcionario.getFilial());
+            comandoSQL.setInt(7, funcionario.getFilial());
+            comandoSQL.setInt(8, funcionario.getId_func());
 
             int linhaAfetada = comandoSQL.executeUpdate();
 
@@ -490,7 +498,8 @@ public class FuncionarioDAO {
             comandoSQL.setString(4, funcionario.getNome_func());
             comandoSQL.setString(5, funcionario.getCargo());
             comandoSQL.setInt(6, funcionario.getDepartamento());
-            comandoSQL.setInt(6, funcionario.getFilial());
+            comandoSQL.setInt(7, funcionario.getFilial());
+            comandoSQL.setInt(8, funcionario.getId_func());
 
             int linhaAfetada = comandoSQL.executeUpdate();
 
@@ -519,7 +528,8 @@ public class FuncionarioDAO {
             comandoSQL.setString(4, funcionario.getNome_func());
             comandoSQL.setString(5, funcionario.getCargo());
             comandoSQL.setInt(6, funcionario.getDepartamento());
-            comandoSQL.setInt(6, funcionario.getFilial());
+            comandoSQL.setInt(7, funcionario.getFilial());
+            comandoSQL.setInt(8, funcionario.getId_func());
 
             int linhaAfetada = comandoSQL.executeUpdate();
 

@@ -83,7 +83,7 @@
                 <button class="dropbtn">Relatórios</button>
                 <div class="dropdown-content">
                     <form method="get" action="${pageContext.request.contextPath}/RelatorioTop" novalidate>
-                        <input type="submit" value="Top 10 Produtos mais Vendidos" class="dropdown-content">
+                        <input type="submit" value="Produtos mais Vendidos" class="dropdown-content">
                     </form>
                     <form method="get" action="${pageContext.request.contextPath}/RelatorioFilial" novalidate>
                         <input type="submit" value="Total por Filial" class="dropdown-content">
