@@ -60,7 +60,7 @@ public class ClienteDAO {
 
         try (Connection conexao = obterConexao()) {
 
-            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM Cliente");
+            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM LIVRARIA.CLIENTE");
 
             ResultSet rs = comandoSQL.executeQuery();
 
@@ -90,7 +90,7 @@ public class ClienteDAO {
 
         try (Connection conexao = obterConexao()) {
 
-            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM Cliente where CPF like '%" + filter + "%' or NOME like '%" + filter + "%'");
+            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM LIVRARIA.CLIENTE where CPF like '%" + filter + "%' or NOME like '%" + filter + "%'");
 
             ResultSet rs = comandoSQL.executeQuery();
 
@@ -147,7 +147,7 @@ public class ClienteDAO {
 
         try (Connection conexao = obterConexao()) {
 
-            PreparedStatement comandoSQL = conexao.prepareStatement("DELETE FROM CLIENTE WHERE CPF =?");
+            PreparedStatement comandoSQL = conexao.prepareStatement("DELETE FROM LIVRARIA.CLIENTE WHERE CPF =?");
 
             comandoSQL.setString(1, cpf);
 

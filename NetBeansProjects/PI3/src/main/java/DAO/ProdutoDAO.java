@@ -109,7 +109,7 @@ public class ProdutoDAO {
 
         try (Connection conexao = obterConexao()) {
 
-            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM PRODUTO where ID_PRODUTO =?");
+            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM LIVRARIA.PRODUTO where ID_PRODUTO =?");
 
             comandoSQL.setInt(1, id);
 
@@ -141,7 +141,7 @@ public class ProdutoDAO {
 
         try (Connection conexao = obterConexao()) {
 
-            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM PRODUTO where ID_PRODUTO =?");
+            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM LIVRARIA.PRODUTO where ID_PRODUTO =?");
 
             comandoSQL.setInt(1, id);
 
@@ -178,7 +178,7 @@ public class ProdutoDAO {
 
         try (Connection conexao = obterConexao()) {
 
-            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM PRODUTO where ID_PRODUTO =?");
+            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM LIVRARIA.PRODUTO where ID_PRODUTO =?");
 
             comandoSQL.setInt(1, id);
 
@@ -211,7 +211,7 @@ public class ProdutoDAO {
 
         try (Connection conexao = obterConexao()) {
 
-            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM PRODUTO where NOME_PRODUTO like '%" + filter + "%' or CATEGORIA like '%" + filter + "%' or IDIOMA like '%" + filter + "%'");
+            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM LIVRARIA.PRODUTO where NOME_PRODUTO like '%" + filter + "%' or CATEGORIA like '%" + filter + "%' or IDIOMA like '%" + filter + "%'");
 
             ResultSet rs = comandoSQL.executeQuery();
 
@@ -330,7 +330,7 @@ public class ProdutoDAO {
 
         try (Connection conexao = obterConexao()) {
 
-            PreparedStatement comandoSQL = conexao.prepareStatement("DELETE FROM PRODUTO WHERE ID_PRODUTO =?");
+            PreparedStatement comandoSQL = conexao.prepareStatement("DELETE FROM LIVRARIA.PRODUTO WHERE ID_PRODUTO =?");
 
             comandoSQL.setInt(1, ID);
 
