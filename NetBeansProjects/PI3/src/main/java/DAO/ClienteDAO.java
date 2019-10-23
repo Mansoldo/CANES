@@ -24,7 +24,7 @@ public class ClienteDAO {
     private static Connection obterConexao() throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/livraria?useTimezone=true&serverTimezone=UTC", "root", "adminadmin");
+        Connection conexao = DriverManager.getConnection("jdbc:mysql://canesdb.c6rp7koaks1z.us-east-1.rds.amazonaws.com:3306/LIVRARIA?useTimezone=true&serverTimezone=UTC", "admin", "Canes123");
         return conexao;
     }
 
@@ -60,7 +60,7 @@ public class ClienteDAO {
 
         try (Connection conexao = obterConexao()) {
 
-            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM Cliente");
+            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM LIVRARIA.CLIENTE");
 
             ResultSet rs = comandoSQL.executeQuery();
 
@@ -90,7 +90,7 @@ public class ClienteDAO {
 
         try (Connection conexao = obterConexao()) {
 
-            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM Cliente where CPF like '%" + filter + "%' or NOME like '%" + filter + "%'");
+            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM LIVRARIA.CLIENTE where CPF like '%" + filter + "%' or NOME like '%" + filter + "%'");
 
             ResultSet rs = comandoSQL.executeQuery();
 
@@ -147,7 +147,7 @@ public class ClienteDAO {
 
         try (Connection conexao = obterConexao()) {
 
-            PreparedStatement comandoSQL = conexao.prepareStatement("DELETE FROM CLIENTE WHERE CPF =?");
+            PreparedStatement comandoSQL = conexao.prepareStatement("DELETE FROM LIVRARIA.CLIENTE WHERE CPF =?");
 
             comandoSQL.setString(1, cpf);
 

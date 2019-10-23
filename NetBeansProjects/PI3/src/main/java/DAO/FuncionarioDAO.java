@@ -27,7 +27,7 @@ public class FuncionarioDAO {
     private static Connection obterConexao() throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/livraria?useTimezone=true&serverTimezone=UTC", "root", "adminadmin"); //
+        Connection conexao = DriverManager.getConnection("jdbc:mysql://canesdb.c6rp7koaks1z.us-east-1.rds.amazonaws.com:3306", "admin", "Canes123"); //
         return conexao;
     }
 
@@ -394,8 +394,8 @@ public class FuncionarioDAO {
         try (Connection conexao = obterConexao()) {
 
             PreparedStatement comandoSQL = conexao.prepareStatement("UPDATE LIVRARIA.FUNCIONARIO\n"
-                    + " SET LOGIN = ? , SENHA = ? , CPF = ? , NOME_FUNC = ? , CARGO = ? , FK_ID_DPT = ?, FK_ID_FILIAL = ?\n"
-                    + " WHERE ID_FUNCIONARIO = ?;");
+                    + "SET LOGIN = ? , SENHA = ? , CPF = ? , NOME_FUNC = ? , CARGO = ? , FK_ID_DPT = ?, FK_ID_FILIAL = ?\n"
+                    + "WHERE ID_FUNCIONARIO = ?;");
 
             comandoSQL.setString(1, funcionario.getLogin());
             comandoSQL.setString(2, funcionario.getSenha());
@@ -403,8 +403,7 @@ public class FuncionarioDAO {
             comandoSQL.setString(4, funcionario.getNome_func());
             comandoSQL.setString(5, funcionario.getCargo());
             comandoSQL.setInt(6, funcionario.getDepartamento());
-            comandoSQL.setInt(7, funcionario.getFilial());
-            comandoSQL.setInt(8, funcionario.getId_func());
+            comandoSQL.setInt(6, funcionario.getFilial());
 
             int linhaAfetada = comandoSQL.executeUpdate();
 
@@ -424,8 +423,8 @@ public class FuncionarioDAO {
         try (Connection conexao = obterConexao()) {
 
             PreparedStatement comandoSQL = conexao.prepareStatement("UPDATE LIVRARIA.FUNCIONARIO\n"
-                    + " SET LOGIN = ? , SENHA = ? , CPF = ? , NOME_FUNC = ? , CARGO = ? , FK_ID_DPT = ?, FK_ID_FILIAL = ?\n"
-                    + " WHERE ID_FUNCIONARIO = ?;");
+                    + "SET LOGIN = ? , SENHA = ? , CPF = ? , NOME_FUNC = ? , CARGO = ? , FK_ID_DPT = ?, FK_ID_FILIAL = ?\n"
+                    + "WHERE ID_FUNCIONARIO = ?;");
 
             comandoSQL.setString(1, funcionario.getLogin());
             comandoSQL.setString(2, funcionario.getSenha());
@@ -433,8 +432,7 @@ public class FuncionarioDAO {
             comandoSQL.setString(4, funcionario.getNome_func());
             comandoSQL.setString(5, funcionario.getCargo());
             comandoSQL.setInt(6, funcionario.getDepartamento());
-            comandoSQL.setInt(7, funcionario.getFilial());
-            comandoSQL.setInt(8, funcionario.getId_func());
+            comandoSQL.setInt(6, funcionario.getFilial());
 
             int linhaAfetada = comandoSQL.executeUpdate();
 
@@ -454,8 +452,8 @@ public class FuncionarioDAO {
         try (Connection conexao = obterConexao()) {
 
             PreparedStatement comandoSQL = conexao.prepareStatement("UPDATE LIVRARIA.FUNCIONARIO\n"
-                    + " SET LOGIN = ? , SENHA = ? , CPF = ? , NOME_FUNC = ? , CARGO = ? , FK_ID_DPT = ?, FK_ID_FILIAL = ?\n"
-                    + " WHERE ID_FUNCIONARIO = ?");
+                    + "SET LOGIN = ? , SENHA = ? , CPF = ? , NOME_FUNC = ? , CARGO = ? , FK_ID_DPT = ?, FK_ID_FILIAL = ?\n"
+                    + "WHERE ID_FUNCIONARIO = ?;");
 
             comandoSQL.setString(1, funcionario.getLogin());
             comandoSQL.setString(2, funcionario.getSenha());
@@ -463,8 +461,7 @@ public class FuncionarioDAO {
             comandoSQL.setString(4, funcionario.getNome_func());
             comandoSQL.setString(5, funcionario.getCargo());
             comandoSQL.setInt(6, funcionario.getDepartamento());
-            comandoSQL.setInt(7, funcionario.getFilial());
-            comandoSQL.setInt(8, funcionario.getId_func());
+            comandoSQL.setInt(6, funcionario.getFilial());
 
             int linhaAfetada = comandoSQL.executeUpdate();
 
@@ -484,8 +481,8 @@ public class FuncionarioDAO {
         try (Connection conexao = obterConexao()) {
 
             PreparedStatement comandoSQL = conexao.prepareStatement("UPDATE LIVRARIA.FUNCIONARIO\n"
-                    + " SET LOGIN = ? , SENHA = ? , CPF = ? , NOME_FUNC = ? , CARGO = ? , FK_ID_DPT = ?, FK_ID_FILIAL = ?\n"
-                    + " WHERE ID_FUNCIONARIO = ?");
+                    + "SET LOGIN = ? , SENHA = ? , CPF = ? , NOME_FUNC = ? , CARGO = ? , FK_ID_DPT = ?, FK_ID_FILIAL = ?\n"
+                    + "WHERE ID_FUNCIONARIO = ?;");
 
             comandoSQL.setString(1, funcionario.getLogin());
             comandoSQL.setString(2, funcionario.getSenha());
@@ -493,8 +490,7 @@ public class FuncionarioDAO {
             comandoSQL.setString(4, funcionario.getNome_func());
             comandoSQL.setString(5, funcionario.getCargo());
             comandoSQL.setInt(6, funcionario.getDepartamento());
-            comandoSQL.setInt(7, funcionario.getFilial());
-            comandoSQL.setInt(8, funcionario.getId_func());
+            comandoSQL.setInt(6, funcionario.getFilial());
 
             int linhaAfetada = comandoSQL.executeUpdate();
 
@@ -514,8 +510,8 @@ public class FuncionarioDAO {
         try (Connection conexao = obterConexao()) {
 
             PreparedStatement comandoSQL = conexao.prepareStatement("UPDATE LIVRARIA.FUNCIONARIO\n"
-                    + " SET LOGIN = ? , SENHA = ? , CPF = ? , NOME_FUNC = ? , CARGO = ? , FK_ID_DPT = ?, FK_ID_FILIAL = ?\n"
-                    + " WHERE ID_FUNCIONARIO = ?");
+                    + "SET LOGIN = ? , SENHA = ? , CPF = ? , NOME_FUNC = ? , CARGO = ? , FK_ID_DPT = ?, FK_ID_FILIAL = ?\n"
+                    + "WHERE ID_FUNCIONARIO = ?;");
 
             comandoSQL.setString(1, funcionario.getLogin());
             comandoSQL.setString(2, funcionario.getSenha());
@@ -523,8 +519,7 @@ public class FuncionarioDAO {
             comandoSQL.setString(4, funcionario.getNome_func());
             comandoSQL.setString(5, funcionario.getCargo());
             comandoSQL.setInt(6, funcionario.getDepartamento());
-            comandoSQL.setInt(7, funcionario.getFilial());
-            comandoSQL.setInt(8, funcionario.getId_func());
+            comandoSQL.setInt(6, funcionario.getFilial());
 
             int linhaAfetada = comandoSQL.executeUpdate();
 

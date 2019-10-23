@@ -16,7 +16,7 @@ public class ProdutoDAO {
     private static Connection obterConexao() throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/livraria?useTimezone=true&serverTimezone=UTC", "root", "adminadmin");
+        Connection conexao = DriverManager.getConnection("jdbc:mysql://canesdb.c6rp7koaks1z.us-east-1.rds.amazonaws.com:3306/LIVRARIA?useTimezone=true&serverTimezone=UTC", "admin", "Canes123");
         return conexao;
     }
 
@@ -109,7 +109,7 @@ public class ProdutoDAO {
 
         try (Connection conexao = obterConexao()) {
 
-            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM PRODUTO where ID_PRODUTO =?");
+            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM LIVRARIA.PRODUTO where ID_PRODUTO =?");
 
             comandoSQL.setInt(1, id);
 
@@ -141,7 +141,7 @@ public class ProdutoDAO {
 
         try (Connection conexao = obterConexao()) {
 
-            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM PRODUTO where ID_PRODUTO =?");
+            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM LIVRARIA.PRODUTO where ID_PRODUTO =?");
 
             comandoSQL.setInt(1, id);
 
@@ -178,7 +178,7 @@ public class ProdutoDAO {
 
         try (Connection conexao = obterConexao()) {
 
-            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM PRODUTO where ID_PRODUTO =?");
+            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM LIVRARIA.PRODUTO where ID_PRODUTO =?");
 
             comandoSQL.setInt(1, id);
 
@@ -211,7 +211,7 @@ public class ProdutoDAO {
 
         try (Connection conexao = obterConexao()) {
 
-            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM PRODUTO where NOME_PRODUTO like '%" + filter + "%' or CATEGORIA like '%" + filter + "%' or IDIOMA like '%" + filter + "%'");
+            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM LIVRARIA.PRODUTO where NOME_PRODUTO like '%" + filter + "%' or CATEGORIA like '%" + filter + "%' or IDIOMA like '%" + filter + "%'");
 
             ResultSet rs = comandoSQL.executeQuery();
 
@@ -330,7 +330,7 @@ public class ProdutoDAO {
 
         try (Connection conexao = obterConexao()) {
 
-            PreparedStatement comandoSQL = conexao.prepareStatement("DELETE FROM PRODUTO WHERE ID_PRODUTO =?");
+            PreparedStatement comandoSQL = conexao.prepareStatement("DELETE FROM LIVRARIA.PRODUTO WHERE ID_PRODUTO =?");
 
             comandoSQL.setInt(1, ID);
 
