@@ -25,13 +25,27 @@
             </div>
             <div class="menu__usuario"></div>
         </header>
-        <nav class="menu">
-            <div><a href="menu-principal.html">Menu Principal</a></div>
-            <div><a href="venda.html">Venda</a></div>
-            <div><a href="#">Cliente</a></div>
-            <div><a href="#">Funcionario</a></div>
-            <div><a href="#">Produto</a></div>
-            <div><a href="#">Relatório</a></div>
+        
+                
+            <nav class="menu"> 
+                <form method="get" action="${pageContext.request.contextPath}/menu-principal" novalidate>
+                    <input type="submit" value="Menu Principal" class="dropmenu">
+                </form> 
+                <form method="get" action="${pageContext.request.contextPath}/Vender" novalidate>
+                    <input type="submit" value="Vender" class="dropmenu">
+                </form>
+            
+                <form method="get" action="${pageContext.request.contextPath}/ProdutoConsultar" novalidate>
+                    <input type="submit" value="Consultar Produto" class="dropmenu">
+                </form>
+
+                <form method="get" action="${pageContext.request.contextPath}/ConsultaCliente" novalidate>
+                    <input type="submit" value="Consultar Cliente" class="dropmenu">
+                </form>
+
+                <form method="get" action="${pageContext.request.contextPath}/FuncionarioConsultar" novalidate>
+                    <input type="submit" value="Consultar Funcionário" class="dropmenu">
+                </form>
         </nav>
 
         <div class="container">

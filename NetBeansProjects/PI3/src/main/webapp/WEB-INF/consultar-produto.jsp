@@ -49,27 +49,25 @@
             <div class="menu__usuario"></div>
         </header>
         
-        <nav class="menu">
-            <form class="form" method="get" action="${pageContext.request.contextPath}/menu-principal" novalidate>
-                <input type="submit" value="Menu Principal" class="menu__topo">
-            </form>
-            <form class="form" method="get" action="${pageContext.request.contextPath}/vender" novalidate>
-                <input type="submit" value="Venda" class="menu__topo">
-            </form>
-            <form class="form" method="get" action="${pageContext.request.contextPath}/ConsultaCliente" novalidate>
-                <input type="submit" value="Cliente" class="menu__topo">
-            </form>
-            <form class="form" method="get" action="${pageContext.request.contextPath}/FuncionarioConsultar" novalidate>
-                <input type="submit" value="Funcionario" class="menu__topo">
-            </form>
-            <form class="form" method="get" action="${pageContext.request.contextPath}/ProdutoConsultar" novalidate>
-                <input type="submit" value="Produto" class="menu__topo">
-            </form>
-            <!--
-            <form class="form" method="get" action="${pageContext.request.contextPath}/" novalidate>
-                <input type="submit" value="Relatório" class="menu__topo">
-            </form>
-             -->
+                <nav class="menu"> 
+                <form method="get" action="${pageContext.request.contextPath}/menu-principal" novalidate>
+                    <input type="submit" value="Menu Principal" class="dropmenu">
+                </form> 
+                <form method="get" action="${pageContext.request.contextPath}/Vender" novalidate>
+                    <input type="submit" value="Vender" class="dropmenu">
+                </form>
+            
+                <form method="get" action="${pageContext.request.contextPath}/ProdutoConsultar" novalidate>
+                    <input type="submit" value="Consultar Produto" class="dropmenu">
+                </form>
+
+                <form method="get" action="${pageContext.request.contextPath}/ConsultaCliente" novalidate>
+                    <input type="submit" value="Consultar Cliente" class="dropmenu">
+                </form>
+
+                <form method="get" action="${pageContext.request.contextPath}/FuncionarioConsultar" novalidate>
+                    <input type="submit" value="Consultar Funcionário" class="dropmenu">
+                </form>
         </nav>
 
 

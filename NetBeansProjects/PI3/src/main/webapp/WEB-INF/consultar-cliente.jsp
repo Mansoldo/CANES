@@ -47,7 +47,30 @@
                 <h1>Tades</h1>
             </div>
         </header>
+   
                 
+        <nav class="menu">   
+                <form method="get" action="${pageContext.request.contextPath}/menu-principal" novalidate>
+                    <input type="submit" value="Menu Principal" class="dropmenu">
+                </form>  
+                <form method="get" action="${pageContext.request.contextPath}/Vender" novalidate>
+                    <input type="submit" value="Vender" class="dropmenu">
+                </form>
+            
+                <form method="get" action="${pageContext.request.contextPath}/ProdutoConsultar" novalidate>
+                    <input type="submit" value="Consultar Produto" class="dropmenu">
+                </form>
+
+                <form method="get" action="${pageContext.request.contextPath}/ConsultaCliente" novalidate>
+                    <input type="submit" value="Consultar Cliente" class="dropmenu">
+                </form>
+
+                <form method="get" action="${pageContext.request.contextPath}/FuncionarioConsultar" novalidate>
+                    <input type="submit" value="Consultar Funcionário" class="dropmenu">
+                </form>
+        </nav>
+              
+                        
         <div class="container">
             <div class="linha">
                 <h2>Consultar Cliente</h2>
