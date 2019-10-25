@@ -18,6 +18,13 @@
     </head>
 
     <body>
+        <script>
+            if(${clienteSalvoAtt} === true){
+                alert('Cliente salvo com sucesso!');
+            } else {
+                alert('Falha ao salvar Cliente!');
+            }
+        </script>
         <form method="post" action="${pageContext.request.contextPath}/cliente" novalidate>
             <header class="header">
                 <div class="logo">
@@ -58,7 +65,7 @@
 
                 <hr>
 
-                <form id="cadastro__cliente" name="cadastro__cliente" class="cadastro__cliente">
+                <form id="cadastro__cliente" name="cadastro__cliente" class="cadastro__cliente" method="post" action="${pageContext.request.contextPath}/cliente" novalidate>
                     <div class="linha">
                         <div class="coluna">
                             <label for="cliente__nome__completo">Nome completo <span class="obrigatorio">*</span></label>
@@ -95,7 +102,6 @@
                     
                     <input type="submit" value="Salvar" class="btn btn-salvar" />
                 </form>
-            </form>
                     
             <form method="post" action="${pageContext.request.contextPath}/menu-principal" novalidate>
                 <input type="submit" value="Cancelar" class="btn btn-cancelar" />

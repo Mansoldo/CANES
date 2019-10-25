@@ -58,7 +58,7 @@
 
                 <hr>
 
-                <form id="cadastro__cliente" name="cadastro__cliente" class="cadastro__cliente">
+                <form id="cadastro__cliente" name="cadastro__cliente" class="cadastro__cliente" method="post" action="${pageContext.request.contextPath}/ClienteAlterar" novalidate>
                     <div class="linha">
                         <div class="coluna">
                             <label for="cliente__nome__completo">Nome completo <span class="obrigatorio">*</span></label>
@@ -95,8 +95,7 @@
                     </div>
                     
                     <input type="submit" value="Salvar" class="btn btn-salvar" />
-                </form>
-            </form>
+                    </form>
                         
             <form method="get" action="${pageContext.request.contextPath}/ConsultaCliente" novalidate>
                 <input type="submit" value="Cancelar" class="btn btn-cancelar" />
