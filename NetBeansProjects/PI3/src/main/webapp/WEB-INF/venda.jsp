@@ -1,7 +1,7 @@
 <%-- 
     Document   : venda
     Created on : 11/10/2019, 22:06:37
-    Author     : beatriz.silva19
+    Author     : Beatriz Silva
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -25,27 +25,27 @@
             </div>
             <div class="menu__usuario"></div>
         </header>
-        
-                
-            <nav class="menu"> 
-                <form method="get" action="${pageContext.request.contextPath}/menu-principal" novalidate>
-                    <input type="submit" value="Menu Principal" class="dropmenu">
-                </form> 
-                <form method="get" action="${pageContext.request.contextPath}/Vender" novalidate>
-                    <input type="submit" value="Vender" class="dropmenu">
-                </form>
-            
-                <form method="get" action="${pageContext.request.contextPath}/ProdutoConsultar" novalidate>
-                    <input type="submit" value="Consultar Produto" class="dropmenu">
-                </form>
 
-                <form method="get" action="${pageContext.request.contextPath}/ConsultaCliente" novalidate>
-                    <input type="submit" value="Consultar Cliente" class="dropmenu">
-                </form>
 
-                <form method="get" action="${pageContext.request.contextPath}/FuncionarioConsultar" novalidate>
-                    <input type="submit" value="Consultar Funcionário" class="dropmenu">
-                </form>
+        <nav class="menu"> 
+            <form method="get" action="${pageContext.request.contextPath}/menu-principal" novalidate>
+                <input type="submit" value="Menu Principal" class="dropmenu">
+            </form> 
+            <form method="get" action="${pageContext.request.contextPath}/Vender" novalidate>
+                <input type="submit" value="Vender" class="dropmenu">
+            </form>
+
+            <form method="get" action="${pageContext.request.contextPath}/ProdutoConsultar" novalidate>
+                <input type="submit" value="Consultar Produto" class="dropmenu">
+            </form>
+
+            <form method="get" action="${pageContext.request.contextPath}/ConsultaCliente" novalidate>
+                <input type="submit" value="Consultar Cliente" class="dropmenu">
+            </form>
+
+            <form method="get" action="${pageContext.request.contextPath}/FuncionarioConsultar" novalidate>
+                <input type="submit" value="Consultar Funcionário" class="dropmenu">
+            </form>
         </nav>
 
         <div class="container">
@@ -67,8 +67,29 @@
                     </div>
                 </div>
                 <div class="coluna">
-                    <input type="button" value="Pesquisar" class="btn" />
+                    <input type="button" value="Pesquisar" class="btn mt-0 ml-15" />
                 </div>
+
+                <table id="tabelaVenda" class="tabela">
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Quantidade</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${produtoAtt}" var="produto">
+                        <tr>
+                            <td id="IDtable"><c:out value="${produto.getID()}" /></td>
+                            <td id="nameTable"><c:out value="${produto.getNomeProduto()}" /></td>
+                            <td id="quantidadeTable"><c:out value="${produto.getQuantidade()}" /></td>
+                            <td id="valorTable"><c:out value="${produto.getValorUnitario()}" /></td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+
             </div>
 
             <div class="linha">
@@ -87,7 +108,7 @@
                     </div>
                 </div>
                 <div class="coluna">
-                    <input type="button" value="Pesquisar" class="btn" />
+                    <input type="button" value="Pesquisar" class="btn  mt-0 ml-15" />
                 </div>
             </div>
         </div>
