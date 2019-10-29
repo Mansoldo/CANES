@@ -1,7 +1,7 @@
 <%-- 
     Document   : cadastro-produto
     Created on : 11/10/2019, 22:05:05
-    Author     : beatriz.silva19
+    Author     : Beatriz da Silva
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

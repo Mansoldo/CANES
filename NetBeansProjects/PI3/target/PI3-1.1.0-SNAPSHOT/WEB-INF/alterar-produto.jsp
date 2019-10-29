@@ -1,7 +1,7 @@
 <%-- 
     Document   : ProdutoAlterar
     Created on : 16/10/2019, 16:11:57
-    Author     : nik_r
+    Author     : Gabriel Vital
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

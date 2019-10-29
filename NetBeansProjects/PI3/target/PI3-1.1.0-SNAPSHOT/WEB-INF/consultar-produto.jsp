@@ -1,7 +1,7 @@
 <%-- 
     Document   : consulta-produto
     Created on : 14/10/2019, 11:40:14
-    Author     : MICAEL
+    Author     : Micael Santos
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -39,7 +39,7 @@
                 alert('Falha ao Excluir o Produto!');
             }
         </script>
-        
+
         <header class="header">
             <div class="logo">
                 <h1>Livraria</h1>
@@ -48,26 +48,26 @@
             </div>
             <div class="menu__usuario"></div>
         </header>
-        
-                <nav class="menu"> 
-                <form method="get" action="${pageContext.request.contextPath}/menu-principal" novalidate>
-                    <input type="submit" value="Menu Principal" class="dropmenu">
-                </form> 
-                <form method="get" action="${pageContext.request.contextPath}/Vender" novalidate>
-                    <input type="submit" value="Vender" class="dropmenu">
-                </form>
-            
-                <form method="get" action="${pageContext.request.contextPath}/ProdutoConsultar" novalidate>
-                    <input type="submit" value="Consultar Produto" class="dropmenu">
-                </form>
 
-                <form method="get" action="${pageContext.request.contextPath}/ConsultaCliente" novalidate>
-                    <input type="submit" value="Consultar Cliente" class="dropmenu">
-                </form>
+        <nav class="menu"> 
+            <form method="get" action="${pageContext.request.contextPath}/menu-principal" novalidate>
+                <input type="submit" value="Menu Principal" class="dropmenu">
+            </form> 
+            <form method="get" action="${pageContext.request.contextPath}/Vender" novalidate>
+                <input type="submit" value="Vender" class="dropmenu">
+            </form>
 
-                <form method="get" action="${pageContext.request.contextPath}/FuncionarioConsultar" novalidate>
-                    <input type="submit" value="Consultar Funcionário" class="dropmenu">
-                </form>
+            <form method="get" action="${pageContext.request.contextPath}/ProdutoConsultar" novalidate>
+                <input type="submit" value="Consultar Produto" class="dropmenu">
+            </form>
+
+            <form method="get" action="${pageContext.request.contextPath}/ConsultaCliente" novalidate>
+                <input type="submit" value="Consultar Cliente" class="dropmenu">
+            </form>
+
+            <form method="get" action="${pageContext.request.contextPath}/FuncionarioConsultar" novalidate>
+                <input type="submit" value="Consultar Funcionário" class="dropmenu">
+            </form>
         </nav>
 
 
@@ -75,13 +75,13 @@
             <div class="linha">
                 <h2>Consultar Produto</h2>
             </div>
-            
+
             <hr>
 
             <form id="consultaProduto" name="consultaProduto" class="form" method="post" action="${pageContext.request.contextPath}/ProdutoConsultar" novalidate>
                 <div class="linha">
                     <div class="coluna">
-                        <select class="campo" name="consultar" id="consultar">
+                        <select  name="consultar" id="consultar" class="campo mt-0">
                             <option selected value="selecione">Pesquisar por</option>
                             <option value="Nome">Nome</option>
                             <option value="Categoria">Categoria</option>
@@ -89,10 +89,10 @@
                         </select>
                     </div>
                     <div class="coluna">
-                        <input type="text" value="" class="campo" name="pesquisar__produto"/>
+                        <input type="text" value="" name="pesquisar__produto" class="campo mt-0" />
                     </div>
                     <div class="coluna">
-                        <input type="Submit" value="Pesquisar" class="btn" />
+                        <input type="Submit" value="Pesquisar" class="btn mt-0" />
                     </div>
                 </div>
                 <table id="tabelaProduto" class="tabela">
@@ -120,18 +120,18 @@
                     </tbody>
                 </table>
             </form>
-            
+
             <div class="botoes">
                 <form method="get" action="${pageContext.request.contextPath}/ProdutoAlterar" novalidate>
                     <input type="submit" value="Alterar" class="btn btn-salvar">
                     <input type="hidden" value="?" id="idProd" name="idProd">
                     <input type="hidden" value="?" id="categoria" name="categoria">
-                    
+
                     <script>
                         var table = document.getElementById('tabelaProduto');
-                        
-                        for (var i = 1; i < table.rows.length; i++){
-                            table.rows[i].onclick = function (){
+
+                        for (var i = 1; i < table.rows.length; i++) {
+                            table.rows[i].onclick = function () {
                                 //rIndex = this.rowIndex;
                                 document.getElementById("idProd").value = this.cells[0].innerHTML;
                                 document.getElementById("idProd2").value = this.cells[0].innerHTML;
@@ -140,14 +140,10 @@
                         }
                     </script>
                 </form>
-                    
+
                 <form method="post" action="${pageContext.request.contextPath}/ProdutoExcluir" novalidate>
-                        <input type="submit" value="Excluir" class="btn btn-cancelar">
-                        <input type="hidden" value="?" id="idProd2" name="idProd2">
-                </form>
-                        
-                <form method="post" action="${pageContext.request.contextPath}/menu-principal" novalidate>
-                        <input type="submit" value="HOME" class="btn">
+                    <input type="submit" value="Excluir" class="btn btn-cancelar">
+                    <input type="hidden" value="?" id="idProd2" name="idProd2">
                 </form>
             </div>
         </div>

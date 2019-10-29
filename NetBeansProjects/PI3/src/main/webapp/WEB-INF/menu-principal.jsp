@@ -1,7 +1,7 @@
 <%-- 
     Document   : menu-principal
     Created on : 11/10/2019, 22:06:14
-    Author     : beatriz.silva19
+    Author     : Beatriz da Silva
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -34,7 +34,7 @@
                 <button class="dropbtn">Vender</button>
                 <div class="dropdown-content">
                     <form method="get" action="${pageContext.request.contextPath}/Vender" novalidate>
-                    <input type="submit" value="Vender" class="dropdown-content">
+                    <input type="submit" value="Vender" class="dropdown-content-button">
                     </form>
                 </div>
             </div>
@@ -44,10 +44,10 @@
                 <button class="dropbtn">Produtos</button>
                 <div class="dropdown-content">
                     <form method="get" action="${pageContext.request.contextPath}/ProdutoConsultar" novalidate>
-                        <input type="submit" value="Pesquisar" class="dropdown-content">
+                        <input type="submit" value="Pesquisar" class="dropdown-content-button">
                     </form>
                     <form method="get" action="${pageContext.request.contextPath}/formularioProduto" novalidate>
-                        <input type="submit" value="Cadastrar" class="dropdown-content">
+                        <input type="submit" value="Cadastrar" class="dropdown-content-button">
                     </form>
                 </div>
             </div>
@@ -57,10 +57,10 @@
                 <button class="dropbtn">Clientes</button>
                 <div class="dropdown-content">
                     <form method="get" action="${pageContext.request.contextPath}/ConsultaCliente" novalidate>
-                        <input type="submit" value="Pesquisar" class="dropdown-content">
+                        <input type="submit" value="Pesquisar" class="dropdown-content-button">
                     </form>
                     <form method="get" action="${pageContext.request.contextPath}/cliente" novalidate>
-                        <input type="submit" value="Cadastrar" class="dropdown-content">
+                        <input type="submit" value="Cadastrar" class="dropdown-content-button">
                     </form>
                 </div>
             </div>
@@ -70,10 +70,10 @@
                 <button class="dropbtn">Funcionários</button>
                 <div class="dropdown-content">
                     <form method="get" action="${pageContext.request.contextPath}/FuncionarioConsultar" novalidate>
-                        <input type="submit" value="Pesquisar" class="dropdown-content">
+                        <input type="submit" value="Pesquisar" class="dropdown-content-button">
                     </form>
                     <form method="get" action="${pageContext.request.contextPath}/formularioFuncionario" novalidate>
-                        <input type="submit" value="Cadastrar" class="dropdown-content">
+                        <input type="submit" value="Cadastrar" class="dropdown-content-button">
                     </form>
                 </div>
             </div>
@@ -83,13 +83,13 @@
                 <button class="dropbtn">Relatórios</button>
                 <div class="dropdown-content">
                     <form method="get" action="${pageContext.request.contextPath}/RelatorioTop" novalidate>
-                        <input type="submit" value="Produtos mais Vendidos" class="dropdown-content">
+                        <input type="submit" value="Mais vendidos" class="dropdown-content-button">
                     </form>
                     <form method="get" action="${pageContext.request.contextPath}/RelatorioFilial" novalidate>
-                        <input type="submit" value="Total por Filial" class="dropdown-content">
+                        <input type="submit" value="Total por Filial" class="dropdown-content-button">
                     </form>
                     <form method="get" action="${pageContext.request.contextPath}/RelatorioPercentual" novalidate>
-                        <input type="submit" value="Percentual por Filial" class="dropdown-content">
+                        <input type="submit" value="Percentual por Filial" class="dropdown-content-button">
                     </form>
                 </div>
             </div>

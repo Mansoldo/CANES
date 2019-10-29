@@ -11,14 +11,6 @@ package Classes;
  */
 public class Produto {
     private int ID;
-
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
-    }
     private String nomeProduto;
     private float valorUnitario;
     private String idioma;
@@ -48,6 +40,14 @@ public class Produto {
         this.filial = filial;
     }
 
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+    
     public String getNomeProduto() {
         return nomeProduto;
     }

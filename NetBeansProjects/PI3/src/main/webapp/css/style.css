@@ -5,6 +5,7 @@
     font-size: 14px;
     line-height: 1.42857143;
 }
+
 /* HEADER */
 .header {
     background-color: #f5f5f5;
@@ -55,6 +56,15 @@
     height: 40px;
 }
 
+.dropmenu {
+    border: none;
+    background: transparent;
+    color: white;
+}
+.dropmenu:hover {
+    cursor: pointer;
+    color: #ced4da;
+}
 .menu menu__topo{
     color: #f5f5f5;
     font-size: 100%;
@@ -83,12 +93,6 @@ hr {
 
 /* CONTAINER DAS PÁGINAS GERAIS */
 .container {
-    max-width: 80%;
-    margin: 0 auto;
-}
-
-/* Container Everton - Modificar as páginas html, pois não será necessário*/
-.containerRelatorio {
     max-width: 80%;
     margin: 0 auto;
 }
@@ -240,8 +244,7 @@ hr {
 /* ASTERISCO PARA ITENS OBRIGATÓRIOS EM FORMULÁRIOS */
 .obrigatorio {
     color: #ff0000;
-    font-style: italic;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 /* ESTILO DE BOTÕES GERAL */
@@ -369,3 +372,10 @@ th, td {
     padding: 0.2em 2em;
 }
 
+/*Modificadores para correcoes de CSS*/
+.mt-0 {
+    margin-top: 0 !important;
+}
+.ml-15 {
+    margin-left: 15px !important;
+}

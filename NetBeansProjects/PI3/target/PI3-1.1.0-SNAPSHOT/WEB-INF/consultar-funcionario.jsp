@@ -1,7 +1,7 @@
 <%-- 
     Document   : consulta-funcionario
     Created on : 14/10/2019, 11:39:33
-    Author     : MICAEL
+    Author     : Micael Santos
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -72,7 +72,7 @@
             <form id="consultaFuncionario" name="consultaFuncionario" class="form" method="post" action="${pageContext.request.contextPath}/FuncionarioConsultar" novalidate>
                 <div class="linha">
                     <div class="coluna">
-                        <select class="campo" name="consultar" id="consultar">
+                        <select name="consultar" id="consultar" class="campo mt-0">
                             <option selected value="selecione">Pesquisar por</option>
                             <option value="CPF">CPF</option>
                             <option value="Nome">Nome</option>
@@ -81,10 +81,10 @@
                         </select>
                     </div>
                     <div class="coluna">
-                        <input type="text" value="" class="campo" name="pesquisar__funcionario" />
+                        <input type="text" value="" name="pesquisar__funcionario" class="campo mt-0" />
                     </div>
                     <div class="coluna">
-                        <input type="submit" value="Pesquisar" class="btn" />
+                        <input type="submit" value="Pesquisar" class="btn mt-0" />
                     </div>                    
                 </div>
                 <table id="tabelaFuncionario" class="tabela">
@@ -134,10 +134,6 @@
                 <form method="post" action="${pageContext.request.contextPath}/FuncionarioExcluir" novalidate>
                     <input type="submit" value="Excluir" class="btn btn-cancelar">
                     <input type="hidden" value="?" id="idFunc2" name="idFunc2">
-                </form>
-                    
-                <form method="post" action="${pageContext.request.contextPath}/menu-principal" novalidate>
-                    <input type="submit" value="HOME" class="btn">
                 </form>
             </div>
         </div>

@@ -1,7 +1,7 @@
 <%-- 
     Document   : relatorio-total-filial
     Created on : 11/10/2019, 22:11:47
-    Author     : beatriz.silva19
+    Author     : Beatriz da Silva
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -70,7 +70,7 @@
                         <input type="text" value="" class="campo" /> 
                     </div>
                     <div class="coluna">
-                        <input type="button" value="Pesquisar" class="btn btn-PesquisaRelatorio" />
+                        <input type="button" value="Pesquisar" class="btn mt-0" />
                     </div>
                 </div>
                 <table id="tabela" class="tabela">

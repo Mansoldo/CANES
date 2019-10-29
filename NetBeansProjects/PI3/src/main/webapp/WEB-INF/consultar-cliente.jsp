@@ -1,7 +1,7 @@
 <%-- 
     Document   : ConsultaCliente
     Created on : 14/10/2019, 11:38:27
-    Author     : MICAEL
+    Author     : Micael Santos
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -81,17 +81,17 @@
             <form id="consultaCliente" name="consultaCliente" class="form" method="post" action="${pageContext.request.contextPath}/ConsultaCliente" novalidate>
                 <div class="linha">
                     <div class="coluna">
-                        <select class="campo" name="consultar" id="consultar">
+                        <select name="consultar" id="consultar" class="campo mt-0">
                             <option selected value="selecione">Pesquisar por</option>
                             <option value="CPF">CPF</option>
                             <option value="Nome">Nome</option>
                         </select>
                     </div>
                     <div class="coluna">
-                        <input type="text" value="" class="campo" name="pesquisa__cliente" />
+                        <input type="text" value="" name="pesquisa__cliente" class="campo mt-0" />
                     </div>
                     <div class="coluna">
-                        <input type="submit" value="Pesquisar" class="btn" />
+                        <input type="submit" value="Pesquisar" class="btn mt-0" />
                     </div>
                 </div>
                 
@@ -142,10 +142,6 @@
                 <form method="post" action="${pageContext.request.contextPath}/ClienteExcluir" novalidate>
                     <input type="submit" value="Excluir" class="btn btn-cancelar">
                     <input type="hidden" value="?" id="cpf2" name="cpf2">
-                </form>
-                    
-                <form method="post" action="${pageContext.request.contextPath}/menu-principal" novalidate>
-                    <input type="submit" value="HOME" class="btn">
                 </form>
             </div>
         </div>
