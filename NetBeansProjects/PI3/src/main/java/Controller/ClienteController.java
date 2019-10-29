@@ -11,9 +11,9 @@ import java.sql.Date;
 
 /**
  *
- * @author nik_r
+ * @author Gabriel Vital
  */
-public class ClienteController {
+public class ClienteController /*implements AcoesCrud*/{
 
     public static boolean cadastrarCliente(String nome, String cpf, String nascimento, String sexo, String email, String telefone) {
         Cliente cliente = new Cliente(nome, cpf, nascimento, sexo, email, telefone);
@@ -21,16 +21,12 @@ public class ClienteController {
     }
 
     public static ArrayList<Cliente> getClientes() {
-
         ArrayList<Cliente> cliente = DAO.ClienteDAO.getCliente();
-
         return cliente;
     }
 
     public static ArrayList<Cliente> getClientesFilter(String filter) {
-
         ArrayList<Cliente> cliente = DAO.ClienteDAO.getClienteFilter(filter);
-
         return cliente;
     }
 

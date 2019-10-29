@@ -10,7 +10,6 @@ package Classes;
  * @author nik_r
  */
 public class ProdutoLivro extends Produto {
-
     private String editora;
     private String autor;
     private String ISBN;
@@ -38,10 +37,12 @@ public class ProdutoLivro extends Produto {
         this.ID = ID;
     }
 
+    @Override
     public int getID() {
         return ID;
     }
 
+    @Override
     public void setID(int ID) {
         this.ID = ID;
     }

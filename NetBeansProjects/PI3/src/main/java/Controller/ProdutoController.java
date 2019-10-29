@@ -12,54 +12,42 @@ import java.util.ArrayList;
  */
 /**
  *
- * @author nik_r
+ * @author Gabriel Vital
  */
-public class ProdutoController {
+public class ProdutoController /*implements AcoesCrud*/{
 
     public static boolean cadastrarProduto(String nome, float valorUnitario, String Idioma, String categoria, int quantidade, int filial) {
-
         Produto produto = new Produto(nome, valorUnitario, Idioma, categoria, quantidade, filial);
         return DAO.ProdutoDAO.daoSalvarProduto(produto);
     }
 
     public static boolean cadastrarProdutoLivro(String editora, String ISBN, int paginas, String autor, String nomeProduto, float valorUnitario, String idioma, String categoria, int quantidade, int filial) {
-
         ProdutoLivro produto = new ProdutoLivro(editora, ISBN, paginas, autor, nomeProduto, valorUnitario, idioma, categoria, quantidade, filial);
-
         return DAO.ProdutoDAO.daoSalvarProdutoLivro(produto);
     }
 
     public static boolean cadastrarProdutoCdDvd(String tempo, String nome, float valorUnitario, String Idioma, String categoria, int quantidade, int filial) {
-
         ProdutoCdDvd produto = new ProdutoCdDvd(tempo, nome, valorUnitario, Idioma, categoria, quantidade, filial);
-
         return DAO.ProdutoDAO.daoSalvarCdDvd(produto);
     }
 
     public static ArrayList<Produto> getProdutoGenerico(int id) {
-
         ArrayList<Produto> produto = DAO.ProdutoDAO.getProdutos(id);
-
         return produto;
     }
+    
     public static ArrayList<ProdutoLivro> getProdutoLivro(int id) {
-
         ArrayList<ProdutoLivro> produto = DAO.ProdutoDAO.getProdutosLivros(id);
-
         return produto;
     }
     
     public static ArrayList<ProdutoCdDvd> getProdutoCdDvd(int id) {
-
         ArrayList<ProdutoCdDvd> produto = DAO.ProdutoDAO.getProdutosCdDvd(id);
-
         return produto;
     }
 
     public static ArrayList<Produto> getProdutoFilter(String filter) {
-
         ArrayList<Produto> produto = DAO.ProdutoDAO.getProdutoFilter(filter);
-
         return produto;
     }
 
