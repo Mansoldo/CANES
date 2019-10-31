@@ -1,3 +1,4 @@
+Classes\AcoesCrud.class
 Servlets\FuncionarioAlterar.class
 Servlets\RelatorioPercentual.class
 DAO\ProdutoDAO.class
