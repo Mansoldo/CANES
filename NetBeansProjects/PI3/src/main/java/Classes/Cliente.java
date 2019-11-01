@@ -5,10 +5,6 @@
  */
 package Classes;
 
-import java.sql.Date;
-
-
-
 /**
  *
  * @author nik_r
@@ -22,7 +18,7 @@ public class Cliente {
     private String telefone;
 
     public Cliente() {
-        
+
     }
 
     @Override
@@ -86,6 +82,5 @@ public class Cliente {
         this.email = email;
         this.telefone = telefone;
     }
-    
-    
+
 }

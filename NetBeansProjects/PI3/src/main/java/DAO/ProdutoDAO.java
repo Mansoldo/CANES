@@ -16,7 +16,7 @@ public class ProdutoDAO {
     private static Connection obterConexao() throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conexao = DriverManager.getConnection("jdbc:mysql://canesdb.c6rp7koaks1z.us-east-1.rds.amazonaws.com:3306/LIVRARIA?useTimezone=true&serverTimezone=UTC", "admin", "Canes123");
+        Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/livraria?useTimezone=true&serverTimezone=UTC", "root", "1234");
         return conexao;
     }
 
@@ -296,7 +296,7 @@ public class ProdutoDAO {
         }
         return retorno;
     }
-    
+
     public static boolean daoAlterarProduto(Produto produto) {
         boolean retorno = false;
 
@@ -324,7 +324,7 @@ public class ProdutoDAO {
         }
         return retorno;
     }
-    
+
     public static boolean excluirDAOProduto(int ID) {
         boolean retorno = false;
 
