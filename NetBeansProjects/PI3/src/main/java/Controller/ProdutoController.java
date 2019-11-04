@@ -1,5 +1,6 @@
 package Controller;
 
+import Classes.ItemPedido;
 import Classes.Produto;
 import Classes.ProdutoCdDvd;
 import Classes.ProdutoLivro;

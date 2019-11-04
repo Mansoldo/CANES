@@ -1,8 +1,10 @@
-
 package Servlets;
 
+import Classes.ItemPedido;
+import Classes.Produto;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,10 +23,24 @@ public class Vender extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        String filter = request.getParameter("pesquisar__produto");
+
+        ArrayList<Produto> produto = Controller.ProdutoController.getProdutoFilter(filter);
+        request.setAttribute("produtoAtt", produto);
+
+        ArrayList<ItemPedido> lista = Controller.ItemPedidoController.getItens();
+        request.setAttribute("produtoList", lista);
+
+        float calculoTotal = 0;
+        for (ItemPedido itens : lista) {
+            calculoTotal += itens.Valor_total();
+        }
+        request.setAttribute("valorTotal", calculoTotal);
+        
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/WEB-INF/venda.jsp");
         dispatcher.forward(request, response);

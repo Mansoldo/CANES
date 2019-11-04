@@ -1,6 +1,7 @@
 package DAO;
 
 import Classes.Cliente;
+import Classes.ItemPedido;
 import Classes.Produto;
 import Classes.ProdutoCdDvd;
 import Classes.ProdutoLivro;
@@ -13,10 +14,11 @@ import java.util.ArrayList;
 
 public class ProdutoDAO {
 
+
     private static Connection obterConexao() throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/livraria?useTimezone=true&serverTimezone=UTC", "root", "1234");
+        Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/livraria?useTimezone=true&serverTimezone=UTC", "root", "adminadmin");
         return conexao;
     }
 
@@ -343,4 +345,5 @@ public class ProdutoDAO {
         }
         return retorno;
     }
+
 }
