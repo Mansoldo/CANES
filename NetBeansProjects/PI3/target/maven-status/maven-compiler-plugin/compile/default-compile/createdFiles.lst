@@ -7,6 +7,7 @@ Servlets\RelatorioTop.class
 Servlets\ItemPedidoServlet.class
 Classes\ItemPedido.class
 Classes\BackOffice.class
+DAO\VendaDAO.class
 Classes\Vendedor.class
 Servlets\ClienteAlterar.class
 Servlets\ProdutoAlterar.class
@@ -36,5 +37,6 @@ Servlets\MenuPrincipal.class
 Classes\Cliente.class
 Servlets\FuncionarioConsultar.class
 Classes\ProdutoCdDvd.class
+Controller\VendasController.class
 Servlets\ClienteConsultar.class
 DAO\ClienteDAO.class

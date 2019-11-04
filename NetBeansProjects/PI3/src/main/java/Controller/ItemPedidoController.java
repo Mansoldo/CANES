@@ -31,6 +31,6 @@ public class ItemPedidoController {
     }
 
     public static void limparLista() {
-        DAO.ItemPedidoDAO.daoExcluiritem();
+        DAO.ItemPedidoDAO.daoExcluirItem();
     }
 }

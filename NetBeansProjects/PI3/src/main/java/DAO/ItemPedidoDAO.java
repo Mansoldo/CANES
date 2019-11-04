@@ -44,13 +44,15 @@ public class ItemPedidoDAO {
 
         try (Connection conexao = obterConexao()) {
 
-            PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO ITEM_COMANDA "
-                    + "(QUANTIDADE, VALOR_ITEM, ID_PRODUTO, ID_COMANDA, NOME_PRODUTO)\n"
-                    + " VALUES (?,?,?,?,?)");
+            PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO ITEMPEDIDO "
+                    + "(QTD, VALOR_ITEM, FK_ID_PROD, FK_ID_VENDA)\n"
+                    + " VALUES (?,?,?,?);");
 
             comandoSQL.setInt(1, item.getQuantidade());
+            comandoSQL.setFloat(2, item.getValor());
             comandoSQL.setInt(3, item.getIdProduto());
             comandoSQL.setInt(4, ID);
+            
 
             int linhaAfetada = comandoSQL.executeUpdate();
 
@@ -64,7 +66,7 @@ public class ItemPedidoDAO {
         return retorno;
     }
 
-    public static boolean daoExcluiritem() {
+    public static boolean daoExcluirItem() {
 
         lista.clear();
 

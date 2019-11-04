@@ -5,8 +5,12 @@
  */
 package Servlets;
 
+import Classes.ItemPedido;
+import Classes.Vendas;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,7 +36,16 @@ public class FinalizarVenda extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
+        ArrayList<ItemPedido> item = Controller.ItemPedidoController.getItens();
+        float calcTot = 0;
+        for (ItemPedido itens : item) {
+            calcTot += itens.Valor_total();
+        }
+        LocalDate hoje = LocalDate.now();
+        Vendas venda = new Vendas(hoje, calcTot);
+        boolean resulta = Controller.VendasController.finalizarVenda(venda);
+
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/WEB-INF/venda.jsp");
         dispatcher.forward(request, response);
