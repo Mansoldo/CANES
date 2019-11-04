@@ -5,6 +5,7 @@ package Servlets;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import Classes.Cliente;
 import java.io.IOException;
 import java.sql.Date;
 import java.text.DateFormat;
@@ -45,8 +46,9 @@ public class formularioCliente extends HttpServlet {
         String telefoneStr = request.getParameter("telefone");
         
         String dataString = request.getParameter("nascimento"); 
-       
-        boolean clienteSalvo = Controller.ClienteController.cadastrarCliente(nomeStr, cpfStr, dataString, sexoStr, emailStr, telefoneStr);
+        
+        Cliente cliente = new Cliente(nomeStr, cpfStr, cpfStr, sexoStr, emailStr, telefoneStr);
+        boolean clienteSalvo = Controller.ClienteController.cadastrar(cliente);
 
         request.setAttribute("clienteSalvoAtt", clienteSalvo);
 

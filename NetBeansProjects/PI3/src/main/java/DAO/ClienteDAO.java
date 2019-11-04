@@ -152,13 +152,17 @@ public class ClienteDAO {
             comandoSQL.setString(1, cpf);
 
             int linhasAfetadas = comandoSQL.executeUpdate();
-            
+
             retorno = linhasAfetadas > 0;
-            
+
         } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
         }
         return retorno;
+    }
+
+    public static boolean excluirDAOCliente(Cliente c) {
+        return excluirDAOCliente(c.getCpf());
     }
 
 }
