@@ -22,7 +22,7 @@ public class ProdutoDAO {
         return conexao;
     }
 
-    public static boolean daoSalvarProduto(Produto produto) {
+    public boolean daoSalvarProduto(Produto produto) {
         boolean retorno = false;
 
         try (Connection conexao = obterConexao()) {
@@ -48,7 +48,7 @@ public class ProdutoDAO {
         return retorno;
     }
 
-    public static boolean daoSalvarProdutoLivro(ProdutoLivro produto) {
+    public boolean daoSalvarProdutoLivro(ProdutoLivro produto) {
         boolean retorno = false;
 
         try (Connection conexao = obterConexao()) {
@@ -78,7 +78,7 @@ public class ProdutoDAO {
         return retorno;
     }
 
-    public static boolean daoSalvarCdDvd(ProdutoCdDvd produto) {
+    public boolean daoSalvarCdDvd(ProdutoCdDvd produto) {
         boolean retorno = false;
 
         try (Connection conexao = obterConexao()) {
@@ -105,7 +105,7 @@ public class ProdutoDAO {
         return retorno;
     }
 
-    public static ArrayList<Produto> getProdutos(int id) {
+    public ArrayList<Produto> getProdutos(int id) {
 
         ArrayList<Produto> lista = new ArrayList<>();
 
@@ -137,7 +137,7 @@ public class ProdutoDAO {
         return lista;
     }
 
-    public static ArrayList<ProdutoLivro> getProdutosLivros(int id) {
+    public ArrayList<ProdutoLivro> getProdutosLivros(int id) {
 
         ArrayList<ProdutoLivro> lista = new ArrayList<>();
 
@@ -174,7 +174,7 @@ public class ProdutoDAO {
         return lista;
     }
 
-    public static ArrayList<ProdutoCdDvd> getProdutosCdDvd(int id) {
+    public ArrayList<ProdutoCdDvd> getProdutosCdDvd(int id) {
 
         ArrayList<ProdutoCdDvd> lista = new ArrayList<>();
 
@@ -207,7 +207,7 @@ public class ProdutoDAO {
         return lista;
     }
 
-    public static ArrayList<Produto> getProdutoFilter(String filter) {
+    public ArrayList<Produto> getProdutoFilter(String filter) {
 
         ArrayList<Produto> lista = new ArrayList<>();
 
@@ -238,7 +238,7 @@ public class ProdutoDAO {
         return lista;
     }
 
-    public static boolean daoAlterarProdutoLivro(ProdutoLivro produto) {
+    public boolean daoAlterarProdutoLivro(ProdutoLivro produto) {
         boolean retorno = false;
 
         try (Connection conexao = obterConexao()) {
@@ -270,7 +270,7 @@ public class ProdutoDAO {
         return retorno;
     }
 
-    public static boolean daoAlterarProdutoCdDvd(ProdutoCdDvd produto) {
+    public boolean daoAlterarProdutoCdDvd(ProdutoCdDvd produto) {
         boolean retorno = false;
 
         try (Connection conexao = obterConexao()) {
@@ -299,7 +299,7 @@ public class ProdutoDAO {
         return retorno;
     }
 
-    public static boolean daoAlterarProduto(Produto produto) {
+    public boolean daoAlterarProduto(Produto produto) {
         boolean retorno = false;
 
         try (Connection conexao = obterConexao()) {
@@ -327,7 +327,7 @@ public class ProdutoDAO {
         return retorno;
     }
 
-    public static boolean excluirDAOProduto(int ID) {
+    public boolean excluirDAOProduto(int ID) {
         boolean retorno = false;
 
         try (Connection conexao = obterConexao()) {

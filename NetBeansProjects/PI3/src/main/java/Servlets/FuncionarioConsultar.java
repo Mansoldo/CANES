@@ -17,6 +17,7 @@ public class FuncionarioConsultar extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/WEB-INF/consultar-funcionario.jsp");
         dispatcher.forward(request, response);
@@ -28,7 +29,7 @@ public class FuncionarioConsultar extends HttpServlet {
         
         String filter = request.getParameter("pesquisar__funcionario");
         
-        ArrayList<Funcionario> funcionario = Controller.FuncionarioController.getFuncionario(filter);
+        ArrayList<Funcionario> funcionario = new Controller.FuncionarioController().getFuncionario(filter);
         
         request.setAttribute("funcionarioAtt", funcionario);
         

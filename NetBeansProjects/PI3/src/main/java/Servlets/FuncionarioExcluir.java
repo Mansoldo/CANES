@@ -26,7 +26,7 @@ public class FuncionarioExcluir extends HttpServlet {
         
         int ID = Integer.parseInt(selecao);
 
-        boolean funcionario = Controller.FuncionarioController.excluirFuncionario(ID);
+        boolean funcionario = new Controller.FuncionarioController().excluirFuncionario(ID);
         
          request.setAttribute("funcionarioExcluidoAtt", funcionario);
          

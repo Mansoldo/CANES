@@ -17,18 +17,18 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author nik_r
+ * @author Gabriel Vital
  */
 public class ClienteDAO {
 
     private static Connection obterConexao() throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/livraria?useTimezone=true&serverTimezone=UTC", "root", "1234");
+        Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/livraria?useTimezone=true&serverTimezone=UTC", "root", "adminadmin");
         return conexao;
     }
 
-    public static boolean daoSalvarCliente(Cliente cliente) {
+    public boolean daoSalvarCliente(Cliente cliente) {
         boolean retorno = false;
 
         try (Connection conexao = obterConexao()) {
@@ -54,7 +54,7 @@ public class ClienteDAO {
         return retorno;
     }
 
-    public static ArrayList<Cliente> getCliente() {
+    public ArrayList<Cliente> getCliente() {
 
         ArrayList<Cliente> lista = new ArrayList<>();
 
@@ -84,7 +84,7 @@ public class ClienteDAO {
         return lista;
     }
 
-    public static ArrayList<Cliente> getClienteFilter(String filter) {
+    public ArrayList<Cliente> getClienteFilter(String filter) {
 
         ArrayList<Cliente> lista = new ArrayList<>();
 
@@ -114,7 +114,7 @@ public class ClienteDAO {
         return lista;
     }
 
-    public static boolean daoAlterarCliente(Cliente cliente) {
+    public boolean daoAlterarCliente(Cliente cliente) {
         boolean retorno = false;
 
         try (Connection conexao = obterConexao()) {
@@ -142,7 +142,7 @@ public class ClienteDAO {
         return retorno;
     }
 
-    public static boolean excluirDAOCliente(String cpf) {
+    public boolean excluirDAOCliente(String cpf) {
         boolean retorno = false;
 
         try (Connection conexao = obterConexao()) {
@@ -161,8 +161,5 @@ public class ClienteDAO {
         return retorno;
     }
 
-    public static boolean excluirDAOCliente(Cliente c) {
-        return excluirDAOCliente(c.getCpf());
-    }
 
 }

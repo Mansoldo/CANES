@@ -8,6 +8,7 @@ package Servlets;
 import Classes.Analista;
 import Classes.BackOffice;
 import Classes.Diretor;
+import Classes.Funcionario;
 import Classes.Gerente;
 import Classes.Vendedor;
 import java.io.IOException;
@@ -37,183 +38,41 @@ public class FuncionarioAlterar extends HttpServlet {
 
         String selecao2 = request.getParameter("cargo");
 
-        if (selecao2.equals("Analista")) {
-            ArrayList<Analista> lista = Controller.FuncionarioController.getFuncionarioAnalista(ID);
+        ArrayList<Funcionario> lista = new Controller.FuncionarioController().getFuncionario(ID);
 
-            for (Analista funcionarios : lista) {
-                request.setAttribute("idAtt", funcionarios.getId_func());
-                request.setAttribute("nomeAtt", funcionarios.getNome_func());
-                request.setAttribute("cpfAtt", funcionarios.getCpf());
-                request.setAttribute("cargoAtt", funcionarios.getCargo());
+        for (Funcionario funcionarios : lista) {
+            request.setAttribute("idAtt", funcionarios.getId_func());
+            request.setAttribute("nomeAtt", funcionarios.getNome_func());
+            request.setAttribute("cpfAtt", funcionarios.getCpf());
+            request.setAttribute("cargoAtt", funcionarios.getCargo());
 
-                int departamento = funcionarios.getDepartamento();
-                if (departamento == 1) {
-                    departamentoAtt = "Diretoria";
-                } else if (departamento == 2) {
-                    departamentoAtt = "Produtos/Marketing";
-                } else if (departamento == 3) {
-                    departamentoAtt = "TI";
-                } else {
-                    departamentoAtt = "Vendas";
-                }
-                request.setAttribute("departamentoAtt", departamentoAtt);
-
-                int filial = funcionarios.getFilial();
-                if (filial == 1) {
-                    filialAtt = "Matriz";
-                } else if (filial == 2) {
-                    filialAtt = "Brasilia";
-                } else if (filial == 3) {
-                    filialAtt = "Campina Grande";
-                } else {
-                    filialAtt = "Joinville";
-                }
-                request.setAttribute("filialAtt", filialAtt);
-
-                request.setAttribute("loginAtt", funcionarios.getLogin());
-                request.setAttribute("senhaAtt", funcionarios.getSenha());
-                request.setAttribute("idAtt", selecao);
+            int departamento = funcionarios.getDepartamento();
+            if (departamento == 1) {
+                departamentoAtt = "Diretoria";
+            } else if (departamento == 2) {
+                departamentoAtt = "Produtos/Marketing";
+            } else if (departamento == 3) {
+                departamentoAtt = "TI";
+            } else {
+                departamentoAtt = "Vendas";
             }
-        } else if (selecao2.equals("BackOffice")) {
-            ArrayList<BackOffice> lista = Controller.FuncionarioController.getFuncionarioBackOffice(ID);
+            request.setAttribute("departamentoAtt", departamentoAtt);
 
-            for (BackOffice funcionarios : lista) {
-                request.setAttribute("idAtt", funcionarios.getId_func());
-                request.setAttribute("nomeAtt", funcionarios.getNome_func());
-                request.setAttribute("cpfAtt", funcionarios.getCpf());
-                request.setAttribute("cargoAtt", funcionarios.getCargo());
-                int departamento = funcionarios.getDepartamento();
-                if (departamento == 1) {
-                    departamentoAtt = "Diretoria";
-                } else if (departamento == 2) {
-                    departamentoAtt = "Produtos/Marketing";
-                } else if (departamento == 3) {
-                    departamentoAtt = "TI";
-                } else {
-                    departamentoAtt = "Vendas";
-                }
-                request.setAttribute("departamentoAtt", departamentoAtt);
-
-                int filial = funcionarios.getFilial();
-                if (filial == 1) {
-                    filialAtt = "Matriz";
-                } else if (filial == 2) {
-                    filialAtt = "Brasilia";
-                } else if (filial == 3) {
-                    filialAtt = "Campina Grande";
-                } else {
-                    filialAtt = "Joinville";
-                }
-                request.setAttribute("filialAtt", filialAtt);
-                request.setAttribute("loginAtt", funcionarios.getLogin());
-                request.setAttribute("senhaAtt", funcionarios.getSenha());
-                request.setAttribute("idAtt", selecao);
+            int filial = funcionarios.getFilial();
+            if (filial == 1) {
+                filialAtt = "Matriz";
+            } else if (filial == 2) {
+                filialAtt = "Brasilia";
+            } else if (filial == 3) {
+                filialAtt = "Campina Grande";
+            } else {
+                filialAtt = "Joinville";
             }
-        } else if (selecao2.equals("Diretor")) {
-            ArrayList<Diretor> lista = Controller.FuncionarioController.getFuncionarioDiretor(ID);
+            request.setAttribute("filialAtt", filialAtt);
 
-            for (Diretor funcionarios : lista) {
-                request.setAttribute("idAtt", funcionarios.getId_func());
-                request.setAttribute("nomeAtt", funcionarios.getNome_func());
-                request.setAttribute("cpfAtt", funcionarios.getCpf());
-                request.setAttribute("cargoAtt", funcionarios.getCargo());
-                int departamento = funcionarios.getDepartamento();
-                if (departamento == 1) {
-                    departamentoAtt = "Diretoria";
-                } else if (departamento == 2) {
-                    departamentoAtt = "Produtos/Marketing";
-                } else if (departamento == 3) {
-                    departamentoAtt = "TI";
-                } else {
-                    departamentoAtt = "Vendas";
-                }
-                request.setAttribute("departamentoAtt", departamentoAtt);
-
-                int filial = funcionarios.getFilial();
-                if (filial == 1) {
-                    filialAtt = "Matriz";
-                } else if (filial == 2) {
-                    filialAtt = "Brasilia";
-                } else if (filial == 3) {
-                    filialAtt = "Campina Grande";
-                } else {
-                    filialAtt = "Joinville";
-                }
-                request.setAttribute("filialAtt", filialAtt);
-                request.setAttribute("loginAtt", funcionarios.getLogin());
-                request.setAttribute("senhaAtt", funcionarios.getSenha());
-                request.setAttribute("idAtt", selecao);
-            }
-        } else if (selecao2.equals("Gerente")) {
-            ArrayList<Gerente> lista = Controller.FuncionarioController.getFuncionarioGerente(ID);
-
-            for (Gerente funcionarios : lista) {
-                request.setAttribute("idAtt", funcionarios.getId_func());
-                request.setAttribute("nomeAtt", funcionarios.getNome_func());
-                request.setAttribute("cpfAtt", funcionarios.getCpf());
-                request.setAttribute("cargoAtt", funcionarios.getCargo());
-                int departamento = funcionarios.getDepartamento();
-                if (departamento == 1) {
-                    departamentoAtt = "Diretoria";
-                } else if (departamento == 2) {
-                    departamentoAtt = "Produtos/Marketing";
-                } else if (departamento == 3) {
-                    departamentoAtt = "TI";
-                } else {
-                    departamentoAtt = "Vendas";
-                }
-                request.setAttribute("departamentoAtt", departamentoAtt);
-
-                int filial = funcionarios.getFilial();
-                if (filial == 1) {
-                    filialAtt = "Matriz";
-                } else if (filial == 2) {
-                    filialAtt = "Brasilia";
-                } else if (filial == 3) {
-                    filialAtt = "Campina Grande";
-                } else {
-                    filialAtt = "Joinville";
-                }
-                request.setAttribute("filialAtt", filialAtt);
-                request.setAttribute("loginAtt", funcionarios.getLogin());
-                request.setAttribute("senhaAtt", funcionarios.getSenha());
-                request.setAttribute("idAtt", selecao);
-            }
-        } else {
-            ArrayList<Vendedor> lista = Controller.FuncionarioController.getFuncionarioVendedor(ID);
-
-            for (Vendedor funcionarios : lista) {
-                request.setAttribute("idAtt", funcionarios.getId_func());
-                request.setAttribute("nomeAtt", funcionarios.getNome_func());
-                request.setAttribute("cpfAtt", funcionarios.getCpf());
-                request.setAttribute("cargoAtt", funcionarios.getCargo());
-                int departamento = funcionarios.getDepartamento();
-                if (departamento == 1) {
-                    departamentoAtt = "Diretoria";
-                } else if (departamento == 2) {
-                    departamentoAtt = "Produtos/Marketing";
-                } else if (departamento == 3) {
-                    departamentoAtt = "TI";
-                } else {
-                    departamentoAtt = "Vendas";
-                }
-                request.setAttribute("departamentoAtt", departamentoAtt);
-
-                int filial = funcionarios.getFilial();
-                if (filial == 1) {
-                    filialAtt = "Matriz";
-                } else if (filial == 2) {
-                    filialAtt = "Brasilia";
-                } else if (filial == 3) {
-                    filialAtt = "Campina Grande";
-                } else {
-                    filialAtt = "Joinville";
-                }
-                request.setAttribute("filialAtt", filialAtt);
-                request.setAttribute("loginAtt", funcionarios.getLogin());
-                request.setAttribute("senhaAtt", funcionarios.getSenha());
-                request.setAttribute("idAtt", selecao);
-            }
+            request.setAttribute("loginAtt", funcionarios.getLogin());
+            request.setAttribute("senhaAtt", funcionarios.getSenha());
+            request.setAttribute("idAtt", selecao);
         }
 
         RequestDispatcher dispatcher
@@ -221,12 +80,13 @@ public class FuncionarioAlterar extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         String selecao = request.getParameter("idFunc");
         int ID = Integer.parseInt(selecao);
-        
+
         int filial = 0, departamento = 0;
 
         String nomeStr = request.getParameter("funcionario__nome__completo");
@@ -258,23 +118,8 @@ public class FuncionarioAlterar extends HttpServlet {
         }
 
         boolean funcionarioSalvo = false;
-
-        if (cargoStr.equals("Analista")) {
-            funcionarioSalvo = Controller.FuncionarioController.alterarAnalista(ID, usernameStr, senha, cpfStr,
-                    nomeStr, cargoStr, departamento, filial);
-        } else if (cargoStr.equals("Backoffice")) {
-            funcionarioSalvo = Controller.FuncionarioController.alterarBackOffice(ID, usernameStr, senha, cpfStr,
-                    nomeStr, cargoStr, departamento, filial);
-        } else if (cargoStr.equals("Diretor")) {
-            funcionarioSalvo = Controller.FuncionarioController.alterarDiretor(ID, usernameStr, senha, cpfStr,
-                    nomeStr, cargoStr, departamento, filial);
-        } else if (cargoStr.equals("Gerente")) {
-            funcionarioSalvo = Controller.FuncionarioController.alterarGerente(ID, usernameStr, senha, cpfStr,
-                    nomeStr, cargoStr, departamento, filial);
-        } else {
-            funcionarioSalvo = Controller.FuncionarioController.alterarVendedor(ID, usernameStr, senha, cpfStr,
-                    nomeStr, cargoStr, departamento, filial);
-        }
+        Funcionario funcionario = new Funcionario(ID, usernameStr, senha, cpfStr, nomeStr, cargoStr, departamento, filial);
+        funcionarioSalvo = new Controller.FuncionarioController().alterar(funcionario);
 
         request.setAttribute("funcionarioAlteradoAtt", funcionarioSalvo);
         RequestDispatcher dispatcher

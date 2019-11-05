@@ -84,7 +84,7 @@
                         </div>
                         <div class="coluna">
                             <label for="sexo">Sexo</label><span class="obrigatorio">*</span>
-                            <input type="radio" class="campo" name="sexo" id="feminino" value="feminino" checked="checked" />Feminino
+                            <input type="radio" class="campo" name="sexo" id="feminino" value="feminino" />Feminino
                             <input type="radio" class="campo" name="sexo" id="masculino" value="masculino" /> Masculino
                         </div>
                     </div>

@@ -23,7 +23,7 @@ public class ClienteExcluir extends HttpServlet {
             throws ServletException, IOException {
         String selecao = request.getParameter("cpf2");
 
-        boolean cliente = Controller.ClienteController.excluirCliente(selecao);
+        boolean cliente = new Controller.ClienteController().excluirCliente(selecao);
         
          request.setAttribute("clienteExcluidoAtt", cliente);
          

@@ -17,7 +17,7 @@ public class ItemPedidoController {
 
     public static boolean salvarItem(int idProd, int qtd) {
         boolean result = false;
-        ArrayList<Produto> p = Controller.ProdutoController.getProdutoGenerico(idProd);
+        ArrayList<Produto> p = new Controller.ProdutoController().getProdutoGenerico(idProd);
         for (Produto prod : p) {
             ItemPedido item = new ItemPedido(qtd, prod.getValorUnitario(), idProd, prod.getNomeProduto());
             result = DAO.ItemPedidoDAO.daoSalvarItem(item);

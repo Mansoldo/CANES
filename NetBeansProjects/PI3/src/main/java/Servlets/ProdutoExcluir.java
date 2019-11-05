@@ -30,7 +30,7 @@ public class ProdutoExcluir extends HttpServlet {
         String selecao = request.getParameter("idProd2");
         int id = Integer.parseInt(selecao);
 
-        boolean produto = Controller.ProdutoController.excluirProduto(id);
+        boolean produto = new Controller.ProdutoController().excluirProduto(id);
         
          request.setAttribute("produtoExcluidoAtt", produto);
          

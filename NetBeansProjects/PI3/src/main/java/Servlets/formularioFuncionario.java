@@ -1,5 +1,6 @@
 package Servlets;
 
+import Classes.Funcionario;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -53,23 +54,9 @@ public class formularioFuncionario extends HttpServlet {
         } else {
             departamento = 4;
         }
+        Funcionario funcionario =  new Funcionario(usernameStr, senha, cpfStr, nomeStr, cargoStr, departamento, filial);
+            funcionarioSalvo = new Controller.FuncionarioController().cadastrar(funcionario);
         
-        if(cargoStr.equals("Analista")){
-            funcionarioSalvo = Controller.FuncionarioController.cadastrarFuncionarioAnalista(usernameStr, senha, cpfStr, 
-                    nomeStr, cargoStr, departamento, filial);
-        } else if(cargoStr.equals("Backoffice")){
-            funcionarioSalvo = Controller.FuncionarioController.cadastrarFuncionarioBackOffice(usernameStr, senha, cpfStr, 
-                    nomeStr, cargoStr, departamento, filial);
-        } else if(cargoStr.equals("Diretor")){
-            funcionarioSalvo = Controller.FuncionarioController.cadastrarFuncionarioDiretor(usernameStr, senha, cpfStr, 
-                    nomeStr, cargoStr, departamento, filial);
-        } else if(cargoStr.equals("Gerente")){
-            funcionarioSalvo = Controller.FuncionarioController.cadastrarFuncionarioGerente(usernameStr, senha, cpfStr, 
-                    nomeStr, cargoStr, departamento, filial);
-        } else {
-            funcionarioSalvo = Controller.FuncionarioController.cadastrarFuncionarioVendedor(usernameStr, senha, cpfStr, 
-                    nomeStr, cargoStr, departamento, filial);
-        }
         
         request.setAttribute("FuncionarioSalvoAtt", funcionarioSalvo);
         

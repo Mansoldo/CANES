@@ -77,7 +77,7 @@
                         </div>
                         <div class="coluna">
                             <label for="sexo">Sexo</label><span class="obrigatorio">*</span>
-                            <input type="radio" class="campo" name="sexo" id="feminino" value="feminino" checked="checked" />
+                            <input type="radio" value="${sexoAtt}" class="campo" name="sexo" id="feminino" />
                             Feminino
                             <input type="radio" value="${sexoAtt}" class="campo" name="sexo" id="masculino" /> Masculino
                         </div>

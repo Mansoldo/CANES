@@ -16,43 +16,27 @@ import java.sql.Date;
  */
 public class ClienteController implements AcoesCrud<Cliente> {
 
-    public static boolean cadastrarCliente(String nome, String cpf, String nascimento, String sexo, String email, String telefone) {
-        Cliente cliente = new Cliente(nome, cpf, nascimento, sexo, email, telefone);
-        return DAO.ClienteDAO.excluirDAOCliente(cpf);
-    }
-
-    public static ArrayList<Cliente> getClientes() {
-        ArrayList<Cliente> cliente = DAO.ClienteDAO.getCliente();
+    public ArrayList<Cliente> getClientes() {
+        ArrayList<Cliente> cliente = new DAO.ClienteDAO().getCliente();
         return cliente;
     }
 
-    public static ArrayList<Cliente> getClientesFilter(String filter) {
-        ArrayList<Cliente> cliente = DAO.ClienteDAO.getClienteFilter(filter);
+    public ArrayList<Cliente> getClientesFilter(String filter) {
+        ArrayList<Cliente> cliente = new DAO.ClienteDAO().getClienteFilter(filter);
         return cliente;
     }
 
-    public static boolean AlterarCliente(String nome, String cpf, String nascimento, String sexo, String email, String telefone) {
-        Cliente cliente = new Cliente(nome, cpf, nascimento, sexo, email, telefone);
-        return DAO.ClienteDAO.daoAlterarCliente(cliente);
-    }
-
-    public static boolean excluirCliente(String cpf) {
-        return DAO.ClienteDAO.excluirDAOCliente(cpf);
+    public boolean excluirCliente(String cpf) {
+        return new DAO.ClienteDAO().excluirDAOCliente(cpf);
     }
 
     @Override
     public boolean cadastrar(Cliente e) {
-        return DAO.ClienteDAO.daoSalvarCliente(e);
+        return new DAO.ClienteDAO().daoSalvarCliente(e);
     }
 
     @Override
     public boolean alterar(Cliente e) {
-        return DAO.ClienteDAO.daoAlterarCliente(e);
+        return new DAO.ClienteDAO().daoAlterarCliente(e);
     }
-
-    @Override
-    public boolean excluir(Cliente e) {
-        return DAO.ClienteDAO.excluirDAOCliente(e);
-    }
-
 }

@@ -27,11 +27,11 @@ public class FuncionarioDAO {
     private static Connection obterConexao() throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/livraria?useTimezone=true&serverTimezone=UTC", "root", "1234"); //
+        Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/livraria?useTimezone=true&serverTimezone=UTC", "root", "adminadmin"); //
         return conexao;
     }
 
-    public static boolean daoSalvarAnalista(Analista funcionario) {
+    public boolean daoSalvarFuncionario(Funcionario funcionario) {
 
         boolean retorno = false;
 
@@ -59,7 +59,38 @@ public class FuncionarioDAO {
         return retorno;
     }
 
-    public static boolean daoSalvarBackOffice(BackOffice funcionario) {
+    public boolean daoAlterarFuncionrio(Funcionario funcionario) {
+
+        boolean retorno = false;
+
+        try (Connection conexao = obterConexao()) {
+
+            PreparedStatement comandoSQL = conexao.prepareStatement("UPDATE LIVRARIA.FUNCIONARIO\n"
+                    + "SET LOGIN = ? , SENHA = ? , CPF = ? , NOME_FUNC = ? , CARGO = ? , FK_ID_DPT = ?, FK_ID_FILIAL = ?\n"
+                    + "WHERE ID_FUNCIONARIO = ?;");
+
+            comandoSQL.setString(1, funcionario.getLogin());
+            comandoSQL.setString(2, funcionario.getSenha());
+            comandoSQL.setString(3, funcionario.getCpf());
+            comandoSQL.setString(4, funcionario.getNome_func());
+            comandoSQL.setString(5, funcionario.getCargo());
+            comandoSQL.setInt(6, funcionario.getDepartamento());
+            comandoSQL.setInt(7, funcionario.getFilial());
+            comandoSQL.setInt(8, funcionario.getId_func());
+
+            int linhaAfetada = comandoSQL.executeUpdate();
+
+            retorno = linhaAfetada > 0;
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            ex.printStackTrace();
+            retorno = false;
+        }
+        return retorno;
+    }
+
+    /*
+    public boolean daoSalvarAnalista(Analista funcionario) {
 
         boolean retorno = false;
 
@@ -87,7 +118,7 @@ public class FuncionarioDAO {
         return retorno;
     }
 
-    public static boolean daoSalvarDiretor(Diretor funcionario) {
+    public boolean daoSalvarBackOffice(BackOffice funcionario) {
 
         boolean retorno = false;
 
@@ -115,7 +146,7 @@ public class FuncionarioDAO {
         return retorno;
     }
 
-    public static boolean daoSalvarVendedor(Vendedor funcionario) {
+    public boolean daoSalvarDiretor(Diretor funcionario) {
 
         boolean retorno = false;
 
@@ -143,7 +174,7 @@ public class FuncionarioDAO {
         return retorno;
     }
 
-    public static boolean daoSalvarGerente(Gerente funcionario) {
+    public boolean daoSalvarVendedor(Vendedor funcionario) {
 
         boolean retorno = false;
 
@@ -171,9 +202,37 @@ public class FuncionarioDAO {
         return retorno;
     }
 
-    public static ArrayList<Analista> getAnalista(int ID) {
+    public boolean daoSalvarGerente(Gerente funcionario) {
 
-        ArrayList<Analista> lista = new ArrayList<>();
+        boolean retorno = false;
+
+        try (Connection conexao = obterConexao()) {
+
+            PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO LIVRARIA.FUNCIONARIO(LOGIN, SENHA, CPF, NOME_FUNC, CARGO, FK_ID_DPT, FK_ID_FILIAL)\n"
+                    + "VALUES(?,?,?,?,?,?,?)");
+
+            comandoSQL.setString(1, funcionario.getLogin());
+            comandoSQL.setString(2, funcionario.getSenha());
+            comandoSQL.setString(3, funcionario.getCpf());
+            comandoSQL.setString(4, funcionario.getNome_func());
+            comandoSQL.setString(5, funcionario.getCargo());
+            comandoSQL.setInt(6, funcionario.getDepartamento());
+            comandoSQL.setInt(7, funcionario.getFilial());
+
+            int linhaAfetada = comandoSQL.executeUpdate();
+
+            retorno = linhaAfetada > 0;
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            ex.printStackTrace();
+            retorno = false;
+        }
+        return retorno;
+    }
+     */
+    public ArrayList<Funcionario> getFuncionario(int ID) {
+
+        ArrayList<Funcionario> lista = new ArrayList<>();
 
         try (Connection conexao = obterConexao()) {
 
@@ -185,7 +244,7 @@ public class FuncionarioDAO {
 
             if (rs != null) {
                 while (rs.next()) {
-                    Analista funcionario = new Analista();
+                    Funcionario funcionario = new Funcionario();
                     funcionario.setLogin(rs.getString("LOGIN"));
                     funcionario.setSenha(rs.getString("SENHA"));
                     funcionario.setCpf(rs.getString("CPF"));
@@ -204,7 +263,7 @@ public class FuncionarioDAO {
         return lista;
     }
 
-    public static ArrayList<BackOffice> getBackOffice(int ID) {
+    public ArrayList<BackOffice> getBackOffice(int ID) {
 
         ArrayList<BackOffice> lista = new ArrayList<>();
 
@@ -237,7 +296,7 @@ public class FuncionarioDAO {
         return lista;
     }
 
-    public static ArrayList<Diretor> getDiretor(int ID) {
+    public ArrayList<Diretor> getDiretor(int ID) {
 
         ArrayList<Diretor> lista = new ArrayList<>();
 
@@ -270,7 +329,7 @@ public class FuncionarioDAO {
         return lista;
     }
 
-    public static ArrayList<Gerente> getGerente(int ID) {
+    public ArrayList<Gerente> getGerente(int ID) {
 
         ArrayList<Gerente> lista = new ArrayList<>();
 
@@ -303,7 +362,7 @@ public class FuncionarioDAO {
         return lista;
     }
 
-    public static ArrayList<Vendedor> getVendedor(int ID) {
+    public ArrayList<Vendedor> getVendedor(int ID) {
 
         ArrayList<Vendedor> lista = new ArrayList<>();
 
@@ -336,7 +395,7 @@ public class FuncionarioDAO {
         return lista;
     }
 
-    public static ArrayList<Funcionario> getFuncionarioFilter(String filter) {
+    public ArrayList<Funcionario> getFuncionarioFilter(String filter) {
 
         ArrayList<Funcionario> lista = new ArrayList<>();
 
@@ -368,7 +427,7 @@ public class FuncionarioDAO {
         return lista;
     }
 
-    public static boolean excluirFuncionario(int ID) {
+    public boolean excluirFuncionario(int ID) {
         boolean retorno = false;
 
         try (Connection conexao = obterConexao()) {
@@ -386,9 +445,9 @@ public class FuncionarioDAO {
         }
         return retorno;
     }
-    
-    public static boolean daoAlterarAnalista(Analista funcionario) {
-        
+
+    public boolean daoAlterarAnalista(Analista funcionario) {
+
         boolean retorno = false;
 
         try (Connection conexao = obterConexao()) {
@@ -416,9 +475,9 @@ public class FuncionarioDAO {
         }
         return retorno;
     }
-    
-    public static boolean daoAlterarBackOffice(BackOffice funcionario) {
-        
+
+    public boolean daoAlterarBackOffice(BackOffice funcionario) {
+
         boolean retorno = false;
 
         try (Connection conexao = obterConexao()) {
@@ -446,9 +505,9 @@ public class FuncionarioDAO {
         }
         return retorno;
     }
-    
-    public static boolean daoAlterarDiretor(Diretor funcionario) {
-        
+
+    public boolean daoAlterarDiretor(Diretor funcionario) {
+
         boolean retorno = false;
 
         try (Connection conexao = obterConexao()) {
@@ -476,9 +535,9 @@ public class FuncionarioDAO {
         }
         return retorno;
     }
-    
-    public static boolean daoAlterarGerente(Gerente funcionario) {
-        
+
+    public boolean daoAlterarGerente(Gerente funcionario) {
+
         boolean retorno = false;
 
         try (Connection conexao = obterConexao()) {
@@ -506,9 +565,9 @@ public class FuncionarioDAO {
         }
         return retorno;
     }
-    
-    public static boolean daoAlterarVendedor(Vendedor funcionario) {
-        
+
+    public boolean daoAlterarVendedor(Vendedor funcionario) {
+
         boolean retorno = false;
 
         try (Connection conexao = obterConexao()) {
@@ -536,6 +595,5 @@ public class FuncionarioDAO {
         }
         return retorno;
     }
-    
 
 }

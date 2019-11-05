@@ -35,7 +35,7 @@ public class ClienteAlterar extends HttpServlet {
 
         String selecao = request.getParameter("cpf");
 
-        ArrayList<Cliente> listaClientes = Controller.ClienteController.getClientes();
+        ArrayList<Cliente> listaClientes = new Controller.ClienteController().getClientes();
         for (Cliente clientes : listaClientes) {
             if (clientes.getCpf().equals(selecao)) {
                 request.setAttribute("nomeAtt", clientes.getNome());
@@ -61,9 +61,10 @@ public class ClienteAlterar extends HttpServlet {
         String sexoStr = request.getParameter("sexo");
         String emailStr = request.getParameter("email");
         String telefoneStr = request.getParameter("telefone");
-
-        boolean clienteSalvo = Controller.ClienteController.AlterarCliente(nomeStr, cpfStr, nascimentoStr, sexoStr, emailStr, telefoneStr);
-
+        
+        Cliente cliente = new Cliente(nomeStr, cpfStr, cpfStr, sexoStr, emailStr, telefoneStr);
+        boolean clienteSalvo = new Controller.ClienteController().alterar(cliente);
+                
         request.setAttribute("clienteAlteradoAtt", clienteSalvo);
 
         RequestDispatcher dispatcher

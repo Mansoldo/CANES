@@ -48,7 +48,9 @@ public class formularioCliente extends HttpServlet {
         String dataString = request.getParameter("nascimento"); 
         
         Cliente cliente = new Cliente(nomeStr, cpfStr, cpfStr, sexoStr, emailStr, telefoneStr);
-        boolean clienteSalvo = Controller.ClienteController.cadastrar(cliente);
+        
+        boolean clienteSalvo = new Controller.ClienteController().cadastrar(cliente);
+        
 
         request.setAttribute("clienteSalvoAtt", clienteSalvo);
 

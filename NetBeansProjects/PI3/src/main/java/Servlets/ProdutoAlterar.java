@@ -24,7 +24,7 @@ public class ProdutoAlterar extends HttpServlet {
         
         String selecao2 = request.getParameter("categoria");
         if (selecao2.equals("Livro")) {
-            ArrayList<ProdutoLivro> lista = Controller.ProdutoController.getProdutoLivro(id);
+            ArrayList<ProdutoLivro> lista = new Controller.ProdutoController().getProdutoLivro(id);
             for (ProdutoLivro produtos : lista) {
                 request.setAttribute("idAtt", produtos.getID());
                 request.setAttribute("nomeAtt", produtos.getNomeProduto());
@@ -40,7 +40,7 @@ public class ProdutoAlterar extends HttpServlet {
                 request.setAttribute("idAtt", selecao);
             }
         } else if (selecao2.equals("Cd_Dvd")) {
-            ArrayList<ProdutoCdDvd> lista = Controller.ProdutoController.getProdutoCdDvd(id);
+            ArrayList<ProdutoCdDvd> lista = new Controller.ProdutoController().getProdutoCdDvd(id);
             for (ProdutoCdDvd produtos : lista) {
                 request.setAttribute("idAtt", produtos.getID());
                 request.setAttribute("nomeAtt", produtos.getNomeProduto());
@@ -53,7 +53,7 @@ public class ProdutoAlterar extends HttpServlet {
                 request.setAttribute("idAtt", selecao);
             }
         } else {
-            ArrayList<Produto> lista = Controller.ProdutoController.getProdutoGenerico(id);
+            ArrayList<Produto> lista = new Controller.ProdutoController().getProdutoGenerico(id);
             for (Produto produtos : lista) {
                 request.setAttribute("idAtt", produtos.getID());
                 request.setAttribute("nomeAtt", produtos.getNomeProduto());
@@ -103,12 +103,17 @@ public class ProdutoAlterar extends HttpServlet {
 
         boolean produtoSalvo = false;
         if (categoriaStr.equals("Livro")) {
+            
             int paginas = Integer.parseInt(paginasStr);
-            produtoSalvo = Controller.ProdutoController.AlterarProdutoLivro(id, editorStr, ISBN, paginas, AutorStr, nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);
+            ProdutoLivro produtoLivro = new ProdutoLivro(id, editorStr, ISBN, paginas, AutorStr, nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);                                
+            produtoSalvo = new Controller.ProdutoController().cadastrar(produtoLivro);
+            
         } else if (categoriaStr.equalsIgnoreCase("Cd_Dvd")) {
-            produtoSalvo = Controller.ProdutoController.AlterarProdutoCdDvd(id, nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial, tempoStr);
+            ProdutoCdDvd produtoCd = new ProdutoCdDvd(id, tempoStr, nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);
+            produtoSalvo = new Controller.ProdutoController().cadastrar(produtoCd);
         } else {
-            produtoSalvo = Controller.ProdutoController.AlterarProduto(id, nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);
+            Produto produto = new Produto(id, nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);
+            produtoSalvo = new Controller.ProdutoController().cadastrar(produto);
         }
 
         request.setAttribute("ProdutoAlteradoAtt", produtoSalvo);

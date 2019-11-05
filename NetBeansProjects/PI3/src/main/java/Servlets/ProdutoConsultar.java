@@ -28,7 +28,7 @@ public class ProdutoConsultar extends HttpServlet {
         
         String filter = request.getParameter("pesquisar__produto");
         
-        ArrayList<Produto> produto = Controller.ProdutoController.getProdutoFilter(filter);
+        ArrayList<Produto> produto = new Controller.ProdutoController().getProdutoFilter(filter);
         
         request.setAttribute("produtoAtt", produto);
         

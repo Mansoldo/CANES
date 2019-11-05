@@ -5,6 +5,9 @@
  */
 package Servlets;
 
+import Classes.Produto;
+import Classes.ProdutoCdDvd;
+import Classes.ProdutoLivro;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -59,14 +62,18 @@ public class formularioProduto extends HttpServlet {
         }
 
         boolean produtoSalvo = false;
-        if (categoriaStr.equals("Livro")) {
-
+        
+        if (categoriaStr.equals("Livro")) {            
             int paginas = Integer.parseInt(paginasStr);
-            produtoSalvo = Controller.ProdutoController.cadastrarProdutoLivro(editorStr, ISBN, paginas, AutorStr, nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);
+            ProdutoLivro produtoLivro = new ProdutoLivro(editorStr, ISBN, paginas, AutorStr, nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);                                
+            produtoSalvo = new Controller.ProdutoController().cadastrar(produtoLivro);
+            
         } else if (categoriaStr.equalsIgnoreCase("Cd_Dvd")) {
-            produtoSalvo = Controller.ProdutoController.cadastrarProdutoCdDvd(tempoStr, nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);
+            ProdutoCdDvd produtoCd = new ProdutoCdDvd(tempoStr, nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);
+            produtoSalvo = new Controller.ProdutoController().cadastrar(produtoCd);
         } else {
-            produtoSalvo = Controller.ProdutoController.cadastrarProduto(nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);
+            Produto produto = new Produto(nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);
+            produtoSalvo = new Controller.ProdutoController().cadastrar(produto);
         }
 
         request.setAttribute("ProdutoSalvoAtt", produtoSalvo);
