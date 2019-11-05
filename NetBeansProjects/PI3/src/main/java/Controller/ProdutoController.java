@@ -33,7 +33,7 @@ public class ProdutoController implements AcoesCrud<Produto> {
         ProdutoCdDvd produto = new ProdutoCdDvd(tempo, nome, valorUnitario, Idioma, categoria, quantidade, filial);
         return new DAO.ProdutoDAO().daoSalvarCdDvd(produto);
     }
-    */
+     */
     public ArrayList<Produto> getProdutoGenerico(int id) {
         ArrayList<Produto> produto = new DAO.ProdutoDAO().getProdutos(id);
         return produto;
@@ -69,7 +69,7 @@ public class ProdutoController implements AcoesCrud<Produto> {
         Produto produto = new Produto(ID, nomeProduto, valorUnitario, idioma, categoria, quantidade, filial);
         return new DAO.ProdutoDAO().daoAlterarProduto(produto);
     }
-    */
+     */
     public boolean excluirProduto(int ID) {
         return new DAO.ProdutoDAO().excluirDAOProduto(ID);
     }
@@ -89,15 +89,15 @@ public class ProdutoController implements AcoesCrud<Produto> {
 
     @Override
     public boolean alterar(Produto e) {
-        
-        if (e instanceof Produto) {
-            return new DAO.ProdutoDAO().daoAlterarProduto(e);
-        } else if (e instanceof ProdutoCdDvd) {
+
+        if (e instanceof ProdutoCdDvd) {
             ProdutoCdDvd produtoCd = (ProdutoCdDvd) e;
             return new DAO.ProdutoDAO().daoAlterarProdutoCdDvd(produtoCd);
-        } else {
+        } else if (e instanceof ProdutoLivro) {
             ProdutoLivro produtoLivro = (ProdutoLivro) e;
             return new DAO.ProdutoDAO().daoAlterarProdutoLivro(produtoLivro);
+        } else {
+            return new DAO.ProdutoDAO().daoAlterarProduto(e);
         }
     }
 }

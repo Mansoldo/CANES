@@ -65,7 +65,7 @@
 
             <hr>
 
-            <form id="cadastro__produto" name="cadastro__produto" class="form" method="post" action="${pageContext.request.contextPath}/formularioProduto" onsubmit="return validarCampos() ? true : false;">
+            <form id="cadastro__produto" name="cadastro__produto" class="form" method="post" action="${pageContext.request.contextPath}/formularioProduto" novalidate>
                 <div class="linha">
                     <div class="coluna">
                         <label for="produto__nome">Produto <span class="obrigatorio">*</span></label>
