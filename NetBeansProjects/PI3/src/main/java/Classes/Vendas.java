@@ -25,7 +25,7 @@ public class Vendas {
         this.valorTotal = valorTotal;
     }
 
-    public Vendas(int id, LocalDate data, float valorTotal, int idCliente) {
+    public Vendas(LocalDate data, float valorTotal, int idCliente) {
         this.id = id;
         this.data = data;
         this.valorTotal = valorTotal;

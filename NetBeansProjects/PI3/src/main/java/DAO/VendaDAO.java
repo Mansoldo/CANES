@@ -30,8 +30,8 @@ public class VendaDAO {
         boolean retorno = false;
 
         try (Connection conexao = obterConexao()) {
-            PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO PEDIDOVENDA (DATA, VALOR_TOTAL, ID_CLIENTE)"
-                    + " VALUES (?,?,?)");
+            PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO PEDIDOVENDA (DATA, VALOR_TOTAL, FK_ID_CLIENTE)"
+                    + " VALUES (str_to_date('?','%Y-%m-%d'),?,?);");
 
             comandoSQL.setDate(1, java.sql.Date.valueOf(v.getData()));
             comandoSQL.setFloat(2, v.getValorTotal());

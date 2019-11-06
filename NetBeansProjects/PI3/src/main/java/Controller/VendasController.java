@@ -18,6 +18,7 @@ public class VendasController {
     public static boolean finalizarVenda(Vendas venda) {
         
         boolean salvo = false;
+        
         salvo = DAO.VendaDAO.daoSalvarVenda(venda);
 
         if (salvo == true) {

@@ -37,13 +37,13 @@ public class FinalizarVenda extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        ArrayList<ItemPedido> item = Controller.ItemPedidoController.getItens();
+         ArrayList<ItemPedido> item = Controller.ItemPedidoController.getItens();
         float calcTot = 0;
         for (ItemPedido itens : item) {
             calcTot += itens.Valor_total();
         }
         LocalDate hoje = LocalDate.now();
-        Vendas venda = new Vendas(hoje, calcTot);
+        Vendas venda = new Vendas(hoje, calcTot, 5);
         boolean resulta = Controller.VendasController.finalizarVenda(venda);
 
         RequestDispatcher dispatcher
