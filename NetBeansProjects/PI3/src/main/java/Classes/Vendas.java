@@ -5,7 +5,7 @@
  */
 package Classes;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 /**
  *
@@ -13,20 +13,19 @@ import java.time.LocalDate;
  */
 public class Vendas {
     private int id;
-    private LocalDate data;
+    private Date data;
     private float valorTotal;
     private int idCliente;
 
     public Vendas() {
     }
 
-    public Vendas(LocalDate data, float valorTotal) {
+    public Vendas(Date data, float valorTotal) {
         this.data = data;
         this.valorTotal = valorTotal;
     }
 
-    public Vendas(LocalDate data, float valorTotal, int idCliente) {
-        this.id = id;
+    public Vendas(Date data, float valorTotal, int idCliente) {
         this.data = data;
         this.valorTotal = valorTotal;
         this.idCliente = idCliente;
@@ -40,11 +39,11 @@ public class Vendas {
         this.id = id;
     }
 
-    public LocalDate getData() {
+    public Date getData() {
         return data;
     }
 
-    public void setData(LocalDate data) {
+    public void setData(Date data) {
         this.data = data;
     }
 

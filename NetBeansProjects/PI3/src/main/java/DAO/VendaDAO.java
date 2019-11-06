@@ -31,12 +31,12 @@ public class VendaDAO {
 
         try (Connection conexao = obterConexao()) {
             PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO PEDIDOVENDA (DATA, VALOR_TOTAL, FK_ID_CLIENTE)"
-                    + " VALUES (str_to_date('?','%Y-%m-%d'),?,?);");
+                    + " VALUES (?,?,?);");
 
-            comandoSQL.setDate(1, java.sql.Date.valueOf(v.getData()));
+            comandoSQL.setDate(1, (v.getData()));
             comandoSQL.setFloat(2, v.getValorTotal());
             comandoSQL.setInt(3, v.getIdCliente());
-            
+
             int linhaAfetada = comandoSQL.executeUpdate();
 
             return linhaAfetada > 0;
@@ -47,12 +47,12 @@ public class VendaDAO {
         }
         return retorno;
     }
-    
+
     public static int ultimoIDVenda() {
 
         int ID = 0;
 
-         try (Connection conexao = obterConexao()) {
+        try (Connection conexao = obterConexao()) {
             PreparedStatement comandoSQL = conexao.prepareStatement("SELECT MAX(ID_VENDA) AS ID_VENDA FROM PEDIDOVENDA");
 
             ResultSet rs = comandoSQL.executeQuery();

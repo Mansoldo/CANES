@@ -8,9 +8,9 @@ package Servlets;
 import Classes.ItemPedido;
 import Classes.Vendas;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,10 +42,12 @@ public class FinalizarVenda extends HttpServlet {
         for (ItemPedido itens : item) {
             calcTot += itens.Valor_total();
         }
-        LocalDate hoje = LocalDate.now();
-        Vendas venda = new Vendas(hoje, calcTot, 5);
+        Calendar c = Calendar.getInstance();
+        Date hoje = c.getTime();
+        java.sql.Date dataSql = new java.sql.Date(hoje.getTime());
+        Vendas venda = new Vendas(dataSql, calcTot, 5);
         boolean resulta = Controller.VendasController.finalizarVenda(venda);
-
+        Controller.ItemPedidoController.limparLista();
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/WEB-INF/venda.jsp");
         dispatcher.forward(request, response);
