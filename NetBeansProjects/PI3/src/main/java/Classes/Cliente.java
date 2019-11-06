@@ -10,6 +10,23 @@ package Classes;
  * @author nik_r
  */
 public class Cliente {
+    private int ID;
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public String getNascimento() {
+        return nascimento;
+    }
+
+    public void setNascimento(String nascimento) {
+        this.nascimento = nascimento;
+    }
     private String nome;
     private String cpf;
     private String nascimento;

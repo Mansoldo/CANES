@@ -97,6 +97,7 @@ public class ClienteDAO {
             if (rs != null) {
                 while (rs.next()) {
                     Cliente cliente = new Cliente();
+                    cliente.setID(rs.getInt("ID_CLIENTE"));
                     cliente.setNome(rs.getString("NOME"));
                     cliente.setCpf(rs.getString("CPF"));
                     cliente.setData(rs.getString("DATA_NASC"));

@@ -1,9 +1,9 @@
 package Servlets;
 
+import Classes.Cliente;
 import Classes.ItemPedido;
 import Classes.Produto;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,13 +28,16 @@ public class Vender extends HttpServlet {
             throws ServletException, IOException {
 
         String filter = request.getParameter("pesquisar__produto");
+        String filter2 = request.getParameter("pesquisar__cliente");
 
         ArrayList<Produto> produto = new Controller.ProdutoController().getProdutoFilter(filter);
         request.setAttribute("produtoAtt", produto);
 
         ArrayList<ItemPedido> lista = Controller.ItemPedidoController.getItens();
         request.setAttribute("produtoList", lista);
-
+        ArrayList<Cliente> cliente = new Controller.ClienteController().getClientesFilter(filter2);
+        request.setAttribute("clienteAtt", cliente);
+        
         float calculoTotal = 0;
         for (ItemPedido itens : lista) {
             calculoTotal += itens.Valor_total();

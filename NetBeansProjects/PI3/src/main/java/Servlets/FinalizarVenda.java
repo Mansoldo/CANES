@@ -45,6 +45,7 @@ public class FinalizarVenda extends HttpServlet {
         Calendar c = Calendar.getInstance();
         Date hoje = c.getTime();
         java.sql.Date dataSql = new java.sql.Date(hoje.getTime());
+        
         Vendas venda = new Vendas(dataSql, calcTot, 5);
         boolean resulta = Controller.VendasController.finalizarVenda(venda);
         Controller.ItemPedidoController.limparLista();
