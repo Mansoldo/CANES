@@ -29,7 +29,6 @@ public class Vender extends HttpServlet {
 
         String filter = request.getParameter("pesquisar__produto");
         String filter2 = request.getParameter("pesquisar__cliente");
-
         ArrayList<Produto> produto = new Controller.ProdutoController().getProdutoFilter(filter);
         request.setAttribute("produtoAtt", produto);
 
@@ -37,11 +36,12 @@ public class Vender extends HttpServlet {
         request.setAttribute("produtoList", lista);
         ArrayList<Cliente> cliente = new Controller.ClienteController().getClientesFilter(filter2);
         request.setAttribute("clienteAtt", cliente);
-        
+
         float calculoTotal = 0;
         for (ItemPedido itens : lista) {
             calculoTotal += itens.Valor_total();
         }
+        
         request.setAttribute("valorTotal", calculoTotal);
         
         RequestDispatcher dispatcher

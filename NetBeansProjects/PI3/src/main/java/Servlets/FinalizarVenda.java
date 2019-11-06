@@ -36,19 +36,35 @@ public class FinalizarVenda extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String idCliente = request.getParameter("idCli");
+        ArrayList<ItemPedido> item = Controller.ItemPedidoController.getItens();
 
-         ArrayList<ItemPedido> item = Controller.ItemPedidoController.getItens();
         float calcTot = 0;
+
         for (ItemPedido itens : item) {
             calcTot += itens.Valor_total();
         }
+
         Calendar c = Calendar.getInstance();
         Date hoje = c.getTime();
         java.sql.Date dataSql = new java.sql.Date(hoje.getTime());
+
         
-        Vendas venda = new Vendas(dataSql, calcTot, 5);
-        boolean resulta = Controller.VendasController.finalizarVenda(venda);
+        if (idCliente != null) {
+            int idClie = Integer.parseInt(idCliente);
+            Vendas venda = new Vendas(dataSql, calcTot, idClie);
+            boolean resulta = Controller.VendasController.finalizarVenda(venda);
+            request.setAttribute("resultaAtt", resulta);
+        } else {
+            Vendas venda = new Vendas(dataSql, calcTot);
+            boolean resulta = Controller.VendasController.finalizarVenda(venda);
+            request.setAttribute("resultaAtt", resulta);
+        }
+        
+        
+
         Controller.ItemPedidoController.limparLista();
+
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/WEB-INF/venda.jsp");
         dispatcher.forward(request, response);

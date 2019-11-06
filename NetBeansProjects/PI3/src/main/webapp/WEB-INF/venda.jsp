@@ -18,6 +18,13 @@
     </head>
 
     <body>
+        <script>
+            if (${resultaAtt} === true) {
+                alert('Venda realizada com sucesso!');
+            } else {
+                alert('Falha ao realizar a venda!');
+            }
+        </script>
         <header class="header">
             <div class="logo">
                 <h1>Livraria</h1>
