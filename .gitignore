@@ -1,2 +1,6 @@
 target/
 NetBeansProjects/PI3/target/
+NetBeansProjects/PI3/target
+*.class
+target/*.jsp
+target
