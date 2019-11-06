@@ -4,3 +4,4 @@ NetBeansProjects/PI3/target
 *.class
 target/*.jsp
 target
+NetBeansProjects/PI3/target/*.jsp
