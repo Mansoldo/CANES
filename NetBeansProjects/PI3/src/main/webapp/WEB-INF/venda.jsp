@@ -122,7 +122,7 @@
                 </div>
 
             </div>
-            <div class="linha">
+            <div class="container">
                 <form method="post" action="${pageContext.request.contextPath}/Vender" novalidate>
                     <div class="linha">
                         <div class="coluna">
@@ -143,6 +143,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Nome</th>
+                                        <th>CPF</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -150,6 +151,7 @@
                                         <tr>
                                             <td ><c:out value="${cliente.getID()}" /></td>
                                             <td ><c:out value="${cliente.getNome()}" /></td>
+                                            <td ><c:out value="${cliente.getCpf()}" /></td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>
