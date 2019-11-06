@@ -38,7 +38,7 @@ public class FuncionarioDAO {
         try (Connection conexao = obterConexao()) {
 
             PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO LIVRARIA.FUNCIONARIO(LOGIN, SENHA, CPF, NOME_FUNC, CARGO, FK_ID_DPT, FK_ID_FILIAL)\n"
-                    + "VALUES(?,?,?,?,?,?,?)");
+                    + "VALUES(?,?,?,?,?,?,?);");
 
             comandoSQL.setString(1, funcionario.getLogin());
             comandoSQL.setString(2, funcionario.getSenha());

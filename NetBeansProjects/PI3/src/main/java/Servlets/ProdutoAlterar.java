@@ -105,15 +105,12 @@ public class ProdutoAlterar extends HttpServlet {
         if (categoriaStr.equals("Livro")) {
             
             int paginas = Integer.parseInt(paginasStr);
-            ProdutoLivro produtoLivro = new ProdutoLivro(id, editorStr, ISBN, paginas, AutorStr, nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);                                
-            produtoSalvo = new Controller.ProdutoController().cadastrar(produtoLivro);
+            produtoSalvo = new Controller.ProdutoController().AlterarProdutoLivro(id, editorStr, ISBN, paginas, AutorStr, nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);
             
         } else if (categoriaStr.equalsIgnoreCase("Cd_Dvd")) {
-            ProdutoCdDvd produtoCd = new ProdutoCdDvd(id, tempoStr, nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);
-            produtoSalvo = new Controller.ProdutoController().cadastrar(produtoCd);
+            produtoSalvo = new Controller.ProdutoController().AlterarProdutoCdDvd(id, nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial, tempoStr);
         } else {
-            Produto produto = new Produto(id, nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);
-            produtoSalvo = new Controller.ProdutoController().cadastrar(produto);
+            produtoSalvo = new Controller.ProdutoController().AlterarProduto(id, nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);
         }
 
         request.setAttribute("ProdutoAlteradoAtt", produtoSalvo);

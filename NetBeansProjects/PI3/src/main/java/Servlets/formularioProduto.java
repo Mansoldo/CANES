@@ -65,15 +65,12 @@ public class formularioProduto extends HttpServlet {
         
         if (categoriaStr.equals("Livro")) {            
             int paginas = Integer.parseInt(paginasStr);
-            ProdutoLivro produtoLivro = new ProdutoLivro(editorStr, ISBN, paginas, AutorStr, nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);                                
-            produtoSalvo = new Controller.ProdutoController().cadastrar(produtoLivro);
+            produtoSalvo = new Controller.ProdutoController().cadastrarProdutoLivro(editorStr, ISBN, paginas, AutorStr, nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);
             
         } else if (categoriaStr.equalsIgnoreCase("Cd_Dvd")) {
-            ProdutoCdDvd produtoCd = new ProdutoCdDvd(tempoStr, nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);
-            produtoSalvo = new Controller.ProdutoController().cadastrar(produtoCd);
+            produtoSalvo = new Controller.ProdutoController().cadastrarProdutoCdDvd(tempoStr, nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);
         } else {
-            Produto produto = new Produto(nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);
-            produtoSalvo = new Controller.ProdutoController().cadastrar(produto);
+            produtoSalvo = new Controller.ProdutoController().cadastrarProduto(nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);
         }
 
         request.setAttribute("ProdutoSalvoAtt", produtoSalvo);
