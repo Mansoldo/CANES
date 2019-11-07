@@ -21,7 +21,7 @@ public class VendaDAO {
     private static Connection obterConexao() throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/livraria?useTimezone=true&serverTimezone=UTC", "root", "adminadmin");
+        Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/livraria?useTimezone=true&serverTimezone=UTC", "root", "");
         return conexao;
     }
 
@@ -31,10 +31,32 @@ public class VendaDAO {
 
         try (Connection conexao = obterConexao()) {
             PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO PEDIDOVENDA (DATA, VALOR_TOTAL, FK_ID_CLIENTE)"
+                    + " VALUES (?,?,null);");
+
+            comandoSQL.setDate(1, v.getData());
+            comandoSQL.setFloat(2, v.getValorTotal());            
+
+            int linhaAfetada = comandoSQL.executeUpdate();
+
+            return linhaAfetada > 0;
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            ex.printStackTrace();
+            retorno = false;
+        }
+        return retorno;
+    }
+    
+    public static boolean daoSalvarVendaCliente(Vendas v) {
+
+        boolean retorno = false;
+
+        try (Connection conexao = obterConexao()) {
+            PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO PEDIDOVENDA (DATA, VALOR_TOTAL, FK_ID_CLIENTE)"
                     + " VALUES (?,?,?);");
 
-            comandoSQL.setDate(1, (v.getData()));
-            comandoSQL.setFloat(2, v.getValorTotal());
+            comandoSQL.setDate(1, v.getData());
+            comandoSQL.setFloat(2, v.getValorTotal());            
             comandoSQL.setInt(3, v.getIdCliente());
 
             int linhaAfetada = comandoSQL.executeUpdate();

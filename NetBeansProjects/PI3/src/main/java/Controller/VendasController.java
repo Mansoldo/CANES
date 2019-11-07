@@ -16,9 +16,9 @@ import java.util.ArrayList;
 public class VendasController {
 
     public static boolean finalizarVenda(Vendas venda) {
-        
+
         boolean salvo = false;
-        
+
         salvo = DAO.VendaDAO.daoSalvarVenda(venda);
 
         if (salvo == true) {
@@ -34,5 +34,25 @@ public class VendasController {
         }
         return salvo;
     }
-    
+
+    public static boolean finalizarVendaCliente(Vendas venda) {
+
+        boolean salvo = false;
+
+        salvo = DAO.VendaDAO.daoSalvarVendaCliente(venda);
+
+        if (salvo == true) {
+
+            int UltimoIDVenda = DAO.VendaDAO.ultimoIDVenda();
+
+            ArrayList<ItemPedido> item = Controller.ItemPedidoController.getItens();
+            for (ItemPedido lista : item) {
+
+                DAO.ItemPedidoDAO.daoSalvarItemBD(lista, UltimoIDVenda);
+
+            }
+        }
+        return salvo;
+    }
+
 }

@@ -122,6 +122,7 @@
                 <div class="linha">
                     <form id="finalizar__venda" name="finalizar__venda" class="finalizar__venda" method="post" action="${pageContext.request.contextPath}/FinalizarVenda" novalidate>                
                         <input type="submit" value="Finalizar" class="btn btn-salvar" />
+                        <input type="hidden" value="?" id="idCli" name="idCli">
                     </form>
                     <form method="get" action="${pageContext.request.contextPath}/menu-principal" novalidate>
                         <input type="submit" value="Cancelar" class="btn btn-cancelar" />
@@ -162,8 +163,7 @@
                                         </tr>
                                     </c:forEach>
                                 </tbody>
-                            </table>
-                            <input type="hidden" value="?" id="idCli" name="idCli">
+                            </table>                            
                             <input type="text" name="cliente__selecionado" id="cliente__selecionado"/>
                             <script>
                                 var table = document.getElementById('tabelaPesquisaCliente');
