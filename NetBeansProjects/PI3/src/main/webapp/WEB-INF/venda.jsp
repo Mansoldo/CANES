@@ -116,7 +116,7 @@
                             </c:forEach>
                         </tbody>
                     </table>
-                    <input type="text" value="${valorTotal}" id="Valor_Total" name="Valor_Total">
+                    <input type="text" value="${valorTotal}" placeholder="Valor Total" id="Valor_Total" name="Valor_Total">
                 </form>
 
                 <div class="linha">
