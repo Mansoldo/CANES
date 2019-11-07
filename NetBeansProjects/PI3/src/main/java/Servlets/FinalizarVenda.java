@@ -36,6 +36,7 @@ public class FinalizarVenda extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         String idCliente = request.getParameter("idCli");
         ArrayList<ItemPedido> item = Controller.ItemPedidoController.getItens();
 
@@ -53,7 +54,7 @@ public class FinalizarVenda extends HttpServlet {
         if (idCliente != null) {
             int idClie = Integer.parseInt(idCliente);
             Vendas venda = new Vendas(dataSql, calcTot, idClie);
-            boolean resulta = Controller.VendasController.finalizarVenda(venda);
+            boolean resulta = Controller.VendasController.finalizarVendaCliente(venda);
             request.setAttribute("resultaAtt", resulta);
         } else {
             Vendas venda = new Vendas(dataSql, calcTot);
