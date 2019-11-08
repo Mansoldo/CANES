@@ -49,7 +49,7 @@ public class Login extends HttpServlet {
                 System.out.println("PERU3");
                 if (user != null) {
                     if (user.getSenha().equals(senha)) {
-                        response.sendRedirect("/menu-principal.jsp");
+                        response.sendRedirect("/livraria/menu-principal");
                         System.out.println("PERU4");
                         return;
                     } else {

@@ -27,7 +27,7 @@ public class FuncionarioDAO {
     private static Connection obterConexao() throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/livraria?useTimezone=true&serverTimezone=UTC", "root", "adminadmin"); //
+        Connection conexao = DriverManager.getConnection("jdbc:mysql://canesdb.c6rp7koaks1z.us-east-1.rds.amazonaws.com:3306", "admin", "Canes123"); //
         return conexao;
     }
 
@@ -261,6 +261,37 @@ public class FuncionarioDAO {
             ex.printStackTrace();
         }
         return lista;
+    }
+    
+    public Funcionario getFuncionarioLogin(String login) {
+
+
+        try (Connection conexao = obterConexao()) {
+
+            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM LIVRARIA.FUNCIONARIO WHERE LOGIN = ?");
+
+            comandoSQL.setString(1, login);
+
+            ResultSet rs = comandoSQL.executeQuery();
+
+            if (rs != null) {
+                while (rs.next()) {
+                    Funcionario funcionario = new Funcionario();
+                    funcionario.setLogin(rs.getString("LOGIN"));
+                    funcionario.setSenha(rs.getString("SENHA"));
+                    funcionario.setCpf(rs.getString("CPF"));
+                    funcionario.setNome_func(rs.getString("NOME_FUNC"));
+                    funcionario.setCargo(rs.getString("CARGO"));
+                    funcionario.setDepartamento(rs.getInt("FK_ID_DPT"));
+                    funcionario.setFilial(rs.getInt("FK_ID_FILIAL"));
+                    return funcionario;
+                }
+            }
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
 
     public ArrayList<BackOffice> getBackOffice(int ID) {

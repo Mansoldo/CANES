@@ -24,7 +24,7 @@
                 <img src="${pageContext.request.contextPath}/img/logo.svg" alt="Logo Livraria Tades">
                 <h1>Tades</h1>
             </div>
-                
+             <form method="post" action="${pageContext.request.contextPath}/Login" novalidate>    
             <div class="coluna">
                 <div class="container">
                     <label for="usuario">Usuário</label>
@@ -36,10 +36,11 @@
                 </div>
                 <div class="container">
                     <div class="coluna">
-                        <input type="submit" value="Entrar" class="btn">
+                        <input type="submit" name="loginBt" value="Entrar" class="btn">
                     </div>
                 </div>
             </div>
+             </form>
         </div>
     </body>
 </html>

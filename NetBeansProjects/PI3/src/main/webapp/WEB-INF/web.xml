@@ -7,6 +7,6 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>menu-principal</welcome-file>
+        <welcome-file>Login</welcome-file>
     </welcome-file-list>
 </web-app>
