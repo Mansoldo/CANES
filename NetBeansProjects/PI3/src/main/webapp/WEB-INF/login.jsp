@@ -36,7 +36,7 @@
                 </div>
                 <div class="container">
                     <div class="coluna">
-                        <input type="button" value="Entrar" class="btn">
+                        <input type="submit" value="Entrar" class="btn">
                     </div>
                 </div>
             </div>

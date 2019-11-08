@@ -60,6 +60,11 @@ public class FuncionarioController implements AcoesCrud<Funcionario> {
         ArrayList<Funcionario> funcionario = new DAO.FuncionarioDAO().getFuncionario(ID);
         return funcionario;
     }
+    
+    public ArrayList<Funcionario> getFuncionarioLogin(String login) {
+        ArrayList<Funcionario> funcionario = new DAO.FuncionarioDAO().getFuncionario(ID);
+        return funcionario;
+    }
 
     /*
     public static ArrayList<BackOffice> getFuncionarioBackOffice(int ID) {
