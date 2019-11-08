@@ -17,20 +17,31 @@ public class ItemPedidoController {
 
     public static boolean salvarItem(int idProd, int qtd) {
         boolean result = false;
+        int calc = 0;
         ArrayList<Produto> p = new Controller.ProdutoController().getProdutoGenerico(idProd);
+        ArrayList<ItemPedido> item2 = Controller.ItemPedidoController.getItens();
         for (Produto prod : p) {
-            ItemPedido item = new ItemPedido(qtd, prod.getValorUnitario(), idProd, prod.getNomeProduto());
-            result = DAO.ItemPedidoDAO.daoSalvarItem(item);
+            for (ItemPedido i : item2) {
+                if (i.getIdProduto() == prod.getID()) {
+                    calc += i.getQuantidade();
+                }
+            }
+            calc += qtd;
+            if (calc <= prod.getQuantidade()) {
+                ItemPedido item = new ItemPedido(qtd, prod.getValorUnitario(), idProd, prod.getNomeProduto());
+                calc = 0;
+                result = new DAO.ItemPedidoDAO().daoSalvarItem(item);
+            }
         }
         return result;
     }
 
     public static ArrayList<ItemPedido> getItens() {
-        ArrayList<ItemPedido> lista = DAO.ItemPedidoDAO.getItens();
+        ArrayList<ItemPedido> lista = new DAO.ItemPedidoDAO().getItens();
         return lista;
     }
 
     public static void limparLista() {
-        DAO.ItemPedidoDAO.daoExcluirItem();
+        new DAO.ItemPedidoDAO().daoExcluirItem();
     }
 }

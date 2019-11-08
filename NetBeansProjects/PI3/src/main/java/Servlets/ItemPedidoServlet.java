@@ -30,7 +30,7 @@ public class ItemPedidoServlet extends HttpServlet {
         String quantidade = request.getParameter("quantidade__produto__selecionado");
         int id = Integer.parseInt(idProduto);
         int qtd = Integer.parseInt(quantidade);
-
+        
         boolean result = Controller.ItemPedidoController.salvarItem(id, qtd);
 
         ArrayList<ItemPedido> lista = Controller.ItemPedidoController.getItens();
@@ -41,7 +41,7 @@ public class ItemPedidoServlet extends HttpServlet {
             calculoTotal += itens.Valor_total();
         }
         request.setAttribute("valorTotal", calculoTotal);
-        
+        request.setAttribute("adicionarAtt", result);
 
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/WEB-INF/venda.jsp");

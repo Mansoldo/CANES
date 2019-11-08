@@ -29,7 +29,7 @@ public class VendasController {
             for (ItemPedido lista : item) {
 
                 DAO.ItemPedidoDAO.daoSalvarItemBD(lista, UltimoIDVenda);
-
+                new Controller.ProdutoController().atualizarEstoque(lista.getIdProduto(), lista.getQuantidade());
             }
         }
         return salvo;
@@ -49,6 +49,7 @@ public class VendasController {
             for (ItemPedido lista : item) {
 
                 DAO.ItemPedidoDAO.daoSalvarItemBD(lista, UltimoIDVenda);
+                new Controller.ProdutoController().atualizarEstoque(lista.getIdProduto(), lista.getQuantidade());
 
             }
         }

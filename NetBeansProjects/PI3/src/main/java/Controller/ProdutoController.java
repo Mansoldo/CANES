@@ -71,4 +71,8 @@ public class ProdutoController {
     public boolean excluirProduto(int ID) {
         return new DAO.ProdutoDAO().excluirDAOProduto(ID);
     }
+    
+    public boolean atualizarEstoque(int id, int qtd){
+        return new DAO.ProdutoDAO().daoAtualizarEstoque(id, qtd);
+    }
 }

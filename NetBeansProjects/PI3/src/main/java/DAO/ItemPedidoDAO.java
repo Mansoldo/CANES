@@ -24,17 +24,17 @@ public class ItemPedidoDAO {
     private static Connection obterConexao() throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/livraria?useTimezone=true&serverTimezone=UTC", "root", "");
+        Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/livraria?useTimezone=true&serverTimezone=UTC", "root", "adminadmin");
         return conexao;
     }
 
-    public static boolean daoSalvarItem(ItemPedido item) {
+    public boolean daoSalvarItem(ItemPedido item) {
 
         lista.add(item);
         return true;
     }
 
-    public static ArrayList<ItemPedido> getItens() {
+    public ArrayList<ItemPedido> getItens() {
         return ItemPedidoDAO.lista;
     }
 
@@ -66,14 +66,14 @@ public class ItemPedidoDAO {
         return retorno;
     }
 
-    public static boolean daoExcluirItem() {
+    public boolean daoExcluirItem() {
 
         lista.clear();
 
         return true;
     }
 
-    public static ArrayList<ItemPedido> getItensBD() {
+    public ArrayList<ItemPedido> getItensBD() {
 
         ArrayList<ItemPedido> itens = new ArrayList<>();
 

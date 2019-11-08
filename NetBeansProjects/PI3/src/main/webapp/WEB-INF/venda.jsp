@@ -25,6 +25,13 @@
                 alert('Falha ao realizar a venda!');
             }
         </script>
+        <script>
+            if (${adicionarAtt} === true) {
+                alert('Item Adicionado!');
+            } else {
+                alert('Quantidade solicitada não disponivel para compra!');
+            }
+        </script>
         <header class="header">
             <div class="logo">
                 <h1>Livraria</h1>
@@ -43,7 +50,7 @@
                     <div class="linha">
                         <div class="coluna">
                             <div class="pesquisa">
-                                <input type="text" placeholder="Pesquisar Produto" class="txt__pesquisa" name="pesquisar__produto" id="pesquisar__produto" />
+                                <input type="text" placeholder="Pesquisar Produto (Nome / Categoria / Idioma)" class="txt__pesquisa" name="pesquisar__produto" id="pesquisar__produto" />
                                 <img src="${pageContext.request.contextPath}/img/search.svg" alt="Pesquisar Produto" class="btn__pesquisa" />
                             </div>
                         </div>
@@ -91,7 +98,7 @@
 
                 <form method="get" action="${pageContext.request.contextPath}/ItemPedido" novalidate>
                     <input type="hidden" value="?" id="idProd" name="idProd">
-                    <input type="text" name="produto__selecionado" id="produto__selecionado"/>
+                    <input type="text" name="produto__selecionado" id="produto__selecionado" placeholder="Produto"/>
                     <input type="number" name="quantidade__produto__selecionado" id="quantidade__produto__selecionado" autofocus value="1" min="1"/>                    
                     <input type="submit" value="Adicionar" class="btn" />
 
@@ -135,7 +142,7 @@
                     <div class="linha">
                         <div class="coluna">
                             <div class="pesquisa">
-                                <input type="text" placeholder="Pesquisar Cliente" class="txt__pesquisa" name="pesquisar__cliente" id="pesquisar__cliente" />
+                                <input type="text" placeholder="Pesquisar Cliente (Nome / CPF)" class="txt__pesquisa" name="pesquisar__cliente" id="pesquisar__cliente" />
                                 <img src="${pageContext.request.contextPath}/img/search.svg" alt="Pesquisar Cliente" class="btn__pesquisa" />
                             </div>
                         </div>
@@ -164,7 +171,7 @@
                                     </c:forEach>
                                 </tbody>
                             </table>                            
-                            <input type="text" name="cliente__selecionado" id="cliente__selecionado"/>
+                            <input type="text" name="cliente__selecionado" id="cliente__selecionado" placeholder="Cliente"/>
                             <script>
                                 var table = document.getElementById('tabelaPesquisaCliente');
 
@@ -176,6 +183,7 @@
                                 }
                             </script>
                         </div>
+
                     </div>
                 </form>
             </div>

@@ -14,11 +14,10 @@ import java.util.ArrayList;
 
 public class ProdutoDAO {
 
-
     private static Connection obterConexao() throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/livraria?useTimezone=true&serverTimezone=UTC", "root", "");
+        Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/livraria?useTimezone=true&serverTimezone=UTC", "root", "adminadmin");
         return conexao;
     }
 
@@ -120,6 +119,7 @@ public class ProdutoDAO {
             if (rs != null) {
                 while (rs.next()) {
                     Produto produto = new Produto();
+                    produto.setID(rs.getInt("ID_PRODUTO"));
                     produto.setNomeProduto(rs.getString("NOME_PRODUTO"));
                     produto.setValorUnitario(rs.getFloat("VALOR_UNIT"));
                     produto.setIdioma(rs.getString("IDIOMA"));
@@ -346,4 +346,23 @@ public class ProdutoDAO {
         return retorno;
     }
 
+    public boolean daoAtualizarEstoque(int id, int qtd) {
+        boolean retorno = false;
+
+        try (Connection conexao = obterConexao()) {
+
+            PreparedStatement comandoSQL = conexao.prepareStatement("UPDATE LIVRARIA.PRODUTO SET QTD = QTD - ? WHERE ID_PRODUTO = ?;");
+
+            comandoSQL.setInt(1, qtd);
+            comandoSQL.setInt(2, id);
+
+            int linhasAfetadas = comandoSQL.executeUpdate();
+
+            retorno = linhasAfetadas > 0;
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            ex.printStackTrace();
+        }
+        return retorno;
+    }
 }

@@ -51,7 +51,7 @@ public class FinalizarVenda extends HttpServlet {
         java.sql.Date dataSql = new java.sql.Date(hoje.getTime());
 
         
-        if (idCliente != null) {
+        if (!idCliente.equals("?")) {
             int idClie = Integer.parseInt(idCliente);
             Vendas venda = new Vendas(dataSql, calcTot, idClie);
             boolean resulta = Controller.VendasController.finalizarVendaCliente(venda);
