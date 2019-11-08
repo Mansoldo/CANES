@@ -28,17 +28,17 @@
         </header>
 
         <div class="container__menu__principal">
-            
+
             <div class="dropdown">
                 <img src="${pageContext.request.contextPath}/img/venda.svg" alt="botão para tela de venda">
                 <button class="dropbtn">Vender</button>
                 <div class="dropdown-content">
                     <form method="get" action="${pageContext.request.contextPath}/Vender" novalidate>
-                    <input type="submit" value="Vender" class="dropdown-content-button">
+                        <input type="submit" value="Vender" class="dropdown-content-button">
                     </form>
                 </div>
             </div>
-            
+
             <div class="dropdown">
                 <img src="${pageContext.request.contextPath}/img/produto.svg" alt="botão para produtos">
                 <button class="dropbtn">Produtos</button>
