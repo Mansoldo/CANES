@@ -130,7 +130,8 @@ public class FuncionarioController implements AcoesCrud<Funcionario> {
      */
 
     @Override
-    public boolean cadastrar(Funcionario e) {
+    public boolean cadastrar(Funcionario e) {        
+        
         return new DAO.FuncionarioDAO().daoSalvarFuncionario(e);
     }
 

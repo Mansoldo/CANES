@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Classes;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -59,6 +60,14 @@ public class Funcionario {
 
     public String getSenha() {
         return senha;
+    }
+    
+    public final void setSenhaHash(String senha){
+     this.senha = BCrypt.hashpw(senha, BCrypt.gensalt())   ;
+    }    
+    
+    public boolean validarSenha(String senhaUsuario){
+        return BCrypt.checkpw(senhaUsuario, senha);
     }
 
     public void setSenha(String senha) {

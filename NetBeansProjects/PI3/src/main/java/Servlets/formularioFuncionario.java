@@ -54,8 +54,10 @@ public class formularioFuncionario extends HttpServlet {
         } else {
             departamento = 4;
         }
+        
         Funcionario funcionario =  new Funcionario(usernameStr, senha, cpfStr, nomeStr, cargoStr, departamento, filial);
-            funcionarioSalvo = new Controller.FuncionarioController().cadastrar(funcionario);
+        funcionario.setSenhaHash(senha);                
+        funcionarioSalvo = new Controller.FuncionarioController().cadastrar(funcionario);
         
         
         request.setAttribute("FuncionarioSalvoAtt", funcionarioSalvo);

@@ -43,7 +43,7 @@ public class Login extends HttpServlet {
                 Funcionario funcionario = new Controller.FuncionarioController().getFuncionarioLogin(login);
 
                 if (funcionario != null) {
-                    if (funcionario.getSenha().equals(senha)) {
+                    if (funcionario.validarSenha(senha)) {
                         request.getSession().setAttribute("usuarioLogado", funcionario);
                         response.sendRedirect("/livraria/menu-principal");
 
@@ -58,7 +58,7 @@ public class Login extends HttpServlet {
 
         }
 
-        request.setAttribute("mensagens", erros);
+        request.setAttribute("mensagensDeErro", erros);
         String URL = "/WEB-INF/login.jsp";
         RequestDispatcher rd = request.getRequestDispatcher(URL);
         rd.forward(request, response);

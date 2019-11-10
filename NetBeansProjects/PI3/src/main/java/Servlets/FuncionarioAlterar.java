@@ -69,7 +69,6 @@ public class FuncionarioAlterar extends HttpServlet {
                 filialAtt = "Joinville";
             }
             request.setAttribute("filialAtt", filialAtt);
-
             request.setAttribute("loginAtt", funcionarios.getLogin());
             request.setAttribute("senhaAtt", funcionarios.getSenha());
             request.setAttribute("idAtt", selecao);
@@ -119,6 +118,7 @@ public class FuncionarioAlterar extends HttpServlet {
 
         boolean funcionarioSalvo = false;
         Funcionario funcionario = new Funcionario(ID, usernameStr, senha, cpfStr, nomeStr, cargoStr, departamento, filial);
+        funcionario.setSenhaHash(senha);   
         funcionarioSalvo = new Controller.FuncionarioController().alterar(funcionario);
 
         request.setAttribute("funcionarioAlteradoAtt", funcionarioSalvo);
