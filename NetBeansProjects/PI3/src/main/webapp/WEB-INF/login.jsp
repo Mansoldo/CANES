@@ -42,5 +42,10 @@
                 </div>
             </form>
         </div>
+
+        <footer>
+            <a href="${pageContext.request.contextPath}/creditos">CANES</a>
+            <p>2019 - Todos os direitos reservados</p>
+        </footer>
     </body>
 </html>

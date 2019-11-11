@@ -41,7 +41,7 @@
             <div class="menu__usuario"></div>
         </header>
 
-                <nav class="menu">
+        <nav class="menu">
                 <form method="get" action="${pageContext.request.contextPath}/menu-principal" novalidate>
                     <input type="submit" value="Menu Principal" class="dropmenu">
                 </form> 
