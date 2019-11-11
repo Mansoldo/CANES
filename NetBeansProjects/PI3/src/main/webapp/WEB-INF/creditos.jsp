@@ -23,29 +23,7 @@
                 <img src="${pageContext.request.contextPath}/img/logo.svg" alt="Logo Livraria Tades">
                 <h1>Tades</h1>
             </div>
-            <div class="menu__usuario"></div>
         </header>
-
-        <nav class="menu">
-            <form method="get" action="${pageContext.request.contextPath}/menu-principal" novalidate>
-                <input type="submit" value="Menu Principal" class="dropmenu">
-            </form> 
-            <form method="get" action="${pageContext.request.contextPath}/Vender" novalidate>
-                <input type="submit" value="Vender" class="dropmenu">
-            </form>
-
-            <form method="get" action="${pageContext.request.contextPath}/ProdutoConsultar" novalidate>
-                <input type="submit" value="Consultar Produto" class="dropmenu">
-            </form>
-
-            <form method="get" action="${pageContext.request.contextPath}/ConsultaCliente" novalidate>
-                <input type="submit" value="Consultar Cliente" class="dropmenu">
-            </form>
-
-            <form method="get" action="${pageContext.request.contextPath}/FuncionarioConsultar" novalidate>
-                <input type="submit" value="Consultar Funcionário" class="dropmenu">
-            </form>
-        </nav>
 
         <div class="container">
             <h1>CANES - 2019</h1>
@@ -53,13 +31,17 @@
             <hr>
             <h2>Desenvolvedores</h2>
             <ul>
-                <li>Beatriz da Silva</li>
-                <li>Diego Mansoldo</li>
-                <li>Everton Coutinho</li>
-                <li>Gabriel Ribeiro Vital</li>
-                <li>Micael Santos</li>
-                <li>Pedro </li>
+                <li><a href="https://github.com/beatrizdasilva" target="_blank">Beatriz da Silva</a></li>
+                <li><a href="https://github.com/Mansoldo" target="_blank">Diego Mansoldo</a></li>
+                <li><a href="https://github.com/lendary11" target="_blank">Everton Thiago Silva Coutinho</a></li>
+                <li><a href="https://github.com/gabrielribeiroo" target="_blank">Gabriel Ribeiro Vital</a></li>
+                <li><a href="https://github.com/micaelssantos" target="_blank">Micael Santos</a></li>
+                <li><a href="https://github.com/Preichmann" target="_blank">Pedro Almeida</a></li>
             </ul>
+
+            <form method="post" action="${pageContext.request.contextPath}/Login" novalidate>
+                <input type="submit" value="Voltar" class="btn">
+            </form>
         </div>
     </body>
 </html>
