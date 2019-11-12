@@ -26,9 +26,15 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/login.jsp");
-        dispatcher.forward(request, response);
+        HttpSession sessao = request.getSession();
+        if (sessao.getAttribute("usuarioLogado") != null) {
+            // Usuario já está logado -> redireciona para /menu-principal
+            response.sendRedirect(request.getContextPath() + "/menu-principal");
+            return;
+        }
+        request.getRequestDispatcher("/WEB-INF/login.jsp")
+                .forward(request, response);
+
     }
 
     @Override
@@ -47,7 +53,7 @@ public class Login extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/menu-principal");
             return;
 
-        }else {
+        } else {
             request.setAttribute("msgErro", "Usuário ou senha incorreta");
             request.getRequestDispatcher("/WEB-INF/login.jsp")
                     .forward(request, response);
