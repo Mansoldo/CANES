@@ -5,34 +5,31 @@
  */
 package Classes;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author nik_r
  */
 public class Cliente {
+
     private int ID;
 
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
-    }
-
-    public String getNascimento() {
-        return nascimento;
-    }
-
-    public void setNascimento(String nascimento) {
-        this.nascimento = nascimento;
-    }
     private String nome;
     private String cpf;
-    private String nascimento;
+    private LocalDate nascimento;
     private String sexo;
     private String email;
     private String telefone;
+
+    public Cliente(String nome, String cpf, LocalDate data, String sexo, String email, String telefone) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.nascimento = data;
+        this.sexo = sexo;
+        this.email = email;
+        this.telefone = telefone;
+    }
 
     public Cliente() {
 
@@ -59,14 +56,6 @@ public class Cliente {
         this.cpf = cpf;
     }
 
-    public String getData() {
-        return nascimento;
-    }
-
-    public void setData(String data) {
-        this.nascimento = data;
-    }
-
     public String getSexo() {
         return sexo;
     }
@@ -91,13 +80,19 @@ public class Cliente {
         this.telefone = telefone;
     }
 
-    public Cliente(String nome, String cpf, String data, String sexo, String email, String telefone) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.nascimento = data;
-        this.sexo = sexo;
-        this.email = email;
-        this.telefone = telefone;
+    public int getID() {
+        return ID;
     }
 
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public LocalDate getNascimento() {
+        return nascimento;
+    }
+
+    public void setNascimento(LocalDate nascimento) {
+        this.nascimento = nascimento;
+    }
 }

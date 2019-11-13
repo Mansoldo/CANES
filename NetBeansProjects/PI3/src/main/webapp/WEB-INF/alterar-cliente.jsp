@@ -26,16 +26,16 @@
                 </div>
                 <div class="menu__usuario"></div>
             </header>
-                    
-        <nav class="menu">
+
+            <nav class="menu">
                 <form method="get" action="${pageContext.request.contextPath}/menu-principal" novalidate>
                     <input type="submit" value="Menu Principal" class="dropmenu">
                 </form>            
-            
+
                 <form method="get" action="${pageContext.request.contextPath}/Vender" novalidate>
                     <input type="submit" value="Vender" class="dropmenu">
                 </form>
-            
+
                 <form method="get" action="${pageContext.request.contextPath}/ProdutoConsultar" novalidate>
                     <input type="submit" value="Consultar Produto" class="dropmenu">
                 </form>
@@ -47,7 +47,7 @@
                 <form method="get" action="${pageContext.request.contextPath}/FuncionarioConsultar" novalidate>
                     <input type="submit" value="Consultar Funcionário" class="dropmenu">
                 </form>
-        </nav>
+            </nav>
 
             <div class="container">
                 <div class="linha">
@@ -73,13 +73,30 @@
                         </div>
                         <div class="coluna">
                             <label for="cliente__data__nascimento">Data de Nascimento <span class="obrigatorio">* </span></label>
-                            <input type="text" value="${dataAtt}" class="campo" name  = "nascimento" id="cliente__data__nascimento">
+                            <input type="date" value="${dataAtt}" class="campo" name  = "nascimento" id="cliente__data__nascimento">
                         </div>
                         <div class="coluna">
                             <label for="sexo">Sexo</label><span class="obrigatorio">*</span>
-                            <input type="radio" value="${sexoAtt}" class="campo" name="sexo" id="feminino" />
-                            Feminino
-                            <input type="radio" value="${sexoAtt}" class="campo" name="sexo" id="masculino" /> Masculino
+                            <input type="radio" value="Feminino" class="campo" name="sexo" id="radioFeminino" />Feminino
+                            <input type="radio" value="Masculino" class="campo" name="sexo" id="radioMasculino" /> Masculino
+                            <script>
+                                function setSexo(valor) {
+                                    try {
+                                        if (valor == 0) {
+                                            document.getElementById('radioFeminino').checked = true;
+                                            document.getElementById('radioMasculino').checked = false;
+                                        } else {
+                                            document.getElementById('radioFeminino').checked = false;
+                                            document.getElementById('radioMasculino').checked = true;
+                                        }
+
+
+                                    } catch (err) {
+                                        alert(err);
+                                    }
+                                }
+                                setSexo(${sexo});
+                            </script>
                         </div>
                     </div>
 
@@ -90,17 +107,17 @@
                         </div>
                         <div class="coluna">
                             <label for="cliente__telefone">Telefone <span class="obrigatorio">*</span>
-                            <input type="text" value="${telefoneAtt}" class="campo" name ="telefone" id="cliente__telefone">
+                                <input type="text" value="${telefoneAtt}" class="campo" name ="telefone" id="cliente__telefone">
+                                </div>
+                                </div>
+
+                                <input type="submit" value="Salvar" class="btn btn-salvar" />
+                                </form>
+
+                                <form method="get" action="${pageContext.request.contextPath}/ConsultaCliente" novalidate>
+                                    <input type="submit" value="Cancelar" class="btn btn-cancelar" />
+                                </form>
                         </div>
-                    </div>
-                    
-                    <input type="submit" value="Salvar" class="btn btn-salvar" />
-                    </form>
-                        
-            <form method="get" action="${pageContext.request.contextPath}/ConsultaCliente" novalidate>
-                <input type="submit" value="Cancelar" class="btn btn-cancelar" />
-            </form>
-        </div>
-    </body>
-</html>
+                        </body>
+                        </html>
 

@@ -11,6 +11,7 @@ import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -45,10 +46,10 @@ public class formularioCliente extends HttpServlet {
         String sexoStr = request.getParameter("sexo");
         String emailStr = request.getParameter("email");
         String telefoneStr = request.getParameter("telefone");
-        
         String dataString = request.getParameter("nascimento"); 
+        LocalDate nasc = LocalDate.parse(dataString);
         
-        Cliente cliente = new Cliente(nomeStr, cpfStr, cpfStr, sexoStr, emailStr, telefoneStr);
+        Cliente cliente = new Cliente(nomeStr, cpfStr, nasc, sexoStr, emailStr, telefoneStr);
         
         boolean clienteSalvo = new Controller.ClienteController().cadastrar(cliente);
         

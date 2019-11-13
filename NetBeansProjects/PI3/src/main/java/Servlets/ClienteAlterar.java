@@ -12,6 +12,7 @@ import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -40,8 +41,12 @@ public class ClienteAlterar extends HttpServlet {
             if (clientes.getCpf().equals(selecao)) {
                 request.setAttribute("nomeAtt", clientes.getNome());
                 request.setAttribute("cpfAtt", clientes.getCpf());
-                request.setAttribute("dataAtt", clientes.getData());
-                request.setAttribute("sexoAtt", clientes.getSexo());
+                request.setAttribute("dataAtt", clientes.getNascimento());
+                if(clientes.getSexo().equals("Feminino")){
+                    request.setAttribute("sexo", 0);
+                }else{
+                    request.setAttribute("sexo", 1);
+                }
                 request.setAttribute("emailAtt", clientes.getEmail());
                 request.setAttribute("telefoneAtt", clientes.getTelefone());
             }
@@ -62,8 +67,9 @@ public class ClienteAlterar extends HttpServlet {
         String sexoStr = request.getParameter("sexo");
         String emailStr = request.getParameter("email");
         String telefoneStr = request.getParameter("telefone");
+        LocalDate nasc = LocalDate.parse(nascimentoStr);
         
-        Cliente cliente = new Cliente(nomeStr, cpfStr, cpfStr, sexoStr, emailStr, telefoneStr);
+        Cliente cliente = new Cliente(nomeStr, cpfStr, nasc, sexoStr, emailStr, telefoneStr);
         boolean clienteSalvo = new Controller.ClienteController().alterar(cliente);
                 
         request.setAttribute("clienteAlteradoAtt", clienteSalvo);

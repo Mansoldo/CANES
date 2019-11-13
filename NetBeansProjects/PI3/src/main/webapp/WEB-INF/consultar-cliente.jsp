@@ -111,7 +111,7 @@
                             <tr>
                                 <td id="nomeTable"><c:out value="${cliente.getNome()}" /></td>
                                 <td id="cpfTable"><c:out value="${cliente.getCpf()}" /></td>
-                                <td id="dataTable"><c:out value="${cliente.getData()}" /></td>
+                                <td id="dataTable"><c:out value="${cliente.getNascimento()}" /></td>
                                 <td id="sexoTable"><c:out value="${cliente.getSexo()}" /></td>
                                 <td id="emailTable"><c:out value="${cliente.getEmail()}" /></td>
                                 <td id="telefoneTable"><c:out value="${cliente.getTelefone()}" /></td>
