@@ -94,6 +94,11 @@
                 </div>
             </div>
         </div>
+        <div>
+            <form method="get" action="${pageContext.request.contextPath}/Logout" novalidate>
+                <button type="submit" name="BtnCancel" class="botoes">Logout</button>
+            </form>
+        </div>
     </body>
 
 </html>

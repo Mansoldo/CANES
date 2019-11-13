@@ -1,3 +1,4 @@
+package Filter;
 
 import Classes.Funcionario;
 import java.io.IOException;
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebFilter(filterName = "UsuarioLogado", servletNames = {"ClienteAlterar", "ClienteConsultar", "ClienteExcluir", "FinalizarVenda", "FuncionarioAlterar", "FuncionarioConsultar", "FuncionarioExcluir", "ItemPedido", "MenuPrincipal", "ProdutoAlterar","ProdutoConsultar","ProdutoExcluir","Vender","formularioCliente","formularioFuncionario","formularioProduto"})
+@WebFilter(filterName = "UsuarioLogado", servletNames = {"ClienteAlterar", "ClienteConsultar", "ClienteExcluir", "FinalizarVenda", "FuncionarioAlterar", "FuncionarioConsultar", "FuncionarioExcluir", "ItemPedido", "MenuPrincipal", "ProdutoAlterar", "ProdutoConsultar", "ProdutoExcluir", "Vender", "formularioCliente", "formularioFuncionario", "formularioProduto"})
 public class UsuarioLogado implements Filter {
 
     private String contextPath;
@@ -54,18 +55,18 @@ public class UsuarioLogado implements Filter {
         String urlAcessada = httpRequest.getRequestURI();
         if (urlAcessada.endsWith("/Login") || (urlAcessada.endsWith("/creditos"))) {
             return true;
-        } else if (urlAcessada.endsWith("/livraria/formularioProduto?") || (urlAcessada.endsWith("/livraria/ProdutoAlterar?")) || (urlAcessada.endsWith("/livraria/ProdutoConsultar?")) || (urlAcessada.endsWith("/livraria/ProdutoExcluir?"))
-                && funcionario.getCargo().equals("BackOffice") || funcionario.getCargo().equals("Analista")) {
+        } else if ((urlAcessada.endsWith("/livraria/formularioProduto") || (urlAcessada.endsWith("/livraria/ProdutoAlterar")) || (urlAcessada.endsWith("/livraria/ProdutoConsultar")) || (urlAcessada.endsWith("/livraria/ProdutoExcluir")))
+                && (funcionario.getCargo().equals("Backoffice") || funcionario.getCargo().equals("Analista"))) {
             return true;
-        } else if (urlAcessada.endsWith("/livraria/formularioFuncionario?") || (urlAcessada.endsWith("/livraria/FuncionarioAlterar?")) || (urlAcessada.endsWith("/livraria/FuncionarioConsultar?")) || (urlAcessada.endsWith("/livraria/FuncionarioExcluir?"))
+        } else if ((urlAcessada.endsWith("/livraria/formularioFuncionario") || (urlAcessada.endsWith("/livraria/FuncionarioAlterar")) || (urlAcessada.endsWith("/livraria/FuncionarioConsultar")) || (urlAcessada.endsWith("/livraria/FuncionarioExcluir")))
                 && funcionario.getCargo().equals("Analista")) {
             return true;
-        } else if (urlAcessada.endsWith("/livraria/cliente?") || (urlAcessada.endsWith("/livraria/ClienteAlterar?")) || (urlAcessada.endsWith("/livraria/ConsultaCliente?")) || (urlAcessada.endsWith("/livraria/ClienteExcluir?"))
-                && funcionario.getCargo().equals("BackOffice") || funcionario.getCargo().equals("Analista")) {
+        } else if ((urlAcessada.endsWith("/livraria/cliente") || (urlAcessada.endsWith("/livraria/ClienteAlterar")) || (urlAcessada.endsWith("/livraria/ConsultaCliente")) || (urlAcessada.endsWith("/livraria/ClienteExcluir")))
+                && (funcionario.getCargo().equals("Backoffice") || funcionario.getCargo().equals("Analista"))) {
             return true;
-        } else if (urlAcessada.endsWith("/livraria/Vender?") && funcionario.getCargo().equals("Vendedor") || funcionario.getCargo().equals("Analista")) {
+        } else if (urlAcessada.endsWith("/livraria/Vender") && (funcionario.getCargo().equals("Vendedor") || funcionario.getCargo().equals("Analista"))) {
             return true;
-        } else if (urlAcessada.endsWith("/menu-principal") && funcionario.getCargo().equals("Vendedor") || funcionario.getCargo().equals("Analista") || funcionario.getCargo().equals("BackOffice")) {
+        } else if (urlAcessada.endsWith("/menu-principal")) {
             return true;
         }
         return false;
@@ -77,7 +78,6 @@ public class UsuarioLogado implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) {
-        this.contextPath = filterConfig.getServletContext().getContextPath();
     }
 
 }
