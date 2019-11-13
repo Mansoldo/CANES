@@ -5,6 +5,7 @@
  */
 package Servlets;
 
+import Classes.Funcionario;
 import Classes.ItemPedido;
 import Classes.Vendas;
 import java.io.IOException;
@@ -17,6 +18,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -36,6 +38,8 @@ public class FinalizarVenda extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        Funcionario funcionario = (Funcionario) session.getAttribute("usuarioLogado");
         
         String idCliente = request.getParameter("idCli");
         ArrayList<ItemPedido> item = Controller.ItemPedidoController.getItens();
@@ -49,15 +53,14 @@ public class FinalizarVenda extends HttpServlet {
         Calendar c = Calendar.getInstance();
         Date hoje = c.getTime();
         java.sql.Date dataSql = new java.sql.Date(hoje.getTime());
-
         
         if (!idCliente.equals("?")) {
             int idClie = Integer.parseInt(idCliente);
-            Vendas venda = new Vendas(dataSql, calcTot, idClie);
+            Vendas venda = new Vendas(dataSql, calcTot, idClie,funcionario.getFilial());
             boolean resulta = Controller.VendasController.finalizarVendaCliente(venda);
             request.setAttribute("resultaAtt", resulta);
         } else {
-            Vendas venda = new Vendas(dataSql, calcTot);
+            Vendas venda = new Vendas(dataSql, calcTot,funcionario.getFilial());
             boolean resulta = Controller.VendasController.finalizarVenda(venda);
             request.setAttribute("resultaAtt", resulta);
         }
