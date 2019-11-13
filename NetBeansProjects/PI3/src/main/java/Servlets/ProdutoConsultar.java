@@ -25,7 +25,7 @@ public class ProdutoConsultar extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        request.setCharacterEncoding("UTF-8");
         String filter = request.getParameter("pesquisar__produto");
         
         ArrayList<Produto> produto = new Controller.ProdutoController().getProdutoFilter(filter);

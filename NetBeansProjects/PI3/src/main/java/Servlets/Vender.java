@@ -27,6 +27,7 @@ public class Vender extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        request.setCharacterEncoding("UTF-8");
         String filter = request.getParameter("pesquisar__produto");
         String filter2 = request.getParameter("pesquisar__cliente");
         ArrayList<Produto> produto = new Controller.ProdutoController().getProdutoFilter(filter);

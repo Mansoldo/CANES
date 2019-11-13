@@ -35,7 +35,8 @@ public class formularioProduto extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        
+        request.setCharacterEncoding("UTF-8");
         String nomeStr = request.getParameter("produto__nome");
         String categoriaStr = request.getParameter("produto__categoria");
         String idiomaStr = request.getParameter("produto__idioma");

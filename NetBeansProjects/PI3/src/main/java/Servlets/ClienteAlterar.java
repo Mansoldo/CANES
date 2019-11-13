@@ -54,7 +54,8 @@ public class ClienteAlterar extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        
+        request.setCharacterEncoding("UTF-8");
         String nomeStr = request.getParameter("nome");
         String cpfStr = request.getParameter("cpf");
         String nascimentoStr = request.getParameter("nascimento");

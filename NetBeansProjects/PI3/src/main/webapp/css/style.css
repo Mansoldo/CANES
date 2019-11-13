@@ -346,6 +346,12 @@ table {
     border: 1px solid #ced4da;
 }
 
+.clicked {
+    display: none;
+    background: #3d80df;
+    color: #fff;
+}
+
 thead {
     border-top: 1px solid #a5a5a5;
     border-bottom: 1px solid #a5a5a5;
@@ -355,6 +361,7 @@ thead {
 tr:hover {
     background-color:#3d80df;
     color: #fff;
+    cursor: pointer;
 }
 
 thead tr:hover {
