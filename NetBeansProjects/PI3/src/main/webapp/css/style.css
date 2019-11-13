@@ -138,6 +138,18 @@ hr {
     overflow: hidden;
 }
 
+/* CONTAINER DA TELA DE Alterar Senha */
+.container__alterar__senha{
+    border: 1px solid #ced4da;
+    width: 500px;
+    height: 450px;
+    margin: 140px auto 0px;
+    border-radius: 5px;
+    align-items: center;
+    box-shadow: 0px 0px 5px gray;
+    overflow: hidden;
+}
+
 /* Menu principal */
 
 .dropdown {

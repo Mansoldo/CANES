@@ -34,6 +34,10 @@ public class FuncionarioController implements AcoesCrud<Funcionario> {
         ArrayList<Funcionario> funcionario = new DAO.FuncionarioDAO().getFuncionarioFilter(filter);
         return funcionario;
     }
+    
+    public boolean alterarSenha(Funcionario e) {
+        return new DAO.FuncionarioDAO().daoAlterarSenhaFuncionrio(e);
+    }
 
     public boolean excluirFuncionario(int ID) {
         return new DAO.FuncionarioDAO().excluirFuncionario(ID);
