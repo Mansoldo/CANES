@@ -42,31 +42,31 @@
         </header>
 
         <nav class="menu">
-                <form method="get" action="${pageContext.request.contextPath}/menu-principal" novalidate>
-                    <input type="submit" value="Menu Principal" class="dropmenu">
-                </form> 
-                <form method="get" action="${pageContext.request.contextPath}/Vender" novalidate>
-                    <input type="submit" value="Vender" class="dropmenu">
-                </form>
-            
-                <form method="get" action="${pageContext.request.contextPath}/ProdutoConsultar" novalidate>
-                    <input type="submit" value="Consultar Produto" class="dropmenu">
-                </form>
+            <form method="get" action="${pageContext.request.contextPath}/menu-principal" novalidate>
+                <input type="submit" value="Menu Principal" class="dropmenu">
+            </form> 
+            <form method="get" action="${pageContext.request.contextPath}/Vender" novalidate>
+                <input type="submit" value="Vender" class="dropmenu">
+            </form>
 
-                <form method="get" action="${pageContext.request.contextPath}/ConsultaCliente" novalidate>
-                    <input type="submit" value="Consultar Cliente" class="dropmenu">
-                </form>
+            <form method="get" action="${pageContext.request.contextPath}/ProdutoConsultar" novalidate>
+                <input type="submit" value="Consultar Produto" class="dropmenu">
+            </form>
 
-                <form method="get" action="${pageContext.request.contextPath}/FuncionarioConsultar" novalidate>
-                    <input type="submit" value="Consultar Funcionário" class="dropmenu">
-                </form>
+            <form method="get" action="${pageContext.request.contextPath}/ConsultaCliente" novalidate>
+                <input type="submit" value="Consultar Cliente" class="dropmenu">
+            </form>
+
+            <form method="get" action="${pageContext.request.contextPath}/FuncionarioConsultar" novalidate>
+                <input type="submit" value="Consultar Funcionário" class="dropmenu">
+            </form>
         </nav>
-                
+
         <div class="container">
             <div class="linha">
                 <h2>Consultar Funcionário</h2>
             </div>
-            
+
             <hr>
 
             <form id="consultaFuncionario" name="consultaFuncionario" class="form" method="post" action="${pageContext.request.contextPath}/FuncionarioConsultar" novalidate>
@@ -109,6 +109,33 @@
                         </c:forEach>    
                     </tbody>
                 </table>
+                <script>
+                    highlight_row();
+                    function highlight_row() {
+                        var table = document.getElementById('tabelaFuncionario');
+                        var cells = table.getElementsByTagName('td');
+
+                        for (var i = 0; i < cells.length; i++) {
+                            // Take each cell
+                            var cell = cells[i];
+                            // do something on onclick event for cell
+                            cell.onclick = function () {
+                                // Get the row id where the cell exists
+                                var rowId = this.parentNode.rowIndex;
+
+                                var rowsNotSelected = table.getElementsByTagName('tr');
+                                for (var row = 0; row < rowsNotSelected.length; row++) {
+                                    rowsNotSelected[row].style.backgroundColor = "";
+                                    rowsNotSelected[row].classList.remove('selected');
+                                }
+                                var rowSelected = table.getElementsByTagName('tr')[rowId];
+                                rowSelected.style.backgroundColor = "#d9d9d9";
+                                rowSelected.className += " selected";
+                            }
+                        }
+
+                    }
+                </script>
             </form>
 
             <div class="botoes">                
@@ -116,12 +143,12 @@
                     <input type="submit" value="Alterar" class="btn btn-salvar">
                     <input type="hidden" value="?" id="idFunc" name="idFunc">                    
                     <input type="hidden" value="?" id="cargo" name="cargo">
-                    
+
                     <script>
                         var table = document.getElementById('tabelaFuncionario');
-                        
-                        for (var i = 1; i < table.rows.length; i++){
-                            table.rows[i].onclick = function (){
+
+                        for (var i = 1; i < table.rows.length; i++) {
+                            table.rows[i].onclick = function () {
                                 //rIndex = this.rowIndex;
                                 document.getElementById("idFunc").value = this.cells[0].innerHTML;
                                 document.getElementById("idFunc2").value = this.cells[0].innerHTML;
@@ -130,7 +157,7 @@
                         }
                     </script>
                 </form>      
-                    
+
                 <form method="post" action="${pageContext.request.contextPath}/FuncionarioExcluir" novalidate>
                     <input type="submit" value="Excluir" class="btn btn-cancelar">
                     <input type="hidden" value="?" id="idFunc2" name="idFunc2">
