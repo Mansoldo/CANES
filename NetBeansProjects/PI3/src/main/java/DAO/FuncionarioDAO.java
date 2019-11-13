@@ -89,6 +89,30 @@ public class FuncionarioDAO {
         return retorno;
     }
 
+    public boolean daoAlterarSenhaFuncionrio(Funcionario funcionario) {
+
+        boolean retorno = false;
+
+        try (Connection conexao = obterConexao()) {
+
+            PreparedStatement comandoSQL = conexao.prepareStatement("UPDATE LIVRARIA.FUNCIONARIO\n"
+                    + "SET SENHA = ?\n"
+                    + "WHERE ID_FUNCIONARIO = ?;");
+
+            comandoSQL.setString(1, funcionario.getSenha());
+            comandoSQL.setInt(2, funcionario.getId_func());
+
+            int linhaAfetada = comandoSQL.executeUpdate();
+
+            retorno = linhaAfetada > 0;
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            ex.printStackTrace();
+            retorno = false;
+        }
+        return retorno;
+    }
+
     /*
     public boolean daoSalvarAnalista(Analista funcionario) {
 
@@ -262,9 +286,8 @@ public class FuncionarioDAO {
         }
         return lista;
     }
-    
-    public Funcionario getFuncionarioLogin(String login) {
 
+    public Funcionario getFuncionarioLogin(String login) {
 
         try (Connection conexao = obterConexao()) {
 
@@ -277,6 +300,7 @@ public class FuncionarioDAO {
             if (rs != null) {
                 while (rs.next()) {
                     Funcionario funcionario = new Funcionario();
+                    funcionario.setId_func(rs.getInt("ID_FUNCIONARIO"));
                     funcionario.setLogin(rs.getString("LOGIN"));
                     funcionario.setSenha(rs.getString("SENHA"));
                     funcionario.setCpf(rs.getString("CPF"));

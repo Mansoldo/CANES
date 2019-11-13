@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebFilter(filterName = "UsuarioLogado", servletNames = {"ClienteAlterar", "ClienteConsultar", "ClienteExcluir", "FinalizarVenda", "FuncionarioAlterar", "FuncionarioConsultar", "FuncionarioExcluir", "ItemPedido", "MenuPrincipal", "ProdutoAlterar", "ProdutoConsultar", "ProdutoExcluir", "Vender", "formularioCliente", "formularioFuncionario", "formularioProduto"})
+@WebFilter(filterName = "UsuarioLogado", servletNames = {"AlterarSenha", "ClienteAlterar", "ClienteConsultar", "ClienteExcluir", "FinalizarVenda", "FuncionarioAlterar", "FuncionarioConsultar", "FuncionarioExcluir", "ItemPedido", "MenuPrincipal", "ProdutoAlterar", "ProdutoConsultar", "ProdutoExcluir", "Vender", "formularioCliente", "formularioFuncionario", "formularioProduto"})
 public class UsuarioLogado implements Filter {
 
     private String contextPath;
@@ -67,6 +67,8 @@ public class UsuarioLogado implements Filter {
         } else if (urlAcessada.endsWith("/livraria/Vender") && (funcionario.getCargo().equals("Vendedor") || funcionario.getCargo().equals("Analista"))) {
             return true;
         } else if (urlAcessada.endsWith("/menu-principal")) {
+            return true;
+        } else if (urlAcessada.endsWith("/livraria/AlterarSenha")) {
             return true;
         }
         return false;
