@@ -41,61 +41,164 @@
             <div class="menu__usuario"></div>
         </header>
 
-        <h2>Venda</h2>
-        <hr />
-        <div class="linha">   
-            <div class="container">
+        <div class="container">          
+            <h2>Venda</h2>
+            <hr />
 
+            <div class="container__venda">
+                <!-- Pesquisar Produto -->
                 <form method="post" action="${pageContext.request.contextPath}/Vender" novalidate>
                     <div class="linha">
-                        <div class="coluna">
+                        <div class="pesquisa">
+                            <input type="text" placeholder="Pesquisar Produto (Nome / Categoria / Idioma)" class="txt__pesquisa" name="pesquisar__produto" id="pesquisar__produto" />
+                            <img src="${pageContext.request.contextPath}/img/search.svg" alt="Pesquisar Produto" class="btn__pesquisa" />
+                        </div>
+                        <input type="submit" value="Pesquisar" class="btn  mt-0 ml-15" />
+
+                    </div>
+
+                    <div class="linha">
+                        <table id="tabelaPesquisaProduto" class="tabela__pesquisa__secundaria">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <Th>Estoque</Th>
+                                    <Th>Valor unitário</Th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach items="${produtoAtt}" var="produto">
+                                    <tr>
+                                        <td ><c:out value="${produto.getID()}" /></td>
+                                        <td ><c:out value="${produto.getNomeProduto()}" /></td>
+                                        <td ><c:out value="${produto.getQuantidade()}" /></td>
+                                        <td ><c:out value="${produto.getValorUnitario()}" /></td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                        <script>
+                            highlight_row();
+                            function highlight_row() {
+                                var table = document.getElementById('tabelaPesquisaProduto');
+                                var cells = table.getElementsByTagName('td');
+
+                                for (var i = 0; i < cells.length; i++) {
+                                    // Take each cell
+                                    var cell = cells[i];
+                                    // do something on onclick event for cell
+                                    cell.onclick = function () {
+                                        // Get the row id where the cell exists
+                                        var rowId = this.parentNode.rowIndex;
+
+                                        var rowsNotSelected = table.getElementsByTagName('tr');
+                                        for (var row = 0; row < rowsNotSelected.length; row++) {
+                                            rowsNotSelected[row].style.backgroundColor = "";
+                                            rowsNotSelected[row].classList.remove('selected');
+                                        }
+                                        var rowSelected = table.getElementsByTagName('tr')[rowId];
+                                        rowSelected.style.backgroundColor = "#d9d9d9";
+                                        rowSelected.className += " selected";
+                                    }
+                                }
+
+                            }
+                        </script>
+
+                        <script>
+                            var table = document.getElementById('tabelaPesquisaProduto');
+
+                            for (var i = 1; i < table.rows.length; i++) {
+                                table.rows[i].onclick = function () {
+                                    document.getElementById("idProd").value = this.cells[0].innerHTML;
+                                    document.getElementById("produto__selecionado").value = this.cells[1].innerHTML;
+                                };
+                            }
+                        </script>
+                    </div>
+                </form>
+
+
+                <!-- Pesquisar Cliente -->
+                <form method="post" action="${pageContext.request.contextPath}/Vender" novalidate>
+                    <div class="linha">
+                        <div class="">
                             <div class="pesquisa">
-                                <input type="text" placeholder="Pesquisar Produto (Nome / Categoria / Idioma)" class="txt__pesquisa" name="pesquisar__produto" id="pesquisar__produto" />
-                                <img src="${pageContext.request.contextPath}/img/search.svg" alt="Pesquisar Produto" class="btn__pesquisa" />
+                                <input type="text" placeholder="Pesquisar Cliente (Nome / CPF)" class="txt__pesquisa" name="pesquisar__cliente" id="pesquisar__cliente" />
+                                <img src="${pageContext.request.contextPath}/img/search.svg" alt="Pesquisar Cliente" class="btn__pesquisa" />
                             </div>
                         </div>
-                        <div class="coluna">
+                        <div class="">
                             <input type="submit" value="Pesquisar" class="btn  mt-0 ml-15" />
                         </div>
                     </div>
 
                     <div class="linha">
-                        <div class="coluna">
-                            <table id="tabelaPesquisaProduto" class="tabela">
+                        <div class="">
+                            <table id="tabelaPesquisaCliente" class="tabela__pesquisa__secundaria">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
                                         <th>Nome</th>
-                                        <Th>Estoque</Th>
-                                        <Th>Valor unitário</Th>
+                                        <th>CPF</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <c:forEach items="${produtoAtt}" var="produto">
+                                    <c:forEach items="${clienteAtt}" var="cliente">
                                         <tr>
-                                            <td ><c:out value="${produto.getID()}" /></td>
-                                            <td ><c:out value="${produto.getNomeProduto()}" /></td>
-                                            <td ><c:out value="${produto.getQuantidade()}" /></td>
-                                            <td ><c:out value="${produto.getValorUnitario()}" /></td>
+                                            <td ><c:out value="${cliente.getID()}" /></td>
+                                            <td ><c:out value="${cliente.getNome()}" /></td>
+                                            <td ><c:out value="${cliente.getCpf()}" /></td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>
                             </table>
-
                             <script>
-                                var table = document.getElementById('tabelaPesquisaProduto');
+                                highlight_row();
+                                function highlight_row() {
+                                    var table = document.getElementById('tabelaPesquisaCliente');
+                                    var cells = table.getElementsByTagName('td');
+
+                                    for (var i = 0; i < cells.length; i++) {
+                                        // Take each cell
+                                        var cell = cells[i];
+                                        // do something on onclick event for cell
+                                        cell.onclick = function () {
+                                            // Get the row id where the cell exists
+                                            var rowId = this.parentNode.rowIndex;
+
+                                            var rowsNotSelected = table.getElementsByTagName('tr');
+                                            for (var row = 0; row < rowsNotSelected.length; row++) {
+                                                rowsNotSelected[row].style.backgroundColor = "";
+                                                rowsNotSelected[row].classList.remove('selected');
+                                            }
+                                            var rowSelected = table.getElementsByTagName('tr')[rowId];
+                                            rowSelected.style.backgroundColor = "#d9d9d9";
+                                            rowSelected.className += " selected";
+                                        }
+                                    }
+
+                                }
+                            </script>
+                            <input type="text" name="cliente__selecionado" id="cliente__selecionado" placeholder="Cliente"/>
+                            <script>
+                                var table = document.getElementById('tabelaPesquisaCliente');
 
                                 for (var i = 1; i < table.rows.length; i++) {
                                     table.rows[i].onclick = function () {
-                                        document.getElementById("idProd").value = this.cells[0].innerHTML;
-                                        document.getElementById("produto__selecionado").value = this.cells[1].innerHTML;
+                                        document.getElementById("idCli").value = this.cells[0].innerHTML;
+                                        document.getElementById("cliente__selecionado").value = this.cells[1].innerHTML;
                                     };
                                 }
                             </script>
                         </div>
                     </div>
                 </form>
+            </div>
 
+            <div class="container__venda">
+                <!-- Tabela de Venda -->            
                 <form method="get" action="${pageContext.request.contextPath}/ItemPedido" novalidate>
                     <input type="hidden" value="?" id="idProd" name="idProd">
                     <input type="text" name="produto__selecionado" id="produto__selecionado" placeholder="Produto"/>
@@ -103,7 +206,7 @@
                     <input type="submit" value="Adicionar" class="btn" />
 
 
-                    <table id="tabelaVenda" class="tabelaVenda">
+                    <table id="tabelaVenda" class="tabela__venda">
                         <thead>
                             <tr>
                                 <th>Qtd</th>
@@ -123,70 +226,47 @@
                             </c:forEach>
                         </tbody>
                     </table>
+                    <script>
+                        highlight_row();
+                        function highlight_row() {
+                            var table = document.getElementById('tabelaVenda');
+                            var cells = table.getElementsByTagName('td');
+
+                            for (var i = 0; i < cells.length; i++) {
+                                // Take each cell
+                                var cell = cells[i];
+                                // do something on onclick event for cell
+                                cell.onclick = function () {
+                                    // Get the row id where the cell exists
+                                    var rowId = this.parentNode.rowIndex;
+
+                                    var rowsNotSelected = table.getElementsByTagName('tr');
+                                    for (var row = 0; row < rowsNotSelected.length; row++) {
+                                        rowsNotSelected[row].style.backgroundColor = "";
+                                        rowsNotSelected[row].classList.remove('selected');
+                                    }
+                                    var rowSelected = table.getElementsByTagName('tr')[rowId];
+                                    rowSelected.style.backgroundColor = "#d9d9d9";
+                                    rowSelected.className += " selected";
+                                }
+                            }
+
+                        }
+                    </script>
                     <input type="text" value="${valorTotal}" placeholder="Valor Total" id="Valor_Total" name="Valor_Total">
                 </form>
-
-                <div class="linha">
-                    <form id="finalizar__venda" name="finalizar__venda" class="finalizar__venda" method="post" action="${pageContext.request.contextPath}/FinalizarVenda" novalidate>                
-                        <input type="submit" value="Finalizar" class="btn btn-salvar" />
-                        <input type="hidden" value="?" id="idCli" name="idCli">
-                    </form>
-                    <form method="get" action="${pageContext.request.contextPath}/menu-principal" novalidate>
-                        <input type="submit" value="Cancelar" class="btn btn-cancelar" />
-                    </form>
-                </div>
-
             </div>
-            <div class="container">
-                <form method="post" action="${pageContext.request.contextPath}/Vender" novalidate>
-                    <div class="linha">
-                        <div class="coluna">
-                            <div class="pesquisa">
-                                <input type="text" placeholder="Pesquisar Cliente (Nome / CPF)" class="txt__pesquisa" name="pesquisar__cliente" id="pesquisar__cliente" />
-                                <img src="${pageContext.request.contextPath}/img/search.svg" alt="Pesquisar Cliente" class="btn__pesquisa" />
-                            </div>
-                        </div>
-                        <div class="coluna">
-                            <input type="submit" value="Pesquisar" class="btn  mt-0 ml-15" />
-                        </div>
-                    </div>
 
-                    <div class="linha">
-                        <div class="coluna">
-                            <table id="tabelaPesquisaCliente" class="tabela">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Nome</th>
-                                        <th>CPF</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <c:forEach items="${clienteAtt}" var="cliente">
-                                        <tr>
-                                            <td ><c:out value="${cliente.getID()}" /></td>
-                                            <td ><c:out value="${cliente.getNome()}" /></td>
-                                            <td ><c:out value="${cliente.getCpf()}" /></td>
-                                        </tr>
-                                    </c:forEach>
-                                </tbody>
-                            </table>                            
-                            <input type="text" name="cliente__selecionado" id="cliente__selecionado" placeholder="Cliente"/>
-                            <script>
-                                var table = document.getElementById('tabelaPesquisaCliente');
-
-                                for (var i = 1; i < table.rows.length; i++) {
-                                    table.rows[i].onclick = function () {
-                                        document.getElementById("idCli").value = this.cells[0].innerHTML;
-                                        document.getElementById("cliente__selecionado").value = this.cells[1].innerHTML;
-                                    };
-                                }
-                            </script>
-                        </div>
-
-                    </div>
+            <!-- Botões para finalizar ou cancelar venda -->
+            <div class="linha">
+                <form id="finalizar__venda" name="finalizar__venda" class="finalizar__venda" method="post" action="${pageContext.request.contextPath}/FinalizarVenda" novalidate>                
+                    <input type="submit" value="Finalizar" class="btn btn-salvar" />
+                    <input type="hidden" value="?" id="idCli" name="idCli">
                 </form>
-            </div>
+                <form method="get" action="${pageContext.request.contextPath}/menu-principal" novalidate>
+                    <input type="submit" value="Cancelar" class="btn btn-cancelar" />
+                </form>
+            </div>    
         </div>
     </body>
 </html>

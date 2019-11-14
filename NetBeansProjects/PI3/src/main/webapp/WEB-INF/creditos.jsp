@@ -25,11 +25,11 @@
             </div>
         </header>
 
-        <div class="container">
-            <h1>CANES - 2019</h1>
-            <p>Esse projeto foi desenvolvido pelo alunos do 3º semestre de TADS do Centro Universitário SENAC Santo Amaro</p>
+        <div class="container__centralizado">
+            <h2>CANES - 2019</h2>
+            <p>Esse projeto foi desenvolvido pelos alunos do 3º semestre de TADS do Centro Universitário SENAC Santo Amaro</p>
             <hr>
-            <h2>Desenvolvedores</h2>
+            <h3>Desenvolvedores</h3>
             <ul>
                 <li><a href="https://github.com/beatrizdasilva" target="_blank">Beatriz da Silva</a></li>
                 <li><a href="https://github.com/Mansoldo" target="_blank">Diego Mansoldo</a></li>

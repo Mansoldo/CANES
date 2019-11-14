@@ -99,16 +99,16 @@
                         <div class="coluna">
                             <label for="cliente__telefone">Telefone <span class="obrigatorio">*</span>
                                 <input type="text" required class="campo" name ="telefone" id="cliente__telefone" placeholder="(00) 00000-0000">
-                                </div>
-                                </div>
-
-                                <input type="submit" value="Salvar" class="btn btn-salvar" />
-                                </form>
-
-                                <form method="post" action="${pageContext.request.contextPath}/menu-principal" >
-                                    <input type="submit" value="Cancelar" class="btn btn-cancelar" />
-                                </form>
                         </div>
+                    </div>
+                    <div class="linha">
+                        <input type="submit" value="Salvar" class="btn btn-salvar" />
+                </form>
+
+                        <form method="post" action="${pageContext.request.contextPath}/menu-principal" >
+                            <input type="submit" value="Cancelar" class="btn btn-cancelar" />
+                        </form>
+                    </div>
                         <script>
                             $(document).ready(function () {
                                 var $Cpf = $("#cliente__cpf");
@@ -118,5 +118,5 @@
                             });
                         </script>
                     </div>
-                    </body>
-                    </html>
+    </body>
+</html>

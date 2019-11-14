@@ -48,7 +48,7 @@
                 </form>
         </nav>        
                 
-        <div class="containerRelatorio">
+        <div class="container">
             <div class="linha">
                 <div class="coluna">
                     <h2>Percentual por Filial</h2>

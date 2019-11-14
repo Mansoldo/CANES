@@ -123,8 +123,8 @@
                             <input type="password" class="campo" name="funcionario__senha" id="funcionario__senha">
                     </div>
                 </div>
-                
-                <input type="submit" value="Salvar" class="btn btn-salvar" />
+                <div class="linha">
+                    <input type="submit" value="Salvar" class="btn btn-salvar" />
             </form>
             
             <form method="post" action="${pageContext.request.contextPath}/menu-principal" novalidate>

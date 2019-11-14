@@ -47,7 +47,7 @@
                 </form>
         </nav>
                 
-        <div class="containerRelatorio">
+        <div class="container">
             <div class="linha">
                 <div class="coluna">
                     <h2>Top 10 Mais Vendidos</h2>

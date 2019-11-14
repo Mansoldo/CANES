@@ -135,8 +135,8 @@
                         <input type="text" class="campo" name="produto__valorunitario" id="produto__valorunitario" />
                     </div>
                 </div>
-
-                <input type="submit" value="Salvar" class="btn btn-salvar" />
+                <div class="linha">
+                    <input type="submit" value="Salvar" class="btn btn-salvar" />
             </form>
 
             <form method="post" action="${pageContext.request.contextPath}/menu-principal" novalidate>

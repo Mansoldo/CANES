@@ -78,11 +78,23 @@ menu menu__topo:hover {
     font-weight: bold;
 }
 
+/* MENSAGEM DE ERRO */
+h1{
+    font-size: 30px;    
+}
+
 /* TÍTULO DA PÁGINA */
 h2 {
     color: #079797;
     font-size: 25px;
     margin-top: 50px;
+}
+
+/* TÍTULO CREDITOS */
+h3{
+    color: #1b5958;
+    font-size: 22px;
+    margin: 20px 0 15px 0;
 }
 
 hr {
@@ -97,7 +109,34 @@ hr {
     margin: 0 auto;
 }
 
-/* CONTAINER DA PÁGINA DE MENU PRINCIPAL */
+/* CONTAINER DAS BARRAS DE PESQUISA DE PRODUTO E CLIENTE - TELA DE VENDA */
+.container__venda{
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    max-width: 97%;
+    margin: auto;    
+}
+
+/* CONTAINER DA TELA DE CRÉDITOS */
+.container__centralizado {
+    max-width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* CONTAINER TELA DE ERRO */
+.container__erro {
+    max-width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* CONTAINER DA PÁGINA - MENU PRINCIPAL */
 .container__menu__principal{
     display: flex;
     flex-direction: row; 
@@ -338,10 +377,10 @@ hr {
 
 .txt__pesquisa {
     background-color: transparent;
-    font-size: 18px;
+    font-size: 14px;
     border: none;
     height: 32px;
-    width: 460px;
+    width: 370px;
 }
 
 .btn__pesquisa {
@@ -356,6 +395,15 @@ table {
     border-collapse:collapse ;
     width: 57em;
     border: 1px solid #ced4da;
+}
+
+.tabela__pesquisa__secundaria{
+    margin: 10px 0;
+    width: 100%;
+}
+
+.tabela__venda{
+    margin: 10px 0;
 }
 
 .clicked {
@@ -419,4 +467,25 @@ footer p{
 }
 .ml-15 {
     margin-left: 15px !important;
+}
+
+/* PÁGINA DE CRÉDITOS */
+ul {
+    list-style-type: none;
+    
+}
+
+ul a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px 0;
+    cursor: pointer;
+    text-decoration:none;
+    color: black;
+    font-size: 17px;
+}
+
+p{
+    font-size: 17px;  
 }
