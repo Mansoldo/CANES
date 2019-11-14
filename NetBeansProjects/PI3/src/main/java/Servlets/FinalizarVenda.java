@@ -65,8 +65,6 @@ public class FinalizarVenda extends HttpServlet {
             boolean resulta = Controller.VendasController.finalizarVenda(venda);
             request.setAttribute("resultaAtt", resulta);
         }
-        
-        
 
         Controller.ItemPedidoController.limparLista();
 
