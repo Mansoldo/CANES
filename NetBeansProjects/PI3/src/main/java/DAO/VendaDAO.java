@@ -23,7 +23,7 @@ public class VendaDAO {
         //jdbc:mysql://localhost:3306/livraria?useTimezone=true&serverTimezone=UTC", "root", "adminadmin"
         //jdbc:mysql://canesdb.c6rp7koaks1z.us-east-1.rds.amazonaws.com:3306", "admin", "Canes123"
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conexao = DriverManager.getConnection("jdbc:mysql://canesdb.c6rp7koaks1z.us-east-1.rds.amazonaws.com:3306", "admin", "Canes123");
+        Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/livraria?useTimezone=true&serverTimezone=UTC", "root", "adminadmin");
         return conexao;
     }
 
@@ -32,11 +32,12 @@ public class VendaDAO {
         boolean retorno = false;
 
         try (Connection conexao = obterConexao()) {
-            PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO PEDIDOVENDA (DATA, VALOR_TOTAL, FK_ID_CLIENTE)"
-                    + " VALUES (?,?,null);");
+            PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO PEDIDOVENDA (DATA, VALOR_TOTAL, FK_ID_CLIENTE, FK_ID_FILIAL)"
+                    + " VALUES (?,?,null,?);");
 
             comandoSQL.setDate(1, v.getData());
             comandoSQL.setFloat(2, v.getValorTotal());            
+            comandoSQL.setInt(3, v.getIdFilial());
 
             int linhaAfetada = comandoSQL.executeUpdate();
 
@@ -54,12 +55,13 @@ public class VendaDAO {
         boolean retorno = false;
 
         try (Connection conexao = obterConexao()) {
-            PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO PEDIDOVENDA (DATA, VALOR_TOTAL, FK_ID_CLIENTE)"
-                    + " VALUES (?,?,?);");
+            PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO PEDIDOVENDA (DATA, VALOR_TOTAL, FK_ID_CLIENTE, FK_ID_FILIAL)"
+                    + " VALUES (?,?,?,?);");
 
             comandoSQL.setDate(1, v.getData());
             comandoSQL.setFloat(2, v.getValorTotal());            
             comandoSQL.setInt(3, v.getIdCliente());
+            comandoSQL.setInt(4, v.getIdFilial());
 
             int linhaAfetada = comandoSQL.executeUpdate();
 
