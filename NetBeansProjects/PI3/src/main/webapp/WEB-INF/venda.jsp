@@ -71,35 +71,34 @@
                                 <input type="submit" value="Pesquisar" class="btn  mt-0 ml-15" style="margin: 0" />
                             </div>
                             <div class="venda-table">
-                                <table id="tabelaPesquisaProduto" class="tabela__pesquisa__secundaria" style="width: 100%">
+                                <table id="tabelaPesquisaProduto" class="tabela__pesquisa__secundaria">
                                     <thead>
                                         <tr>
-                                            <th style="width: 10%">ID</th>
-                                            <th style="width: 40%">Produto</th>
-                                            <th>Estoque</th>
-                                            <th>Valor unitário</th>
+                                            <th>ID</th>
+                                            <th>Nome</th>
+                                            <Th>Estoque</Th>
+                                            <Th>Valor unitário</Th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <c:forEach items="${produtoAtt}" var="produto">
                                             <tr>
-                                                <td width="10%">
-                                                    <c:out value="${produto.getID()}" />
-                                                </td>
-                                                <td width="40%">
-                                                    <c:out value="${produto.getNomeProduto()}" />
-                                                </td>
-                                                <td width="15%">
-                                                    <c:out value="${produto.getQuantidade()}" /><input type="button"
-                                                           value="+"></td>
-                                                <td width="15%">
-                                                    <c:out value="${produto.getValorUnitario()}" />
-                                                </td>
+                                                <td ><c:out value="${produto.getID()}" /></td>
+                                                <td ><c:out value="${produto.getNomeProduto()}" /></td>
+                                                <td ><c:out value="${produto.getQuantidade()}" /></td>
+                                                <td ><c:out value="${produto.getValorUnitario()}" /></td>
                                             </tr>
                                         </c:forEach>
                                     </tbody>
                                 </table>
                                 <script>
+                                    var table = document.getElementById('tabelaPesquisaProduto');
+                                    for (var i = 1; i < table.rows.length; i++) {
+                                        table.rows[i].onclick = function () {
+                                            document.getElementById("idProd").value = this.cells[0].innerHTML;
+                                            document.getElementById("produto__selecionado").value = this.cells[1].innerHTML;
+                                        };
+                                    }
                                     highlight_row();
                                     function highlight_row() {
                                         var table = document.getElementById('tabelaPesquisaProduto');
@@ -126,17 +125,6 @@
 
                                     }
                                 </script>
-
-                                <script>
-                                    var table = document.getElementById('tabelaPesquisaProduto');
-
-                                    for (var i = 1; i < table.rows.length; i++) {
-                                        table.rows[i].onclick = function () {
-                                            document.getElementById("idProd").value = this.cells[0].innerHTML;
-                                            document.getElementById("produto__selecionado").value = this.cells[1].innerHTML;
-                                        };
-                                    }
-                                </script>
                             </div>
                         </form>
                     </div>
@@ -151,31 +139,33 @@
                                 </div>
                                 <input type="submit" value="Pesquisar" class="btn  mt-0 ml-15" style="margin: 0" />
                             </div>
-                            <table id="tabelaPesquisaCliente" class="tabela__pesquisa__secundaria" style="width: 100%">
+                            <table id="tabelaPesquisaCliente" class="tabela__pesquisa__secundaria">
                                 <thead>
                                     <tr>
-                                        <th style="width: 10%">ID</th>
-                                        <th style="width: 60%">Nome</th>
+                                        <th>ID</th>
+                                        <th>Nome</th>
                                         <th>CPF</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <c:forEach items="${clienteAtt}" var="cliente">
                                         <tr>
-                                            <td>
-                                                <c:out value="${cliente.getID()}" />
-                                            </td>
-                                            <td>
-                                                <c:out value="${cliente.getNome()}" />
-                                            </td>
-                                            <td>
-                                                <c:out value="${cliente.getCpf()}" />
-                                            </td>
+                                            <td ><c:out value="${cliente.getID()}" /></td>
+                                            <td ><c:out value="${cliente.getNome()}" /></td>
+                                            <td ><c:out value="${cliente.getCpf()}" /></td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>
-                            </table>
+                            </table> 
                             <script>
+                                var table = document.getElementById('tabelaPesquisaCliente');
+                                for (var i = 1; i < table.rows.length; i++) {
+                                    table.rows[i].onclick = function () {
+                                        document.getElementById("idCli").value = this.cells[0].innerHTML;
+                                        document.getElementById("cliente__selecionado").value = this.cells[1].innerHTML;
+                                    };
+                                }
+
                                 highlight_row();
                                 function highlight_row() {
                                     var table = document.getElementById('tabelaPesquisaCliente');
