@@ -43,8 +43,18 @@
         <header class="header">
             <div class="logo">
                 <h1>Livraria</h1>
-                <img src="${pageContext.request.contextPath}/img/logo.svg" alt="Logo Livraria Tades">
+                <img src="${pageContext.request.contextPath}/img/logo.svg" alt="Logo Livraria Tades" />
                 <h1>Tades</h1>
+            </div>
+            <div class="user-menu">
+                <div class="user-menu-content">
+                    <form method="get" action="${pageContext.request.contextPath}/AlterarSenha" novalidate>
+                        <button type="submit" name="BtnCancel" class="botoes">Alterar senha</button>
+                    </form>
+                    <form method="get" action="${pageContext.request.contextPath}/Logout" novalidate>
+                        <button type="submit" name="BtnCancel" class="botoes">Sair</button>
+                    </form>
+                </div>
             </div>
         </header>
 
@@ -95,14 +105,14 @@
                     </div>
                 </div>
 
-                <table id="tabelaCliente" class="tabela">
+                <table id="tabelaCliente" class="tabela" style="width: 100%">
                     <thead>
                         <tr>
-                            <th>Nome</th>
-                            <th>CPF</th>
-                            <th>Nascimento</th>
-                            <th>Sexo</th>
-                            <th>Email</th>
+                            <th style="width: 30%">Nome</th>
+                            <th style="width: 15%">CPF</th>
+                            <th>Data de Nascimento</th>
+                            <th style="width: 5%">Sexo</th>
+                            <th style="width: 30%">Email</th>
                             <th>Telefone</th>
                         </tr>
                     </thead>

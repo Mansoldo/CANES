@@ -25,7 +25,7 @@
             </div>
         </header>
 
-        <div class="container__centralizado">
+        <div class="container__creditos">
             <h2>CANES - 2019</h2>
             <p>Esse projeto foi desenvolvido pelos alunos do 3º semestre de TADS do Centro Universitário SENAC Santo Amaro</p>
             <hr>

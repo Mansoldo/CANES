@@ -35,10 +35,19 @@
         <header class="header">
             <div class="logo">
                 <h1>Livraria</h1>
-                <img src="${pageContext.request.contextPath}/img/logo.svg" alt="Logo Livraria Tades">
+                <img src="${pageContext.request.contextPath}/img/logo.svg" alt="Logo Livraria Tades" />
                 <h1>Tades</h1>
             </div>
-            <div class="menu__usuario"></div>
+            <div class="user-menu">
+                <div class="user-menu-content">
+                    <form method="get" action="${pageContext.request.contextPath}/AlterarSenha" novalidate>
+                        <button type="submit" name="BtnCancel" class="botoes">Alterar senha</button>
+                    </form>
+                    <form method="get" action="${pageContext.request.contextPath}/Logout" novalidate>
+                        <button type="submit" name="BtnCancel" class="botoes">Sair</button>
+                    </form>
+                </div>
+            </div>
         </header>
 
         <nav class="menu">
@@ -87,11 +96,11 @@
                         <input type="submit" value="Pesquisar" class="btn mt-0" />
                     </div>                    
                 </div>
-                <table id="tabelaFuncionario" class="tabela">
+                <table id="tabelaFuncionario" class="tabela"  style="width: 100%">
                     <thead>
                         <tr>
-                            <th>Id</th>
-                            <th>Nome</th>
+                            <th style="width: 10%">Id</th>
+                            <th style="width: 50%">Nome</th>
                             <th>CPF</th>
                             <Th>Cargo</Th>
                             <Th>Filial</Th>

@@ -24,11 +24,19 @@
                 <img src="${pageContext.request.contextPath}/img/logo.svg" alt="Logo Livraria Tades" />
                 <h1>Tades</h1>
             </div>
-            <div class="menu__usuario"></div>
+            <div class="user-menu">
+                <div class="user-menu-content">
+                    <form method="get" action="${pageContext.request.contextPath}/AlterarSenha" novalidate>
+                        <button type="submit" name="BtnCancel" class="botoes">Alterar senha</button>
+                    </form>
+                    <form method="get" action="${pageContext.request.contextPath}/Logout" novalidate>
+                        <button type="submit" name="BtnCancel" class="botoes">Sair</button>
+                    </form>
+                </div>
+            </div>
         </header>
-
+        
         <div class="container__menu__principal">
-
             <div class="dropdown">
                 <img src="${pageContext.request.contextPath}/img/venda.svg" alt="botão para tela de venda">
                 <button class="dropbtn">Vender</button>
@@ -94,11 +102,7 @@
                 </div>
             </div>
         </div>
-        <div>
-            <form method="get" action="${pageContext.request.contextPath}/Logout" novalidate>
-                <button type="submit" name="BtnCancel" class="botoes">Logout</button>
-            </form>
-        </div>
+
     </body>
 
 </html>

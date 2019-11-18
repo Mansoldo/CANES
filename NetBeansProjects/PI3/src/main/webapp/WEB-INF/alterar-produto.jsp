@@ -19,35 +19,43 @@
     </head>
 
     <body>
-
         <header class="header">
             <div class="logo">
                 <h1>Livraria</h1>
                 <img src="${pageContext.request.contextPath}/img/logo.svg" alt="Logo Livraria Tades" />
                 <h1>Tades</h1>
             </div>
-            <div class="menu__usuario"></div>
+            <div class="user-menu">
+                <div class="user-menu-content">
+                    <form method="get" action="${pageContext.request.contextPath}/AlterarSenha" novalidate>
+                        <button type="submit" name="BtnCancel" class="botoes">Alterar senha</button>
+                    </form>
+                    <form method="get" action="${pageContext.request.contextPath}/Logout" novalidate>
+                        <button type="submit" name="BtnCancel" class="botoes">Sair</button>
+                    </form>
+                </div>
+            </div>
         </header>
-                
+
         <nav class="menu">    
-                <form method="get" action="${pageContext.request.contextPath}/menu-principal" novalidate>
-                    <input type="submit" value="Menu Principal" class="dropmenu">
-                </form> 
-                <form method="get" action="${pageContext.request.contextPath}/Vender" novalidate>
-                    <input type="submit" value="Vender" class="dropmenu">
-                </form>
-            
-                <form method="get" action="${pageContext.request.contextPath}/ProdutoConsultar" novalidate>
-                    <input type="submit" value="Consultar Produto" class="dropmenu">
-                </form>
+            <form method="get" action="${pageContext.request.contextPath}/menu-principal" novalidate>
+                <input type="submit" value="Menu Principal" class="dropmenu">
+            </form> 
+            <form method="get" action="${pageContext.request.contextPath}/Vender" novalidate>
+                <input type="submit" value="Vender" class="dropmenu">
+            </form>
 
-                <form method="get" action="${pageContext.request.contextPath}/ConsultaCliente" novalidate>
-                    <input type="submit" value="Consultar Cliente" class="dropmenu">
-                </form>
+            <form method="get" action="${pageContext.request.contextPath}/ProdutoConsultar" novalidate>
+                <input type="submit" value="Consultar Produto" class="dropmenu">
+            </form>
 
-                <form method="get" action="${pageContext.request.contextPath}/FuncionarioConsultar" novalidate>
-                    <input type="submit" value="Consultar Funcionário" class="dropmenu">
-                </form>
+            <form method="get" action="${pageContext.request.contextPath}/ConsultaCliente" novalidate>
+                <input type="submit" value="Consultar Cliente" class="dropmenu">
+            </form>
+
+            <form method="get" action="${pageContext.request.contextPath}/FuncionarioConsultar" novalidate>
+                <input type="submit" value="Consultar Funcionário" class="dropmenu">
+            </form>
         </nav>
 
         <div class="container">
@@ -132,7 +140,7 @@
                 </div>
                 <input type="submit" value="Salvar" class="btn btn-salvar" />
             </form>
-                    
+
             <form method="get" action="${pageContext.request.contextPath}/ProdutoConsultar" novalidate>
                 <input type="submit" value="Cancelar" class="btn btn-cancelar" />
             </form>

@@ -20,6 +20,7 @@
     color: #119b9b;
 }
 
+/* LOGO */
 .logo {
     display: flex;
     justify-content: flex-start;
@@ -36,16 +37,43 @@
     margin: 10px 8px;
 }
 
-.menu__usuario {
-    display: flex;
-    justify-content: flex-end;
-    background-image: url("../assets/img/profile.svg");
-    background-size: contain;
-    width: 30px;
-    height: 1200px;
-    margin: 10px 8px;
+/* MENU DE USUÁRIO */
+.user-menu {
+    width: 200px;
+    height: 40px;
+    border: 1px solid #068574;
+    position: absolute;
+    right: 200px;
+}
+.user-menu:hover .user-menu-content {
+    display: block;
+}
+.user-menu-content {
+    width: 200px;
+    background: white;
+    border-radius: 5px;
+    position: absolute;
+    top: 40px;
+    display: none;
+
+}
+.user-menu .user-menu-content .botoes {
+    margin: 0 !important;
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    display: block;
+    background: #068574;
+    color: white;
+    border: none;
+    font-size: 1.1em;
+}
+.user-menu .user-menu-content .botoes:hover{
+    background: #068580;
+    
 }
 
+/* MENU PRINCIPAL */
 .menu{
     display: flex;
     flex-direction: row;
@@ -73,13 +101,13 @@
     padding: 30px;
 }
 
-menu menu__topo:hover {
+.menu menu__topo:hover {
     color: #cccccc;
     font-weight: bold;
 }
 
 /* MENSAGEM DE ERRO */
-h1{
+.container__erro h1{
     font-size: 30px;    
 }
 
@@ -90,13 +118,6 @@ h2 {
     margin-top: 50px;
 }
 
-/* TÍTULO CREDITOS */
-h3{
-    color: #1b5958;
-    font-size: 22px;
-    margin: 20px 0 15px 0;
-}
-
 hr {
     border: 0.5px solid;
     border-color: #464646;
@@ -105,36 +126,28 @@ hr {
 
 /* CONTAINER DAS PÁGINAS GERAIS */
 .container {
-    max-width: 80%;
+    max-width: 90%;
     margin: 0 auto;
 }
 
 /* CONTAINER DAS BARRAS DE PESQUISA DE PRODUTO E CLIENTE - TELA DE VENDA */
 .container__venda{
     display: flex;
-    flex-direction: row; 
+    flex-direction: column; 
     justify-content: space-between;
-    max-width: 97%;
     margin: auto;    
 }
 
-/* CONTAINER DA TELA DE CRÉDITOS */
-.container__centralizado {
-    max-width: 80%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.venda-column{
+    width: 100%;
+    padding: 0 10px;
 }
-
-/* CONTAINER TELA DE ERRO */
-.container__erro {
-    max-width: 80%;
-    margin: 0 auto;
+.venda-row{
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    height: 40vh;
+    min-height: 400px;
 }
+.venda-table{}
 
 /* CONTAINER DA PÁGINA - MENU PRINCIPAL */
 .container__menu__principal{
@@ -144,25 +157,6 @@ hr {
     max-width: 1200px;
     margin: auto;
     margin-top: 200px;
-}
-
-@media (max-width: 1090px){
-    .container__menu__principal{
-        display: flex;
-        flex-wrap: wrap;
-    }
-}
-
-@media (max-width: 700px) {
-    .container__menu__principal {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    header img {
-        margin-bottom: 10px;
-    }
 }
 
 /* CONTAINER DA TELA DE LOGIN */
@@ -189,8 +183,25 @@ hr {
     overflow: hidden;
 }
 
-/* Menu principal */
+/* CONTAINER DA TELA DE CRÉDITOS */
+.container__creditos {
+    max-width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+/* CONTAINER TELA DE ERRO */
+.container__erro {
+    max-width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Menu principal */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -345,24 +356,6 @@ hr {
     background-color: #ad1414;
 }
 
-.btn.btn-PercentualFilial {
-    background-color: #119b9b;
-    width: 200px;
-    height: 80px;
-}
-
-.btn.btn-TotalFilial {
-    background-color: #119b9b;
-    width: 200px;
-    height: 80px;
-}
-
-.btn.btn-TopMaisVendidos {
-    background-color: #119b9b;
-    width: 200px;
-    height: 80px;
-}
-
 /* BARRA DE PESQUISA */
 .pesquisa {
     display: flex;
@@ -372,7 +365,6 @@ hr {
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    min-width: 50%;
 }
 
 .txt__pesquisa {
@@ -380,7 +372,7 @@ hr {
     font-size: 14px;
     border: none;
     height: 32px;
-    width: 370px;
+    width: 320px;
 }
 
 .btn__pesquisa {
@@ -400,6 +392,12 @@ table {
 .tabela__pesquisa__secundaria{
     margin: 10px 0;
     width: 100%;
+}
+.tabela__pesquisa__secundaria td, .tabela__pesquisa__secundaria th {
+    border-radius: 0;
+}
+.tabela__pesquisa__secundaria thead th:nth-child(even) {
+    background: #eaeaea;
 }
 
 .tabela__venda{
@@ -436,7 +434,7 @@ th {
 }
 
 th, td {
-    padding: 0.2em 2em;
+    padding: 0.2em 5px;
 }
 
 /* FOOTER */
@@ -461,21 +459,19 @@ footer p{
     margin: 5px 0;
 }
 
-/*Modificadores para correcoes de CSS*/
-.mt-0 {
-    margin-top: 0 !important;
-}
-.ml-15 {
-    margin-left: 15px !important;
-}
-
 /* PÁGINA DE CRÉDITOS */
-ul {
-    list-style-type: none;
-    
+.container__creditos h3{
+    color: #1b5958;
+    font-size: 22px;
+    margin: 20px 0 15px 0;
 }
 
-ul a {
+.container__creditos ul {
+    list-style-type: none;
+
+}
+
+.container__creditos ul a {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -486,6 +482,33 @@ ul a {
     font-size: 17px;
 }
 
-p{
+.container__creditos p{
     font-size: 17px;  
+}
+
+/*Modificadores para correcoes de CSS*/
+.mt-0 {
+    margin-top: 0 !important;
+}
+.ml-15 {
+    margin-left: 15px !important;
+}
+
+@media (max-width: 1090px){
+    .container__menu__principal{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 700px) {
+    .container__menu__principal {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header img {
+        margin-bottom: 10px;
+    }
 }

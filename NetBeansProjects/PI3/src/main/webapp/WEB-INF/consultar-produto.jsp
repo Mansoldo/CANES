@@ -7,7 +7,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-BR">
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,10 +42,19 @@
         <header class="header">
             <div class="logo">
                 <h1>Livraria</h1>
-                <img src="${pageContext.request.contextPath}/img/logo.svg" alt="Logo Livraria Tades">
+                <img src="${pageContext.request.contextPath}/img/logo.svg" alt="Logo Livraria Tades" />
                 <h1>Tades</h1>
             </div>
-            <div class="menu__usuario"></div>
+            <div class="user-menu">
+                <div class="user-menu-content">
+                    <form method="get" action="${pageContext.request.contextPath}/AlterarSenha" novalidate>
+                        <button type="submit" name="BtnCancel" class="botoes">Alterar senha</button>
+                    </form>
+                    <form method="get" action="${pageContext.request.contextPath}/Logout" novalidate>
+                        <button type="submit" name="BtnCancel" class="botoes">Sair</button>
+                    </form>
+                </div>
+            </div>
         </header>
 
         <nav class="menu"> 
@@ -95,11 +103,11 @@
                         <input type="Submit" value="Pesquisar" class="btn mt-0" />
                     </div>
                 </div>
-                <table id="tabelaProduto" class="tabela">
+                <table id="tabelaProduto" class="tabela" style="width: 100%">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Nome</th>
+                            <th style="width: 40%">Produto</th>
                             <th>Idioma</th>
                             <Th>Categoria</Th>
                             <Th>Quantidade</Th>
