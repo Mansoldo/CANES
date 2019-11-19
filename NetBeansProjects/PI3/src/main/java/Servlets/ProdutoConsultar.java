@@ -1,5 +1,6 @@
 package Servlets;
 
+import Classes.Funcionario;
 import Classes.Produto;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "ProdutoConsultar", urlPatterns = {"/ProdutoConsultar"})
 public class ProdutoConsultar extends HttpServlet {
@@ -28,7 +30,10 @@ public class ProdutoConsultar extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         String filter = request.getParameter("pesquisar__produto");
         
-        ArrayList<Produto> produto = new Controller.ProdutoController().getProdutoFilter(filter);
+        HttpSession session = request.getSession();
+        Funcionario funcionario = (Funcionario) session.getAttribute("usuarioLogado");
+        
+        ArrayList<Produto> produto = new Controller.ProdutoController().getProdutoFilter(filter, funcionario.getFilial());
         
         request.setAttribute("produtoAtt", produto);
         

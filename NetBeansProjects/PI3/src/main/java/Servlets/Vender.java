@@ -1,6 +1,7 @@
 package Servlets;
 
 import Classes.Cliente;
+import Classes.Funcionario;
 import Classes.ItemPedido;
 import Classes.Produto;
 import java.io.IOException;
@@ -11,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "Vender", urlPatterns = {"/Vender"})
 public class Vender extends HttpServlet {
@@ -27,10 +29,13 @@ public class Vender extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        HttpSession session = request.getSession();
+        Funcionario funcionario = (Funcionario) session.getAttribute("usuarioLogado");        
+        
         request.setCharacterEncoding("UTF-8");
         String filter = request.getParameter("pesquisar__produto");
         String filter2 = request.getParameter("pesquisar__cliente");
-        ArrayList<Produto> produto = new Controller.ProdutoController().getProdutoFilter(filter);
+        ArrayList<Produto> produto = new Controller.ProdutoController().getProdutoFilter(filter, funcionario.getFilial());
         request.setAttribute("produtoAtt", produto);
 
         ArrayList<ItemPedido> lista = Controller.ItemPedidoController.getItens();

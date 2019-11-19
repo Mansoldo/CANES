@@ -1,5 +1,6 @@
 package Controller;
 
+import Classes.Funcionario;
 import Classes.Produto;
 import Classes.ProdutoCdDvd;
 import Classes.ProdutoLivro;
@@ -47,8 +48,8 @@ public class ProdutoController {
         return produto;
     }
 
-    public ArrayList<Produto> getProdutoFilter(String filter) {
-        ArrayList<Produto> produto = new DAO.ProdutoDAO().getProdutoFilter(filter);
+    public ArrayList<Produto> getProdutoFilter(String filter, int filial_func) {
+        ArrayList<Produto> produto = new DAO.ProdutoDAO().getProdutoFilter(filter, filial_func);
         return produto;
     }
 

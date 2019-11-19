@@ -20,7 +20,7 @@
         </header>
         <div class="container__erro">        
             <h1>ERRO: Acesso não autorizado</h1>
-            <form method="post" action="${pageContext.request.contextPath}/Login" novalidate>
+            <form method="post" action="${pageContext.request.contextPath}/menu-principal" novalidate>
                 <input type="submit" value="Voltar" class="btn">
             </form>
         </div>

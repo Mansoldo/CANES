@@ -17,7 +17,7 @@ public class ProdutoDAO {
     private static Connection obterConexao() throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/livraria?useTimezone=true&serverTimezone=UTC", "root", "");
+        Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/livraria?useTimezone=true&serverTimezone=UTC", "root", "adminadmin");
         return conexao;
     }
 
@@ -207,13 +207,13 @@ public class ProdutoDAO {
         return lista;
     }
 
-    public ArrayList<Produto> getProdutoFilter(String filter) {
+    public ArrayList<Produto> getProdutoFilter(String filter, int filial_func) {
 
         ArrayList<Produto> lista = new ArrayList<>();
 
         try (Connection conexao = obterConexao()) {
 
-            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM LIVRARIA.PRODUTO where NOME_PRODUTO like '%" + filter + "%' or CATEGORIA like '%" + filter + "%' or IDIOMA like '%" + filter + "%'");
+            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM LIVRARIA.PRODUTO where (NOME_PRODUTO like '%" + filter + "%' or CATEGORIA like '%" + filter + "%' or IDIOMA like '%" + filter + "%') AND FK_ID_FILIAL = " + filial_func + ";");
 
             ResultSet rs = comandoSQL.executeQuery();
 
