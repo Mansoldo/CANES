@@ -3,7 +3,7 @@
     Created on : 11/10/2019, 22:13:08
     Author     : Beatriz da Silva
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,6 +18,12 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
     </head>
     <body>
+        <script>
+            if (${naoAutorizado} === true) {
+                alert('Não tem acesso para pesquisar esta filial!');
+            }
+
+        </script>
         <header class="header">
             <div class="logo">
                 <h1>Livraria</h1>
@@ -64,7 +70,7 @@
                 </div>
             </div>
             <hr>
-            <form id="topMaisVendidos" name="top_MaisVendidos" class="form">
+            <form method ="get" id="topMaisVendidos" name="top_MaisVendidos" class="form" action="${pageContext.request.contextPath}/RelatorioTop" novalidate>
                 <div class="linha">
                     <div class="coluna">
                         <select class="campo" name="filial" id="filial">
@@ -85,52 +91,23 @@
                 <table id="tabela" class="tabela">
                     <thead>
                         <tr>
-                            <th>Posição</th>
-                            <th>Título</th>  
+                            <th>Nome Filial</th>
+                            <th>Nome Produto</th>  
+                            <th>Valor Item</th>
+                            <th>Quantidade Item</th>
+                            <th>Valor Total</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>TESTE</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>TESTE</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>TESTE</td>          
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>TESTE</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>TESTE</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>TESTE</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>TESTE</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>TESTE</td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td>TESTE</td>
-                        </tr>
-
-                        <tr>
-                            <td>10</td>
-                            <td>TESTE</td>
-                        </tr>
+                        <c:forEach items="${relatorioTop}" var="relatorio">
+                            <tr>
+                                <td id="nomeFilial"><c:out value="${relatorio.getNomeFilial()}"/></td>                                
+                                <td id="nomeProduto"><c:out value="${relatorio.getNomeProduto()}"/></td>                                
+                                <td id="valorItem"><c:out value="${relatorio.getValorItem()}"/></td>                                
+                                <td id="qtdItem"><c:out value="${relatorio.getQtdItem()}"/></td>                                
+                                <td id="valorTotal"><c:out value="${relatorio.getValorTotal()}"/></td>                                
+                            </tr>
+                        </c:forEach> 
                     </tbody>
                 </table>
             </form>
