@@ -70,7 +70,7 @@
                 </div>
             </div>
             <hr>
-            <form method ="get" id="topMaisVendidos" name="top_MaisVendidos" class="form" action="${pageContext.request.contextPath}/RelatorioTop" novalidate>
+            <form method ="post" id="topMaisVendidos" name="top_MaisVendidos" class="form" action="${pageContext.request.contextPath}/RelatorioTop" novalidate>
                 <div class="linha">
                     <div class="coluna">
                         <select class="campo" name="filial" id="filial">
@@ -80,12 +80,9 @@
                             <option value="Campina Grande">(PB) Campina Grande</option>
                             <option value="Joinville">(SC) Joinville</option>
                         </select>
-                    </div>
+                    </div>                    
                     <div class="coluna">
-                        <input type="text" value="" class="campo" /> 
-                    </div>
-                    <div class="coluna">
-                        <input type="button" value="Pesquisar" class="btn mt-0" />
+                        <input type="submit" value="Pesquisar" class="btn mt-0" />
                     </div>
                 </div>
                 <table id="tabela" class="tabela">

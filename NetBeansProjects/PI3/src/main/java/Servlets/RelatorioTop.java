@@ -20,6 +20,16 @@ public class RelatorioTop extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        RequestDispatcher dispatcher
+                = request.getRequestDispatcher("/WEB-INF/relatorio-top-vendidos.jsp");
+        dispatcher.forward(request, response);
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
         HttpSession session = request.getSession();
         Funcionario funcionario = (Funcionario) session.getAttribute("usuarioLogado");
 
@@ -94,14 +104,6 @@ public class RelatorioTop extends HttpServlet {
                 = request.getRequestDispatcher("/WEB-INF/relatorio-top-vendidos.jsp");
         dispatcher.forward(request, response);
 
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/relatorio-top-vendidos.jsp");
-        dispatcher.forward(request, response);
     }
 
 }

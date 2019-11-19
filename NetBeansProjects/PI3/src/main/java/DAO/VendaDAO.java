@@ -23,7 +23,7 @@ public class VendaDAO {
         //jdbc:mysql://localhost:3306/livraria?useTimezone=true&serverTimezone=UTC", "root", "adminadmin"
         //jdbc:mysql://canesdb.c6rp7koaks1z.us-east-1.rds.amazonaws.com:3306", "admin", "Canes123"
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/livraria?useTimezone=true&serverTimezone=UTC", "root", "adminadmin");
+        Connection conexao = DriverManager.getConnection("jdbc:mysql://canesdb.c6rp7koaks1z.us-east-1.rds.amazonaws.com:3306?useLegacyDatetimeCode=false&serverTimezone=America/Fortaleza&useTimezone=true", "admin", "Canes123");
         return conexao;
     }
 
@@ -32,7 +32,7 @@ public class VendaDAO {
         boolean retorno = false;
 
         try (Connection conexao = obterConexao()) {
-            PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO PEDIDOVENDA (DATA, VALOR_TOTAL, FK_ID_CLIENTE, FK_ID_FILIAL)"
+            PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO LIVRARIA.PEDIDOVENDA (DATA, VALOR_TOTAL, FK_ID_CLIENTE, FK_ID_FILIAL)"
                     + " VALUES (?,?,null,?);");
 
             comandoSQL.setDate(1, v.getData());
@@ -55,7 +55,7 @@ public class VendaDAO {
         boolean retorno = false;
 
         try (Connection conexao = obterConexao()) {
-            PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO PEDIDOVENDA (DATA, VALOR_TOTAL, FK_ID_CLIENTE, FK_ID_FILIAL)"
+            PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO LIVRARIA.PEDIDOVENDA (DATA, VALOR_TOTAL, FK_ID_CLIENTE, FK_ID_FILIAL)"
                     + " VALUES (?,?,?,?);");
 
             comandoSQL.setDate(1, v.getData());
@@ -79,7 +79,7 @@ public class VendaDAO {
         int ID = 0;
 
         try (Connection conexao = obterConexao()) {
-            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT MAX(ID_VENDA) AS ID_VENDA FROM PEDIDOVENDA");
+            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT MAX(ID_VENDA) AS ID_VENDA FROM LIVRARIA.PEDIDOVENDA");
 
             ResultSet rs = comandoSQL.executeQuery();
 

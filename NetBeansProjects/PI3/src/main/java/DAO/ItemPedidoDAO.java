@@ -17,7 +17,7 @@ public class ItemPedidoDAO {
     private static Connection obterConexao() throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/livraria?useTimezone=true&serverTimezone=UTC", "root", "adminadmin");
+        Connection conexao = DriverManager.getConnection("jdbc:mysql://canesdb.c6rp7koaks1z.us-east-1.rds.amazonaws.com:3306?useLegacyDatetimeCode=false&serverTimezone=America/Fortaleza&useTimezone=true", "admin", "Canes123");
         return conexao;
     }
 
@@ -37,7 +37,7 @@ public class ItemPedidoDAO {
 
         try (Connection conexao = obterConexao()) {
 
-            PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO ITEMPEDIDO "
+            PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO LIVRARIA.ITEMPEDIDO "
                     + "(QTD, VALOR_ITEM, FK_ID_PROD, FK_ID_VENDA)\n"
                     + " VALUES (?,?,?,?);");
 
@@ -74,7 +74,7 @@ public class ItemPedidoDAO {
 
             PreparedStatement comandoSQL = conexao.prepareStatement("SELECT ID_ITEM, QUANTIDADE, VALOR_ITEM, ID_PRODUTO, "
                     + "ID_COMANDA, NOME_PRODUTO\n"
-                    + "FROM ITEM_COMANDA");
+                    + "FROM LIVRARIA.ITEM_COMANDA");
 
             ResultSet rs = comandoSQL.executeQuery();
 

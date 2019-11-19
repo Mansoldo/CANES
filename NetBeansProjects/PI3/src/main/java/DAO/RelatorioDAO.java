@@ -14,7 +14,7 @@ public class RelatorioDAO {
     private static Connection obterConexao() throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/livraria?useTimezone=true&serverTimezone=UTC", "root", "adminadmin");
+        Connection conexao = DriverManager.getConnection("jdbc:mysql://canesdb.c6rp7koaks1z.us-east-1.rds.amazonaws.com:3306?useLegacyDatetimeCode=false&serverTimezone=America/Fortaleza&useTimezone=true", "admin", "Canes123");
         return conexao;
     }
 
@@ -31,14 +31,14 @@ public class RelatorioDAO {
                     + "    SUM(a.QTD) QTD_ITEM,\n"
                     + "    SUM(a.QTD * a.VALOR_ITEM) VALOR_TOTAL\n"
                     + "FROM\n"
-                    + "    ITEMPEDIDO a\n"
+                    + "    LIVRARIA.ITEMPEDIDO a\n"
                     + "        INNER JOIN\n"
-                    + "    PEDIDOVENDA b ON a.FK_ID_VENDA = b.ID_VENDA\n"
+                    + "    LIVRARIA.PEDIDOVENDA b ON a.FK_ID_VENDA = b.ID_VENDA\n"
                     + "        INNER JOIN\n"
-                    + "    PRODUTO c ON a.FK_ID_PROD = c.ID_PRODUTO\n"
+                    + "    LIVRARIA.PRODUTO c ON a.FK_ID_PROD = c.ID_PRODUTO\n"
                     + "        INNER JOIN\n"
-                    + "    FILIAL d ON c.FK_ID_FILIAL = d.ID_FILIAL\n"
-                    + "WHERE D.ID_FILIAL = ?\n"
+                    + "    LIVRARIA.FILIAL d ON c.FK_ID_FILIAL = d.ID_FILIAL\n"
+                    + "WHERE d.ID_FILIAL = ?\n"
                     + "GROUP BY 1 , 2\n"
                     + "ORDER BY 4 DESC\n"
                     + "LIMIT 10;");
