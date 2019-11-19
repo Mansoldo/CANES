@@ -19,11 +19,11 @@ public class VendasController {
 
         boolean salvo = false;
 
-        salvo = DAO.VendaDAO.daoSalvarVenda(venda);
+        salvo =  new DAO.VendaDAO().daoSalvarVenda(venda);
 
         if (salvo == true) {
 
-            int UltimoIDVenda = DAO.VendaDAO.ultimoIDVenda();
+            int UltimoIDVenda = new DAO.VendaDAO().ultimoIDVenda();
 
             ArrayList<ItemPedido> item = Controller.ItemPedidoController.getItens();
             for (ItemPedido lista : item) {
@@ -39,11 +39,11 @@ public class VendasController {
 
         boolean salvo = false;
 
-        salvo = DAO.VendaDAO.daoSalvarVendaCliente(venda);
+        salvo = new DAO.VendaDAO().daoSalvarVendaCliente(venda);
 
         if (salvo == true) {
 
-            int UltimoIDVenda = DAO.VendaDAO.ultimoIDVenda();
+            int UltimoIDVenda = new DAO.VendaDAO().ultimoIDVenda();
 
             ArrayList<ItemPedido> item = Controller.ItemPedidoController.getItens();
             for (ItemPedido lista : item) {

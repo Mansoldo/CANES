@@ -27,7 +27,7 @@ public class VendaDAO {
         return conexao;
     }
 
-    public static boolean daoSalvarVenda(Vendas v) {
+    public boolean daoSalvarVenda(Vendas v) {
 
         boolean retorno = false;
 
@@ -50,7 +50,7 @@ public class VendaDAO {
         return retorno;
     }
     
-    public static boolean daoSalvarVendaCliente(Vendas v) {
+    public boolean daoSalvarVendaCliente(Vendas v) {
 
         boolean retorno = false;
 
@@ -74,7 +74,7 @@ public class VendaDAO {
         return retorno;
     }
 
-    public static int ultimoIDVenda() {
+    public int ultimoIDVenda() {
 
         int ID = 0;
 
