@@ -25,7 +25,7 @@
                 <img src="${pageContext.request.contextPath}/img/logo.svg" alt="Logo Livraria Tades" />
                 <h1>Tades</h1>
             </div>
-            <div class="user-menu">
+            <div class="user-menu">${sessionScope.usuarioLogado.nome_func}
                 <div class="user-menu-content">
                     <form method="get" action="${pageContext.request.contextPath}/AlterarSenha" novalidate>
                         <button type="submit" name="BtnCancel" class="botoes">Alterar senha</button>
@@ -138,7 +138,8 @@
                         <input type="text" value="${valorAtt}" class="campo" name="produto__valorunitario" id="produto__valorunitario" />
                     </div>
                 </div>
-                <input type="submit" value="Salvar" class="btn btn-salvar" />
+                <div class="linha">
+                    <input type="submit" value="Salvar" class="btn btn-salvar" />
             </form>
 
             <form method="get" action="${pageContext.request.contextPath}/ProdutoConsultar" novalidate>

@@ -23,7 +23,7 @@
                 <img src="${pageContext.request.contextPath}/img/logo.svg" alt="Logo Livraria Tades" />
                 <h1>Tades</h1>
             </div>
-            <div class="user-menu">
+            <div class="user-menu">${sessionScope.usuarioLogado.nome_func}
                 <div class="user-menu-content">
                     <form method="get" action="${pageContext.request.contextPath}/AlterarSenha" novalidate>
                         <button type="submit" name="BtnCancel" class="botoes">Alterar senha</button>
@@ -123,6 +123,7 @@
                     <input type="hidden" value="${idAtt}" name="idFunc" id="id_Func" />
                 </div>
                 
+                <div class="linha">
                 <input type="submit" value="Salvar" class="btn btn-salvar" />
             </form>
                 
@@ -130,5 +131,7 @@
                 <input type="submit" value="Cancelar" class="btn btn-cancelar" />
             </form>
         </div>
+                
+                
     </body>
 </html>

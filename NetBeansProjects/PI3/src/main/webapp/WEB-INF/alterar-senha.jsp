@@ -25,23 +25,20 @@
     </script>
 
     <body>
-        <!--    <header class="header">
+        <header class="header">
                 <div class="logo">
                     <h1>Livraria</h1>
                     <img src="${pageContext.request.contextPath}/img/logo.svg" alt="Logo Livraria Tades" />
                     <h1>Tades</h1>
                 </div>
-                <div class="user-menu">
+                <div class="user-menu">${sessionScope.usuarioLogado.nome_func}
                     <div class="user-menu-content">
-                        <form method="get" action="${pageContext.request.contextPath}/Logout" novalidate>
-                            <button type="submit" name="BtnCancel" class="botoes">Alterar senha</button>
-                        </form>
                         <form method="get" action="${pageContext.request.contextPath}/Logout" novalidate>
                             <button type="submit" name="BtnCancel" class="botoes">Sair</button>
                         </form>
                     </div>
                 </div>
-            </header>-->
+            </header>
 
         <div class="container__alterar__senha">
             <div class="logo">
@@ -52,8 +49,6 @@
 
             <form method="post" action="${pageContext.request.contextPath}/AlterarSenha" novalidate>
                 <div class="coluna">
-                    <p>Olá ${sessionScope.usuarioLogado.nome_func}</p>
-                    <p>Olá ${sessionScope.usuarioLogado.id_func}</p>
                     <input type="hidden" value="${sessionScope.usuarioLogado.id_func}" name="id_Func" id="id_Func" />
                     <div class="container">
                         <label for="senha__atual">Senha Atual</label>

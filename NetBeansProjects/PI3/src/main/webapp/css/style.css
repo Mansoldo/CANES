@@ -41,13 +41,20 @@
 .user-menu {
     width: 200px;
     height: 40px;
-    border: 1px solid #068574;
+    border: 2px solid #068574;
     position: absolute;
     right: 200px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
 }
+
 .user-menu:hover .user-menu-content {
     display: block;
 }
+
 .user-menu-content {
     width: 200px;
     background: white;
@@ -57,6 +64,7 @@
     display: none;
 
 }
+
 .user-menu .user-menu-content .botoes {
     margin: 0 !important;
     width: 100%;
@@ -68,6 +76,7 @@
     border: none;
     font-size: 1.1em;
 }
+
 .user-menu .user-menu-content .botoes:hover{
     background: #068580;
     

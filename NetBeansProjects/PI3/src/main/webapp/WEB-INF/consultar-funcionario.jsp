@@ -38,7 +38,7 @@
                 <img src="${pageContext.request.contextPath}/img/logo.svg" alt="Logo Livraria Tades" />
                 <h1>Tades</h1>
             </div>
-            <div class="user-menu">
+            <div class="user-menu">${sessionScope.usuarioLogado.nome_func}
                 <div class="user-menu-content">
                     <form method="get" action="${pageContext.request.contextPath}/AlterarSenha" novalidate>
                         <button type="submit" name="BtnCancel" class="botoes">Alterar senha</button>
