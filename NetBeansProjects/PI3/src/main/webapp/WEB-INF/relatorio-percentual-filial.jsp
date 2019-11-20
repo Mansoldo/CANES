@@ -74,12 +74,9 @@
                             <option value="Campina Grande">(PB) Campina Grande</option>
                             <option value="Joinville">(SC) Joinville</option>
                         </select>
-                    </div>
+                    </div>                    
                     <div class="coluna">
-                        <input type="text" value="" class="campo" /> 
-                    </div>
-                    <div class="coluna">
-                        <input type="button" value="Pesquisar" class="btn mt-0" />
+                        <input type="submit" value="Pesquisar" class="btn mt-0" />
                     </div>
                 </div>
                 <table id="tabela" class="tabela">
@@ -90,47 +87,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>São Paulo</td>
-                            <td>100%</td>
-                        </tr>
-                        <tr>
-                            <td>Rio de Janeiro</td>
-                            <td>100%</td>
-                        </tr>
-                        <tr>
-                            <td>Curitiba</td>
-                            <td>100%</td>          
-                        </tr>
-                        <tr>
-                            <td>Natal</td>
-                            <td>100%</td>
-                        </tr>
-                        <tr>
-                            <td>Salvador</td>
-                            <td>100%</td>
-                        </tr>
-                        <tr>
-                            <td>Recife</td>
-                            <td>100%</td>
-                        </tr>
-                        <tr>
-                            <td>Florianopolis</td>
-                            <td>100%</td>
-                        </tr>
-                        <tr>
-                            <td>Santos</td>
-                            <td>100%</td>
-                        </tr>
-                        <tr>
-                            <td>Belo Horizonte</td>
-                            <td>100%</td>
-                        </tr>
-
-                        <tr>
-                            <td>Sergipe</td>
-                            <td>100%</td>
-                        </tr>
+                        
                     </tbody>
                 </table>
             </form>
