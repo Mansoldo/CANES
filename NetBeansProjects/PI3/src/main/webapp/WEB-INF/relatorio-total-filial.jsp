@@ -3,7 +3,7 @@
     Created on : 11/10/2019, 22:11:47
     Author     : Beatriz da Silva
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,6 +18,11 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
     </head>
     <body>
+        <script>
+            if (${naoAutorizado} === true) {
+                alert('Não tem acesso para pesquisar esta filial!');
+            }
+        </script>
         <header class="header">
             <div class="logo">
                 <h1>Livraria</h1>
@@ -64,22 +69,20 @@
                 </div>
             </div>
             <hr>
-            <form id="totalFilial" name="total_Filial" class="form">
+            <form method="post" id="totalFilial" name="total_Filial" class="form" action="${pageContext.request.contextPath}/RelatorioFilial" novalidate>
                 <div class="linha">
                     <div class="coluna">
                         <select class="campo" name="filial" id="filial">
                             <option selected value="selecione_filial">Selecione a filial</option>
+                            <option value="Todas">Todas Filiais</option>
                             <option value="Matriz">(SP) Matriz</option>
                             <option value="Brasilia">(DF) Brasilia</option>
                             <option value="Campina Grande">(PB) Campina Grande</option>
                             <option value="Joinville">(SC) Joinville</option>
                         </select>
-                    </div>
+                    </div>                    
                     <div class="coluna">
-                        <input type="text" value="" class="campo" /> 
-                    </div>
-                    <div class="coluna">
-                        <input type="button" value="Pesquisar" class="btn mt-0" />
+                        <input type="submit" value="Pesquisar" class="btn mt-0" />
                     </div>
                 </div>
                 <table id="tabela" class="tabela">
@@ -90,47 +93,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>São Paulo</td>
-                            <td>R$ 100,00</td>
-                        </tr>
-                        <tr>
-                            <td>Rio de Janeiro</td>
-                            <td>R$ 100,00</td>
-                        </tr>
-                        <tr>
-                            <td>Curitiba</td>
-                            <td>R$ 100,00</td>          
-                        </tr>
-                        <tr>
-                            <td>Natal</td>
-                            <td>R$ 100,00</td>
-                        </tr>
-                        <tr>
-                            <td>Salvador</td>
-                            <td>R$ 100,00</td>
-                        </tr>
-                        <tr>
-                            <td>Recife</td>
-                            <td>R$ 100,00</td>
-                        </tr>
-                        <tr>
-                            <td>Florianopolis</td>
-                            <td>R$ 100,00</td>
-                        </tr>
-                        <tr>
-                            <td>Santos</td>
-                            <td>R$ 100,00</td>
-                        </tr>
-                        <tr>
-                            <td>Belo Horizonte</td>
-                            <td>R$ 100,00</td>
-                        </tr>
-
-                        <tr>
-                            <td>Sergipe</td>
-                            <td>R$ 100,00</td>
-                        </tr>
+                        <c:forEach items="${relatorioValorTotal}" var="relatorio">
+                            <tr>
+                                <td id="nomeFilial"><c:out value="${relatorio.getNomeFilial()}"/></td>                                
+                                <td id="valorTTotal"><c:out value="${relatorio.getValorTotal()}"/></td>                                
+                            </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
             </form>

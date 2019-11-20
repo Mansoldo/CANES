@@ -14,7 +14,7 @@ public class RelatorioDAO {
     private static Connection obterConexao() throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conexao = DriverManager.getConnection("jdbc:mysql://canesdb.c6rp7koaks1z.us-east-1.rds.amazonaws.com:3306?useLegacyDatetimeCode=false&serverTimezone=America/Fortaleza&useTimezone=true", "admin", "Canes123");
+        Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/livraria?useTimezone=true&serverTimezone=UTC", "root", "adminadmin");
         return conexao;
     }
 
@@ -54,7 +54,7 @@ public class RelatorioDAO {
                     relatorio.setNomeProduto(rs.getString("NOME_PRODUTO"));
                     relatorio.setValorItem(rs.getDouble("VALOR_ITEM"));
                     relatorio.setQtdItem(rs.getInt("QTD_ITEM"));
-                    relatorio.setValorTotal(rs.getDouble("VALOR_TOTAL"));                    
+                    relatorio.setValorTotal(rs.getDouble("VALOR_TOTAL"));
                     lista.add(relatorio);
                 }
             }
@@ -65,6 +65,76 @@ public class RelatorioDAO {
         }
         return lista;
     }
+
+    public ArrayList<Relatorio> getRelatorioTotalFilialDao(int filial) {
+
+        ArrayList<Relatorio> lista = new ArrayList<>();
+
+        try (Connection conexao = obterConexao()) {
+
+            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT \n"
+                    + "    b.NOME_FILIAL FILIAL, SUM(a.VALOR_TOTAL) AS VALOR_FILIAL\n"
+                    + "FROM\n"
+                    + "    LIVRARIA.PEDIDOVENDA a\n"
+                    + "        INNER JOIN\n"
+                    + "    LIVRARIA.FILIAL b ON a.FK_ID_FILIAL = b.ID_FILIAL\n"
+                    + "    WHERE b.ID_FILIAL = ?\n"
+                    + "GROUP BY 1\n"
+                    + "ORDER BY 2 DESC;");
+            
+            comandoSQL.setInt(1, filial);
+            
+            ResultSet rs = comandoSQL.executeQuery();
+
+            if (rs != null) {
+                while (rs.next()) {
+                    Relatorio relatorio = new Relatorio();
+                    relatorio.setNomeFilial(rs.getString("NOME_FILIAL"));
+                    relatorio.setValorTotal(rs.getDouble("VALOR_TOTAL"));
+                    lista.add(relatorio);
+                }
+            }
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            lista = null;
+            ex.printStackTrace();
+        }
+        return lista;
+    }
+
+    public ArrayList<Relatorio> getRelatorioTotalFilialDaoTodos() {
+
+        ArrayList<Relatorio> lista = new ArrayList<>();
+
+        try (Connection conexao = obterConexao()) {
+
+            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT \n"
+                    + "    b.NOME_FILIAL FILIAL, SUM(a.VALOR_TOTAL) AS VALOR_FILIAL\n"
+                    + "FROM\n"
+                    + "    LIVRARIA.PEDIDOVENDA a\n"
+                    + "        INNER JOIN\n"
+                    + "    LIVRARIA.FILIAL b ON a.FK_ID_FILIAL = b.ID_FILIAL    \n"
+                    + "GROUP BY 1\n"
+                    + "ORDER BY 2 DESC;");            
+
+            ResultSet rs = comandoSQL.executeQuery();
+
+            if (rs != null) {
+                while (rs.next()) {
+                    Relatorio relatorio = new Relatorio();
+                    relatorio.setNomeFilial(rs.getString("NOME_FILIAL"));                    
+                    relatorio.setValorTotal(rs.getDouble("VALOR_TOTAL"));
+                    lista.add(relatorio);
+                }
+            }
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            lista = null;
+            ex.printStackTrace();
+        }
+        return lista;
+    }
+
 }
 /*
     public boolean daoConsultaTopGeral() {

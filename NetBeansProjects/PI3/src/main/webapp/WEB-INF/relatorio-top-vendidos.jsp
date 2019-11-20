@@ -22,7 +22,6 @@
             if (${naoAutorizado} === true) {
                 alert('Não tem acesso para pesquisar esta filial!');
             }
-
         </script>
         <header class="header">
             <div class="logo">
