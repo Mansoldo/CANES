@@ -112,6 +112,11 @@ public class RelatorioFilial extends HttpServlet {
 
             naoAutorizado = true;
             request.setAttribute("naoAutorizado", naoAutorizado);
+            
+        } else {
+            
+            naoAutorizado = true;
+            request.setAttribute("naoAutorizado", naoAutorizado);
         }
     }
 }

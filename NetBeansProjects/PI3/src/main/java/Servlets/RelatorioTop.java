@@ -47,7 +47,7 @@ public class RelatorioTop extends HttpServlet {
             filial = 4;
         }
 
-        if (funcionario.getFilial() == 1) {
+        if (funcionario.getCargo().equals("Diretor")) {
 
             ArrayList<Relatorio> relatorio = new Controller.RelatorioController().getRelatorioTop10(filial);
             request.setAttribute("relatorioTop", relatorio);
@@ -56,12 +56,12 @@ public class RelatorioTop extends HttpServlet {
                     = request.getRequestDispatcher("/WEB-INF/relatorio-top-vendidos.jsp");
             dispatcher.forward(request, response);
 
-        } else if (funcionario.getFilial() == 2 && (filial == 1 || filial == 3 || filial == 4)) {
+        } else if (funcionario.getFilial() == 2 && funcionario.getCargo().equals("Gerente") && (filial == 1 || filial == 3 || filial == 4)) {
 
             naoAutorizado = true;
             request.setAttribute("naoAutorizado", naoAutorizado);
 
-        } else if (funcionario.getFilial() == 2 && filial == 2) {
+        } else if (funcionario.getFilial() == 2 && filial == 2 && funcionario.getCargo().equals("Gerente")) {
 
             ArrayList<Relatorio> relatorio = new Controller.RelatorioController().getRelatorioTop10(filial);
             request.setAttribute("relatorioTop", relatorio);
@@ -70,12 +70,12 @@ public class RelatorioTop extends HttpServlet {
                     = request.getRequestDispatcher("/WEB-INF/relatorio-top-vendidos.jsp");
             dispatcher.forward(request, response);
 
-        } else if (funcionario.getFilial() == 3 && (filial == 1 || filial == 2 || filial == 4)) {
+        } else if (funcionario.getFilial() == 3 && funcionario.getCargo().equals("Gerente") && (filial == 1 || filial == 2 || filial == 4)) {
 
             naoAutorizado = true;
             request.setAttribute("naoAutorizado", naoAutorizado);
 
-        } else if (funcionario.getFilial() == 3 && filial == 3) {
+        } else if (funcionario.getFilial() == 3 && filial == 3 && funcionario.getCargo().equals("Gerente")) {
 
             ArrayList<Relatorio> relatorio = new Controller.RelatorioController().getRelatorioTop10(filial);
             request.setAttribute("relatorioTop", relatorio);
@@ -84,12 +84,12 @@ public class RelatorioTop extends HttpServlet {
                     = request.getRequestDispatcher("/WEB-INF/relatorio-top-vendidos.jsp");
             dispatcher.forward(request, response);
 
-        } else if (funcionario.getFilial() == 4 && (filial == 1 || filial == 2 || filial == 3)) {
+        } else if (funcionario.getFilial() == 4 && funcionario.getCargo().equals("Gerente") && (filial == 1 || filial == 2 || filial == 3)) {
 
             naoAutorizado = true;
             request.setAttribute("naoAutorizado", naoAutorizado);
 
-        } else if (funcionario.getFilial() == 4 && filial == 4) {
+        } else if (funcionario.getFilial() == 4 && filial == 4 && funcionario.getCargo().equals("Gerente")) {
 
             ArrayList<Relatorio> relatorio = new Controller.RelatorioController().getRelatorioTop10(filial);
             request.setAttribute("relatorioTop", relatorio);
