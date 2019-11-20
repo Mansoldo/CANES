@@ -73,7 +73,7 @@ public class RelatorioDAO {
         try (Connection conexao = obterConexao()) {
 
             PreparedStatement comandoSQL = conexao.prepareStatement("SELECT \n"
-                    + "    b.NOME_FILIAL FILIAL, SUM(a.VALOR_TOTAL) AS VALOR_FILIAL\n"
+                    + "    b.NOME_FILIAL, SUM(a.VALOR_TOTAL) AS VALOR_TOTAL\n"
                     + "FROM\n"
                     + "    LIVRARIA.PEDIDOVENDA a\n"
                     + "        INNER JOIN\n"
@@ -109,7 +109,7 @@ public class RelatorioDAO {
         try (Connection conexao = obterConexao()) {
 
             PreparedStatement comandoSQL = conexao.prepareStatement("SELECT \n"
-                    + "    b.NOME_FILIAL FILIAL, SUM(a.VALOR_TOTAL) AS VALOR_FILIAL\n"
+                    + "    b.NOME_FILIAL, SUM(a.VALOR_TOTAL) AS VALOR_TOTAL\n"
                     + "FROM\n"
                     + "    LIVRARIA.PEDIDOVENDA a\n"
                     + "        INNER JOIN\n"

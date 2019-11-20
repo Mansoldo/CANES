@@ -99,11 +99,5 @@ public class RelatorioTop extends HttpServlet {
             dispatcher.forward(request, response);
 
         }
-
-        RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/relatorio-top-vendidos.jsp");
-        dispatcher.forward(request, response);
-
     }
-
 }

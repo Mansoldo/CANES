@@ -20,6 +20,12 @@ public class Relatorio {
         this.qtdItem = qtdItem;
         this.valorTotal = valorTotal;
     }
+    
+    //Construtor Total Filial
+    public Relatorio(String nomeFilial, double valorTotal){
+        this.nomeFilial = nomeFilial;
+        this.valorTotal = valorTotal;
+    }
 
     public String getNomeFilial() {
         return nomeFilial;

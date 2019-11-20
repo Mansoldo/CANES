@@ -48,7 +48,7 @@ public class RelatorioFilial extends HttpServlet {
             filial = 5;
         }
 
-        if (funcionario.getCargo().equals("Diretor")) {
+        if (funcionario.getCargo().equals("Diretor") || funcionario.getCargo().equals("Analista")) {
 
             ArrayList<Relatorio> relatorio = new Controller.RelatorioController().getRelatorioTotalFilial(filial);
             request.setAttribute("relatorioValorTotal", relatorio);
@@ -113,9 +113,5 @@ public class RelatorioFilial extends HttpServlet {
             naoAutorizado = true;
             request.setAttribute("naoAutorizado", naoAutorizado);
         }
-
-        RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/relatorio-total-filial.jsp");
-        dispatcher.forward(request, response);
     }
 }
