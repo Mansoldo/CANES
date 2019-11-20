@@ -81,9 +81,9 @@ public class RelatorioDAO {
                     + "    WHERE b.ID_FILIAL = ?\n"
                     + "GROUP BY 1\n"
                     + "ORDER BY 2 DESC;");
-            
+
             comandoSQL.setInt(1, filial);
-            
+
             ResultSet rs = comandoSQL.executeQuery();
 
             if (rs != null) {
@@ -115,14 +115,14 @@ public class RelatorioDAO {
                     + "        INNER JOIN\n"
                     + "    LIVRARIA.FILIAL b ON a.FK_ID_FILIAL = b.ID_FILIAL    \n"
                     + "GROUP BY 1\n"
-                    + "ORDER BY 2 DESC;");            
+                    + "ORDER BY 2 DESC;");
 
             ResultSet rs = comandoSQL.executeQuery();
 
             if (rs != null) {
                 while (rs.next()) {
                     Relatorio relatorio = new Relatorio();
-                    relatorio.setNomeFilial(rs.getString("NOME_FILIAL"));                    
+                    relatorio.setNomeFilial(rs.getString("NOME_FILIAL"));
                     relatorio.setValorTotal(rs.getDouble("VALOR_TOTAL"));
                     lista.add(relatorio);
                 }
@@ -135,137 +135,45 @@ public class RelatorioDAO {
         return lista;
     }
 
+    public ArrayList<Relatorio> getRelatorioPercentual(int filial) {
+
+        ArrayList<Relatorio> lista = new ArrayList<>();
+
+        try (Connection conexao = obterConexao()) {
+
+            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT \n"
+                    + "    b.NOME_FILIAL,\n"
+                    + "    SUM(a.VALOR_TOTAL) AS VALOR_TOTAL,\n"
+                    + "    (SELECT \n"
+                    + "            ROUND((SUM(a.VALOR_TOTAL) * 100) / SUM(C.VALOR_TOTAL))                        \n"
+                    + "        FROM\n"
+                    + "            LIVRARIA.PEDIDOVENDA C) PERCENTUAL_TOTAL\n"
+                    + "FROM\n"
+                    + "    LIVRARIA.PEDIDOVENDA a\n"
+                    + "        INNER JOIN\n"
+                    + "    LIVRARIA.FILIAL b ON a.FK_ID_FILIAL = b.ID_FILIAL\n"
+                    + "    WHERE b.ID_FILIAL =\n"
+                    + "GROUP BY 1\n"
+                    + "ORDER BY 2 DESC;");
+
+            comandoSQL.setInt(1, filial);
+
+            ResultSet rs = comandoSQL.executeQuery();
+
+            if (rs != null) {
+                while (rs.next()) {
+                    Relatorio relatorio = new Relatorio();
+                    relatorio.setNomeFilial(rs.getString("NOME_FILIAL"));
+                    relatorio.setValorTotal(rs.getDouble("VALOR_TOTAL"));
+                    relatorio.setPercentual(rs.getDouble("PERCENTUAL_TOTAL"));
+                    lista.add(relatorio);
+                }
+            }
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            lista = null;
+            ex.printStackTrace();
+        }
+        return lista;
+    }
 }
-/*
-    public boolean daoConsultaTopGeral() {
-        ArrayList<String[]> lista = new ArrayList<>();
-
-        try (Connection conexao = obterConexao()) {
-
-            PreparedStatement comandoSQL = conexao.prepareStatement("");
-
-            comandoSQL.setInt(1, id);
-
-            ResultSet rs = comandoSQL.executeQuery();
-
-            if (rs != null) {
-                while (rs.next()) {
-                    Produto produto = new Produto();
-                    produto.setID(rs.getInt("ID_PRODUTO"));
-                    lista.add(produto);
-                }
-            }
-
-        } catch (ClassNotFoundException | SQLException ex) {
-            lista = null;
-            ex.printStackTrace();
-        }
-        return lista;
-    }
-
-    public boolean daoConsultaPercentualFilter() {
-        ArrayList<String[]> lista = new ArrayList<>();
-
-        try (Connection conexao = obterConexao()) {
-
-            PreparedStatement comandoSQL = conexao.prepareStatement("");
-
-            comandoSQL.setInt(1, id);
-
-            ResultSet rs = comandoSQL.executeQuery();
-
-            if (rs != null) {
-                while (rs.next()) {
-                    Produto produto = new Produto();
-                    produto.setID(rs.getInt("ID_PRODUTO"));
-                    lista.add(produto);
-                }
-            }
-
-        } catch (ClassNotFoundException | SQLException ex) {
-            lista = null;
-            ex.printStackTrace();
-        }
-        return lista;
-    }
-
-    public boolean daoConsultaPercentualGeral() {
-        ArrayList<String[]> lista = new ArrayList<>();
-
-        try (Connection conexao = obterConexao()) {
-
-            PreparedStatement comandoSQL = conexao.prepareStatement("");
-
-            comandoSQL.setInt(1, id);
-
-            ResultSet rs = comandoSQL.executeQuery();
-
-            if (rs != null) {
-                while (rs.next()) {
-                    Produto produto = new Produto();
-                    produto.setID(rs.getInt("ID_PRODUTO"));
-                    lista.add(produto);
-                }
-            }
-
-        } catch (ClassNotFoundException | SQLException ex) {
-            lista = null;
-            ex.printStackTrace();
-        }
-        return lista;
-    }
-
-    public boolean daoConsultaValorFilter() {
-        ArrayList<String[]> lista = new ArrayList<>();
-
-        try (Connection conexao = obterConexao()) {
-
-            PreparedStatement comandoSQL = conexao.prepareStatement("");
-
-            comandoSQL.setInt(1, id);
-
-            ResultSet rs = comandoSQL.executeQuery();
-
-            if (rs != null) {
-                while (rs.next()) {
-                    Produto produto = new Produto();
-                    produto.setID(rs.getInt("ID_PRODUTO"));
-                    lista.add(produto);
-                }
-            }
-
-        } catch (ClassNotFoundException | SQLException ex) {
-            lista = null;
-            ex.printStackTrace();
-        }
-        return lista;
-    }
-
-    public boolean daoConsultaValorGeral() {
-        ArrayList<String[]> lista = new ArrayList<>();
-
-        try (Connection conexao = obterConexao()) {
-
-            PreparedStatement comandoSQL = conexao.prepareStatement("");
-
-            comandoSQL.setInt(1, id);
-
-            ResultSet rs = comandoSQL.executeQuery();
-
-            if (rs != null) {
-                while (rs.next()) {
-                    Produto produto = new Produto();
-                    produto.setID(rs.getInt("ID_PRODUTO"));
-                    lista.add(produto);
-                }
-            }
-
-        } catch (ClassNotFoundException | SQLException ex) {
-            lista = null;
-            ex.printStackTrace();
-        }
-        return lista;
-    }
-
-}
- */

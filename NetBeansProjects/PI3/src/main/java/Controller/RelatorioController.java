@@ -25,4 +25,10 @@ public class RelatorioController {
 
     }
 
+    public ArrayList<Relatorio> getRelatorioPercentual(int filial) {
+
+        ArrayList<Relatorio> relatorio = new DAO.RelatorioDAO().getRelatorioPercentual(filial);
+        return relatorio;
+    }
+
 }

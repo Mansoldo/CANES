@@ -7,6 +7,7 @@ public class Relatorio {
     private double valorItem;
     private int qtdItem;
     private double valorTotal;
+    private double percentual;
 
     public Relatorio() {
 
@@ -25,6 +26,13 @@ public class Relatorio {
     public Relatorio(String nomeFilial, double valorTotal){
         this.nomeFilial = nomeFilial;
         this.valorTotal = valorTotal;
+    }
+    
+    //Construtor Percentual
+    public Relatorio(String nomeFilial, double valorTotal, double percentual){
+        this.nomeFilial = nomeFilial;
+        this.valorTotal = valorTotal;
+        this.percentual = percentual;
     }
 
     public String getNomeFilial() {
@@ -66,5 +74,14 @@ public class Relatorio {
     public void setValorTotal(double valorTotal) {
         this.valorTotal = valorTotal;
     }
+
+    public double getPercentual() {
+        return percentual;
+    }
+
+    public void setPercentual(double percentual) {
+        this.percentual = percentual;
+    }
+    
 
 }

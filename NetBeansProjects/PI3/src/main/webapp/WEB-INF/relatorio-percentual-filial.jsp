@@ -3,7 +3,7 @@
     Created on : 11/10/2019, 22:14:08
     Author     : Beatriz da Silva
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,6 +18,11 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
     </head>
     <body>
+        <script>
+            if (${naoAutorizado} === true) {
+                alert('Não tem acesso para pesquisar esta filial!');
+            }
+        </script>
         <header class="header">
             <div class="logo">
                 <h1>Livraria</h1>
@@ -64,7 +69,7 @@
                 </div>
             </div>
             <hr>
-            <form id="percentualFilial" name="percentual_filial" class="form">
+            <form method="post" id="percentualFilial" name="percentual_filial" class="form" action="${pageContext.request.contextPath}/RelatorioPercentual" novalidate>
                 <div class="linha">
                     <div class="coluna">
                         <select class="campo" name="filial" id="filial">
@@ -84,10 +89,17 @@
                         <tr>
                             <th>Filial</th>
                             <th>Valor Total</th>  
+                            <th>Percentual</th>
                         </tr>
                     </thead>
                     <tbody>
-                        
+                        <c:forEach items="${relatorioPercentual}" var="relatorio">
+                            <tr>
+                                <td id="nomeFilial"><c:out value="${relatorio.getNomeFilial()}"/></td>                                
+                                <td id="valorTotal"><c:out value="${relatorio.getValorTotal()}"/></td>                                
+                                <td id="percentual"><c:out value="${relatorio.getPercentual()}"/></td>                                                                                               
+                            </tr>
+                        </c:forEach> 
                     </tbody>
                 </table>
             </form>
