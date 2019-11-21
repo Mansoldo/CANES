@@ -16,6 +16,8 @@
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/logo.svg" type="image/x-svg" />
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
         <script src="${pageContext.request.contextPath}/javaScript/validar.js" type="text/javascript"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
     </head>
 
     <body>
@@ -78,7 +80,7 @@
                 <div class="linha">
                     <div class="coluna">
                         <label for="produto__nome">Produto <span class="obrigatorio">*</span></label>
-                        <input type="text" class="campo" name="produto__nome" id="produto__nome" />
+                        <input type="text" class="campo" name="produto__nome" id="produto__nome" placeholder="Ex: Capitães da Areia" />
                     </div>
                     <div class="coluna">
                         <label for="produto__categoria">Categoria</label><span class="obrigatorio">* </span>
@@ -101,26 +103,26 @@
                     </div>
                     <div class="coluna">
                         <label for="editora__produtora">Editora / Produtora</label>
-                        <input type="text" class="campo" name="editora__produtora" id="editora_produtora" />
+                        <input type="text" class="campo" name="editora__produtora" id="editora_produtora" placeholder="Ex: Editora Folha" />
                     </div>
                 </div>
 
                 <div class="linha">
                     <div class="coluna">
                         <label for="produto__autor">Autor</label>
-                        <input type="text" class="campo" name="produto__autor" id="produto__autor" />
+                        <input type="text" class="campo" name="produto__autor" id="produto__autor" placeholder="Ex: J.K. Rolling" />
                     </div>
                     <div class="coluna">
                         <label for="produto_isbn">ISBN</label>
-                        <input type="text" class="campo" name="produto_isbn" id="produto_isbn" />
+                        <input type="text" class="campo" name="produto_isbn" id="produto_isbn" placeholder="000-0-00-000000-0"/>
                     </div>
                     <div class="coluna">
                         <label for="produto__paginas">Quantidade de páginas</label>
-                        <input type="text" class="campo" name="produto__paginas" id="produto__paginas" />
+                        <input type="text" class="campo" name="produto__paginas" id="produto__paginas" placeholder="00" maxlength="5" />
                     </div>
                     <div class="coluna">
                         <label for="produto__tempo">Tempo de duração</label>
-                        <input type="text" class="campo" name="produto__tempo" id="produto__tempo" />
+                        <input type="text" class="campo" name="produto__tempo" id="produto__tempo" placeholder="Minutos" maxlength="4" />
                     </div>
                 </div>
 
@@ -137,11 +139,11 @@
                     </div>
                     <div class="coluna">
                         <label for="produto__estoque">Quantidade em Estoque<span class="obrigatorio">*</span></label>
-                        <input type="text" class="campo" name="produto__estoque" id="produto__estoque" />
+                        <input type="text" class="campo" name="produto__estoque" id="produto__estoque" placeholder="00" maxlength="6" />
                     </div>
                     <div class="coluna">
                         <label for="produto__valorunitario">Valor Unitário<span class="obrigatorio">*</span></label>
-                        <input type="text" class="campo" name="produto__valorunitario" id="produto__valorunitario" />
+                        <input type="text" class="campo" name="produto__valorunitario" id="produto__valorunitario" placeholder="R$ 29,99" maxlength="11" />
                     </div>
                 </div>
                 <div class="linha">
@@ -151,6 +153,20 @@
             <form method="post" action="${pageContext.request.contextPath}/menu-principal" novalidate>
                 <input type="submit" value="Cancelar" class="btn btn-cancelar" />
             </form>
+            <script>
+                $(document).ready(function () {
+                    var $Isbn = $("#produto_isbn");
+                    $Isbn.mask('000-0-00-000000-0');
+                    var $Valor = $("#produto__valorunitario");
+                    $Valor.mask('###.###.##0,00', {reverse: true});
+                    var $Valor = $("#produto__tempo");
+                    $Valor.mask('0000', {reverse: true});
+                    var $Valor = $("#produto__paginas");
+                    $Valor.mask('00000', {reverse: true});
+                    var $Valor = $("#produto__estoque");
+                    $Valor.mask('000000', {reverse: true});
+                });
+            </script>
         </div>
 
     </body>
