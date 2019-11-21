@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebFilter(filterName = "UsuarioLogado", servletNames = {"AlterarSenha", "ClienteAlterar", "ClienteConsultar", "ClienteExcluir", "FinalizarVenda", "FuncionarioAlterar", "FuncionarioConsultar", "FuncionarioExcluir", "ItemPedido", "MenuPrincipal", "ProdutoAlterar", "ProdutoConsultar", "ProdutoExcluir", "Vender", "formularioCliente", "formularioFuncionario", "formularioProduto"})
+@WebFilter(filterName = "UsuarioLogado", servletNames = {"AlterarSenha", "ClienteAlterar", "ClienteConsultar", "ClienteExcluir", "FinalizarVenda", "FuncionarioAlterar", "FuncionarioConsultar", "FuncionarioExcluir", "ItemPedido", "MenuPrincipal", "ProdutoAlterar", "ProdutoConsultar", "ProdutoExcluir", "Vender", "formularioCliente", "formularioFuncionario", "formularioProduto", "RelatorioTop", "RelatorioPercentual", "RelatorioFilial"})
 public class UsuarioLogado implements Filter {
 
     private String contextPath;
@@ -53,6 +53,7 @@ public class UsuarioLogado implements Filter {
             Funcionario funcionario,
             HttpServletRequest httpRequest) {
         String urlAcessada = httpRequest.getRequestURI();
+        
         if (urlAcessada.endsWith("/Login") || (urlAcessada.endsWith("/creditos"))) {
             return true;
         } else if ((urlAcessada.endsWith("/livraria/formularioProduto") || (urlAcessada.endsWith("/livraria/ProdutoAlterar")) || (urlAcessada.endsWith("/livraria/ProdutoConsultar")) || (urlAcessada.endsWith("/livraria/ProdutoExcluir")))
@@ -65,7 +66,7 @@ public class UsuarioLogado implements Filter {
                 && (funcionario.getCargo().equals("Backoffice") || funcionario.getCargo().equals("Analista"))) {
             return true;
         } else if ((urlAcessada.endsWith("/livraria/RelatorioTop") || (urlAcessada.endsWith("/livraria/RelatorioPercentual")) || (urlAcessada.endsWith("/livraria/RelatorioFilial")))
-                && (funcionario.getCargo().equals("Diretor") || funcionario.getCargo().equals("Gerente") ||funcionario.getCargo().equals("Analista"))) {
+                && (funcionario.getCargo().equals("Diretor") || funcionario.getCargo().equals("Gerente") || funcionario.getCargo().equals("Analista"))) {
             return true;
         }else if ((urlAcessada.endsWith("/livraria/Vender") || urlAcessada.endsWith("/livraria/ItemPedido") || urlAcessada.endsWith("/livraria/FinalizarVenda")) && (funcionario.getCargo().equals("Vendedor") || funcionario.getCargo().equals("Analista"))) {
             return true;
