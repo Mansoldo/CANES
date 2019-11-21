@@ -14,9 +14,103 @@
         <title>Dados do Funcionário</title>
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/logo.svg" type="image/x-svg" />
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
     </head>
 
-    <body>        
+    <body>
+        <script>
+            function validafunc() {
+                var submit = true;
+
+                if ($.trim(document.getElementById('funcionario__nome__completo').value) === '') {
+                    nameError = "Nome não pode estar vazio";
+                    document.getElementById("name_error").innerHTML = nameError;
+                    document.getElementById("name_error").style.color = "red";
+                    document.getElementById("funcionario__nome__completo").style.borderColor = "red";
+                    submit = false;
+                } else {
+                    document.getElementById("name_error").innerHTML = '';
+                    document.getElementById("name_error").style.color = "#ced4da";
+                    document.getElementById("funcionario__nome__completo").style.borderColor = "#ced4da";
+                }
+
+                if (document.getElementById('funcionario__cpf').value === '') {
+                    cpfError = "Cpf não pode estar vazio";
+                    document.getElementById("cpf_error").innerHTML = cpfError;
+                    document.getElementById("cpf_error").style.color = "red";
+                    document.getElementById("funcionario__cpf").style.borderColor = "red";
+                    submit = false;
+                } else {
+                    document.getElementById("cpf_error").innerHTML = '';
+                    document.getElementById("cpf_error").style.color = "#ced4da";
+                    document.getElementById("funcionario__cpf").style.borderColor = "#ced4da";
+                }
+
+                if (document.getElementById('filial').value === 'selecione_filial') {
+                    filialError = "Filial deve ser selecinada";
+                    document.getElementById("filial_error").innerHTML = filialError;
+                    document.getElementById("filial_error").style.color = "red";
+                    document.getElementById("filial").style.borderColor = "red";
+                    submit = false;
+                } else {
+                    document.getElementById("filial_error").innerHTML = '';
+                    document.getElementById("filial_error").style.color = "#ced4da";
+                    document.getElementById("filial").style.borderColor = "#ced4da";
+                }
+
+                if (document.getElementById('departamento').value === 'selecione_departamento') {
+                    filialError = "Departamento deve ser selecinado";
+                    document.getElementById("dept_error").innerHTML = filialError;
+                    document.getElementById("dept_error").style.color = "red";
+                    document.getElementById("departamento").style.borderColor = "red";
+                    submit = false;
+                } else {
+                    document.getElementById("dept_error").innerHTML = '';
+                    document.getElementById("dept_error").style.color = "#ced4da";
+                    document.getElementById("departamento").style.borderColor = "#ced4da";
+                }
+
+                if (document.getElementById('cargo').value === 'selecione_cargo') {
+                    filialError = "Cargo deve ser selecinado";
+                    document.getElementById("cargo_error").innerHTML = filialError;
+                    document.getElementById("cargo_error").style.color = "red";
+                    document.getElementById("cargo").style.borderColor = "red";
+                    submit = false;
+                } else {
+                    document.getElementById("cargo_error").innerHTML = '';
+                    document.getElementById("cargo_error").style.color = "#ced4da";
+                    document.getElementById("cargo").style.borderColor = "#ced4da";
+                }
+
+                if ($.trim(document.getElementById('funcionario__username').value) === '') {
+                    filialError = "Usuario não pode estar vazio";
+                    document.getElementById("username_error").innerHTML = filialError;
+                    document.getElementById("username_error").style.color = "red";
+                    document.getElementById("funcionario__username").style.borderColor = "red";
+                    submit = false;
+                } else {
+                    document.getElementById("username_error").innerHTML = '';
+                    document.getElementById("username_error").style.color = "#ced4da";
+                    document.getElementById("funcionario__username").style.borderColor = "#ced4da";
+                }
+
+                if (document.getElementById('funcionario__senha').value === '') {
+                    filialError = "Senha deve ter mais de 4 caracteres";
+                    document.getElementById("senha_error").innerHTML = filialError;
+                    document.getElementById("senha_error").style.color = "red";
+                    document.getElementById("funcionario__senha").style.borderColor = "red";
+                    submit = false;
+                } else {
+                    document.getElementById("senha_error").innerHTML = '';
+                    document.getElementById("senha_error").style.color = "#ced4da";
+                    document.getElementById("funcionario__senha").style.borderColor = "#ced4da";
+                }
+
+
+                return submit;
+            }
+        </script>        
         <header class="header">
             <div class="logo">
                 <h1>Livraria</h1>
@@ -34,26 +128,26 @@
                 </div>
             </div>
         </header>
-                
+
         <nav class="menu"> 
-                <form method="get" action="${pageContext.request.contextPath}/menu-principal" novalidate>
-                    <input type="submit" value="Menu Principal" class="dropmenu">
-                </form> 
-                <form method="get" action="${pageContext.request.contextPath}/Vender" novalidate>
-                    <input type="submit" value="Vender" class="dropmenu">
-                </form>
-            
-                <form method="get" action="${pageContext.request.contextPath}/ProdutoConsultar" novalidate>
-                    <input type="submit" value="Consultar Produto" class="dropmenu">
-                </form>
+            <form method="get" action="${pageContext.request.contextPath}/menu-principal" novalidate>
+                <input type="submit" value="Menu Principal" class="dropmenu">
+            </form> 
+            <form method="get" action="${pageContext.request.contextPath}/Vender" novalidate>
+                <input type="submit" value="Vender" class="dropmenu">
+            </form>
 
-                <form method="get" action="${pageContext.request.contextPath}/ConsultaCliente" novalidate>
-                    <input type="submit" value="Consultar Cliente" class="dropmenu">
-                </form>
+            <form method="get" action="${pageContext.request.contextPath}/ProdutoConsultar" novalidate>
+                <input type="submit" value="Consultar Produto" class="dropmenu">
+            </form>
 
-                <form method="get" action="${pageContext.request.contextPath}/FuncionarioConsultar" novalidate>
-                    <input type="submit" value="Consultar Funcionário" class="dropmenu">
-                </form>
+            <form method="get" action="${pageContext.request.contextPath}/ConsultaCliente" novalidate>
+                <input type="submit" value="Consultar Cliente" class="dropmenu">
+            </form>
+
+            <form method="get" action="${pageContext.request.contextPath}/FuncionarioConsultar" novalidate>
+                <input type="submit" value="Consultar Funcionário" class="dropmenu">
+            </form>
         </nav>
 
         <div class="container">
@@ -65,15 +159,17 @@
 
             <hr>
 
-            <form id="cadastro__funcionario" name="cadastro__funcionario" class="cadastro__funcionario" method="post" action="${pageContext.request.contextPath}/FuncionarioAlterar" novalidate>
+            <form onsubmit="return validafunc();" id="cadastro__funcionario" name="cadastro__funcionario" class="cadastro__funcionario" method="post" action="${pageContext.request.contextPath}/FuncionarioAlterar" novalidate>
                 <div class="linha">
                     <div class="coluna">
                         <label for="funcionario__nome__completo">Nome completo <span class="obrigatorio">*</span></label>
                         <input type="text" value="${nomeAtt}"class="campo" name="funcionario__nome__completo" id="funcionario__nome__completo" />
+                        <span class="error"><p id="name_error"></p></span>
                     </div>
                     <div class="coluna">
                         <label for="funcionario__cpf">CPF <span class="obrigatorio">*</span></label>
                         <input type="text" value="${cpfAtt}" class="campo" name="funcionario__cpf" id="funcionario__cpf" />
+                        <span class="error"><p id="cpf_error"></p></span>
                     </div>
                 </div>
 
@@ -87,6 +183,7 @@
                             <option value="Campina Grande">(PB) Campina Grande</option>
                             <option value="Joinville">(SC) Joinville</option>
                         </select>
+                        <span class="error"><p id="filial_error"></p></span>
                     </div>
                     <div class="coluna">
                         <label for="departamento">Departamento</label><span class="obrigatorio">* </span>
@@ -97,6 +194,7 @@
                             <option value="TI">TI</option>
                             <option value="Vendas">Vendas</option>
                         </select>
+                        <span class="error"><p id="dept_error"></p></span>
                     </div>
                     <div class="coluna">
                         <label for="cargo">Cargo</label><span class="obrigatorio">* </span>
@@ -108,6 +206,7 @@
                             <option value="Gerente">Gerente</option>
                             <option value="Vendedor">Vendedor</option>
                         </select>
+                        <span class="error"><p id="cargo_error"></p></span>
                     </div>
                 </div>
 
@@ -115,23 +214,38 @@
                     <div class="coluna">
                         <label for="funcionario__username">Username<span class="obrigatorio">*</span></label>
                         <input type="text" value="${loginAtt}" class="campo" name="funcionario__username" id="funcionario__username">
+                        <span class="error"><p id="username_error"></p></span>
                     </div>
                     <div class="coluna">
                         <label for="funcionario__senha">Senha<span class="obrigatorio">*</span>
                             <input type="password" value="${senhaAtt}"class="campo" name="funcionario__senha" id="funcionario__senha">
+                            <span class="error"><p id="senha_error"></p></span>
                     </div>
                     <input type="hidden" value="${idAtt}" name="idFunc" id="id_Func" />
                 </div>
-                
+
                 <div class="linha">
-                <input type="submit" value="Salvar" class="btn btn-salvar" />
+                    <input type="submit" value="Salvar" class="btn btn-salvar" />
             </form>
-                
+
             <form method="get" action="${pageContext.request.contextPath}/FuncionarioConsultar" novalidate>
                 <input type="submit" value="Cancelar" class="btn btn-cancelar" />
             </form>
+            <script>
+                $(document).ready(function () {
+                    var $Cpf = $("#funcionario__cpf");
+                    $Cpf.mask('000.000.000-00');
+                });
+                var $Nome = $("#funcionario__nome__completo");
+                $Nome.mask("#", {
+                    maxlength: false,
+                    translation: {
+                        '#': {pattern: /[a-zA-Z ]/, recursive: true}
+                    }
+                });
+            </script>
         </div>
-                
-                
+
+
     </body>
 </html>
