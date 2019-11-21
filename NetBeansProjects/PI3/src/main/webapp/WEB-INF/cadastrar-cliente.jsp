@@ -80,7 +80,7 @@
                     <div class="linha">
                         <div class="coluna">
                             <label for="cliente__nome__completo">Nome completo <span class="obrigatorio">*</span></label>
-                            <input type="text" required class="campo" name = "nome" id="cliente__nome__completo" placeholder="Exemplo: João da silva barros" />
+                            <input type="text" required class="campo" name = "nome" id="cliente__nome__completo" placeholder="Ex: João da silva barros" />
                         </div>
                     </div>
 

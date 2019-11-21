@@ -14,6 +14,8 @@
         <title>Dados do Funcionário</title>
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/logo.svg" type="image/x-svg" />
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
     </head>
 
     <body>    
@@ -77,11 +79,11 @@
                 <div class="linha">
                     <div class="coluna">
                         <label for="funcionario__nome__completo">Nome completo <span class="obrigatorio">*</span></label>
-                        <input type="text" class="campo" name="funcionario__nome__completo" id="funcionario__nome__completo" />
+                        <input type="text" class="campo" name="funcionario__nome__completo" id="funcionario__nome__completo" maxlength="50" placeholder="Ex: Maria de Andrade" />
                     </div>
                     <div class="coluna">
                         <label for="funcionario__cpf">CPF <span class="obrigatorio">*</span></label>
-                        <input type="text" class="campo" name="funcionario__cpf" id="funcionario__cpf" />
+                        <input type="text" class="campo" name="funcionario__cpf" id="funcionario__cpf" maxlength="14" placeholder="000.000.000-00"/>
                     </div>
                 </div>
 
@@ -124,11 +126,11 @@
                 <div class="linha">
                     <div class="coluna">
                         <label for="funcionario__username">Username<span class="obrigatorio">*</span></label>
-                        <input type="text" class="campo" name="funcionario__username" id="funcionario__username">
+                        <input type="text" class="campo" name="funcionario__username" id="funcionario__username" maxlength="20">
                     </div>
                     <div class="coluna">
                         <label for="funcionario__senha">Senha<span class="obrigatorio">*</span>
-                            <input type="password" class="campo" name="funcionario__senha" id="funcionario__senha">
+                            <input type="password" class="campo" name="funcionario__senha" id="funcionario__senha" maxlength="100">
                             </div>
                             </div>
                             <div class="linha">
@@ -138,6 +140,12 @@
                                 <form method="post" action="${pageContext.request.contextPath}/menu-principal" novalidate>
                                     <input type="submit" value="Cancelar" class="btn btn-cancelar" />
                                 </form>
+                                <script>
+                                    $(document).ready(function () {
+                                        var $Cpf = $("#funcionario__cpf");
+                                        $Cpf.mask('000.000.000-00');
+                                    });
+                                </script>
                             </div>
                             </body>
                             </html>
