@@ -19,6 +19,17 @@
 
     <body>
         <script>
+            if (${ClienteAlter} === false) {
+                alert('Não foi selecionado um cliente para alterar');
+            } 
+        </script>
+        <script>
+            if (${clienteExcluir} === false) {
+                alert('Não foi selecionado um cliente para excluir');
+            } 
+        </script>
+        
+        <script>
             if (${clienteExcluidoAtt} === true) {
                 alert('Cliente Excluido Com sucesso!');
             } else {

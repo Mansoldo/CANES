@@ -35,31 +35,38 @@ public class ClienteAlterar extends HttpServlet {
             throws ServletException, IOException {
 
         String selecao = request.getParameter("cpf");
-
-        ArrayList<Cliente> listaClientes = new Controller.ClienteController().getClientes();
-        for (Cliente clientes : listaClientes) {
-            if (clientes.getCpf().equals(selecao)) {
-                request.setAttribute("nomeAtt", clientes.getNome());
-                request.setAttribute("cpfAtt", clientes.getCpf());
-                request.setAttribute("dataAtt", clientes.getNascimento());
-                if(clientes.getSexo().equals("Feminino")){
-                    request.setAttribute("sexo", 0);
-                }else{
-                    request.setAttribute("sexo", 1);
+        if (!selecao.equals("?")) {
+            ArrayList<Cliente> listaClientes = new Controller.ClienteController().getClientes();
+            for (Cliente clientes : listaClientes) {
+                if (clientes.getCpf().equals(selecao)) {
+                    request.setAttribute("nomeAtt", clientes.getNome());
+                    request.setAttribute("cpfAtt", clientes.getCpf());
+                    request.setAttribute("dataAtt", clientes.getNascimento());
+                    if (clientes.getSexo().equals("Feminino")) {
+                        request.setAttribute("sexo", 0);
+                    } else {
+                        request.setAttribute("sexo", 1);
+                    }
+                    request.setAttribute("emailAtt", clientes.getEmail());
+                    request.setAttribute("telefoneAtt", clientes.getTelefone());
                 }
-                request.setAttribute("emailAtt", clientes.getEmail());
-                request.setAttribute("telefoneAtt", clientes.getTelefone());
             }
+            RequestDispatcher dispatcher
+                    = request.getRequestDispatcher("/WEB-INF/alterar-cliente.jsp");
+            dispatcher.forward(request, response);
+        } else {
+            boolean validar =false;
+            request.setAttribute("ClienteAlter", validar);
+            RequestDispatcher dispatcher
+                    = request.getRequestDispatcher("/WEB-INF/consultar-cliente.jsp");
+            dispatcher.forward(request, response);
         }
 
-        RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/alterar-cliente.jsp");
-        dispatcher.forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         request.setCharacterEncoding("UTF-8");
         String nomeStr = request.getParameter("nome");
         String cpfStr = request.getParameter("cpf");
@@ -68,10 +75,10 @@ public class ClienteAlterar extends HttpServlet {
         String emailStr = request.getParameter("email");
         String telefoneStr = request.getParameter("telefone");
         LocalDate nasc = LocalDate.parse(nascimentoStr);
-        
+
         Cliente cliente = new Cliente(nomeStr, cpfStr, nasc, sexoStr, emailStr, telefoneStr);
         boolean clienteSalvo = new Controller.ClienteController().alterar(cliente);
-                
+
         request.setAttribute("clienteAlteradoAtt", clienteSalvo);
 
         RequestDispatcher dispatcher

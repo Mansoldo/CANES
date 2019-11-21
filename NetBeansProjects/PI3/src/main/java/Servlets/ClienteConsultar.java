@@ -37,7 +37,7 @@ public class ClienteConsultar extends HttpServlet {
 
         request.setCharacterEncoding("UTF-8");
         String campoPesquisa = request.getParameter("pesquisa__cliente");
-
+        
         ArrayList<Cliente> cliente = new Controller.ClienteController().getClientesFilter(campoPesquisa);
         
         request.setAttribute("clienteAtt", cliente);

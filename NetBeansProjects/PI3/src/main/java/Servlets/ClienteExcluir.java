@@ -22,15 +22,21 @@ public class ClienteExcluir extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String selecao = request.getParameter("cpf2");
+        if (!selecao.equals("?")) {
+            boolean cliente = new Controller.ClienteController().excluirCliente(selecao);
 
-        boolean cliente = new Controller.ClienteController().excluirCliente(selecao);
-        
-         request.setAttribute("clienteExcluidoAtt", cliente);
-         
-        RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/consultar-cliente.jsp");
-        dispatcher.forward(request, response);
-       
+            request.setAttribute("clienteExcluidoAtt", cliente);
+
+            RequestDispatcher dispatcher
+                    = request.getRequestDispatcher("/WEB-INF/consultar-cliente.jsp");
+            dispatcher.forward(request, response);
+        } else {
+            boolean validar = false;
+            request.setAttribute("clienteExcluir", validar);
+            RequestDispatcher dispatcher
+                    = request.getRequestDispatcher("/WEB-INF/consultar-cliente.jsp");
+            dispatcher.forward(request, response);
+        }
     }
 
 }
