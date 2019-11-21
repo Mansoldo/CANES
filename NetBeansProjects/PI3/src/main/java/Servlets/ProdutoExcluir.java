@@ -17,26 +17,33 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "ProdutoExcluir", urlPatterns = {"/ProdutoExcluir"})
 public class ProdutoExcluir extends HttpServlet {
 
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String selecao = request.getParameter("idProd2");
-        int id = Integer.parseInt(selecao);
+        if (!selecao.equals("?")) {
+            int id = Integer.parseInt(selecao);
 
-        boolean produto = new Controller.ProdutoController().excluirProduto(id);
-        
-         request.setAttribute("produtoExcluidoAtt", produto);
-         
-        RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/consultar-produto.jsp");
-        dispatcher.forward(request, response);
+            boolean produto = new Controller.ProdutoController().excluirProduto(id);
+
+            request.setAttribute("produtoExcluidoAtt", produto);
+
+            RequestDispatcher dispatcher
+                    = request.getRequestDispatcher("/WEB-INF/consultar-produto.jsp");
+            dispatcher.forward(request, response);
+
+        } else {
+            boolean validar = false;
+            request.setAttribute("produtoExcluir", validar);
+            RequestDispatcher dispatcher
+                    = request.getRequestDispatcher("/WEB-INF/consultar-produto.jsp");
+            dispatcher.forward(request, response);
+        }
     }
-
 }

@@ -18,6 +18,16 @@
 
     <body>
         <script>
+            if (${produtoAlterar} === false) {
+                alert('Não foi selecionado um produto para alterar');
+            }
+        </script>
+        <script>
+            if (${produtoExcluir} === false) {
+                alert('Não foi selecionado um produto para excluir');
+            }
+        </script>
+        <script>
             if (${ProdutoSalvoAtt} === true) {
                 alert('Produto Salvo Com sucesso!');
             } else {

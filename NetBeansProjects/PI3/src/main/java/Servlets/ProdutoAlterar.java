@@ -20,54 +20,62 @@ public class ProdutoAlterar extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String selecao = request.getParameter("idProd");
-        int id = Integer.parseInt(selecao);
-        
-        String selecao2 = request.getParameter("categoria");
-        if (selecao2.equals("Livro")) {
-            ArrayList<ProdutoLivro> lista = new Controller.ProdutoController().getProdutoLivro(id);
-            for (ProdutoLivro produtos : lista) {
-                request.setAttribute("idAtt", produtos.getID());
-                request.setAttribute("nomeAtt", produtos.getNomeProduto());
-                request.setAttribute("valorAtt", produtos.getValorUnitario());
-                request.setAttribute("categoriaAtt", produtos.getCategoria());
-                request.setAttribute("idiomaAtt", produtos.getIdioma());
-                request.setAttribute("quantidadeAtt", produtos.getQuantidade());
-                request.setAttribute("filialAtt", produtos.getFilial());
-                request.setAttribute("ISBNAtt", produtos.getISBN());
-                request.setAttribute("editoraAtt", produtos.getEditora());
-                request.setAttribute("autorAtt", produtos.getAutor());
-                request.setAttribute("paginasAtt", produtos.getPaginas());
-                request.setAttribute("idAtt", selecao);
+        if (!selecao.equals("?")) {
+            int id = Integer.parseInt(selecao);
+
+            String selecao2 = request.getParameter("categoria");
+            if (selecao2.equals("Livro")) {
+                ArrayList<ProdutoLivro> lista = new Controller.ProdutoController().getProdutoLivro(id);
+                for (ProdutoLivro produtos : lista) {
+                    request.setAttribute("idAtt", produtos.getID());
+                    request.setAttribute("nomeAtt", produtos.getNomeProduto());
+                    request.setAttribute("valorAtt", produtos.getValorUnitario());
+                    request.setAttribute("categoriaAtt", produtos.getCategoria());
+                    request.setAttribute("idiomaAtt", produtos.getIdioma());
+                    request.setAttribute("quantidadeAtt", produtos.getQuantidade());
+                    request.setAttribute("filialAtt", produtos.getFilial());
+                    request.setAttribute("ISBNAtt", produtos.getISBN());
+                    request.setAttribute("editoraAtt", produtos.getEditora());
+                    request.setAttribute("autorAtt", produtos.getAutor());
+                    request.setAttribute("paginasAtt", produtos.getPaginas());
+                    request.setAttribute("idAtt", selecao);
+                }
+            } else if (selecao2.equals("Cd_Dvd")) {
+                ArrayList<ProdutoCdDvd> lista = new Controller.ProdutoController().getProdutoCdDvd(id);
+                for (ProdutoCdDvd produtos : lista) {
+                    request.setAttribute("idAtt", produtos.getID());
+                    request.setAttribute("nomeAtt", produtos.getNomeProduto());
+                    request.setAttribute("valorAtt", produtos.getValorUnitario());
+                    request.setAttribute("categoriaAtt", produtos.getCategoria());
+                    request.setAttribute("idiomaAtt", produtos.getIdioma());
+                    request.setAttribute("quantidadeAtt", produtos.getQuantidade());
+                    request.setAttribute("filialAtt", produtos.getFilial());
+                    request.setAttribute("tempoAtt", produtos.getTempo());
+                    request.setAttribute("idAtt", selecao);
+                }
+            } else {
+                ArrayList<Produto> lista = new Controller.ProdutoController().getProdutoGenerico(id);
+                for (Produto produtos : lista) {
+                    request.setAttribute("idAtt", produtos.getID());
+                    request.setAttribute("nomeAtt", produtos.getNomeProduto());
+                    request.setAttribute("valorAtt", produtos.getValorUnitario());
+                    request.setAttribute("categoriaAtt", produtos.getCategoria());
+                    request.setAttribute("idiomaAtt", produtos.getIdioma());
+                    request.setAttribute("quantidadeAtt", produtos.getQuantidade());
+                    request.setAttribute("filialAtt", produtos.getFilial());
+                    request.setAttribute("idAtt", selecao);
+                }
             }
-        } else if (selecao2.equals("Cd_Dvd")) {
-            ArrayList<ProdutoCdDvd> lista = new Controller.ProdutoController().getProdutoCdDvd(id);
-            for (ProdutoCdDvd produtos : lista) {
-                request.setAttribute("idAtt", produtos.getID());
-                request.setAttribute("nomeAtt", produtos.getNomeProduto());
-                request.setAttribute("valorAtt", produtos.getValorUnitario());
-                request.setAttribute("categoriaAtt", produtos.getCategoria());
-                request.setAttribute("idiomaAtt", produtos.getIdioma());
-                request.setAttribute("quantidadeAtt", produtos.getQuantidade());
-                request.setAttribute("filialAtt", produtos.getFilial());
-                request.setAttribute("tempoAtt", produtos.getTempo());
-                request.setAttribute("idAtt", selecao);
-            }
+            RequestDispatcher dispatcher
+                    = request.getRequestDispatcher("/WEB-INF/alterar-produto.jsp");
+            dispatcher.forward(request, response);
         } else {
-            ArrayList<Produto> lista = new Controller.ProdutoController().getProdutoGenerico(id);
-            for (Produto produtos : lista) {
-                request.setAttribute("idAtt", produtos.getID());
-                request.setAttribute("nomeAtt", produtos.getNomeProduto());
-                request.setAttribute("valorAtt", produtos.getValorUnitario());
-                request.setAttribute("categoriaAtt", produtos.getCategoria());
-                request.setAttribute("idiomaAtt", produtos.getIdioma());
-                request.setAttribute("quantidadeAtt", produtos.getQuantidade());
-                request.setAttribute("filialAtt", produtos.getFilial());
-                request.setAttribute("idAtt", selecao);
-            }
+            boolean validar = false;
+            request.setAttribute("produtoAlterar", validar);
+            RequestDispatcher dispatcher
+                    = request.getRequestDispatcher("/WEB-INF/consultar-produto.jsp");
+            dispatcher.forward(request, response);
         }
-        RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/alterar-produto.jsp");
-        dispatcher.forward(request, response);
     }
 
     @Override
@@ -76,7 +84,7 @@ public class ProdutoAlterar extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         String selecao = request.getParameter("idProd");
         int id = Integer.parseInt(selecao);
-        
+
         String nomeStr = request.getParameter("produto__nome");
         String categoriaStr = request.getParameter("produto__categoria");
         String idiomaStr = request.getParameter("produto__idioma");
@@ -104,10 +112,10 @@ public class ProdutoAlterar extends HttpServlet {
 
         boolean produtoSalvo = false;
         if (categoriaStr.equals("Livro")) {
-            
+
             int paginas = Integer.parseInt(paginasStr);
             produtoSalvo = new Controller.ProdutoController().AlterarProdutoLivro(id, editorStr, ISBN, paginas, AutorStr, nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);
-            
+
         } else if (categoriaStr.equalsIgnoreCase("Cd_Dvd")) {
             produtoSalvo = new Controller.ProdutoController().AlterarProdutoCdDvd(id, nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial, tempoStr);
         } else {
