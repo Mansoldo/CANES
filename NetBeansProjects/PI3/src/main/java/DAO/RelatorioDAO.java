@@ -14,7 +14,7 @@ public class RelatorioDAO {
     private static Connection obterConexao() throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/livraria?useTimezone=true&serverTimezone=UTC", "root", "adminadmin");
+        Connection conexao = DriverManager.getConnection("jdbc:mysql://canesdb.c6rp7koaks1z.us-east-1.rds.amazonaws.com:3306?useLegacyDatetimeCode=false&serverTimezone=America/Fortaleza&useTimezone=true", "admin", "Canes123");
         return conexao;
     }
 
@@ -152,7 +152,7 @@ public class RelatorioDAO {
                     + "    LIVRARIA.PEDIDOVENDA a\n"
                     + "        INNER JOIN\n"
                     + "    LIVRARIA.FILIAL b ON a.FK_ID_FILIAL = b.ID_FILIAL\n"
-                    + "    WHERE b.ID_FILIAL =\n"
+                    + "    WHERE b.ID_FILIAL = ?\n"
                     + "GROUP BY 1\n"
                     + "ORDER BY 2 DESC;");
 
