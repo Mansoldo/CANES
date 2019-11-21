@@ -56,6 +56,24 @@ public class RelatorioTop extends HttpServlet {
                     = request.getRequestDispatcher("/WEB-INF/relatorio-top-vendidos.jsp");
             dispatcher.forward(request, response);
 
+        } else if (funcionario.getFilial() == 1 && funcionario.getCargo().equals("Gerente") && (filial == 2 || filial == 3 || filial == 4)) {
+
+            naoAutorizado = true;
+            request.setAttribute("naoAutorizado", naoAutorizado);
+            
+            RequestDispatcher dispatcher
+                    = request.getRequestDispatcher("/WEB-INF/relatorio-top-vendidos.jsp");
+            dispatcher.forward(request, response);
+
+        } else if (funcionario.getFilial() == 1 && filial == 1 && funcionario.getCargo().equals("Gerente")) {
+
+            ArrayList<Relatorio> relatorio = new Controller.RelatorioController().getRelatorioTop10(filial);
+            request.setAttribute("relatorioTop", relatorio);
+
+            RequestDispatcher dispatcher
+                    = request.getRequestDispatcher("/WEB-INF/relatorio-top-vendidos.jsp");
+            dispatcher.forward(request, response);
+
         } else if (funcionario.getFilial() == 2 && funcionario.getCargo().equals("Gerente") && (filial == 1 || filial == 3 || filial == 4)) {
 
             naoAutorizado = true;
