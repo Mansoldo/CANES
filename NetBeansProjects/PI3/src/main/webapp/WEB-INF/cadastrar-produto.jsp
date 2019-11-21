@@ -143,7 +143,7 @@
                     </div>
                     <div class="coluna">
                         <label for="produto__valorunitario">Valor Unitário<span class="obrigatorio">*</span></label>
-                        <input type="text" class="campo" name="produto__valorunitario" id="produto__valorunitario" placeholder="R$ 29,99" maxlength="11" />
+                        <input type="text" class="campo" name="produto__valorunitario" id="produto__valorunitario" placeholder="R$ 29.99" maxlength="11" />
                     </div>
                 </div>
                 <div class="linha">
@@ -158,7 +158,7 @@
                     var $Isbn = $("#produto_isbn");
                     $Isbn.mask('000-0-00-000000-0');
                     var $Valor = $("#produto__valorunitario");
-                    $Valor.mask('###.###.##0,00', {reverse: true});
+                    $Valor.mask('########0.00', {reverse: true});
                     var $Valor = $("#produto__tempo");
                     $Valor.mask('0000', {reverse: true});
                     var $Valor = $("#produto__paginas");
