@@ -47,7 +47,7 @@ public class RelatorioPercentual extends HttpServlet {
             filial = 4;
         }
 
-        if (funcionario.getCargo().equals("Diretor")) {
+        if (funcionario.getCargo().equals("Diretor") || funcionario.getCargo().equals("Analista")) {
 
             ArrayList<Relatorio> relatorio = new Controller.RelatorioController().getRelatorioPercentual(filial);
             request.setAttribute("relatorioPercentual", relatorio);
