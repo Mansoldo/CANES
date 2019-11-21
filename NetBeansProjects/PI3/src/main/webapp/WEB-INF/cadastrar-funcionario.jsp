@@ -26,6 +26,28 @@
                 alert('Falha ao salvar funcionário!');
             }
         </script>
+        <script>
+            function validafunc() {
+                var submit = true;
+
+                if (document.getElementById('funcionario__nome__completo').value === '') {
+                    nameError = "Nome não pode estar vazio";
+                    document.getElementById("name_error").innerHTML = nameError;
+                    document.getElementById("name_error").style.color = "red";
+                    document.getElementById("funcionario__nome__completo").style.borderColor = "red";
+                    submit = false;
+                }
+                if (document.getElementById('funcionario__cpf').value === '') {
+                    cpfError = "Cpf não pode estar vazio";
+                    document.getElementById("cpf_error").innerHTML = cpfError;
+                    document.getElementById("cpf_error").style.color = "red";
+                    document.getElementById("funcionario__cpf").style.borderColor = "red";
+                    submit = false;
+                }
+
+                return submit;
+            }
+        </script>
 
         <header class="header">
             <div class="logo">
@@ -75,15 +97,17 @@
 
             <hr>
 
-            <form id="cadastro__funcionario" name="cadastro__funcionario" class="cadastro__funcionario" method="post" action="${pageContext.request.contextPath}/formularioFuncionario" novalidate>
+            <form onsubmit="return validafunc();" id="cadastro__funcionario" name="cadastro__funcionario" class="cadastro__funcionario" method="post" action="${pageContext.request.contextPath}/formularioFuncionario" novalidate>
                 <div class="linha">
                     <div class="coluna">
-                        <label for="funcionario__nome__completo">Nome completo <span class="obrigatorio">*</span></label>
+                        <label id="funcionario__nome__completo_label" for="funcionario__nome__completo">Nome completo <span class="obrigatorio">*</span></label>
                         <input type="text" class="campo" name="funcionario__nome__completo" id="funcionario__nome__completo" maxlength="50" placeholder="Ex: Maria de Andrade" />
+                        <span class="error"><p id="name_error"></p></span>
                     </div>
                     <div class="coluna">
-                        <label for="funcionario__cpf">CPF <span class="obrigatorio">*</span></label>
+                        <label if="funcionario__cpf_label" for="funcionario__cpf">CPF <span class="obrigatorio">*</span></label>
                         <input type="text" class="campo" name="funcionario__cpf" id="funcionario__cpf" maxlength="14" placeholder="000.000.000-00"/>
+                        <span class="error"><p id="cpf_error"></p></span>
                     </div>
                 </div>
 
@@ -134,7 +158,7 @@
                             </div>
                             </div>
                             <div class="linha">
-                                <input type="submit" value="Salvar" class="btn btn-salvar" />
+                                <input type="submit" id="salvar" value="Salvar" class="btn btn-salvar" />
                                 </form>
 
                                 <form method="post" action="${pageContext.request.contextPath}/menu-principal" novalidate>
