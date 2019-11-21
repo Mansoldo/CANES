@@ -70,6 +70,10 @@ public class RelatorioFilial extends HttpServlet {
 
             naoAutorizado = true;
             request.setAttribute("naoAutorizado", naoAutorizado);
+            
+            RequestDispatcher dispatcher
+                    = request.getRequestDispatcher("/WEB-INF/relatorio-total-filial.jsp");
+            dispatcher.forward(request, response);
 
         } else if (funcionario.getFilial() == 2 && filial == 2 && funcionario.getCargo().equals("Gerente")) {
 
@@ -84,6 +88,10 @@ public class RelatorioFilial extends HttpServlet {
 
             naoAutorizado = true;
             request.setAttribute("naoAutorizado", naoAutorizado);
+            
+            RequestDispatcher dispatcher
+                    = request.getRequestDispatcher("/WEB-INF/relatorio-total-filial.jsp");
+            dispatcher.forward(request, response);
 
         } else if (funcionario.getFilial() == 3 && filial == 3 && funcionario.getCargo().equals("Gerente")) {
 
@@ -98,6 +106,10 @@ public class RelatorioFilial extends HttpServlet {
 
             naoAutorizado = true;
             request.setAttribute("naoAutorizado", naoAutorizado);
+            
+            RequestDispatcher dispatcher
+                    = request.getRequestDispatcher("/WEB-INF/relatorio-total-filial.jsp");
+            dispatcher.forward(request, response);
 
         } else if (funcionario.getFilial() == 4 && filial == 4 && funcionario.getCargo().equals("Gerente")) {
 
@@ -113,10 +125,18 @@ public class RelatorioFilial extends HttpServlet {
             naoAutorizado = true;
             request.setAttribute("naoAutorizado", naoAutorizado);
             
+            RequestDispatcher dispatcher
+                    = request.getRequestDispatcher("/WEB-INF/relatorio-total-filial.jsp");
+            dispatcher.forward(request, response);
+            
         } else {
             
             naoAutorizado = true;
             request.setAttribute("naoAutorizado", naoAutorizado);
+            
+            RequestDispatcher dispatcher
+                    = request.getRequestDispatcher("/WEB-INF/relatorio-total-filial.jsp");
+            dispatcher.forward(request, response);
         }
     }
 }
