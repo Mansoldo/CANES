@@ -38,48 +38,80 @@
                     submit = false;
                 }else {
                     document.getElementById("name_error").innerHTML = '';
+                    document.getElementById("name_error").style.color = "#ced4da";
+                    document.getElementById("funcionario__nome__completo").style.borderColor = "#ced4da";
                 }
+                
                 if (document.getElementById('funcionario__cpf').value === '') {
                     cpfError = "Cpf não pode estar vazio";
                     document.getElementById("cpf_error").innerHTML = cpfError;
                     document.getElementById("cpf_error").style.color = "red";
                     document.getElementById("funcionario__cpf").style.borderColor = "red";
                     submit = false;
+                }else {
+                    document.getElementById("cpf_error").innerHTML = '';
+                    document.getElementById("cpf_error").style.color = "#ced4da";
+                    document.getElementById("funcionario__cpf").style.borderColor = "#ced4da";
                 }
+                
                 if (document.getElementById('filial').value === 'selecione_filial') {
                     filialError = "Filial deve ser selecinada";
                     document.getElementById("filial_error").innerHTML = filialError;
                     document.getElementById("filial_error").style.color = "red";
                     document.getElementById("filial").style.borderColor = "red";
                     submit = false;
+                }else {
+                    document.getElementById("filial_error").innerHTML = '';
+                    document.getElementById("filial_error").style.color = "#ced4da";
+                    document.getElementById("filial").style.borderColor = "#ced4da";
                 }
+                
                 if (document.getElementById('departamento').value === 'selecione_departamento') {
                     filialError = "Departamento deve ser selecinado";
                     document.getElementById("dept_error").innerHTML = filialError;
                     document.getElementById("dept_error").style.color = "red";
                     document.getElementById("departamento").style.borderColor = "red";
                     submit = false;
+                }else {
+                    document.getElementById("dept_error").innerHTML = '';
+                    document.getElementById("dept_error").style.color = "#ced4da";
+                    document.getElementById("departamento").style.borderColor = "#ced4da";
                 }
+                
                 if (document.getElementById('cargo').value === 'selecione_cargo') {
                     filialError = "Cargo deve ser selecinado";
                     document.getElementById("cargo_error").innerHTML = filialError;
                     document.getElementById("cargo_error").style.color = "red";
                     document.getElementById("cargo").style.borderColor = "red";
                     submit = false;
+                }else {
+                    document.getElementById("cargo_error").innerHTML = '';
+                    document.getElementById("cargo_error").style.color = "#ced4da";
+                    document.getElementById("cargo").style.borderColor = "#ced4da";
                 }
+                
                 if ($.trim(document.getElementById('funcionario__username').value) === '') {
                     filialError = "Usuario não pode estar vazio";
                     document.getElementById("username_error").innerHTML = filialError;
                     document.getElementById("username_error").style.color = "red";
                     document.getElementById("funcionario__username").style.borderColor = "red";
                     submit = false;
+                }else {
+                    document.getElementById("username_error").innerHTML = '';
+                    document.getElementById("username_error").style.color = "#ced4da";
+                    document.getElementById("funcionario__username").style.borderColor = "#ced4da";
                 }
+                
                 if (document.getElementById('funcionario__senha').value === '') {
                     filialError = "Senha deve ter mais de 4 caracteres";
                     document.getElementById("senha_error").innerHTML = filialError;
                     document.getElementById("senha_error").style.color = "red";
                     document.getElementById("funcionario__senha").style.borderColor = "red";
                     submit = false;
+                }else {
+                    document.getElementById("senha_error").innerHTML = '';
+                    document.getElementById("senha_error").style.color = "#ced4da";
+                    document.getElementById("funcionario__senha").style.borderColor = "#ced4da";
                 }
               
 
