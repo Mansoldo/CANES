@@ -37,13 +37,22 @@
                     document.getElementById("name_error").style.color = "red";
                     document.getElementById("cliente__nome__completo").style.borderColor = "red";
                     submit = false;
+                }else {
+                    document.getElementById("name_error").innerHTML = '';
+                    document.getElementById("name_error").style.color = "#ced4da";
+                    document.getElementById("cliente__nome__completo").style.borderColor = "#ced4da";
                 }
+                
                 if (document.getElementById('cliente__cpf').value === '') {
-                    cpfError = "Cpf não pode estar vazio";
+                    cpfError = "Cpf deve ser preenchido";
                     document.getElementById("cpf_error").innerHTML = cpfError;
                     document.getElementById("cpf_error").style.color = "red";
                     document.getElementById("cliente__cpf").style.borderColor = "red";
                     submit = false;
+                }else {
+                    document.getElementById("cpf_error").innerHTML = '';
+                    document.getElementById("cpf_error").style.color = "#ced4da";
+                    document.getElementById("cliente__cpf").style.borderColor = "#ced4da";
                 }
                 if ($.trim(document.getElementById('cliente__email').value) === '') {
                     emailError = "E-mail deve ser preenchido";
@@ -51,6 +60,10 @@
                     document.getElementById("email_error").style.color = "red";
                     document.getElementById("cliente__email").style.borderColor = "red";
                     submit = false;
+                }else {
+                    document.getElementById("email_error").innerHTML = '';
+                    document.getElementById("email_error").style.color = "#ced4da";
+                    document.getElementById("cliente__email").style.borderColor = "#ced4da";
                 }
                 if ($.trim(document.getElementById('cliente__telefone').value) === '') {
                     telefoneError = "Telefone deve ser preenchido";
@@ -58,12 +71,19 @@
                     document.getElementById("telefone_error").style.color = "red";
                     document.getElementById("cliente__telefone").style.borderColor = "red";
                     submit = false;
+                }else {
+                    document.getElementById("telefone_error").innerHTML = '';
+                    document.getElementById("telefone_error").style.color = "#ced4da";
+                    document.getElementById("cliente__telefone").style.borderColor = "#ced4da";
                 }
                 if (!document.getElementById('radioFeminino').checked && !document.getElementById('radioMasculino').checked) {
                     sexoError = "Sexo deve ser selecionado";
                     document.getElementById("sexo_error").innerHTML = sexoError;
                     document.getElementById("sexo_error").style.color = "red";
                     submit = false;
+                }else {
+                    document.getElementById("sexo_error").innerHTML = '';
+                    document.getElementById("sexo_error").style.color = "#ced4da";
                 }
                 if (document.getElementById('cliente__data__nascimento').value === '') {
                     dataError = "Telefone deve ser preenchido";
@@ -71,6 +91,10 @@
                     document.getElementById("data_error").style.color = "red";
                     document.getElementById("cliente__data__nascimento").style.borderColor = "red";
                     submit = false;
+                }else {
+                    document.getElementById("data_error").innerHTML = '';
+                    document.getElementById("data_error").style.color = "#ced4da";
+                    document.getElementById("cliente__data__nascimento").style.borderColor = "#ced4da";
                 }
                 return submit;
             }
