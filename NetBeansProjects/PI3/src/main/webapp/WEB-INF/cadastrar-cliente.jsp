@@ -170,8 +170,10 @@
                         </div>
                         <div class="coluna">
                             <label for="sexo">Sexo</label><span class="obrigatorio">*</span>
-                            <input type="radio" class="campo" name="sexo" id="radioFeminino" value="feminino" />Feminino
-                            <input type="radio" class="campo" name="sexo" id="radioMasculino" value="masculino" /> Masculino
+                            <br>
+                            <input type="radio" class="radio" name="sexo" id="radioFeminino" value="Feminino" />&nbsp;Feminino
+                            <br>
+                            <input type="radio" class="radio" name="sexo" id="radioMasculino" value="Masculino" /> Masculino
                             <span class="error"><p id="sexo_error"></p></span>
                         </div>
                     </div>

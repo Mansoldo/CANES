@@ -163,8 +163,10 @@
                         </div>
                         <div class="coluna">
                             <label for="sexo">Sexo</label><span class="obrigatorio">*</span>
-                            <input type="radio" value="Feminino" class="campo" name="sexo" id="radioFeminino" />Feminino
-                            <input type="radio" value="Masculino" class="campo" name="sexo" id="radioMasculino" /> Masculino
+                            <br>
+                            <input type="radio" value="Feminino" class="radio" name="sexo" id="radioFeminino" />&nbsp;Feminino
+                            <br>
+                            <input type="radio" value="Masculino" class="radio" name="sexo" id="radioMasculino" /> Masculino
                             <script>
                                 function setSexo(valor) {
                                     try {
