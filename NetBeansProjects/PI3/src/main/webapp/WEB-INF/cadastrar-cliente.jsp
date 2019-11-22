@@ -27,7 +27,55 @@
                 alert('Falha ao salvar Cliente!');
             }
         </script>
-        <form method="post" action="${pageContext.request.contextPath}/cliente" novalidate>
+        <script>
+            function validafunc() {
+                var submit = true;
+
+                if ($.trim(document.getElementById('cliente__nome__completo').value) === '') {
+                    nameError = "Nome não pode estar vazio";
+                    document.getElementById("name_error").innerHTML = nameError;
+                    document.getElementById("name_error").style.color = "red";
+                    document.getElementById("cliente__nome__completo").style.borderColor = "red";
+                    submit = false;
+                }
+                if (document.getElementById('cliente__cpf').value === '') {
+                    cpfError = "Cpf não pode estar vazio";
+                    document.getElementById("cpf_error").innerHTML = cpfError;
+                    document.getElementById("cpf_error").style.color = "red";
+                    document.getElementById("cliente__cpf").style.borderColor = "red";
+                    submit = false;
+                }
+                if ($.trim(document.getElementById('cliente__email').value) === '') {
+                    emailError = "E-mail deve ser preenchido";
+                    document.getElementById("email_error").innerHTML = emailError;
+                    document.getElementById("email_error").style.color = "red";
+                    document.getElementById("cliente__email").style.borderColor = "red";
+                    submit = false;
+                }
+                if ($.trim(document.getElementById('cliente__telefone').value) === '') {
+                    telefoneError = "Telefone deve ser preenchido";
+                    document.getElementById("telefone_error").innerHTML = telefoneError;
+                    document.getElementById("telefone_error").style.color = "red";
+                    document.getElementById("cliente__telefone").style.borderColor = "red";
+                    submit = false;
+                }
+                if (!document.getElementById('radioFeminino').checked && !document.getElementById('radioMasculino').checked) {
+                    sexoError = "Sexo deve ser selecionado";
+                    document.getElementById("sexo_error").innerHTML = sexoError;
+                    document.getElementById("sexo_error").style.color = "red";
+                    submit = false;
+                }
+                if (document.getElementById('cliente__data__nascimento').value === '') {
+                    dataError = "Telefone deve ser preenchido";
+                    document.getElementById("data_error").innerHTML = dataError;
+                    document.getElementById("data_error").style.color = "red";
+                    document.getElementById("cliente__data__nascimento").style.borderColor = "red";
+                    submit = false;
+                }
+                return submit;
+            }
+        </script>
+        <form onsubmit="return validafunc();" method="post" action="${pageContext.request.contextPath}/cliente" novalidate>
             <header class="header">
                 <div class="logo">
                     <h1>Livraria</h1>
@@ -76,11 +124,12 @@
 
                 <hr>
 
-                <form id="cadastro__cliente" name="cadastro__cliente" class="cadastro__cliente" method="post" action="${pageContext.request.contextPath}/cliente" novalidate>
+                <form onsubmit="return validafunc();" id="cadastro__cliente" name="cadastro__cliente" class="cadastro__cliente" method="post" action="${pageContext.request.contextPath}/cliente" novalidate>
                     <div class="linha">
                         <div class="coluna">
                             <label for="cliente__nome__completo">Nome completo <span class="obrigatorio">*</span></label>
                             <input type="text" required class="campo" name = "nome" id="cliente__nome__completo" placeholder="Ex: João da silva barros" />
+                            <span class="error"><p id="name_error"></p></span>
                         </div>
                     </div>
 
@@ -88,15 +137,18 @@
                         <div class="coluna">
                             <label for="cliente__cpf">CPF <span class="obrigatorio">*</span></label>
                             <input type="text" required class="campo" name = "cpf" id="cliente__cpf" placeholder="000.000.000-00" />
+                            <span class="error"><p id="cpf_error"></p></span>
                         </div>
                         <div class="coluna">
                             <label for="cliente__data__nascimento">Data de Nascimento <span class="obrigatorio">* </span></label>
                             <input type="date" required class="campo" name  = "nascimento" id="cliente__data__nascimento">
+                            <span class="error"><p id="data_error"></p></span>
                         </div>
                         <div class="coluna">
                             <label for="sexo">Sexo</label><span class="obrigatorio">*</span>
                             <input type="radio" class="campo" name="sexo" id="radioFeminino" value="feminino" />Feminino
                             <input type="radio" class="campo" name="sexo" id="radioMasculino" value="masculino" /> Masculino
+                            <span class="error"><p id="sexo_error"></p></span>
                         </div>
                     </div>
 
@@ -104,10 +156,12 @@
                         <div class="coluna">
                             <label for="cliente__email">E-mail <span class="obrigatorio">*</span></label>
                             <input type="email" required class="campo" name = "email" id="cliente__email" placeholder="seuemail@dominio.com">
+                            <span class="error"><p id="email_error"></p></span>
                         </div>
                         <div class="coluna">
                             <label for="cliente__telefone">Telefone <span class="obrigatorio">*</span>
                                 <input type="text" required class="campo" name ="telefone" id="cliente__telefone" placeholder="(00) 00000-0000">
+                                <span class="error"><p id="telefone_error"></p></span>
                                 </div>
                                 </div>
                                 <div class="linha">
