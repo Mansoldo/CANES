@@ -112,8 +112,7 @@
                     document.getElementById("senha_error").innerHTML = '';
                     document.getElementById("senha_error").style.color = "#ced4da";
                     document.getElementById("funcionario__senha").style.borderColor = "#ced4da";
-                }
-              
+                }  
 
                 return submit;
             }
@@ -144,15 +143,12 @@
             <form method="get" action="${pageContext.request.contextPath}/Vender" novalidate>
                 <input type="submit" value="Vender" class="dropmenu">
             </form>
-
             <form method="get" action="${pageContext.request.contextPath}/ProdutoConsultar" novalidate>
                 <input type="submit" value="Consultar Produto" class="dropmenu">
             </form>
-
             <form method="get" action="${pageContext.request.contextPath}/ConsultaCliente" novalidate>
                 <input type="submit" value="Consultar Cliente" class="dropmenu">
             </form>
-
             <form method="get" action="${pageContext.request.contextPath}/FuncionarioConsultar" novalidate>
                 <input type="submit" value="Consultar Funcionário" class="dropmenu">
             </form>
@@ -228,30 +224,31 @@
                     </div>
                     <div class="coluna">
                         <label for="funcionario__senha">Senha<span class="obrigatorio">*</span>
-                            <input type="password" class="campo" name="funcionario__senha" id="funcionario__senha" maxlength="100">
-                            <span class="error"><p id="senha_error"></p></span>
-                            </div>
-                            </div>
-                            <div class="linha">
-                                <input type="submit" id="salvar" value="Salvar" class="btn btn-salvar" />
-                                </form>
+                        <input type="password" class="campo" name="funcionario__senha" id="funcionario__senha" maxlength="100">
+                        <span class="error"><p id="senha_error"></p></span>
+                    </div>
+                </div>
+                <div class="linha">
+                    <input type="submit" id="salvar" value="Salvar" class="btn btn-salvar" />
+                    </form>
 
-                                <form method="post" action="${pageContext.request.contextPath}/menu-principal" novalidate>
-                                    <input type="submit" value="Cancelar" class="btn btn-cancelar" />
-                                </form>
-                                <script>
-                                    $(document).ready(function () {
-                                        var $Cpf = $("#funcionario__cpf");
-                                        $Cpf.mask('000.000.000-00');
-                                    });
-                                    var $Nome = $("#funcionario__nome__completo");
-                                    $Nome.mask("#", {
-                                        maxlength: false,
-                                        translation: {
-                                            '#': {pattern: /[a-zA-Z ]/, recursive: true}
-                                        }
-                                    });
-                                </script>
-                            </div>
-                            </body>
-                            </html>
+                    <form method="post" action="${pageContext.request.contextPath}/menu-principal" novalidate>
+                        <input type="submit" value="Cancelar" class="btn btn-cancelar" />
+                    </form>
+                    
+                    <script>
+                        $(document).ready(function () {
+                            var $Cpf = $("#funcionario__cpf");
+                            $Cpf.mask('000.000.000-00');
+                        });
+                        var $Nome = $("#funcionario__nome__completo");
+                        $Nome.mask("#", {
+                            maxlength: false,
+                            translation: {
+                                '#': {pattern: /[a-zA-Z ]/, recursive: true}
+                            }
+                        });
+                    </script>
+                </div>
+    </body>
+</html>

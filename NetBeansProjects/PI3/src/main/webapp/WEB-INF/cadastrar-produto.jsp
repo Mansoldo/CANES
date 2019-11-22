@@ -7,7 +7,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-BR">
-
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,7 +26,70 @@
             } else {
                 alert('Falha ao Salvar o Produto!');
             }
+        </script> 
+        <script>
+            function validafunc() {
+                var submit = true;
+
+                if ($.trim(document.getElementById('produto__nome').value) === '') {
+                    produtoError = "Produto não pode estar vazio";
+                    document.getElementById("produto_error").innerHTML = produtoError;
+                    document.getElementById("produto_error").style.color = "red";
+                    document.getElementById("produto__nome").style.borderColor = "red";
+                    submit = false;
+                }else {
+                    document.getElementById("produto_error").innerHTML = '';
+                    document.getElementById("produto__nome").style.borderColor = "#ced4da";
+                }
+                
+                if (document.getElementById('produto__categoria').value === 'selecione categoria') {
+                    categoriaError = "Categoria não pode estar vazia";
+                    document.getElementById("categoria_error").innerHTML = categoriaError;
+                    document.getElementById("categoria_error").style.color = "red";
+                    document.getElementById("produto__categoria").style.borderColor = "red";
+                    submit = false;
+                }else {
+                    document.getElementById("categoria_error").innerHTML = '';
+                    document.getElementById("produto__categoria").style.borderColor = "#ced4da";
+                }
+                
+                if (document.getElementById('produto__filial').value === 'selecione__filial') {
+                    filialError = "Filial deve ser selecinada";
+                    document.getElementById("filial_error").innerHTML = filialError;
+                    document.getElementById("filial_error").style.color = "red";
+                    document.getElementById("produto__filial").style.borderColor = "red";
+                    submit = false;
+                }else {
+                    document.getElementById("filial_error").innerHTML = '';
+                    document.getElementById("produto__filial").style.borderColor = "#ced4da";
+                }
+                
+                if (document.getElementById('produto__estoque').value === '') {
+                    estoqueError = "Quantidade em estoque deve ser inserida";
+                    document.getElementById("estoque_error").innerHTML = estoqueError;
+                    document.getElementById("estoque_error").style.color = "red";
+                    document.getElementById("produto__estoque").style.borderColor = "red";
+                    submit = false;
+                }else {
+                    document.getElementById("estoque_error").innerHTML = '';
+                    document.getElementById("produto__estoque").style.borderColor = "#ced4da";
+                }
+                
+                if (document.getElementById('produto__valorunitario').value === '') {
+                    valorunitarioError = "Valor unitário deve ser inserido";
+                    document.getElementById("valorunitario_error").innerHTML = valorunitarioError;
+                    document.getElementById("valorunitario_error").style.color = "red";
+                    document.getElementById("produto__valorunitario").style.borderColor = "red";
+                    submit = false;
+                }else {
+                    document.getElementById("valorunitario_error").innerHTML = '';
+                    document.getElementById("produto__valorunitario").style.borderColor = "#ced4da";
+                }
+
+                return submit;
+            }
         </script>
+        
         <header class="header">
             <div class="logo">
                 <h1>Livraria</h1>
@@ -76,11 +138,12 @@
 
             <hr>
 
-            <form id="cadastro__produto" name="cadastro__produto" class="form" method="post" action="${pageContext.request.contextPath}/formularioProduto" novalidate>
+            <form onsubmit="return validafunc();" id="cadastro__produto" name="cadastro__produto" class="form" method="post" action="${pageContext.request.contextPath}/formularioProduto" novalidate>
                 <div class="linha">
                     <div class="coluna">
                         <label for="produto__nome">Produto <span class="obrigatorio">*</span></label>
                         <input type="text" class="campo" name="produto__nome" id="produto__nome" placeholder="Ex: Capitães da Areia" />
+                        <span class="error"><p id="produto_error"></p></span>
                     </div>
                     <div class="coluna">
                         <label for="produto__categoria">Categoria</label><span class="obrigatorio">* </span>
@@ -90,6 +153,7 @@
                             <option value="Hq__Manga">HQ / Mangá</option>
                             <option value="Cd_Dvd">CD / DVD</option>
                         </select>
+                        <span class="error"><p id="categoria_error"></p></span>
                     </div>
                     <div class="coluna">
                         <label for="produto__idioma">Idioma</label>
@@ -136,14 +200,17 @@
                             <option value="Campina Grande">(PB) Campina Grande</option>
                             <option value="Joinville">(SC) Joinville</option>
                         </select>
+                        <span class="error"><p id="filial_error"></p></span>
                     </div>
                     <div class="coluna">
                         <label for="produto__estoque">Quantidade em Estoque<span class="obrigatorio">*</span></label>
                         <input type="text" class="campo" name="produto__estoque" id="produto__estoque" placeholder="00" maxlength="6" />
+                        <span class="error"><p id="estoque_error"></p></span>
                     </div>
                     <div class="coluna">
                         <label for="produto__valorunitario">Valor Unitário<span class="obrigatorio">*</span></label>
                         <input type="text" class="campo" name="produto__valorunitario" id="produto__valorunitario" placeholder="R$ 29.99" maxlength="11" />
+                        <span class="error"><p id="valorunitario_error"></p></span>
                     </div>
                 </div>
                 <div class="linha">
@@ -168,7 +235,5 @@
                 });
             </script>
         </div>
-
     </body>
-
 </html>
