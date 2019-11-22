@@ -218,7 +218,7 @@
                     var $Isbn = $("#produto_isbn");
                     $Isbn.mask('000-0-00-000000-0');
                     var $Valor = $("#produto__valorunitario");
-                    $Valor.mask('########0.00', {reverse: true});
+                    $Valor.mask('########00.00', {reverse: true});
                     var $Valor = $("#produto__tempo");
                     $Valor.mask('0000', {reverse: true});
                     var $Valor = $("#produto__paginas");

@@ -4,6 +4,7 @@ import Classes.Funcionario;
 import Classes.Produto;
 import Classes.ProdutoCdDvd;
 import Classes.ProdutoLivro;
+import Classes.ProdutoManga;
 import java.util.ArrayList;
 
 /*
@@ -32,6 +33,11 @@ public class ProdutoController {
         ProdutoCdDvd produto = new ProdutoCdDvd(tempo, nome, valorUnitario, Idioma, categoria, quantidade, filial);
         return new DAO.ProdutoDAO().daoSalvarCdDvd(produto);
     }
+    
+        public boolean cadastrarProdutoManga(String editora, int paginas, String autor, String nomeProduto, float valorUnitario, String idioma, String categoria, int quantidade, int filial) {
+        ProdutoManga produto = new ProdutoManga(editora, paginas, autor, nomeProduto, valorUnitario, idioma, categoria, quantidade, filial);
+        return new DAO.ProdutoDAO().daoSalvarProdutoManga(produto);
+    }
      
     public ArrayList<Produto> getProdutoGenerico(int id) {
         ArrayList<Produto> produto = new DAO.ProdutoDAO().getProdutos(id);
@@ -40,6 +46,11 @@ public class ProdutoController {
 
     public ArrayList<ProdutoLivro> getProdutoLivro(int id) {
         ArrayList<ProdutoLivro> produto = new DAO.ProdutoDAO().getProdutosLivros(id);
+        return produto;
+    }
+    
+    public ArrayList<ProdutoManga> getProdutoManga(int id) {
+        ArrayList<ProdutoManga> produto = new DAO.ProdutoDAO().getProdutosManga(id);
         return produto;
     }
 
@@ -67,6 +78,11 @@ public class ProdutoController {
     public boolean AlterarProduto(int ID, String nomeProduto, float valorUnitario, String idioma, String categoria, int quantidade, int filial) {
         Produto produto = new Produto(ID, nomeProduto, valorUnitario, idioma, categoria, quantidade, filial);
         return new DAO.ProdutoDAO().daoAlterarProduto(produto);
+    }
+    
+    public boolean AlterarProdutoManga(int ID, String editora, int paginas, String autor, String nomeProduto, float valorUnitario, String idioma, String categoria, int quantidade, int filial) {
+        ProdutoManga produto = new ProdutoManga(ID, editora, paginas, autor, nomeProduto, valorUnitario, idioma, categoria, quantidade, filial);
+        return new DAO.ProdutoDAO().daoAlterarProdutoManga(produto);
     }
      
     public boolean excluirProduto(int ID) {

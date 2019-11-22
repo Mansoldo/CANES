@@ -70,6 +70,10 @@ public class formularioProduto extends HttpServlet {
             
         } else if (categoriaStr.equalsIgnoreCase("Cd_Dvd")) {
             produtoSalvo = new Controller.ProdutoController().cadastrarProdutoCdDvd(tempoStr, nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);
+        } else if (categoriaStr.equalsIgnoreCase("HQ / Mangá")) {
+            int paginas = Integer.parseInt(paginasStr);
+            produtoSalvo = new Controller.ProdutoController().cadastrarProdutoManga(editorStr, paginas, AutorStr, nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);
+            
         } else {
             produtoSalvo = new Controller.ProdutoController().cadastrarProduto(nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);
         }

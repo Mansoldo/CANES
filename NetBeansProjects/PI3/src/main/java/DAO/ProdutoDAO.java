@@ -5,6 +5,7 @@ import Classes.ItemPedido;
 import Classes.Produto;
 import Classes.ProdutoCdDvd;
 import Classes.ProdutoLivro;
+import Classes.ProdutoManga;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -65,6 +66,35 @@ public class ProdutoDAO {
             comandoSQL.setString(8, produto.getAutor());
             comandoSQL.setString(9, produto.getISBN());
             comandoSQL.setInt(10, produto.getPaginas());
+
+            int linhaAfetada = comandoSQL.executeUpdate();
+
+            retorno = linhaAfetada > 0;
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            ex.printStackTrace();
+            retorno = false;
+        }
+        return retorno;
+    }
+    
+        public boolean daoSalvarProdutoManga(ProdutoManga produto) {
+        boolean retorno = false;
+
+        try (Connection conexao = obterConexao()) {
+
+            PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO LIVRARIA.PRODUTO(NOME_PRODUTO,VALOR_UNIT,IDIOMA,CATEGORIA,QTD,FK_ID_FILIAL,EDITORA,AUTOR,PAGINAS)\n"
+                    + "VALUES (?,?,?,?,?,?,?,?,?)");
+
+            comandoSQL.setString(1, produto.getNomeProduto());
+            comandoSQL.setFloat(2, produto.getValorUnitario());
+            comandoSQL.setString(3, produto.getIdioma());
+            comandoSQL.setString(4, produto.getCategoria());
+            comandoSQL.setInt(5, produto.getQuantidade());
+            comandoSQL.setInt(6, produto.getFilial());
+            comandoSQL.setString(7, produto.getEditora());
+            comandoSQL.setString(8, produto.getAutor());
+            comandoSQL.setInt(9, produto.getPaginas());
 
             int linhaAfetada = comandoSQL.executeUpdate();
 
@@ -173,6 +203,42 @@ public class ProdutoDAO {
         }
         return lista;
     }
+    
+        public ArrayList<ProdutoManga> getProdutosManga(int id) {
+
+        ArrayList<ProdutoManga> lista = new ArrayList<>();
+
+        try (Connection conexao = obterConexao()) {
+
+            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM LIVRARIA.PRODUTO where ID_PRODUTO =?");
+
+            comandoSQL.setInt(1, id);
+
+            ResultSet rs = comandoSQL.executeQuery();
+
+            if (rs != null) {
+                while (rs.next()) {
+                    ProdutoManga produto = new ProdutoManga();
+                    produto.setID(rs.getInt("ID_PRODUTO"));
+                    produto.setNomeProduto(rs.getString("NOME_PRODUTO"));
+                    produto.setValorUnitario(rs.getFloat("VALOR_UNIT"));
+                    produto.setIdioma(rs.getString("IDIOMA"));
+                    produto.setCategoria(rs.getString("CATEGORIA"));
+                    produto.setQuantidade(rs.getInt("QTD"));
+                    produto.setAutor(rs.getString("AUTOR"));
+                    produto.setPaginas(rs.getInt("PAGINAS"));
+                    produto.setEditora(rs.getString("EDITORA"));
+                    produto.setFilial(rs.getInt("FK_ID_FILIAL"));
+                    lista.add(produto);
+                }
+            }
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            lista = null;
+            ex.printStackTrace();
+        }
+        return lista;
+    }
 
     public ArrayList<ProdutoCdDvd> getProdutosCdDvd(int id) {
 
@@ -258,6 +324,37 @@ public class ProdutoDAO {
             comandoSQL.setInt(9, produto.getPaginas());
             comandoSQL.setString(10, produto.getEditora());
             comandoSQL.setInt(11, produto.getID());
+
+            int linhaAfetada = comandoSQL.executeUpdate();
+
+            retorno = linhaAfetada > 0;
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            ex.printStackTrace();
+            retorno = false;
+        }
+        return retorno;
+    }
+    
+        public boolean daoAlterarProdutoManga(ProdutoManga produto) {
+        boolean retorno = false;
+
+        try (Connection conexao = obterConexao()) {
+
+            PreparedStatement comandoSQL = conexao.prepareStatement("UPDATE LIVRARIA.PRODUTO\n"
+                    + "SET NOME_PRODUTO = ? ,VALOR_UNIT = ? ,IDIOMA = ? ,CATEGORIA = ? ,QTD = ? ,FK_ID_FILIAL = ?, AUTOR = ?, PAGINAS = ?, EDITORA =?\n"
+                    + "WHERE ID_PRODUTO = ?;");
+
+            comandoSQL.setString(1, produto.getNomeProduto());
+            comandoSQL.setFloat(2, produto.getValorUnitario());
+            comandoSQL.setString(3, produto.getIdioma());
+            comandoSQL.setString(4, produto.getCategoria());
+            comandoSQL.setInt(5, produto.getQuantidade());
+            comandoSQL.setInt(6, produto.getFilial());
+            comandoSQL.setString(7, produto.getAutor());
+            comandoSQL.setInt(8, produto.getPaginas());
+            comandoSQL.setString(9, produto.getEditora());
+            comandoSQL.setInt(10, produto.getID());
 
             int linhaAfetada = comandoSQL.executeUpdate();
 

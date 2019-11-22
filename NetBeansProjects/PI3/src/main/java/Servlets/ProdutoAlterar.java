@@ -3,6 +3,7 @@ package Servlets;
 import Classes.Produto;
 import Classes.ProdutoCdDvd;
 import Classes.ProdutoLivro;
+import Classes.ProdutoManga;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -20,20 +21,32 @@ public class ProdutoAlterar extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String selecao = request.getParameter("idProd");
+        String filialAtt;
         if (!selecao.equals("?")) {
             int id = Integer.parseInt(selecao);
 
             String selecao2 = request.getParameter("categoria");
+
             if (selecao2.equals("Livro")) {
                 ArrayList<ProdutoLivro> lista = new Controller.ProdutoController().getProdutoLivro(id);
                 for (ProdutoLivro produtos : lista) {
                     request.setAttribute("idAtt", produtos.getID());
                     request.setAttribute("nomeAtt", produtos.getNomeProduto());
-                    request.setAttribute("valorAtt", produtos.getValorUnitario());
+                    request.setAttribute("valorAtt", (produtos.getValorUnitario()) * 10);
                     request.setAttribute("categoriaAtt", produtos.getCategoria());
                     request.setAttribute("idiomaAtt", produtos.getIdioma());
-                    request.setAttribute("quantidadeAtt", produtos.getQuantidade());
-                    request.setAttribute("filialAtt", produtos.getFilial());
+                    request.setAttribute("quantidadeAtt", produtos.getQuantidade());       
+                    int filial = produtos.getFilial();
+                    if (filial == 1) {
+                        filialAtt = "Matriz";
+                    } else if (filial == 2) {
+                        filialAtt = "Brasilia";
+                    } else if (filial == 3) {
+                        filialAtt = "Campina Grande";
+                    } else {
+                        filialAtt = "Joinville";
+                    }
+                    request.setAttribute("filialAtt", filialAtt);
                     request.setAttribute("ISBNAtt", produtos.getISBN());
                     request.setAttribute("editoraAtt", produtos.getEditora());
                     request.setAttribute("autorAtt", produtos.getAutor());
@@ -45,12 +58,47 @@ public class ProdutoAlterar extends HttpServlet {
                 for (ProdutoCdDvd produtos : lista) {
                     request.setAttribute("idAtt", produtos.getID());
                     request.setAttribute("nomeAtt", produtos.getNomeProduto());
-                    request.setAttribute("valorAtt", produtos.getValorUnitario());
+                    request.setAttribute("valorAtt", (produtos.getValorUnitario()) * 10);
                     request.setAttribute("categoriaAtt", produtos.getCategoria());
                     request.setAttribute("idiomaAtt", produtos.getIdioma());
                     request.setAttribute("quantidadeAtt", produtos.getQuantidade());
-                    request.setAttribute("filialAtt", produtos.getFilial());
+                    int filial = produtos.getFilial();
+                    if (filial == 1) {
+                        filialAtt = "Matriz";
+                    } else if (filial == 2) {
+                        filialAtt = "Brasilia";
+                    } else if (filial == 3) {
+                        filialAtt = "Campina Grande";
+                    } else {
+                        filialAtt = "Joinville";
+                    }
+                    request.setAttribute("filialAtt", filialAtt);
                     request.setAttribute("tempoAtt", produtos.getTempo());
+                    request.setAttribute("idAtt", selecao);
+                }
+            } else if (selecao2.equals("HQ / Mangá")) {
+                ArrayList<ProdutoManga> lista = new Controller.ProdutoController().getProdutoManga(id);
+                for (ProdutoManga produtos : lista) {
+                    request.setAttribute("idAtt", produtos.getID());
+                    request.setAttribute("nomeAtt", produtos.getNomeProduto());
+                    request.setAttribute("valorAtt", (produtos.getValorUnitario()) * 10);
+                    request.setAttribute("categoriaAtt", produtos.getCategoria());
+                    request.setAttribute("idiomaAtt", produtos.getIdioma());
+                    request.setAttribute("quantidadeAtt", produtos.getQuantidade());
+                    int filial = produtos.getFilial();
+                    if (filial == 1) {
+                        filialAtt = "Matriz";
+                    } else if (filial == 2) {
+                        filialAtt = "Brasilia";
+                    } else if (filial == 3) {
+                        filialAtt = "Campina Grande";
+                    } else {
+                        filialAtt = "Joinville";
+                    }
+                    request.setAttribute("filialAtt", filialAtt);
+                    request.setAttribute("editoraAtt", produtos.getEditora());
+                    request.setAttribute("autorAtt", produtos.getAutor());
+                    request.setAttribute("paginasAtt", produtos.getPaginas());
                     request.setAttribute("idAtt", selecao);
                 }
             } else {
@@ -58,11 +106,21 @@ public class ProdutoAlterar extends HttpServlet {
                 for (Produto produtos : lista) {
                     request.setAttribute("idAtt", produtos.getID());
                     request.setAttribute("nomeAtt", produtos.getNomeProduto());
-                    request.setAttribute("valorAtt", produtos.getValorUnitario());
+                    request.setAttribute("valorAtt", (produtos.getValorUnitario()) * 10);
                     request.setAttribute("categoriaAtt", produtos.getCategoria());
                     request.setAttribute("idiomaAtt", produtos.getIdioma());
                     request.setAttribute("quantidadeAtt", produtos.getQuantidade());
-                    request.setAttribute("filialAtt", produtos.getFilial());
+                    int filial = produtos.getFilial();
+                    if (filial == 1) {
+                        filialAtt = "Matriz";
+                    } else if (filial == 2) {
+                        filialAtt = "Brasilia";
+                    } else if (filial == 3) {
+                        filialAtt = "Campina Grande";
+                    } else {
+                        filialAtt = "Joinville";
+                    }
+                    request.setAttribute("filialAtt", filialAtt);
                     request.setAttribute("idAtt", selecao);
                 }
             }
@@ -118,6 +176,11 @@ public class ProdutoAlterar extends HttpServlet {
 
         } else if (categoriaStr.equalsIgnoreCase("Cd_Dvd")) {
             produtoSalvo = new Controller.ProdutoController().AlterarProdutoCdDvd(id, nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial, tempoStr);
+        } else if (categoriaStr.equals("HQ / Mangá")) {
+
+            int paginas = Integer.parseInt(paginasStr);
+            produtoSalvo = new Controller.ProdutoController().AlterarProdutoManga(id, editorStr, paginas, AutorStr, nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);
+
         } else {
             produtoSalvo = new Controller.ProdutoController().AlterarProduto(id, nomeStr, valorUnitario, idiomaStr, categoriaStr, quantidade, filial);
         }
