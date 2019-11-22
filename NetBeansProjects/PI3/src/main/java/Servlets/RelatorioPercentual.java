@@ -136,7 +136,7 @@ public class RelatorioPercentual extends HttpServlet {
             request.setAttribute("definicaoRelatorio", naoDefinido);
             
             RequestDispatcher dispatcher
-                    = request.getRequestDispatcher("/WEB-INF/relatorio-top-vendidos.jsp");
+                    = request.getRequestDispatcher("/WEB-INF/relatorio-percentual-filial.jsp");
             dispatcher.forward(request, response);
 
         }
