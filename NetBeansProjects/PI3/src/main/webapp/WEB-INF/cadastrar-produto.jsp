@@ -142,7 +142,7 @@
                 <div class="linha">
                     <div class="coluna">
                         <label for="produto__nome">Produto <span class="obrigatorio">*</span></label>
-                        <input type="text" class="campo" name="produto__nome" id="produto__nome" placeholder="Ex: Capitães da Areia" />
+                        <input type="text" class="campo" name="produto__nome" id="produto__nome" placeholder="Ex: Capitães da Areia" maxlength="100"/>
                         <span class="error"><p id="produto_error"></p></span>
                     </div>
                     <div class="coluna">
@@ -150,8 +150,8 @@
                         <select class="campo" name="produto__categoria" id="produto__categoria">
                             <option selected value="selecione categoria">Selecione a categoria</option>
                             <option value="Livro">Livro</option>
-                            <option value="Hq__Manga">HQ / Mangá</option>
-                            <option value="Cd_Dvd">CD / DVD</option>
+                            <option value="HQ / Mangá">HQ / Mangá</option>
+                            <option value="CD / DVD">CD / DVD</option>
                         </select>
                         <span class="error"><p id="categoria_error"></p></span>
                     </div>
@@ -159,22 +159,22 @@
                         <label for="produto__idioma">Idioma</label>
                         <select class="campo" name="produto__idioma" id="produto__idioma">
                             <option selected value="selecione__idioma">Selecione o idioma</option>
-                            <option value="Portugues">Português</option>
-                            <option value="Ingles">Inglês</option>
+                            <option value="Português">Português</option>
+                            <option value="Inglês">Inglês</option>
                             <option value="Espanhol">Espanhol</option>
-                            <option value="Japones">Japonês</option>
+                            <option value="Japonês">Japonês</option>
                         </select>
                     </div>
                     <div class="coluna">
                         <label for="editora__produtora">Editora / Produtora</label>
-                        <input type="text" class="campo" name="editora__produtora" id="editora_produtora" placeholder="Ex: Editora Folha" />
+                        <input type="text" class="campo" name="editora__produtora" id="editora_produtora" placeholder="Ex: Editora Folha" maxlength="100" />
                     </div>
                 </div>
 
                 <div class="linha">
                     <div class="coluna">
                         <label for="produto__autor">Autor</label>
-                        <input type="text" class="campo" name="produto__autor" id="produto__autor" placeholder="Ex: J.K. Rolling" />
+                        <input type="text" class="campo" name="produto__autor" id="produto__autor" placeholder="Ex: J.K. Rolling" maxlength="100"/>
                     </div>
                     <div class="coluna">
                         <label for="produto_isbn">ISBN</label>

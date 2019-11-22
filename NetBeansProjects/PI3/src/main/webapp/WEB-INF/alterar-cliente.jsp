@@ -145,7 +145,7 @@
                     <div class="linha">
                         <div class="coluna">
                             <label for="cliente__nome__completo">Nome completo <span class="obrigatorio">*</span></label>
-                            <input type="text" value="${nomeAtt}" class="campo" name = "nome" id="cliente__nome__completo"/>
+                            <input type="text" value="${nomeAtt}" class="campo" name = "nome" id="cliente__nome__completo" maxlength="50" placeholder="Ex: João da silva barros/>
                             <span class="error"><p id="name_error"></p></span>
                         </div>
                     </div>
@@ -153,7 +153,7 @@
                     <div class="linha">
                         <div class="coluna">
                             <label for="cliente__cpf">CPF <span class="obrigatorio">*</span></label>
-                            <input type="text" value="${cpfAtt}" class="campo" name = "cpf" id="cliente__cpf" />
+                            <input type="text" value="${cpfAtt}" class="campo" name = "cpf" id="cliente__cpf" maxlength="14" placeholder="000.000.000-00"/>
                             <span class="error"><p id="cpf_error"></p></span>
                         </div>
                         <div class="coluna">
@@ -192,12 +192,12 @@
                     <div class="linha">
                         <div class="coluna">
                             <label for="cliente__email">E-mail <span class="obrigatorio">*</span></label>
-                            <input type="email" value="${emailAtt}" class="campo" name = "email" id="cliente__email">
+                            <input type="email" value="${emailAtt}" class="campo" name = "email" id="cliente__email" maxlength="50" placeholder="seuemail@dominio.com">
                             <span class="error"><p id="email_error"></p></span>
                         </div>
                         <div class="coluna">
                             <label for="cliente__telefone">Telefone <span class="obrigatorio">*</span>
-                                <input type="text" value="${telefoneAtt}" class="campo" name ="telefone" id="cliente__telefone">
+                                <input type="text" value="${telefoneAtt}" class="campo" name ="telefone" id="cliente__telefone" maxlength="14" placeholder="(00) 00000-0000">
                                 <span class="error"><p id="telefone_error"></p></span>
                         </div>
                     </div>

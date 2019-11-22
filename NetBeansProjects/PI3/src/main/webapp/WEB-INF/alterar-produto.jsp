@@ -134,7 +134,7 @@
                 <div class="linha">
                     <div class="coluna">
                         <label for="produto__nome">Produto <span class="obrigatorio">*</span></label>
-                        <input type="text" value="${nomeAtt}" class="campo" name="produto__nome" id="produto__nome" />
+                        <input type="text" value="${nomeAtt}" class="campo" name="produto__nome" id="produto__nome" placeholder="Ex: Capitães da Areia" maxlength="100"/>
                         <span class="error"><p id="produto_error"></p></span>
                     </div>
                     <div class="coluna">
@@ -142,8 +142,8 @@
                         <select class="campo" name="produto__categoria" id="produto__categoria">
                             <option selected value="${categoriaAtt}">${categoriaAtt}</option>
                             <option value="Livro">Livro</option>
-                            <option value="Hq__Manga">HQ / Mangá</option>
-                            <option value="Cd_Dvd">CD / DVD</option>
+                            <option value="HQ / Mangá">HQ / Mangá</option>
+                            <option value="CD / DVD">CD / DVD</option>
                         </select>
                         <span class="error"><p id="categoria_error"></p></span>
                     </div>
@@ -151,34 +151,34 @@
                         <label for="produto__idioma">Idioma</label>
                         <select class="campo" name="produto__idioma" id="produto__idioma">
                             <option selected value="${idiomaAtt}">${idiomaAtt}</option>
-                            <option value="Portugues">Português</option>
-                            <option value="Ingles">Inglês</option>
+                            <option value="Português">Português</option>
+                            <option value="Inglês">Inglês</option>
                             <option value="Espanhol">Espanhol</option>
-                            <option value="Japones">Japonês</option>
+                            <option value="Japonês">Japonês</option>
                         </select>
                     </div>
                     <div class="coluna">
                         <label for="editora__produtora">Editora / Produtora</label>
-                        <input type="text" value="${editoraAtt}" class="campo" name="editora__produtora" id="editora_produtora" />
+                        <input type="text" value="${editoraAtt}" class="campo" name="editora__produtora" id="editora_produtora" placeholder="Ex: Editora Folha"/>
                     </div>
                 </div>
 
                 <div class="linha">
                     <div class="coluna">
                         <label for="produto__autor">Autor</label>
-                        <input type="text" value="${autorAtt}" class="campo" name="produto__autor" id="produto__autor" />
+                        <input type="text" value="${autorAtt}" class="campo" name="produto__autor" id="produto__autor" placeholder="Ex: J.K. Rolling" maxlength="100"/>
                     </div>
                     <div class="coluna">
                         <label for="produto_isbn">ISBN</label>
-                        <input type="text" value="${ISBNAtt}" class="campo" name="produto_isbn" id="produto_isbn" />
+                        <input type="text" value="${ISBNAtt}" class="campo" name="produto_isbn" id="produto_isbn" placeholder="000-0-00-000000-0" maxlength="18"/>
                     </div>
                     <div class="coluna">
                         <label for="produto__paginas">Quantidade de páginas</label>
-                        <input type="text" value="${paginasAtt}" class="campo" name="produto__paginas" id="produto__paginas" />
+                        <input type="text" value="${paginasAtt}" class="campo" name="produto__paginas" id="produto__paginas" placeholder="00" maxlength="5"/>
                     </div>
                     <div class="coluna">
                         <label for="produto__tempo">Tempo de duração</label>
-                        <input type="text" value="${tempoAtt}" class="campo" name="produto__tempo" id="produto__tempo" />
+                        <input type="text" value="${tempoAtt}" class="campo" name="produto__tempo" id="produto__tempo" placeholder="Minutos" maxlength="4"/>
                     </div>
                     <input type="hidden" value="${idAtt}" name="idProd" id="id_prod" />
                 </div>
@@ -197,12 +197,12 @@
                     </div>
                     <div class="coluna">
                         <label for="produto__estoque">Quantidade em Estoque<span class="obrigatorio">*</span></label>
-                        <input type="text" value="${quantidadeAtt}" class="campo" name="produto__estoque" id="produto__estoque" />
+                        <input type="text" value="${quantidadeAtt}" class="campo" name="produto__estoque" id="produto__estoque" placeholder="00" maxlength="6"/>
                         <span class="error"><p id="estoque_error"></p></span>
                     </div>
                     <div class="coluna">
                         <label for="produto__valorunitario">Valor Unitário<span class="obrigatorio">*</span></label>
-                        <input type="text" value="${valorAtt}" class="campo" name="produto__valorunitario" id="produto__valorunitario" />
+                        <input type="text" value="${valorAtt}" class="campo" name="produto__valorunitario" id="produto__valorunitario" placeholder="R$ 29.99" maxlength="11"/>
                         <span class="error"><p id="valorunitario_error"></p></span>
                     </div>
                 </div>

@@ -163,12 +163,12 @@
                 <div class="linha">
                     <div class="coluna">
                         <label for="funcionario__nome__completo">Nome completo <span class="obrigatorio">*</span></label>
-                        <input type="text" value="${nomeAtt}"class="campo" name="funcionario__nome__completo" id="funcionario__nome__completo" />
+                        <input type="text" value="${nomeAtt}"class="campo" name="funcionario__nome__completo" id="funcionario__nome__completo" maxlength="50" placeholder="Ex: Maria de Andrade" />
                         <span class="error"><p id="name_error"></p></span>
                     </div>
                     <div class="coluna">
                         <label for="funcionario__cpf">CPF <span class="obrigatorio">*</span></label>
-                        <input type="text" value="${cpfAtt}" class="campo" name="funcionario__cpf" id="funcionario__cpf" />
+                        <input type="text" value="${cpfAtt}" class="campo" name="funcionario__cpf" id="funcionario__cpf" maxlength="14" placeholder="000.000.000-00"/>
                         <span class="error"><p id="cpf_error"></p></span>
                     </div>
                 </div>
@@ -213,12 +213,12 @@
                 <div class="linha">
                     <div class="coluna">
                         <label for="funcionario__username">Username<span class="obrigatorio">*</span></label>
-                        <input type="text" value="${loginAtt}" class="campo" name="funcionario__username" id="funcionario__username">
+                        <input type="text" value="${loginAtt}" class="campo" name="funcionario__username" id="funcionario__username" maxlength="20">
                         <span class="error"><p id="username_error"></p></span>
                     </div>
                     <div class="coluna">
                         <label for="funcionario__senha">Senha<span class="obrigatorio">*</span>
-                            <input type="password" value="${senhaAtt}"class="campo" name="funcionario__senha" id="funcionario__senha">
+                            <input type="password" value="${senhaAtt}"class="campo" name="funcionario__senha" id="funcionario__senha" maxlength="100">
                             <span class="error"><p id="senha_error"></p></span>
                     </div>
                     <input type="hidden" value="${idAtt}" name="idFunc" id="id_Func" />
