@@ -20,14 +20,17 @@
 
     <body>
         <script>
+            if (${semProdutoCarrinho } === true) {
+                alert('Não há nenhum item no carrinho!');
+            }             
+        </script>
+        <script>
             if (${quantidadeNegativa } === true) {
                 alert('Não pode ter quantidade inferior a 1');
-            } 
-            
-        </script>
-        
+            }             
+        </script>        
         <script>
-            if (${semProduto } === true) {
+            if (${semProduto} === true) {
                 alert('Selecione um produto');
             } 
         </script>

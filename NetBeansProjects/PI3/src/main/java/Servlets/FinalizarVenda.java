@@ -41,36 +41,56 @@ public class FinalizarVenda extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
         Funcionario funcionario = (Funcionario) session.getAttribute("usuarioLogado");
-        
+
         String idCliente = request.getParameter("idCli");
         ArrayList<ItemPedido> item = Controller.ItemPedidoController.getItens();
 
-        float calcTot = 0;
+        if (!item.isEmpty()) {
 
-        for (ItemPedido itens : item) {
-            calcTot += itens.Valor_total();
-        }
+            float calcTot = 0;
 
-        Calendar c = Calendar.getInstance();
-        Date hoje = c.getTime();
-        java.sql.Date dataSql = new java.sql.Date(hoje.getTime());
-        
-        if (!idCliente.equals("?")) {
-            int idClie = Integer.parseInt(idCliente);
-            Vendas venda = new Vendas(dataSql, calcTot, idClie,funcionario.getFilial());
-            boolean resulta = Controller.VendasController.finalizarVendaCliente(venda);
-            request.setAttribute("resultaAtt", resulta);
+            for (ItemPedido itens : item) {
+                calcTot += itens.Valor_total();
+            }
+
+            Calendar c = Calendar.getInstance();
+            Date hoje = c.getTime();
+            java.sql.Date dataSql = new java.sql.Date(hoje.getTime());
+
+            if (!idCliente.equals("?")) {
+                int idClie = Integer.parseInt(idCliente);
+                Vendas venda = new Vendas(dataSql, calcTot, idClie, funcionario.getFilial());
+                boolean resulta = Controller.VendasController.finalizarVendaCliente(venda);
+                request.setAttribute("resultaAtt", resulta);
+
+                RequestDispatcher dispatcher
+                        = request.getRequestDispatcher("/WEB-INF/venda.jsp");
+                dispatcher.forward(request, response);
+
+            } else {
+
+                Vendas venda = new Vendas(dataSql, calcTot, funcionario.getFilial());
+                boolean resulta = Controller.VendasController.finalizarVenda(venda);
+                request.setAttribute("resultaAtt", resulta);
+
+                RequestDispatcher dispatcher
+                        = request.getRequestDispatcher("/WEB-INF/venda.jsp");
+                dispatcher.forward(request, response);
+            }
+
         } else {
-            Vendas venda = new Vendas(dataSql, calcTot,funcionario.getFilial());
-            boolean resulta = Controller.VendasController.finalizarVenda(venda);
-            request.setAttribute("resultaAtt", resulta);
+
+            boolean semProdutoCarrinho = true;
+            request.setAttribute("semProdutoCarrinho", semProdutoCarrinho);
+
+            RequestDispatcher dispatcher
+                    = request.getRequestDispatcher("/WEB-INF/venda.jsp");
+            dispatcher.forward(request, response);
+
         }
 
         Controller.ItemPedidoController.limparLista();
 
-        RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/venda.jsp");
-        dispatcher.forward(request, response);
     }
 
 }
