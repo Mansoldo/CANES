@@ -78,7 +78,7 @@
                     document.getElementById("sexo_error").style.color = "#ced4da";
                 }
                 if (document.getElementById('cliente__data__nascimento').value === '') {
-                    dataError = "Data de nascimento deve ser preenchida";
+                    dataError = "Data de Nascimento deve ser preenchida";
                     document.getElementById("data_error").innerHTML = dataError;
                     document.getElementById("data_error").style.color = "red";
                     document.getElementById("cliente__data__nascimento").style.borderColor = "red";

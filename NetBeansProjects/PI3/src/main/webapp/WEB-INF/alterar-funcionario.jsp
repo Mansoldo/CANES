@@ -48,7 +48,7 @@
                 }
 
                 if (document.getElementById('filial').value === 'selecione_filial') {
-                    filialError = "Filial deve ser selecinada";
+                    filialError = "Filial deve ser selecionada";
                     document.getElementById("filial_error").innerHTML = filialError;
                     document.getElementById("filial_error").style.color = "red";
                     document.getElementById("filial").style.borderColor = "red";
@@ -60,7 +60,7 @@
                 }
 
                 if (document.getElementById('departamento').value === 'selecione_departamento') {
-                    filialError = "Departamento deve ser selecinado";
+                    filialError = "Departamento deve ser selecionado";
                     document.getElementById("dept_error").innerHTML = filialError;
                     document.getElementById("dept_error").style.color = "red";
                     document.getElementById("departamento").style.borderColor = "red";
@@ -72,7 +72,7 @@
                 }
 
                 if (document.getElementById('cargo').value === 'selecione_cargo') {
-                    filialError = "Cargo deve ser selecinado";
+                    filialError = "Cargo deve ser selecionado";
                     document.getElementById("cargo_error").innerHTML = filialError;
                     document.getElementById("cargo_error").style.color = "red";
                     document.getElementById("cargo").style.borderColor = "red";
@@ -84,7 +84,7 @@
                 }
 
                 if ($.trim(document.getElementById('funcionario__username').value) === '') {
-                    filialError = "Usuario não pode estar vazio";
+                    filialError = "Usuário não pode estar vazio";
                     document.getElementById("username_error").innerHTML = filialError;
                     document.getElementById("username_error").style.color = "red";
                     document.getElementById("funcionario__username").style.borderColor = "red";
@@ -96,7 +96,7 @@
                 }
 
                 if (document.getElementById('funcionario__senha').value === '') {
-                    filialError = "Senha deve ter mais de 4 caracteres";
+                    filialError = "Senha deve conter mais de 4 caracteres";
                     document.getElementById("senha_error").innerHTML = filialError;
                     document.getElementById("senha_error").style.color = "red";
                     document.getElementById("funcionario__senha").style.borderColor = "red";
