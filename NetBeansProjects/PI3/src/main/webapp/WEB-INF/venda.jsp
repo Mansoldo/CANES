@@ -23,6 +23,7 @@
             if (${quantidadeNegativa } === true) {
                 alert('Não pode ter quantidade inferior a 1');
             } 
+            
         </script>
         
         <script>

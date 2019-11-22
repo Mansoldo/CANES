@@ -32,7 +32,7 @@ public class ItemPedidoServlet extends HttpServlet {
         if (!idProduto.equals("?") && quantidade != null) {
 
             idProduto = request.getParameter("idProd");
-            quantidade = request.getParameter("quantidade__produto__selecionado");
+            quantidade = request.getParameter("quantidade__produto__selecionado");            
 
             int id = Integer.parseInt(idProduto);
             int qtd = Integer.parseInt(quantidade);
