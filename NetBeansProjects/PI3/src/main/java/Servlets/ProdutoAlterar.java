@@ -53,7 +53,7 @@ public class ProdutoAlterar extends HttpServlet {
                     request.setAttribute("paginasAtt", produtos.getPaginas());
                     request.setAttribute("idAtt", selecao);
                 }
-            } else if (selecao2.equals("Cd_Dvd")) {
+            } else if (selecao2.equals("CD / DVD")) {
                 ArrayList<ProdutoCdDvd> lista = new Controller.ProdutoController().getProdutoCdDvd(id);
                 for (ProdutoCdDvd produtos : lista) {
                     request.setAttribute("idAtt", produtos.getID());
