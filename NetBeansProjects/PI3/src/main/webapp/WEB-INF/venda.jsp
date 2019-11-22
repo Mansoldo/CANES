@@ -214,7 +214,7 @@
                 <!-- Tabela de Venda -->
                 <form method="get" action="${pageContext.request.contextPath}/ItemPedido" novalidate>
                     <input type="hidden" value="?" id="idProd" name="idProd">
-                    <input type="text" name="produto__selecionado" id="produto__selecionado" placeholder="Produto" />
+                    <input type="text" name="produto__selecionado" id="produto__selecionado" placeholder="Produto" readonly = "true"/>
                     <input type="number" name="quantidade__produto__selecionado" id="quantidade__produto__selecionado"
                            autofocus value="1" min="1" />
                     <input type="submit" value="Adicionar" class="btn" />
@@ -276,7 +276,7 @@
                         }
                     </script>
                     <label for="Valor_Total">Valor Total:</label>
-                    <input type="text" value="${valorTotal}" placeholder="Valor Total" id="Valor_Total" name="Valor_Total">
+                    <input type="text" value="${valorTotal}" placeholder="Valor Total" id="Valor_Total" name="Valor_Total" readonly = "true">
                 </form>
             </div>
 
