@@ -43,11 +43,13 @@ public class RelatorioPercentual extends HttpServlet {
             filial = 2;
         } else if (filialStr.equals("Campina Grande")) {
             filial = 3;
-        } else {
+        } else if(filialStr.equals("Joinville")){
             filial = 4;
+        } else {
+            filial = 5;
         }
 
-        if (funcionario.getCargo().equals("Diretor") || funcionario.getCargo().equals("Analista")) {
+        if ((funcionario.getCargo().equals("Diretor") || funcionario.getCargo().equals("Analista")) && filial != 5) {
 
             ArrayList<Relatorio> relatorio = new Controller.RelatorioController().getRelatorioPercentual(filial);
             request.setAttribute("relatorioPercentual", relatorio);
@@ -126,6 +128,15 @@ public class RelatorioPercentual extends HttpServlet {
 
             RequestDispatcher dispatcher
                     = request.getRequestDispatcher("/WEB-INF/relatorio-percentual-filial.jsp");
+            dispatcher.forward(request, response);
+
+        } else {
+            
+            boolean naoDefinido = true;
+            request.setAttribute("definicaoRelatorio", naoDefinido);
+            
+            RequestDispatcher dispatcher
+                    = request.getRequestDispatcher("/WEB-INF/relatorio-top-vendidos.jsp");
             dispatcher.forward(request, response);
 
         }

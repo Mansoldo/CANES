@@ -19,6 +19,11 @@
     </head>
     <body>
         <script>
+            if (${definicaoRelatorio} === true) {
+                alert('Selecione uma filial!');
+            }
+        </script>
+        <script>
             if (${naoAutorizado} === true) {
                 alert('Não tem acesso para pesquisar esta filial!');
             }
