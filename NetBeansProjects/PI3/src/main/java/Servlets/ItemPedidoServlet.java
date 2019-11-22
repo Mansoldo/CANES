@@ -28,24 +28,55 @@ public class ItemPedidoServlet extends HttpServlet {
 
         String idProduto = request.getParameter("idProd");
         String quantidade = request.getParameter("quantidade__produto__selecionado");
-        int id = Integer.parseInt(idProduto);
-        int qtd = Integer.parseInt(quantidade);
-        
-        boolean result = Controller.ItemPedidoController.salvarItem(id, qtd);
 
-        ArrayList<ItemPedido> lista = Controller.ItemPedidoController.getItens();
-        request.setAttribute("produtoList", lista);
-        
-        float calculoTotal = 0;
-        for (ItemPedido itens : lista) {
-            calculoTotal += itens.Valor_total();
+        if (!idProduto.equals("?") && quantidade != null) {
+
+            idProduto = request.getParameter("idProd");
+            quantidade = request.getParameter("quantidade__produto__selecionado");
+
+            int id = Integer.parseInt(idProduto);
+            int qtd = Integer.parseInt(quantidade);
+            
+            if (qtd > 0) {
+
+                boolean result = Controller.ItemPedidoController.salvarItem(id, qtd);
+
+                ArrayList<ItemPedido> lista = Controller.ItemPedidoController.getItens();
+                request.setAttribute("produtoList", lista);
+
+                float calculoTotal = 0;
+                for (ItemPedido itens : lista) {
+                    calculoTotal += itens.Valor_total();
+                }
+                request.setAttribute("valorTotal", calculoTotal);
+                request.setAttribute("adicionarAtt", result);
+
+                RequestDispatcher dispatcher
+                        = request.getRequestDispatcher("/WEB-INF/venda.jsp");
+                dispatcher.forward(request, response);
+
+            } else {
+                
+                boolean qtdNegativo = true;
+                request.setAttribute("quantidadeNegativa", qtdNegativo);
+
+                RequestDispatcher dispatcher
+                        = request.getRequestDispatcher("/WEB-INF/venda.jsp");
+                dispatcher.forward(request, response);
+                
+            }
+
+        } else {
+
+            boolean semItem = true;
+
+            request.setAttribute("semProduto", semItem);
+            RequestDispatcher dispatcher
+                    = request.getRequestDispatcher("/WEB-INF/venda.jsp");
+            dispatcher.forward(request, response);
+
         }
-        request.setAttribute("valorTotal", calculoTotal);
-        request.setAttribute("adicionarAtt", result);
 
-        RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/venda.jsp");
-        dispatcher.forward(request, response);
     }
 
     @Override

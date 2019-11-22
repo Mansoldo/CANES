@@ -20,6 +20,17 @@
 
     <body>
         <script>
+            if (${quantidadeNegativa } === true) {
+                alert('Não pode ter quantidade inferior a 1');
+            } 
+        </script>
+        
+        <script>
+            if (${semProduto } === true) {
+                alert('Selecione um produto');
+            } 
+        </script>
+        <script>
             if (${ resultaAtt } === true) {
                 alert('Venda realizada com sucesso!');
             } else {
