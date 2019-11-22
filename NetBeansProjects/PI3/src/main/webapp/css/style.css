@@ -180,7 +180,7 @@ hr {
     overflow: hidden;
 }
 
-/* CONTAINER DA TELA DE Alterar Senha */
+/* CONTAINER DA TELA DE ALTERAR SENHA */
 .container__alterar__senha{
     border: 1px solid #ced4da;
     width: 500px;
@@ -190,6 +190,20 @@ hr {
     align-items: center;
     box-shadow: 0px 0px 5px gray;
     overflow: hidden;
+}
+
+.container__alterar{
+    max-width: 80%;
+    margin: 0 auto 15px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.label__login{
+    max-width: 70%;
+    margin: 0 auto;
+    display: flex;
 }
 
 /* CONTAINER DA TELA DE CRÉDITOS */
@@ -348,6 +362,15 @@ hr {
     display: flex;
     flex-direction: row;
     margin-top: 40px;
+}
+
+.botoes__alterar {
+    display: flex;
+    flex-direction: row;
+    margin: 0 65px;
+    align-items: center;
+    justify-content: center;
+    max-width: 80%;
 }
 
 /* ESTILOS DE BOTÕES ESPECÍFICOS */

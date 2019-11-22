@@ -50,15 +50,16 @@
             <form method="post" action="${pageContext.request.contextPath}/AlterarSenha" novalidate>
                 <div class="coluna">
                     <input type="hidden" value="${sessionScope.usuarioLogado.id_func}" name="id_Func" id="id_Func" />
-                    <div class="container">
-                        <label for="senha__atual">Senha Atual</label>
+                    <label for="senha__atual" class="label__login">Senha Atual</label>
+                    <div class="container__alterar">
                         <input type="password" name="senha_atual" id="senha_atual" placeholder="Senha Atual" class="campo">
                     </div>
-                    <div class="container">
-                        <label for="senha__nova">Nova Senha</label>
+                    
+                    <label for="senha__nova" class="label__login">Nova Senha</label>
+                    <div class="container__alterar">    
                         <input type="password" name="senha_nova" id="senha_nova" placeholder="Nova Senha" class="campo">
                     </div>
-                    <div class="linha">
+                    <div class="botoes__alterar">
                         <input type="submit" name="alterarBt" value="Alterar" class="btn">
             </form>
                         <form method="get" action="${pageContext.request.contextPath}/menu-principal" novalidate>
@@ -66,8 +67,6 @@
                         </form>
                     </div>
                 </div>
-
         </div>
     </body>
-
 </html>
