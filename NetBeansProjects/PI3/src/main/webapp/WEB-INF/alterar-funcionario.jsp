@@ -240,7 +240,7 @@
                 $Nome.mask("#", {
                     maxlength: false,
                     translation: {
-                        '#': {pattern: /[a-zA-Z ]/, recursive: true}
+                        '#': {pattern: /[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]/, recursive: true}
                     }
                 });
             </script>
