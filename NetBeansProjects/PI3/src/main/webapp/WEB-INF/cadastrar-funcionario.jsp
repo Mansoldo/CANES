@@ -210,6 +210,7 @@
                             <option value="Backoffice">Backoffice</option>
                             <option value="Diretor">Diretor</option>
                             <option value="Gerente">Gerente</option>
+                            <option value="Gerente_Global">Gerente Global</option>
                             <option value="Vendedor">Vendedor</option>
                         </select>
                         <span class="error"><p id="cargo_error"></p></span>

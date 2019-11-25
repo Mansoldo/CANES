@@ -48,7 +48,7 @@ public class RelatorioFilial extends HttpServlet {
             filial = 5;
         }
 
-        if (funcionario.getCargo().equals("Diretor") || funcionario.getCargo().equals("Analista")) {
+        if (funcionario.getCargo().equals("Diretor") || funcionario.getCargo().equals("Analista") || funcionario.getCargo().equals("Gerente_Global")) {
 
             ArrayList<Relatorio> relatorio = new Controller.RelatorioController().getRelatorioTotalFilial(filial);
             request.setAttribute("relatorioValorTotal", relatorio);

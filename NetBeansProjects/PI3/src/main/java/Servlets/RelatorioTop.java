@@ -49,7 +49,7 @@ public class RelatorioTop extends HttpServlet {
             filial = 5;
         }
 
-        if ((funcionario.getCargo().equals("Diretor") || funcionario.getCargo().equals("Analista")) && filial != 5) {
+        if ((funcionario.getCargo().equals("Diretor") || funcionario.getCargo().equals("Analista") || funcionario.getCargo().equals("Gerente_Global")) && filial != 5) {
 
             ArrayList<Relatorio> relatorio = new Controller.RelatorioController().getRelatorioTop10(filial);
             request.setAttribute("relatorioTop", relatorio);

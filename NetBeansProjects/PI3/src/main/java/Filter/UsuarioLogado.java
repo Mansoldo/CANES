@@ -66,7 +66,7 @@ public class UsuarioLogado implements Filter {
                 && (funcionario.getCargo().equals("Backoffice") || funcionario.getCargo().equals("Analista"))) {
             return true;
         } else if ((urlAcessada.endsWith("/livraria/RelatorioTop") || (urlAcessada.endsWith("/livraria/RelatorioPercentual")) || (urlAcessada.endsWith("/livraria/RelatorioFilial")))
-                && (funcionario.getCargo().equals("Diretor") || funcionario.getCargo().equals("Gerente") || funcionario.getCargo().equals("Analista"))) {
+                && (funcionario.getCargo().equals("Diretor") || funcionario.getCargo().equals("Gerente") || funcionario.getCargo().equals("Analista") || funcionario.getCargo().equals("Gerente_Global"))) {
             return true;
         }else if ((urlAcessada.endsWith("/livraria/Vender") || urlAcessada.endsWith("/livraria/ItemPedido") || urlAcessada.endsWith("/livraria/FinalizarVenda")) && (funcionario.getCargo().equals("Vendedor") || funcionario.getCargo().equals("Analista"))) {
             return true;
