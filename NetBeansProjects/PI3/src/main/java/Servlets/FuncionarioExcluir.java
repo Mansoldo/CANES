@@ -24,6 +24,8 @@ public class FuncionarioExcluir extends HttpServlet {
         
         String selecao = request.getParameter("idFunc2");
         
+        if (!selecao.equals("?")) {
+        
         int ID = Integer.parseInt(selecao);
 
         boolean funcionario = new Controller.FuncionarioController().excluirFuncionario(ID);
@@ -33,6 +35,14 @@ public class FuncionarioExcluir extends HttpServlet {
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/WEB-INF/consultar-funcionario.jsp");
         dispatcher.forward(request, response);
+        
+        } else {
+            boolean validar = false;
+            request.setAttribute("funcionarioExcluir", validar);
+            RequestDispatcher dispatcher
+                    = request.getRequestDispatcher("/WEB-INF/consultar-funcionario.jsp");
+            dispatcher.forward(request, response);
+        }
        
     }
 

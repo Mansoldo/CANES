@@ -15,7 +15,17 @@
         <title>Consultar Funcionário</title>
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/logo.svg" type="image/x-svg" />
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-    </head>    
+    </head> 
+    <script>
+        if (${funcionarioAlterar} === false) {
+            alert('Não foi selecionado um funcionário para alterar');
+        }
+    </script>
+    <script>
+        if (${funcionarioExcluir} === false) {
+            alert('Não foi selecionado um funcionário para excluir');
+        }
+    </script>
     <script>
         if (${funcionarioAlteradoAtt} === true) {
             alert('Funcionário alterado com sucesso!');
@@ -30,6 +40,7 @@
             alert('Falha ao excluir o funcionário!');
         }
     </script>
+
 
     <body>
         <header class="header">

@@ -32,6 +32,9 @@ public class FuncionarioAlterar extends HttpServlet {
             throws ServletException, IOException {
 
         String selecao = request.getParameter("idFunc");
+        
+        if (!selecao.equals("?")) {
+            
         int ID = Integer.parseInt(selecao);
         String departamentoAtt;
         String filialAtt;
@@ -77,6 +80,16 @@ public class FuncionarioAlterar extends HttpServlet {
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/WEB-INF/alterar-funcionario.jsp");
         dispatcher.forward(request, response);
+        
+        } else {
+            boolean validar = false;
+            request.setAttribute("funcionarioAlterar", validar);
+            RequestDispatcher dispatcher
+                    = request.getRequestDispatcher("/WEB-INF/consultar-funcionario.jsp");
+            dispatcher.forward(request, response);
+        }
+        
+        
     }
 
     @Override
