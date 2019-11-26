@@ -57,6 +57,15 @@ public class ItemPedidoServlet extends HttpServlet {
 
             } else {
                 
+                ArrayList<ItemPedido> lista = Controller.ItemPedidoController.getItens();
+                request.setAttribute("produtoList", lista);
+
+                float calculoTotal = 0;
+                for (ItemPedido itens : lista) {
+                    calculoTotal += itens.Valor_total();
+                }
+                request.setAttribute("valorTotal", calculoTotal);
+                
                 boolean qtdNegativo = true;
                 request.setAttribute("quantidadeNegativa", qtdNegativo);
 
@@ -68,6 +77,15 @@ public class ItemPedidoServlet extends HttpServlet {
 
         } else {
 
+            ArrayList<ItemPedido> lista = Controller.ItemPedidoController.getItens();
+                request.setAttribute("produtoList", lista);
+
+                float calculoTotal = 0;
+                for (ItemPedido itens : lista) {
+                    calculoTotal += itens.Valor_total();
+                }
+                request.setAttribute("valorTotal", calculoTotal);
+                
             boolean semItem = true;
 
             request.setAttribute("semProduto", semItem);
