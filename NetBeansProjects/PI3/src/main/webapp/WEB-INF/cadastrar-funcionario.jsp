@@ -48,6 +48,12 @@
                     document.getElementById("cpf_error").style.color = "red";
                     document.getElementById("funcionario__cpf").style.borderColor = "red";
                     submit = false;
+                }else if (document.getElementById('funcionario__cpf').value.length <= 13) {
+                    cpfError = "Cpf deve ter 14 digitos";
+                    document.getElementById("cpf_error").innerHTML = cpfError;
+                    document.getElementById("cpf_error").style.color = "red";
+                    document.getElementById("funcionario__cpf").style.borderColor = "red";
+                    submit = false;
                 }else {
                     document.getElementById("cpf_error").innerHTML = '';
                     document.getElementById("cpf_error").style.color = "#ced4da";
