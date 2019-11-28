@@ -17,7 +17,14 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
     </head>
 
-    <body>        
+    <body>    
+
+        <script>
+            if (${usuarioAtt} === true) {
+                alert("Usuario Inválido");
+            }
+        </script>    
+
         <div class="container__login">
             <div class="logo">
                 <h1>Livraria</h1>   
@@ -29,10 +36,12 @@
                     <div class="container">
                         <label for="usuario">Usuário</label>
                         <input type="text" name="usuario" id="usuario" placeholder="Usuário" class="campo">
+                        <span class="error"><p id="user_error"></p></span>
                     </div>
                     <div class="container">
                         <label for="senha">Senha</label>
                         <input type="password" name="senha" id="senha" placeholder="Senha" class="campo">
+                        <span class="error"><p id="senha_error"></p></span>
                     </div>
                     <div class="container">
                         <div class="coluna">

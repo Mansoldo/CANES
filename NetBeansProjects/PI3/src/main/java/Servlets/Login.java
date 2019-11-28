@@ -55,9 +55,10 @@ public class Login extends HttpServlet {
             return;
 
         } else {
-            request.setAttribute("msgErro", "Usuário ou senha incorreta");
+            request.setAttribute("usuarioAtt", true);
             request.getRequestDispatcher("/WEB-INF/login.jsp")
                     .forward(request, response);
+            
         }
     }
 
