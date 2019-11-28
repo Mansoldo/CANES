@@ -47,18 +47,28 @@ public class Login extends HttpServlet {
 
         Funcionario funcionario = new Controller.FuncionarioController().getFuncionarioLogin(login);
 
-        if (funcionario != null && funcionario.validarSenha(senha)) {
+        if (funcionario != null) {
 
-            HttpSession sessao = request.getSession();
-            sessao.setAttribute("usuarioLogado", funcionario);
-            response.sendRedirect(request.getContextPath() + "/menu-principal");
-            return;
+            if (funcionario.validarSenha(senha)) {
+
+                HttpSession sessao = request.getSession();
+                sessao.setAttribute("usuarioLogado", funcionario);
+                response.sendRedirect(request.getContextPath() + "/menu-principal");
+                return;
+
+            } else {
+                
+                request.setAttribute("senhaAtt", true);
+                request.getRequestDispatcher("/WEB-INF/login.jsp")
+                        .forward(request, response);
+
+            }
 
         } else {
             request.setAttribute("usuarioAtt", true);
             request.getRequestDispatcher("/WEB-INF/login.jsp")
                     .forward(request, response);
-            
+
         }
     }
 

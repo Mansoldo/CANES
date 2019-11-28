@@ -21,7 +21,12 @@
 
         <script>
             if (${usuarioAtt} === true) {
-                alert("Usuario Inválido");
+                alert("Usuário Inválido");
+            }
+        </script>    
+        <script>
+            if (${senhaAtt} === true) {
+                alert("Senha Inválida");
             }
         </script>    
 
