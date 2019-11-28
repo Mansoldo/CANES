@@ -11,6 +11,7 @@ import Classes.Diretor;
 import Classes.Funcionario;
 import Classes.Gerente;
 import Classes.Vendedor;
+import Controller.FuncionarioController;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
@@ -131,8 +132,12 @@ public class FuncionarioAlterar extends HttpServlet {
         }
 
         boolean funcionarioSalvo = false;
+        
         Funcionario funcionario = new Funcionario(ID, usernameStr, senha, cpfStr, nomeStr, cargoStr, departamento, filial);
-        funcionario.setSenhaHash(senha);   
+        Funcionario compsenha = new Controller.FuncionarioController().getFuncionarioLogin(usernameStr);
+        if(!compsenha.getSenha().equals(senha)){
+        funcionario.setSenhaHash(senha); 
+        }
         funcionarioSalvo = new Controller.FuncionarioController().alterar(funcionario);
 
         request.setAttribute("funcionarioAlteradoAtt", funcionarioSalvo);
