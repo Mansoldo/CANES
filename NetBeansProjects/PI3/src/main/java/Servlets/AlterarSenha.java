@@ -52,13 +52,13 @@ public class AlterarSenha extends HttpServlet {
             funcionario.setId_func(Integer.parseInt(request.getParameter("id_Func")));
             funcionario.setSenhaHash(senha_new);
             resposta = new Controller.FuncionarioController().alterarSenha(funcionario);
-            request.setAttribute("senhaAlteradaAtt", funcionario);
+            request.setAttribute("senhaAlteradaAtt", resposta);
             response.sendRedirect(request.getContextPath() + "/menu-principal");
             
 
         } else {
             System.out.println("entrou no else");
-            request.setAttribute("senhaAlteradaAtt", funcionario);
+            request.setAttribute("senhaAlteradaAtt", resposta);
             request.getRequestDispatcher("/WEB-INF/alterar-senha.jsp")
                     .forward(request, response);
         }
