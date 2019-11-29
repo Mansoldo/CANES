@@ -39,7 +39,7 @@
                 <li><a href="https://github.com/Preichmann" target="_blank">Pedro Almeida</a></li>
             </ul>
 
-            <form method="post" action="${pageContext.request.contextPath}/Login" novalidate>
+            <form method="get" action="${pageContext.request.contextPath}/Login" novalidate>
                 <input type="submit" value="Voltar" class="btn">
             </form>
         </div>
